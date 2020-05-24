@@ -1,0 +1,92 @@
+  <!-- Left Panel -->
+  <aside id="left-panel" class="left-panel">
+    <nav class="navbar navbar-expand-sm navbar-default">
+        <div id="main-menu" class="main-menu collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                </li>
+                <li class="menu-title">Manajemen</li>
+                <!-- /.menu-title -->
+                <li>
+                    <a href="#"> <i class="menu-icon ti-user"></i>User</a>
+                </li>
+                <li>
+                    <a href="#"> <i class="menu-icon ti-heart"></i>Ustad</a>
+                </li>
+                <li>
+                    <a href="#"> <i class="menu-icon ti-crown"></i>Admin</a>
+                </li>
+
+                <li class="menu-title">Artikel</li>
+                <!-- /.menu-title -->
+
+                <li>
+                    <a href="#"> <i class="menu-icon ti-book"></i>Semua Artikel</a>
+                </li>
+                <li>
+                    <a href="#"> <i class="menu-icon ti-pencil-alt"></i>Tambah Artikel</a>
+                </li>
+
+                <li class="menu-title">Video</li>
+                <!-- /.menu-title -->
+
+                <li>
+                    <a href="#"> <i class="menu-icon ti-video-clapper"></i>Semua Video</a>
+                </li>
+                <li>
+                    <a href="#"> <i class="menu-icon ti-control-play"></i>Tambah Video</a>
+                </li>
+
+                <li class="menu-title">Motivasi</li>
+                <!-- /.menu-title -->
+
+                <li>
+                    <a href="#"> <i class="menu-icon ti-image"></i>Semua Motivasi</a>
+                </li>
+                <li>
+                    <a href="#"> <i class="menu-icon ti-plus"></i>Tambah Motivasi</a>
+                </li>
+
+                <li class="menu-title">Komentar</li>
+                <!-- /.menu-title -->
+
+                <li>
+                    <a href="#"> <i class="menu-icon ti-comments"></i>Lihat Komentar</a>
+                </li>
+
+                <li class="menu-title">Pertanyaan</li>
+                <!-- /.menu-title -->
+
+                <li>
+                    <a href="#"> <i class="menu-icon ti-comment-alt"></i>Lihat Pertanyaan</a>
+                </li>
+
+                <li class="menu-title">Informasi</li>
+                <!-- /.menu-title -->
+                <li>
+                    <a href="#"> <i class="menu-icon ti-gift"></i>Iklan</a>
+                </li>
+                <li>
+                    <a href="#"> <i class="menu-icon ti-shield"></i>Hadis Harian</a>
+                </li>
+                <li>
+                    <a href="#"> <i class="menu-icon ti-shine"></i>Akan Datang</a>
+                </li>
+
+                <li class="menu-title">Tentang</li>
+                <!-- /.menu-title -->
+
+                <li>
+                    <a href="#"> <i class="menu-icon ti-facebook"></i>Media Sosial</a>
+                </li>
+                <li>
+                    <a href="#"> <i class="menu-icon ti-medall"></i>Profil</a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+</aside>
+<!-- /#left-panel -->

@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('/dashboard', 'DashboardController@index');
+    
+});
+
 Route::get('/verification/{token}/{id}', 'Auth\RegisterController@verification');
 
 Auth::routes();
