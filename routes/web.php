@@ -14,15 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.home');
 });
 
 Route::group(['middleware' => 'admin'], function () {
     Route::get('/dashboard', 'DashboardController@index');
+    Route::resource('user', 'UserController');
     
 });
 
 Route::get('/verification/{token}/{id}', 'Auth\RegisterController@verification');
+
 
 Auth::routes();
 
