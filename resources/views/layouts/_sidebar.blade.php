@@ -14,8 +14,8 @@
                 <li class="{{Request::segment(1) == 'ustad' ? 'active' : ''}}">
                     <a href="/ustad"> <i class="menu-icon ti-heart"></i>Ustad</a>
                 </li>
-                <li>
-                    <a href="#"> <i class="menu-icon ti-crown"></i>Admin</a>
+                <li class="{{Request::segment(1) == 'admin' ? 'active' : ''}}">
+                    <a href="/admin"> <i class="menu-icon ti-crown"></i>Admin</a>
                 </li>
 
                 <li class="menu-title">Artikel</li>

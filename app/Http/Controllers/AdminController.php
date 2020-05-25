@@ -16,19 +16,19 @@ use Illuminate\Support\Str;
 use App\Models\User;
 
 
-class UstadController extends Controller
+class AdminController extends Controller
 {
     //READ
     public function index()
     {
-        $ustads = User::orderBy('id', 'DESC')->where('role', 2)->get();
-        return view('dashboard.ustad', compact('ustads'));
+        $admins = User::orderBy('id', 'DESC')->where('role', 1)->get();
+        return view('dashboard.admin', compact('admins'));
     }
 
     //URL CREATE
     public function create()
     {
-        return view('dashboard_create.ustad_create');
+        return view('dashboard_create.admin_create');
     }
 
     //CREATE
@@ -38,17 +38,17 @@ class UstadController extends Controller
 
         $data['password'] = Hash::make($request->password);
         $data['status']   = 1;
-        $data['role']     = 2;
+        $data['role']     = 1;
         $data['token']    = Str::random(30);
 
         // Batas Ustad
-        if (User::where('role', 2)->count() >= 10) {
-            return redirect('/ustad')->with('msg', 'Data Ustad Hanya Boleh 10');
+        if (User::where('role', 1)->count() >= 4) {
+            return redirect('/admin')->with('msg', 'Data Admin Hanya Boleh 4');
         }
 
         User::create($data);
 
-        return redirect('/ustad')->with('msg', 'Data Ustad Berhasil di Tambah');
+        return redirect('/admin')->with('msg', 'Data Ustad Berhasil di Tambah');
     }
 
     // SHOW
@@ -60,9 +60,9 @@ class UstadController extends Controller
     // EDIT
     public function edit($id)
     {
-        $ustad = User::findOrFail($id);
+        $admin = User::findOrFail($id);
 
-        return view('dashboard_edit.ustad_edit', compact('ustad'));
+        return view('dashboard_edit.admin_edit', compact('admin'));
     }
 
     // UPDATE
@@ -78,7 +78,7 @@ class UstadController extends Controller
 
         User::findOrFail($id)->update($data);
 
-        return redirect('/ustad')->with('msg', 'Data Ustad Berhasil di Edit');
+        return redirect('/admin')->with('msg', 'Data Admin Berhasil di Edit');
     }
 
     // DELETE
@@ -86,6 +86,6 @@ class UstadController extends Controller
     {
         User::destroy($id);
 
-        return redirect('/ustad')->with('msg', 'Data Ustad Berhasil di Hapus');
+        return redirect('/admin')->with('msg', 'Data Admin Berhasil di Hapus');
     }
 }

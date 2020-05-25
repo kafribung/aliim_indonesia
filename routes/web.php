@@ -21,6 +21,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/dashboard', 'DashboardController@index');
     Route::resource('/user', 'UserController');
     Route::resource('/ustad', 'UstadController');
+    Route::resource('/admin', 'AdminController');
+
 
     
 });
