@@ -9,29 +9,46 @@ use App\Http\Requests\UserRequest;
 // Import Class Hash
 use Illuminate\Support\Facades\Hash;
 
+// Import Class Str
+use Illuminate\Support\Str;
+
 // Import DB User
 use App\Models\User;
 
 
-class UserController extends Controller
+class UstadController extends Controller
 {
     //READ
     public function index()
     {
-        $users = User::orderBy('id', 'DESC')->where('role', 0)->get();
-        return view('dashboard.user', compact('users'));
+        $ustads = User::orderBy('id', 'DESC')->where('role', 2)->get();
+        return view('dashboard.ustad', compact('ustads'));
     }
 
     //URL CREATE
     public function create()
     {
-        return view('dashboard_create.user_create');
+        return view('dashboard_create.ustad_create');
     }
 
     //CREATE
     public function store(UserRequest $request)
     {
-        return abort('404'); 
+        $data = $request->all();
+
+        $data['password'] = Hash::make($request->password);
+        $data['status']   = 1;
+        $data['role']     = 2;
+        $data['token']    = Str::random(30);
+
+        // Batas Ustad
+        if (User::where('role', 2)->count() >= 10) {
+            return redirect('/ustad')->with('msg', 'Data Ustad Hanya Boleh 5');
+        }
+
+        User::create($data);
+
+        return redirect('/ustad')->with('msg', 'Data Ustad Berhasil di Tambah');
     }
 
     // SHOW
@@ -43,9 +60,9 @@ class UserController extends Controller
     // EDIT
     public function edit($id)
     {
-        $user = User::findOrFail($id);
+        $ustad = User::findOrFail($id);
 
-        return view('dashboard_edit.user_edit', compact('user'));
+        return view('dashboard_edit.ustad_edit', compact('ustad'));
     }
 
     // UPDATE
@@ -61,7 +78,7 @@ class UserController extends Controller
 
         User::findOrFail($id)->update($data);
 
-        return redirect('/user')->with('msg', 'Data User Berhasil di Edit');
+        return redirect('/ustad')->with('msg', 'Data Ustad Berhasil di Edit');
     }
 
     // DELETE
@@ -69,6 +86,6 @@ class UserController extends Controller
     {
         User::destroy($id);
 
-        return redirect('/user')->with('msg', 'Data User Berhasil di Hapus');
+        return redirect('/ustad')->with('msg', 'Data Ustad Berhasil di Hapus');
     }
 }

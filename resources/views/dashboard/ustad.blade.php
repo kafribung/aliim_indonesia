@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'User')
+@section('title', 'Ustad')
 @section('content')
 
 <!-- Content -->
@@ -16,8 +16,8 @@
                 <div class="card-body ">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="box-title text-center">User</h4>
-                            <a href="/user/create" class="btn btn-info btn-sm float-right ml-2"><i class="menu-icon fa fa-plus"></i></a>
+                            <h4 class="box-title text-center">Ustad</h4>
+                            <a href="/ustad/create" class="btn btn-primary btn-sm float-right"><i class="fa fa-plus"></i></a>
                         </div>
                         <div class="table-stats">
                             <table class="table table-hover">
@@ -35,22 +35,22 @@
                                     @php
                                         $angkaAwal =  1
                                     @endphp
-                                   
+                                    @foreach ($ustads as $ustad)
+                                        
                                     <tr>
                                         <td>{{$angkaAwal}}</td>
-                                        <td>Kafri</td>
-                                        <td>asas</td>
-                                        <td>sa</td>
-                                        <td>sas</td>
-
+                                        <td>{{$ustad->name}}</td>
+                                        <td>{{$ustad->email}}</td>
+                                        <td>{{$ustad->status == 1 ? 'active' : 'no active'}}</td>
+                                        <td>{{($ustad->role == 0) ? 'User' : (($ustad->role == 1) ? 'Admin' : 'Ustad')}}</td>
                                         <td>
-                                            <a href="/user//edit" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                            <a href="/ustad/{{$ustad->id}}/edit" class="btn btn-warning btn-sm {{$ustad->status != 1 ? 'disabled' : ''}}"><i class="fa fa-edit"></i></a>
 
-                                            <form action="/user/" method="POST" class="d-inline-flex">
+                                            <form action="/ustad/{{$ustad->id}}" method="POST" class="d-inline-flex">
                                                 @csrf
                                                 @method('DELETE')
 
-                                                <button type="submit" onclick="return confirm('Hapus Data ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                                <button type="submit" onclick="return confirm('Hapus Data {{$ustad->email}}?')" class="btn btn-danger btn-sm" {{$ustad->status != 1 ? 'disabled' : ''}}><i class="fa fa-trash"></i></button>
                                             </form>
 
                                         </td>
@@ -58,6 +58,8 @@
                                     @php
                                         $angkaAwal++
                                     @endphp
+                                    @endforeach
+
                                 </tbody>
                             </table>
                         </div> <!-- /.table-stats -->

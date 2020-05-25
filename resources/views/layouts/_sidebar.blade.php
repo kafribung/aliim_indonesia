@@ -11,8 +11,8 @@
                 <li class="{{Request::segment(1) == 'user' ? 'active' : ''}}">
                     <a href="/user"> <i class="menu-icon ti-user"></i>User</a>
                 </li>
-                <li>
-                    <a href="#"> <i class="menu-icon ti-heart"></i>Ustad</a>
+                <li class="{{Request::segment(1) == 'ustad' ? 'active' : ''}}">
+                    <a href="/ustad"> <i class="menu-icon ti-heart"></i>Ustad</a>
                 </li>
                 <li>
                     <a href="#"> <i class="menu-icon ti-crown"></i>Admin</a>
