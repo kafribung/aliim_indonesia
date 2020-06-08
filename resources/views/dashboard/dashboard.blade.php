@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Dashboard')
+@section('title', 'Dashboard | Cov.id')
 @section('content')
 
 <!-- Content -->
