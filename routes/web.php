@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages.home');
+    return redirect('/home');
 });
 
 Route::group(['middleware' => 'admin'], function () {
@@ -23,13 +23,14 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('/ustad', 'UstadController');
     Route::resource('/admin', 'AdminController');
 
-
-    
 });
 
+// Token Register
 Route::get('/verification/{token}/{id}', 'Auth\RegisterController@verification');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
