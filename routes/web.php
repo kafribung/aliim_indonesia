@@ -23,13 +23,14 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('/ustad', 'UstadController');
     Route::resource('/admin', 'AdminController');
 
+    // Kategoti Artikel & Video
+    Route::resource('/kategori/artikel', 'KategoriArtikelController');
 });
 
 // Token Register
 Route::get('/verification/{token}/{id}', 'Auth\RegisterController@verification');
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 
 
 Auth::routes();

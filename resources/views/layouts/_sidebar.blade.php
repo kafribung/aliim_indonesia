@@ -19,8 +19,11 @@
                 </li>
 
                 <li class="menu-title">Artikel</li>
-                <!-- /.menu-title -->
 
+                <!-- /.menu-title -->
+                <li>
+                    <a href="#"> <i class="menu-icon ti-infinite"></i>Kategori Artikel</a>
+                </li>
                 <li>
                     <a href="#"> <i class="menu-icon ti-book"></i>Semua Artikel</a>
                 </li>
@@ -29,8 +32,11 @@
                 </li>
 
                 <li class="menu-title">Video</li>
-                <!-- /.menu-title -->
 
+                <!-- /.menu-title -->
+                <li>
+                    <a href="#"> <i class="menu-icon ti-infinite"></i>Kategori Video</a>
+                </li>
                 <li>
                     <a href="#"> <i class="menu-icon ti-video-clapper"></i>Semua Video</a>
                 </li>
