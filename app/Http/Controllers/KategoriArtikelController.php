@@ -16,69 +16,55 @@ class KategoriArtikelController extends Controller
         return view('dashboard.kategori_artikel', compact('kategoris'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // CREATE
     public function create()
     {
-        //
+        return view('dashboard_create.kategori_artikel_create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    // STORE
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'title' => ['required', 'string', 'min:3', 'max:255', 'unique:kategori_artikels'], 
+        ]);
+
+        KategoriArtikel::create($data);
+
+        return redirect('/kategori-artikel')->with('msg', 'Data Kategori Berhasil ditambahkan');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // SHOW
     public function show($id)
     {
-        //
+        return abort('404');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // EDIT
     public function edit($id)
     {
-        //
+        $kategori = KategoriArtikel::findOrFail($id);
+
+        return view('dashboard_edit.kategori_artikel_edit', compact('kategori'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    /// UPDATE
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'title' => ['required', 'string', 'min:3', 'max:255'], 
+        ]);
+
+        KategoriArtikel::findOrFail($id)->update($data);
+
+        return redirect('/kategori-artikel')->with('msg', 'Data Kategori Berhasil diupdate');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // DELETE
     public function destroy($id)
     {
-        //
+        KategoriArtikel::destroy($id);
+
+        return redirect('/kategori-artikel')->with('msg', 'Data Kategori Berhasil dihapus');
     }
 }

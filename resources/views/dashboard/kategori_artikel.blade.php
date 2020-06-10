@@ -17,6 +17,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="box-title text-center">Kategori Artikel</h4>
+                            <a href="/kategori-artikel/create" class="btn btn-primary btn-sm float-right"><i class="fa fa-plus"></i></a>
                         </div>
                         <div class="table-stats">
                             <table class="table table-hover">
@@ -35,24 +36,22 @@
                                         
                                     <tr>
                                         <td>{{$angkaAwal}}</td>
-                                        <td>{{$kategori->name}}</td>
+                                        <td>{{$kategori->title}}</td>
                                         <td>
-                                            <a href="/kategori/{{$kategori->id}}/edit" class="btn btn-warning btn-sm {{$kategori->status != 1 ? 'disabled' : ''}}"><i class="fa fa-edit"></i></a>
+                                            <a href="/kategori-artikel/{{$kategori->id}}/edit" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
 
-                                            <form action="/kategori/{{$kategori->id}}" method="POST" class="d-inline-flex">
+                                            <form action="/kategori-artikel/{{$kategori->id}}" method="POST" class="d-inline-flex">
                                                 @csrf
                                                 @method('DELETE')
 
-                                                <button type="submit" onclick="return confirm('Hapus Data {{$kategori->email}}?')" class="btn btn-danger btn-sm" {{$kategori->status != 1 ? 'disabled' : ''}}><i class="fa fa-trash"></i></button>
+                                                <button type="submit" onclick="return confirm('Hapus Kategori {{$kategori->title}}?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
                                             </form>
-
                                         </td>
                                     </tr>
                                     @php
                                         $angkaAwal++
                                     @endphp
                                     @endforeach
-
                                 </tbody>
                             </table>
                         </div> <!-- /.table-stats -->

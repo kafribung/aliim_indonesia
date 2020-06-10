@@ -24,7 +24,10 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('/admin', 'AdminController');
 
     // Kategoti Artikel & Video
-    Route::resource('/kategori/artikel', 'KategoriArtikelController');
+    Route::resource('artikel', 'ArtikelController');
+    Route::resource('/kategori-artikel', 'KategoriArtikelController');
+
+
 });
 
 // Token Register
