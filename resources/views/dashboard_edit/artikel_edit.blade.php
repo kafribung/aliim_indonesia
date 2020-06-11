@@ -55,7 +55,7 @@
 
                                 <div class="form-group">
                                     <label for="description" class="control-label mb-1">deskripsi</label>
-                                    <input id="description" name="description" type="text" class="form-control ckeditor @error('description') is-invalid @enderror"  required autocomplete="off" value="{{old('description') ? old('description') : $artikel->description}}">
+                                    <textarea id="description" name="description" class="form-control ckeditor @error('description') is-invalid @enderror"  >{{old('description') ? old('description') : $artikel->description}}}</textarea>
 
                                     @error('description')
                                         <p class="alert alert-danger">{{$message}}</p>
@@ -82,13 +82,13 @@
 <script src="https://cdn.ckeditor.com/ckeditor5/19.1.1/classic/ckeditor.js"></script>
 <script>
     ClassicEditor
-    .create( document.querySelector( '.ckeditor' ) )
-    .then( editor => {
-        console.log( editor );
-    } )
-    .catch( error => {
-        console.error( error );
-    } );
+        .create( document.querySelector( '.ckeditor' ) )
+        .then( editor => {
+                console.log( editor );
+        } )
+        .catch( error => {
+                console.error( error );
+        } );
 </script>
 @endpush
 @endsection

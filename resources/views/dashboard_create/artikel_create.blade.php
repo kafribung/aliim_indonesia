@@ -23,7 +23,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="title" class="control-label mb-1">judul</label>
-                                    <input id="title" name="title" type="text" class="form-control @error('title') is-invalid @enderror" autofocus required autocomplete="off" value="{{old('title')}}">
+                                    <input id="title" name="title" type="text" class="form-control @error('title') is-invalid @enderror" autofocus  autocomplete="off" value="{{old('title')}}">
 
                                     @error('title')
                                         <p class="alert alert-danger">{{$message}}</p>
@@ -32,7 +32,7 @@
 
                                 <div class="form-group">
                                     <label for="img" class="control-label mb-1">gambar</label>
-                                    <input id="img" name="img" type="file" class="form-control @error('img') is-invalid @enderror"  required accept="image/*">
+                                    <input id="img" name="img" type="file" class="form-control @error('img') is-invalid @enderror"   accept="image/*">
 
                                     @if ($errors->has('img'))
                                         <p class="alert alert-danger">{{$errors->first('img')}}</p>
@@ -42,7 +42,7 @@
                                 <div class="form-group">
                                     <label for="kategori" class="control-label mb-1">kategori</label>
 
-                                    <select id="kategori" name="kategori" class="form-control @error('kategori') is-invalid @enderror" required autocomplete="off">
+                                    <select id="kategori" name="kategori" class="form-control @error('kategori') is-invalid @enderror"  autocomplete="off">
                                         @foreach ($kategoris as $kategori)
                                             <option value="{{$kategori->id}}">{{$kategori->title}}</option>
                                         @endforeach
@@ -56,7 +56,7 @@
 
                                 <div class="form-group">
                                     <label for="description" class="control-label mb-1">deskripsi</label>
-                                    <input id="description" name="description" type="text" class="form-control ckeditor @error('description') is-invalid @enderror"  required autocomplete="off" value="{{old('description')}}">
+                                    <textarea id="description" name="description" class="form-control ckeditor @error('description') is-invalid @enderror"  >{{old('description')}}</textarea>
 
                                     @error('description')
                                         <p class="alert alert-danger">{{$message}}</p>
@@ -83,13 +83,13 @@
 <script src="https://cdn.ckeditor.com/ckeditor5/19.1.1/classic/ckeditor.js"></script>
 <script>
     ClassicEditor
-    .create( document.querySelector( '.ckeditor' ) )
-    .then( editor => {
-        console.log( editor );
-    } )
-    .catch( error => {
-        console.error( error );
-    } );
+        .create( document.querySelector( '.ckeditor' ) )
+        .then( editor => {
+                console.log( editor );
+        } )
+        .catch( error => {
+                console.error( error );
+        } );
 </script>
 @endpush
 @endsection
