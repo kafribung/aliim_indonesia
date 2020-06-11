@@ -28,6 +28,7 @@
         <!-- /#right-panel -->
 
         @include('includes.script')
+        @stack('after_script')
     </body>
 
 </html>

@@ -2,83 +2,113 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// Import Class Request Artikel
+use App\Http\Requests\ArtikelRequest;
+// Import Class STR
+use Illuminate\Support\Str;
+
+// Import Model Artikel
+use App\Models\Artikel;
+// Import Model KategoriArtikel
+use App\Models\KategoriArtikel;
 
 class ArtikelController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // READ
     public function index()
     {
-        //
+        $artikels = Artikel::orderBy('id', 'desc')->get();
+        return view('dashboard.artikel', compact('artikels'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // CREAT
     public function create()
     {
-        //
+        $kategoris = KategoriArtikel::orderBy('id', 'desc')->get(); 
+
+        return view('dashboard_create.artikel_create', compact('kategoris'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    //
+    public function store(ArtikelRequest $request)
     {
-        //
+        // Store Img
+        if ($request->has('img')) {
+            $img = $request->file('img');
+            $name= time().'.'.$img->getClientOriginalExtension();
+            $img->move(public_path('img_artikels'), $name);
+
+            $data_img = $name;
+        }
+
+            $data_slug = Str::slug($request->title);
+
+        // Eloquent Store Data 
+        $artikel = $request->user()->artikels()->create([
+            'title'      => $request->title,
+            'img'        => $data_img,
+            'description'=> $request->description,
+            'slug'       => $data_slug,
+        ]);
+
+        // Store Kategori
+        $kategoris = $request->kategori;
+        $artikel->kategori_artikels()->attach($kategoris);
+
+        return redirect('/artikel')->with('msg', 'Data Artikel Berhasil ditambahkan');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // SHOW
     public function show($id)
     {
-        //
+        return abort('404');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // EDIT
     public function edit($id)
     {
-        //
+        $artikel   =  Artikel::findOrFail($id);
+        $kategoris = KategoriArtikel::orderBy('id', 'desc')->get(); 
+
+        return view('dashboard_edit.artikel_edit', compact('artikel', 'kategoris'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    // UPDATE
+    public function update(ArtikelRequest $request, $id)
     {
-        //
+        $artikel = Artikel::findOrFail($id);
+        $data = $request->all();
+
+         // Store Img
+        if ($request->has('img')) {
+            $img = $request->file('img');
+            $name= time() . '.'. $img->getClientOriginalExtension();
+            $img->move(public_path('img_artikels'), $name);
+
+            $data_img = $name;
+        }
+            $data_slug = Str::slug($request->title);
+
+        // Eloquent Update Data 
+        Artikel::findOrFail($id)->update([
+            'title'      => $request->title,
+            'img'        => $data_img,
+            'description'=> $request->description,
+            'slug'       => $data_slug,
+        ]);
+
+        // Store Kategori
+        $kategoris = $request->kategori;
+        $artikel->kategori_artikels()->sync($kategoris);
+
+        return redirect('/artikel')->with('msg', 'Data Artikel Berhasil diupdate');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // DELETE
     public function destroy($id)
     {
-        //
+        Artikel::destroy($id);
+
+        return redirect('/artikel')->with('msg', 'Data Artikel Berhasil dihapus');
     }
 }

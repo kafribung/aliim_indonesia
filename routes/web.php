@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect('/home');
-});
 
 Route::group(['middleware' => 'admin'], function () {
     Route::get('/dashboard', 'DashboardController@index');
@@ -33,7 +30,7 @@ Route::group(['middleware' => 'admin'], function () {
 // Token Register
 Route::get('/verification/{token}/{id}', 'Auth\RegisterController@verification');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 
 Auth::routes();

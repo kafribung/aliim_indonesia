@@ -25,7 +25,7 @@
 				@endif
 				
 				<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-					<input class="input100" type="email" name="email" placeholder="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+					<input class="input100" type="email" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 					<span class="focus-input100"></span>
 				</div>
 				
