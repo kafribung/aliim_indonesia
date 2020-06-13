@@ -89,7 +89,6 @@ class VideoController extends Controller
     // DELETE
     public function destroy($id)
     {
-        dd($id);
         Video::destroy($id);
 
         return redirect('/vidoe')->with('msg', 'Data Video Berhasil dihapus');
