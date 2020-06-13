@@ -40,4 +40,10 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Artikel');
     }
+
+    // RELATION ONE TO MANY (ARTIKEL)
+    public function videos()
+    {
+        return $this->hasMany('App\Models\Video');
+    }
 }

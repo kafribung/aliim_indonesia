@@ -19,7 +19,7 @@ class Admin
         if ($user) {
             if ($user->role == 1 or $user->role == 2)
                 return $next($request);
-            else abort('403', 'Anda tidak memiliki akses');
+            else abort('404');
         } abort('404');
     }
 }

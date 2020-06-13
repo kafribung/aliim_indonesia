@@ -21,7 +21,7 @@
                 <li class="menu-title">Artikel</li>
 
                 <!-- /.menu-title -->
-                <li class=" {{Request()->segment(1) == 'kategori-artikel' ? 'active' : ''}}">
+                <li class=" {{Request()->segment(1) == 'kategori-artikel' ? 'active' : ''}} ">
                     <a href="/kategori-artikel"> <i class="menu-icon ti-infinite"></i>Kategori Artikel</a>
                 </li>
                 <li class=" {{Request()->is('artikel') ? 'active' : ''}}">
@@ -34,14 +34,14 @@
                 <li class="menu-title">Video</li>
 
                 <!-- /.menu-title -->
-                <li >
-                    <a href=""> <i class="menu-icon ti-infinite"></i>Kategori Video</a>
+                <li class=" {{Request()->segment(1) == 'kategori-video' ? 'active' : ''}} ">
+                    <a href="/kategori-video"> <i class="menu-icon ti-infinite"></i>Kategori Video</a>
                 </li>
-                <li>
-                    <a href="#"> <i class="menu-icon ti-video-clapper"></i>Semua Video</a>
+                <li class=" {{Request()->segment(1) == 'video' ? 'active' : ''}} ">
+                    <a href="/video"> <i class="menu-icon ti-video-clapper"></i>Semua Video</a>
                 </li>
-                <li>
-                    <a href="#"> <i class="menu-icon ti-control-play"></i>Tambah Video</a>
+                <li class=" {{Request()->segment(1) == 'video/create' ? 'active' : ''}} ">
+                    <a href="/video/create"> <i class="menu-icon ti-control-play"></i>Tambah Video</a>
                 </li>
 
                 <li class="menu-title">Motivasi</li>

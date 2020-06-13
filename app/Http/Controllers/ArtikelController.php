@@ -17,7 +17,8 @@ class ArtikelController extends Controller
     // READ
     public function index()
     {
-        $artikels = Artikel::orderBy('id', 'desc')->get();
+        $artikels = Artikel::with('kategori_artikels')->orderBy('id', 'desc')->get();
+
         return view('dashboard.artikel', compact('artikels'));
     }
 
@@ -65,9 +66,9 @@ class ArtikelController extends Controller
     }
 
     // EDIT
-    public function edit($id)
+    public function edit($slug)
     {
-        $artikel   =  Artikel::findOrFail($id);
+        $artikel   =  Artikel::where('slug', $slug)->first();
         $kategoris = KategoriArtikel::orderBy('id', 'desc')->get(); 
 
         return view('dashboard_edit.artikel_edit', compact('artikel', 'kategoris'));

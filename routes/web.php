@@ -13,17 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::group(['middleware' => 'admin'], function () {
     Route::get('/dashboard', 'DashboardController@index');
-    Route::resource('/user', 'UserController');
-    Route::resource('/ustad', 'UstadController');
-    Route::resource('/admin', 'AdminController');
+    Route::resource('user', 'UserController');
+    Route::resource('ustad', 'UstadController');
+    Route::resource('admin', 'AdminController');
 
-    // Kategoti Artikel & Video
+    // Artikel 
     Route::resource('artikel', 'ArtikelController');
-    Route::resource('/kategori-artikel', 'KategoriArtikelController');
+    Route::resource('kategori-artikel', 'KategoriArtikelController');
 
+    // Video
+    Route::resource('video', 'VideoController');
+    Route::resource('kategori-video', 'KategoriVideoController');
 
 });
 

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Edit | Artikel')
+@section('title', 'Create | Video')
 @section('content')
 
 <!-- Content -->
@@ -7,20 +7,23 @@
     <!-- Animated -->
     <div class="animated fadeIn">
 
+        @if (session('msg'))
+            <p class="alert alert-info">{{session('msg')}}</p>
+        @endif
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="card-body ">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Edit Artikel</strong>
+                            <strong class="card-title">Add Video</strong>
                         </div>
                         <div class="card-body">
-                            <form action="/artikel/{{$artikel->id}}" method="POST" enctype="multipart/form-data">
+                            <form action="/video" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                @method('PUT')
                                 <div class="form-group">
                                     <label for="title" class="control-label mb-1">judul</label>
-                                    <input id="title" name="title" type="text" class="form-control @error('title') is-invalid @enderror" autofocus required autocomplete="off" value="{{old('title')?old('title') : $artikel->title}}">
+                                    <input id="title" name="title" type="text" class="form-control @error('title') is-invalid @enderror" autofocus  autocomplete="off" value="{{old('title')}}">
 
                                     @error('title')
                                         <p class="alert alert-danger">{{$message}}</p>
@@ -28,34 +31,32 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="img" class="control-label mb-1">gambar</label>
-                                    <img src="{{url($artikel->img)}}" alt="Gambar {{$artikel->slug}}" title="{{$artikel->slug}}" width="200" height="200">
-                                    <input id="img" name="img" type="file" class="form-control @error('img') is-invalid @enderror" accept="image/*">
+                                    <label for="video" class="control-label mb-1">video</label>
+                                    <input id="video" name="video" type="url" class="form-control @error('video') is-invalid @enderror" autocomplete="off" value="{{old('video')}}">
 
-                                    @if ($errors->has('img'))
-                                        <p class="alert alert-danger">{{$errors->first('img')}}</p>
+                                    @if ($errors->has('video'))
+                                        <p class="alert alert-danger">{{$errors->first('video')}}</p>
                                     @endif
                                 </div>
 
                                 <div class="form-group">
                                     <label for="kategori" class="control-label mb-1">kategori</label>
 
-                                    @foreach ($artikel->kategori_artikels as $old)
-                                        <select id="kategori" name="kategori" class="form-control @error('kategori') is-invalid @enderror" required autocomplete="off">
-                                            @foreach ($kategoris as $kategori)
-                                                <option {{$old->id == $kategori->id ? 'selected' : ''}} value="{{$kategori->id}}">{{$kategori->title}}</option>
-                                            @endforeach
-                                        </select>
-                                    @endforeach
+                                    <select id="kategori" name="kategori" class="form-control @error('kategori') is-invalid @enderror"  autocomplete="off">
+                                        @foreach ($kategoris as $kategori)
+                                            <option value="{{$kategori->id}}">{{$kategori->title}}</option>
+                                        @endforeach
+                                    </select>
 
                                     @error('kategori')
                                         <p class="alert alert-danger">{{$message}}</p>
                                     @enderror
                                 </div>
 
+
                                 <div class="form-group">
                                     <label for="description" class="control-label mb-1">deskripsi</label>
-                                    <textarea id="description" name="description" class="form-control ckeditor @error('description') is-invalid @enderror"  >{{old('description') ? old('description') : $artikel->description}}</textarea>
+                                    <textarea id="description" name="description" class="form-control ckeditor @error('description') is-invalid @enderror"  >{{old('description')}}</textarea>
 
                                     @error('description')
                                         <p class="alert alert-danger">{{$message}}</p>
@@ -63,7 +64,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-md btn-warning btn-block">Update Artikel</button>
+                                    <button type="submit" class="btn btn-md btn-info btn-block">Tambah video</button>
                                 </div>
                             </form>
                         </div>
@@ -92,3 +93,4 @@
 </script>
 @endpush
 @endsection
+
