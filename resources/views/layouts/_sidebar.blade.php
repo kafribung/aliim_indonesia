@@ -37,21 +37,21 @@
                 <li class=" {{Request()->segment(1) == 'kategori-video' ? 'active' : ''}} ">
                     <a href="/kategori-video"> <i class="menu-icon ti-infinite"></i>Kategori Video</a>
                 </li>
-                <li class=" {{Request()->segment(1) == 'video' ? 'active' : ''}} ">
+                <li class=" {{Request()->is('video') ? 'active' : ''}} ">
                     <a href="/video"> <i class="menu-icon ti-video-clapper"></i>Semua Video</a>
                 </li>
-                <li class=" {{Request()->segment(1) == 'video/create' ? 'active' : ''}} ">
+                <li class=" {{Request()->is('video/create') ? 'active' : ''}} ">
                     <a href="/video/create"> <i class="menu-icon ti-control-play"></i>Tambah Video</a>
                 </li>
 
-                <li class="menu-title">Motivasi</li>
+                <li class="menu-title">Doa & Hadist</li>
                 <!-- /.menu-title -->
 
-                <li>
-                    <a href="#"> <i class="menu-icon ti-image"></i>Semua Motivasi</a>
+                <li class="{{Request()->is('doa-hadist') ? 'active' : ''}}">
+                    <a href="/doa-hadist"> <i class="menu-icon ti-image"></i>Semua Doa & Hadist</a>
                 </li>
-                <li>
-                    <a href="#"> <i class="menu-icon ti-plus"></i>Tambah Motivasi</a>
+                <li class="{{Request()->is('doa-hadist/create') ? 'active' : ''}}">
+                    <a href="/doa-hadist/create"> <i class="menu-icon ti-plus"></i>Tambah Doa & Hadist</a>
                 </li>
 
                 <li class="menu-title">Komentar</li>

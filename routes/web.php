@@ -27,6 +27,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('video', 'VideoController');
     Route::resource('kategori-video', 'KategoriVideoController');
 
+    // Doa & Motivasi
+    Route::resource('/doa-hadist', 'DoaHadistController');
+
 });
 
 // Token Register
