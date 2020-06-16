@@ -17,7 +17,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="box-title text-center">Ustad</h4>
-                            <a href="/ustad/create" class="btn btn-primary btn-sm float-right"><i class="fa fa-plus"></i></a>
+                           _ <a href="/ustad/create" class="btn btn-primary btn-sm float-right"><i class="fa fa-plus"></i></a>
                         </div>
                         <div class="table-stats">
                             <table class="table table-hover">
