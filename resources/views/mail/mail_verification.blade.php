@@ -179,7 +179,7 @@
                     <tr>
                         <td bgcolor="#FFECD1" align="center" style="padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
                             <h2 style="font-size: 20px; font-weight: 400; color: #111111; margin: 0;">Ada kendala</h2>
-                            <p style="margin: 0;"><a href="#" target="_blank" style="color: #004F00;">Email aliim.nomads@gmail.com</a></p>
+                            <p style="margin: 0;"><a href="mailto:aliim.nomads@gmail.com" target="_blank" style="color: #004F00;">Email aliim.nomads@gmail.com</a></p>
                         </td>
                     </tr>
                 </table>
