@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'User')
+@section('title', 'User| Aliim Indonesia')
 @section('content')
 
 <!-- Content -->
@@ -16,7 +16,7 @@
                 <div class="card-body ">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="box-title text-center">User</h4>
+                            <h4 class="box-title text-center">User Aliim</h4>
                         </div>
                         <div class="table-stats">
                             <table class="table table-hover">

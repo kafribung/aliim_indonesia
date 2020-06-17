@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Ustad')
+@section('title', 'Ustad | Aliim Indonesia')
 @section('content')
 
 <!-- Content -->
@@ -16,7 +16,7 @@
                 <div class="card-body ">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="box-title text-center">Ustad</h4>
+                            <h4 class="box-title text-center">Ustad Aliim</h4>
                            _ <a href="/ustad/create" class="btn btn-primary btn-sm float-right"><i class="fa fa-plus"></i></a>
                         </div>
                         <div class="table-stats">
@@ -41,7 +41,7 @@
                                         <td>{{$angkaAwal}}</td>
                                         <td>{{$ustad->name}}</td>
                                         <td>{{$ustad->email}}</td>
-                                        <td>{{$ustad->status == 1 ? 'active' : 'no active'}}</td>
+                                        <td>{{$ustad->status == 1 ? 'Active' : 'Panding'}}</td>
                                         <td>{{($ustad->role == 0) ? 'User' : (($ustad->role == 1) ? 'Admin' : 'Ustad')}}</td>
                                         <td>
                                             <a href="/ustad/{{$ustad->id}}/edit" class="btn btn-warning btn-sm {{$ustad->status != 1 ? 'disabled' : ''}}"><i class="fa fa-edit"></i></a>

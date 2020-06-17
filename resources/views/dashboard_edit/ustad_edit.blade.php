@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Ustad Edit')
+@section('title', 'Edit Ustad | Aliim Indonesia ')
 @section('content')
 
 <!-- Content -->
@@ -12,14 +12,14 @@
                 <div class="card-body ">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Edit Ustad</strong>
+                            <strong class="card-title">Edit Data Ustad</strong>
                         </div>
                         <div class="card-body">
                             <form action="/ustad/{{$ustad->id}}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
-                                    <label for="name" class="control-label mb-1">nama</label>
+                                    <label for="name" class="control-label mb-1">Nama</label>
                                     <input id="name" name="name" type="text" class="form-control @error('name') is-invalid @enderror" autofocus required autocomplete="off" value="{{old('name') ? old('name') : $ustad->name}}">
 
                                     @error('name')
@@ -28,7 +28,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="email" class="control-label mb-1">email</label>
+                                    <label for="email" class="control-label mb-1">Email</label>
                                     <input id="email" name="email" email="email" class="form-control @error('email') is-invalid @enderror"  autocomplete="off" required value="{{old('email') ? old('email') : $ustad->email}}">
 
                                     @if ($errors->has('email'))
@@ -37,7 +37,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="password" class="control-label mb-1">password</label>
+                                    <label for="password" class="control-label mb-1">Password</label>
                                     <input id="password" name="password" type="password" class="form-control @error('password') is-invalid @enderror"  autocomplete="off" required ">
 
                                     @error('password')
@@ -46,7 +46,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-md btn-info btn-block">Update ustad</button>
+                                    <button type="submit" class="btn btn-md btn-warning btn-block">Update Ustad</button>
                                 </div>
 
                             </form>

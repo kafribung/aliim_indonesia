@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Edit | Admin')
+@section('title', 'Edit Admin | Aliim Indonesia')
 @section('content')
 
 <!-- Content -->
@@ -12,7 +12,7 @@
                 <div class="card-body ">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Edit Admin</strong>
+                            <strong class="card-title">Edit Data Admin</strong>
                         </div>
                         <div class="card-body">
                             <form action="/admin/{{$admin->id}}" method="POST">
@@ -46,7 +46,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-md btn-info btn-block">Update Admin</button>
+                                    <button type="submit" class="btn btn-md btn-warning btn-block">Update Admin</button>
                                 </div>
 
                             </form>

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Create | Ustad')
+@section('title', 'Create Ustad | Aliim Indonesia')
 @section('content')
 
 <!-- Content -->
@@ -16,13 +16,13 @@
                 <div class="card-body ">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Add Ustad</strong>
+                            <strong class="card-title">Tambah Data Ustad</strong>
                         </div>
                         <div class="card-body">
                             <form action="/ustad" method="POST">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="name" class="control-label mb-1">nama</label>
+                                    <label for="name" class="control-label mb-1">Nama</label>
                                     <input id="name" name="name" type="text" class="form-control @error('name') is-invalid @enderror" autofocus required autocomplete="off" value="{{old('name')}}">
 
                                     @error('name')
@@ -31,7 +31,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="email" class="control-label mb-1">email</label>
+                                    <label for="email" class="control-label mb-1">Email</label>
                                     <input id="email" name="email" email="email" class="form-control @error('email') is-invalid @enderror"  required autocomplete="off" value="{{old('email')}}">
 
                                     @if ($errors->has('email'))
@@ -40,7 +40,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="password" class="control-label mb-1">password</label>
+                                    <label for="password" class="control-label mb-1">Password</label>
                                     <input id="password" name="password" type="password" class="form-control @error('password') is-invalid @enderror"  required autocomplete="off" value="{{old('password')}}">
 
                                     @error('password')
