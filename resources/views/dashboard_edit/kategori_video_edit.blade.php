@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Edit | Kategori Video')
+@section('title', 'Edit Kategori Video | Aliim Indonesia')
 @section('content')
 
 <!-- Content -->
@@ -23,7 +23,7 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
-                                    <label for="title" class="control-label mb-1">kategori</label>
+                                    <label for="title" class="control-label mb-1">Kategori</label>
                                     <input id="title" name="title" type="text" class="form-control @error('title') is-invalid @enderror" autofocus required autocomplete="off" value="{{old('title') ? old('title') : $kategori->title}}">
 
                                     @error('title')

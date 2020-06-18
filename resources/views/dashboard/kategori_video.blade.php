@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Kategori Video')
+@section('title', 'Kategori Video | Aliim Indonesia')
 @section('content')
 
 <!-- Content -->
