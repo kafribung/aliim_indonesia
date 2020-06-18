@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Kategori Artikel')
+@section('title', 'Kategori Artikel | Aliim Indonesia')
 @section('content')
 
 <!-- Content -->

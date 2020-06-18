@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Create | Kategori Artikel')
+@section('title', 'Create Kategori Artikel | Aliim Indonesia')
 @section('content')
 
 <!-- Content -->
@@ -16,13 +16,13 @@
                 <div class="card-body ">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Add Kategori Artikel</strong>
+                            <strong class="card-title">Tambah Kategori Artikel</strong>
                         </div>
                         <div class="card-body">
                             <form action="/kategori-artikel" method="POST">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="title" class="control-label mb-1">kategori</label>
+                                    <label for="title" class="control-label mb-1">Kategori</label>
                                     <input id="title" name="title" type="text" class="form-control @error('title') is-invalid @enderror" autofocus required autocomplete="off" value="{{old('title')}}">
 
                                     @error('title')
