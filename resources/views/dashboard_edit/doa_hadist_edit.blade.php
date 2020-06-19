@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Edit | Doa & Hadist')
+@section('title', 'Edit Doa & Hadist | Aliim Indonesia')
 @section('content')
 
 <!-- Content -->
@@ -16,14 +16,14 @@
                 <div class="card-body ">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Edit Doa & Hadist</strong>
+                            <strong class="card-title">Edit Data Doa & Hadist</strong>
                         </div>
                         <div class="card-body">
                             <form action="/doa-hadist/{{$doa->id}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
-                                    <label for="title" class="control-label mb-1">title</label>
+                                    <label for="title" class="control-label mb-1">Judul</label>
                                     <input id="title" name="title" type="text" class="form-control @error('title') is-invalid @enderror" autofocus required autocomplete="off" value="{{old('title') ? old('title') : $doa->title}}">
 
                                     @error('title')
@@ -32,7 +32,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="img" class="control-label mb-1">img</label>
+                                    <label for="img" class="control-label mb-1">Gambar</label>
                                     <img src="{{url($doa->img)}}" alt="Gambar {{$doa->slug}}" title="{{$doa->slug}}" width="200" height="200">
                                     <input id="img" name="img" type="file" class="form-control @error('img') is-invalid @enderror"  autocomplete="off" accept="image/*">
 

@@ -83,6 +83,12 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'tanggal' => ['required'],
+            'bulan' => ['required'],
+            'bulan' => ['required'],
+            'tahun' => ['required'],
+            'gender' => ['required'],
+            'provinci'=> ['required'],
             'g-recaptcha-response' => ['required', 'captcha']
         ]);
     }
@@ -95,14 +101,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $tanggal = $data['tahun'] . '-' . $data['bulan']. '-' . $data['tanggal'];
+
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'token'   => Str::random(30)
+            'token'   => Str::random(30),
+            'date_birth' => $tanggal,
+            'gender' => $data['gender'],
+            'provinci' => $data['provinci'],
             ]);
 
-        Mail::to($user->email)->send(new EmailVerifikasi($user));
+        // Mail::to($user->email)->send(new EmailVerifikasi($user));
     }
 
     public function verification($token, $id)

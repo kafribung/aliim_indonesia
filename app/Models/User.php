@@ -52,4 +52,10 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\DoaHadist');
     }
+
+    //MUTATOR
+    public function getImgAttribute($value)
+    {
+        return url('img_users', $value);
+    }
 }

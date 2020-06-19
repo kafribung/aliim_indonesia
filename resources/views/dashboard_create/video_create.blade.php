@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Create | Video')
+@section('title', 'Create  Video | Aliim Indonesia')
 @section('content')
 
 <!-- Content -->
@@ -16,13 +16,13 @@
                 <div class="card-body ">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Add Video</strong>
+                            <strong class="card-title">Tambah Data Video</strong>
                         </div>
                         <div class="card-body">
                             <form action="/video" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="title" class="control-label mb-1">judul</label>
+                                    <label for="title" class="control-label mb-1">Judul</label>
                                     <input id="title" name="title" type="text" class="form-control @error('title') is-invalid @enderror" autofocus  autocomplete="off" value="{{old('title')}}">
 
                                     @error('title')
@@ -31,7 +31,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="video" class="control-label mb-1">video</label>
+                                    <label for="video" class="control-label mb-1">Video</label>
                                     <input id="video" name="video" type="url" class="form-control @error('video') is-invalid @enderror" autocomplete="off" value="{{old('video')}}">
 
                                     @if ($errors->has('video'))
@@ -40,7 +40,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="kategori" class="control-label mb-1">kategori</label>
+                                    <label for="kategori" class="control-label mb-1">Kategori</label>
 
                                     <select id="kategori" name="kategori" class="form-control @error('kategori') is-invalid @enderror"  autocomplete="off">
                                         @foreach ($kategoris as $kategori)
@@ -53,10 +53,9 @@
                                     @enderror
                                 </div>
 
-
                                 <div class="form-group">
-                                    <label for="description" class="control-label mb-1">deskripsi</label>
-                                    <textarea id="description" name="description" class="form-control ckeditor @error('description') is-invalid @enderror"  >{{old('description')}}</textarea>
+                                    <label for="description" class="control-label mb-1">Deskripsi</label>
+                                    <textarea id="description" name="description" class="form-control ckeditor @error('description') is-invalid @enderror"  autocomplete="off">{{old('description')}}</textarea>
 
                                     @error('description')
                                         <p class="alert alert-danger">{{$message}}</p>

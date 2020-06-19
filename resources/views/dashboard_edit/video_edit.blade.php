@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Edit | Video')
+@section('title', 'Edit Video | Aliim Indonesia')
 @section('content')
 
 <!-- Content -->
@@ -12,14 +12,14 @@
                 <div class="card-body ">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Edit Video</strong>
+                            <strong class="card-title">Edit Data Video</strong>
                         </div>
                         <div class="card-body">
                             <form action="/video/{{$video->id}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
-                                    <label for="title" class="control-label mb-1">judul</label>
+                                    <label for="title" class="control-label mb-1">Judul</label>
                                     <input id="title" name="title" type="text" class="form-control @error('title') is-invalid @enderror" autofocus required autocomplete="off" value="{{old('title')?old('title') : $video->title}}">
 
                                     @error('title')
@@ -28,7 +28,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="video" class="control-label mb-1">video</label>
+                                    <label for="video" class="control-label mb-1">Video</label>
                                     <input id="video" name="video" type="url" class="form-control @error('video') is-invalid @enderror" autocomplete="off" value="{{old('video') ? old('video') : $video->video}}">
 
                                     @if ($errors->has('video'))
@@ -37,7 +37,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="kategori" class="control-label mb-1">kategori</label>
+                                    <label for="kategori" class="control-label mb-1">Kategori</label>
 
                                     @foreach ($video->kategori_videos as $old)
                                         
@@ -56,7 +56,7 @@
 
                                 <div class="form-group">
                                     <label for="description" class="control-label mb-1">deskripsi</label>
-                                    <textarea id="description" name="description" class="form-control ckeditor @error('description') is-invalid @enderror"  >{{old('description') ? old('description') : $video->description}}</textarea>
+                                    <textarea id="description" name="description" class="form-control ckeditor @error('description') is-invalid @enderror"  autocomplete="off">{{old('description') ? old('description') : $video->description}}</textarea>
 
                                     @error('description')
                                         <p class="alert alert-danger">{{$message}}</p>
@@ -64,7 +64,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-md btn-warning btn-block">Update video</button>
+                                    <button type="submit" class="btn btn-md btn-warning btn-block">Update Video</button>
                                 </div>
                             </form>
                         </div>
