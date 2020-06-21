@@ -19,11 +19,20 @@
                             <strong class="card-title">Tambah Data Admin</strong>
                         </div>
                         <div class="card-body">
-                            <form action="/admin" method="POST">
+                            <form action="/admin" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
+                                    <label for="img" class="control-label mb-1">Foto</label>
+                                    <input id="img" name="img" type="file" class="form-control @error('img') is-invalid @enderror" autofocus required autocomplete="off" value="{{old('img')}}">
+
+                                    @error('img')
+                                        <p class="alert alert-danger">{{$message}}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
                                     <label for="name" class="control-label mb-1">Nama</label>
-                                    <input id="name" name="name" type="text" class="form-control @error('name') is-invalid @enderror" autofocus required autocomplete="off" value="{{old('name')}}">
+                                    <input id="name" name="name" type="text" class="form-control @error('name') is-invalid @enderror" required autocomplete="off" value="{{old('name')}}">
 
                                     @error('name')
                                         <p class="alert alert-danger">{{$message}}</p>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 // Import User Request
-use App\Http\Requests\UstadRequest;
+use App\Http\Requests\UstadAdminRequest;
 
 // Import Class Hash
 use Illuminate\Support\Facades\Hash;
@@ -32,15 +32,21 @@ class UstadController extends Controller
     public function create()
     {
         $provincis = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
-		$provincis->json();
+        $provincis->json();
+        
         return view('dashboard_create.ustad_create', compact('provincis'));
     }
 
     //CREATE
-    public function store(UstadRequest $request)
+    public function store(UstadAdminRequest $request)
     {
-        $data = $request->all();
+        // Batas Ustad
+        if (User::where('role', 2)->count() >= 5) {
+            return redirect('/ustad')->with('msg', 'Data Ustad Hanya Boleh 5');
+        }
 
+        $data = $request->all();
+        
         if ($request->has('img')) {
             $img =  $request->file('img');
             $name= time(). '.'. $img->getClientOriginalExtension();
@@ -52,11 +58,6 @@ class UstadController extends Controller
         $data['status']   = 1;
         $data['role']     = 2;
         $data['token']    = Str::random(30);
-
-        // Batas Ustad
-        if (User::where('role', 2)->count() >= 5) {
-            return redirect('/ustad')->with('msg', 'Data Ustad Hanya Boleh 5');
-        }
 
         User::create($data);
 

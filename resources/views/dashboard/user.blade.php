@@ -44,7 +44,7 @@
                                         <td>{{$angkaAwal}}</td>
                                         <td class="avatar">
                                             <div class="round-img">
-                                                <a href="#"><img class="rounded-circle" src="{{url($user->img)}}" alt="Foto {{$user->name}}" title="Foto {{$user->name}}"></a>
+                                                <img class="rounded-circle" src="{{url($user->img)}}" alt="Foto {{$user->name}}" title="Foto {{$user->name}}">
                                             </div>
                                         </td>
                                         <td>{{$user->name}}</td>
@@ -55,7 +55,7 @@
                                         <td>{{$user->status == 1 ? 'Active' : 'Not Active'}}</td>
                                         <td>{{($user->role == 0) ? 'User' : (($user->role == 1) ? 'Admin' : 'Ustad')}}</td>
                                         <td>
-                                            <a href="/user/{{$user->id}}/edit" class="btn btn-warning btn-sm {{$user->status != 1 ? 'disabled' : ''}}"><i class="fa fa-edit"></i></a>
+                                            <a href="/user/{{$user->id}}/edit" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
 
                                             <form action="/user/{{$user->id}}" method="POST" class="d-inline-flex">
                                                 @csrf

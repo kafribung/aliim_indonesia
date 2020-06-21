@@ -24,8 +24,12 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Foto</th>
                                         <th>Nama</th>
                                         <th>Email</th>
+                                        <th>Tgl Lahir</th>
+                                        <th>JK</th>
+                                        <th>Provinsi</th>
                                         <th>Status</th>
                                         <th>Peran</th>
                                         <th>Action</th>
@@ -39,20 +43,20 @@
                                         
                                     <tr>
                                         <td>{{$angkaAwal}}</td>
+                                        <td class="avatar">
+                                            <div class="round-img">
+                                                <img class="rounded-circle" src="{{url($admin->img)}}" alt="Foto {{$admin->name}}" title="Foto {{$admin->name}}">
+                                            </div>
+                                        </td>
                                         <td>{{$admin->name}}</td>
                                         <td>{{$admin->email}}</td>
-                                        <td>{{$admin->status == 1 ? 'Active' : 'Panding'}}</td>
+                                        <td>{{$admin->date_birth}}</td>
+                                        <td>{{$admin->gender}}</td>
+                                        <td>{{$admin->provinci}}</td>
+                                        <td>{{$admin->status == 1 ? 'Active' : 'Not Active'}}</td>
                                         <td>{{($admin->role == 0) ? 'User' : (($admin->role == 1) ? 'Admin' : 'Ustad')}}</td>
                                         <td>
                                             <a href="/admin/{{$admin->id}}/edit" class="btn btn-warning btn-sm {{$admin->status != 1 ? 'disabled' : ''}}"><i class="fa fa-edit"></i></a>
-
-                                            <form action="/admin/{{$admin->id}}" method="POST" class="d-inline-flex">
-                                                @csrf
-                                                @method('DELETE')
-
-                                                <button type="submit" onclick="return confirm('Hapus Data {{$admin->email}}?')" class="btn btn-danger btn-sm" {{$admin->status != 1 ? 'disabled' : ''}}><i class="fa fa-trash"></i></button>
-                                            </form>
-
                                         </td>
                                     </tr>
                                     @php

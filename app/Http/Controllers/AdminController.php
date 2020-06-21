@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 // Import User Request
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\UstadAdminRequest;
 
 // Import Class Hash
 use Illuminate\Support\Facades\Hash;
@@ -14,6 +14,9 @@ use Illuminate\Support\Str;
 
 // Import DB User
 use App\Models\User;
+
+// Import Class HTTP
+use Illuminate\Support\Facades\Http;
 
 
 class AdminController extends Controller
@@ -28,23 +31,33 @@ class AdminController extends Controller
     //URL CREATE
     public function create()
     {
-        return view('dashboard_create.admin_create');
+        $provincis = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
+        $provincis->json();
+
+        return view('dashboard_create.admin_create', compact('provincis'));
     }
 
     //CREATE
-    public function store(UserRequest $request)
+    public function store(UstadAdminRequest $request)
     {
+        // Batas Admin
+        if (User::where('role', 1)->count() >= 1) {
+            return redirect('/admin')->with('msg', 'Data Admin Hanya Boleh 1');
+        }
+
         $data = $request->all();
+
+        if ($request->has('img')) {
+            $img =  $request->file('img');
+            $name= time(). '.'. $img->getClientOriginalExtension();
+            $img->move( public_path('img_users'), $name);
+            $data['img'] = $name;
+        }
 
         $data['password'] = Hash::make($request->password);
         $data['status']   = 1;
         $data['role']     = 1;
         $data['token']    = Str::random(30);
-
-        // Batas Ustad
-        if (User::where('role', 1)->count() >= 4) {
-            return redirect('/admin')->with('msg', 'Data Admin Hanya Boleh 4');
-        }
 
         User::create($data);
 
@@ -61,19 +74,30 @@ class AdminController extends Controller
     public function edit($id)
     {
         $admin = User::findOrFail($id);
+        $provincis = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
+        $provincis->json();
 
-        return view('dashboard_edit.admin_edit', compact('admin'));
+        return view('dashboard_edit.admin_edit', compact('admin', 'provincis'));
     }
 
     // UPDATE
     public function update(Request $request, $id)
     {
         $data = $request->validate([
+            'img'      => ['required', 'mimes:png,jpg,jpeg'],
             'name'     => ['required', 'string', 'max:255'],
             'email'    => ['required', 'string', 'email', 'max:255'],
-            'password' => ['required', 'string', 'min:6']
         ]);
 
+        
+        if ($request->has('img')) {
+            $img =  $request->file('img');
+            $name= time(). '.'. $img->getClientOriginalExtension();
+            $img->move( public_path('img_users'), $name);
+            $data['img'] = $name;
+        }
+
+        
         $data['password'] = Hash::make($request->password);
 
         User::findOrFail($id)->update($data);
@@ -84,8 +108,6 @@ class AdminController extends Controller
     // DELETE
     public function destroy($id)
     {
-        User::destroy($id);
-
-        return redirect('/admin')->with('msg', 'Data Admin Berhasil di Hapus');
+        return abort('404');
     }
 }
