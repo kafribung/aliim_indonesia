@@ -23,8 +23,12 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Foto</th>
                                         <th>Nama</th>
                                         <th>Email</th>
+                                        <th>Tgl Lahir</th>
+                                        <th>JK</th>
+                                        <th>Provinsi</th>
                                         <th>Status</th>
                                         <th>Peran</th>
                                         <th>Action</th>
@@ -38,9 +42,17 @@
                                         
                                     <tr>
                                         <td>{{$angkaAwal}}</td>
+                                        <td class="avatar">
+                                            <div class="round-img">
+                                                <a href="#"><img class="rounded-circle" src="{{url($user->img)}}" alt="Foto {{$user->name}}" title="Foto {{$user->name}}"></a>
+                                            </div>
+                                        </td>
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
-                                        <td>{{$user->status == 1 ? 'active' : 'no active'}}</td>
+                                        <td>{{$user->date_birth}}</td>
+                                        <td>{{$user->gender}}</td>
+                                        <td>{{$user->provinci}}</td>
+                                        <td>{{$user->status == 1 ? 'Active' : 'Not Active'}}</td>
                                         <td>{{($user->role == 0) ? 'User' : (($user->role == 1) ? 'Admin' : 'Ustad')}}</td>
                                         <td>
                                             <a href="/user/{{$user->id}}/edit" class="btn btn-warning btn-sm {{$user->status != 1 ? 'disabled' : ''}}"><i class="fa fa-edit"></i></a>
@@ -49,7 +61,7 @@
                                                 @csrf
                                                 @method('DELETE')
 
-                                                <button type="submit" onclick="return confirm('Hapus Data {{$user->email}}?')" class="btn btn-danger btn-sm" {{$user->status != 1 ? 'disabled' : ''}}><i class="fa fa-trash"></i></button>
+                                                <button type="submit" onclick="return confirm('Hapus Data {{$user->email}}?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
                                             </form>
 
                                         </td>

@@ -36,6 +36,9 @@ Route::group(['middleware' => 'admin'], function () {
 Route::get('/verification/{token}/{id}', 'Auth\RegisterController@verification');
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/logout', function(){
+    return abort('404');
+});
 
 
 Auth::routes();

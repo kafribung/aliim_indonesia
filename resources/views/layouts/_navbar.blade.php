@@ -2,7 +2,7 @@
  <header id="header" class="header">
     <div class="top-left">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/"><img src="{{ asset('dash/images/logo.png') }}" alt="Logo"></a>
+            <a class="navbar-brand" href="/"><img src="{{ asset('dash/images/logo.jpg') }}" alt="Logo"></a>
             <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
         </div>
     </div>

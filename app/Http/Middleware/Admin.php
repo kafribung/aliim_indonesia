@@ -17,9 +17,11 @@ class Admin
     {
         $user = $request->user();
         if ($user) {
-            if ($user->role == 1 or $user->role == 2)
-                return $next($request);
-            else abort('404');
+            if ($user->role == 1 or $user->role == 2) {
+                if ($user->status == 1) {
+                    return $next($request);
+                } else abort('403', 'Akses di tolak');
+             } else abort('404');
         } abort('404');
     }
 }

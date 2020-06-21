@@ -14,7 +14,7 @@
 
 				{{-- Seleksi Msg --}}
 				@if (session('msg'))
-					<p class="alert alert-danger">{{session('msg')}}</p>
+					<p class="alert alert-info">{{session('msg')}}</p>
 				@endif
 
 				{{-- Seleksi Error --}}
@@ -52,7 +52,7 @@
 					</button>
 				</div>
 
-				<div class="flex-col-c p-t-170 p-b-40">
+				<div class="flex-col-c p-t-80 p-b-40">
 					<span class="txt1 p-b-9">
 						Belum Memiliki Akun ?
 					</span>

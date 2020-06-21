@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 // Import User Request
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\UstadRequest;
 
 // Import Class Hash
 use Illuminate\Support\Facades\Hash;
@@ -14,6 +14,9 @@ use Illuminate\Support\Str;
 
 // Import DB User
 use App\Models\User;
+
+// Import Class HTTP
+use Illuminate\Support\Facades\Http;
 
 
 class UstadController extends Controller
@@ -28,13 +31,22 @@ class UstadController extends Controller
     //URL CREATE
     public function create()
     {
-        return view('dashboard_create.ustad_create');
+        $provincis = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
+		$provincis->json();
+        return view('dashboard_create.ustad_create', compact('provincis'));
     }
 
     //CREATE
-    public function store(UserRequest $request)
+    public function store(UstadRequest $request)
     {
         $data = $request->all();
+
+        if ($request->has('img')) {
+            $img =  $request->file('img');
+            $name= time(). '.'. $img->getClientOriginalExtension();
+            $img->move( public_path('img_users'), $name);
+            $data['img'] = $name;
+        }
 
         $data['password'] = Hash::make($request->password);
         $data['status']   = 1;
@@ -42,8 +54,8 @@ class UstadController extends Controller
         $data['token']    = Str::random(30);
 
         // Batas Ustad
-        if (User::where('role', 2)->count() >= 10) {
-            return redirect('/ustad')->with('msg', 'Data Ustad Hanya Boleh 10');
+        if (User::where('role', 2)->count() >= 5) {
+            return redirect('/ustad')->with('msg', 'Data Ustad Hanya Boleh 5');
         }
 
         User::create($data);
@@ -61,18 +73,27 @@ class UstadController extends Controller
     public function edit($id)
     {
         $ustad = User::findOrFail($id);
+        $provincis = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
+		$provincis->json();
 
-        return view('dashboard_edit.ustad_edit', compact('ustad'));
+        return view('dashboard_edit.ustad_edit', compact('ustad', 'provincis'));
     }
 
     // UPDATE
     public function update(Request $request, $id)
     {
         $data = $request->validate([
+            'img'      => ['required', 'mimes:png,jpg,jpeg'],
             'name'     => ['required', 'string', 'max:255'],
             'email'    => ['required', 'string', 'email', 'max:255'],
-            'password' => ['required', 'string', 'min:6']
         ]);
+
+        if ($request->has('img')) {
+            $img =  $request->file('img');
+            $name= time(). '.'. $img->getClientOriginalExtension();
+            $img->move( public_path('img_users'), $name);
+            $data['img'] = $name;
+        }
 
         $data['password'] = Hash::make($request->password);
 

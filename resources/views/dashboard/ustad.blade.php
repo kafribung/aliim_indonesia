@@ -17,15 +17,19 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="box-title text-center">Ustad Aliim</h4>
-                           _ <a href="/ustad/create" class="btn btn-primary btn-sm float-right"><i class="fa fa-plus"></i></a>
+                            <a href="/ustad/create" class="btn btn-primary btn-sm float-right"><i class="fa fa-plus"></i></a>
                         </div>
                         <div class="table-stats">
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Foto</th>
                                         <th>Nama</th>
                                         <th>Email</th>
+                                        <th>Tgl Lahir</th>
+                                        <th>JK</th>
+                                        <th>Provinsi</th>
                                         <th>Status</th>
                                         <th>Peran</th>
                                         <th>Action</th>
@@ -39,8 +43,16 @@
                                         
                                     <tr>
                                         <td>{{$angkaAwal}}</td>
+                                        <td class="avatar">
+                                            <div class="round-img">
+                                                <a href="#"><img class="rounded-circle" src="{{url($ustad->img)}}" alt="Foto {{$ustad->name}}" title="Foto {{$ustad->name}}"></a>
+                                            </div>
+                                        </td>
                                         <td>{{$ustad->name}}</td>
                                         <td>{{$ustad->email}}</td>
+                                        <td>{{$ustad->date_birth}}</td>
+                                        <td>{{$ustad->gender}}</td>
+                                        <td>{{$ustad->provinci}}</td>
                                         <td>{{$ustad->status == 1 ? 'Active' : 'Panding'}}</td>
                                         <td>{{($ustad->role == 0) ? 'User' : (($ustad->role == 1) ? 'Admin' : 'Ustad')}}</td>
                                         <td>
@@ -50,7 +62,7 @@
                                                 @csrf
                                                 @method('DELETE')
 
-                                                <button type="submit" onclick="return confirm('Hapus Data {{$ustad->email}}?')" class="btn btn-danger btn-sm" {{$ustad->status != 1 ? 'disabled' : ''}}><i class="fa fa-trash"></i></button>
+                                                <button type="submit" onclick="return confirm('Hapus Data Ustad {{$ustad->name}}?')" class="btn btn-danger btn-sm" {{$ustad->status != 1 ? 'disabled' : ''}}><i class="fa fa-trash"></i></button>
                                             </form>
 
                                         </td>
