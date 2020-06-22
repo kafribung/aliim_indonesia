@@ -30,6 +30,9 @@ Route::group(['middleware' => 'admin'], function () {
     // Doa & Motivasi
     Route::resource('/doa-hadist', 'DoaHadistController');
 
+    // Plugin (Iklan dan Hadist Harian)
+    Route::resource('iklan', 'IklanController');
+
 });
 
 // Token Register

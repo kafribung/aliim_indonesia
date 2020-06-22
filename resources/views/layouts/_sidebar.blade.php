@@ -54,6 +54,15 @@
                     <a href="/doa-hadist/create"> <i class="menu-icon ti-plus"></i>Tambah Doa & Hadist</a>
                 </li>
 
+                <li class="menu-title">Plugin</li>
+                <!-- /.menu-title -->
+                <li class=" {{Request()->segment(1) == 'iklan' ? 'active' : ''}} ">
+                    <a href="/iklan"> <i class="menu-icon ti-gift"></i>Iklan</a>
+                </li>
+                <li>
+                    <a href="#"> <i class="menu-icon ti-shield"></i>Hadis Harian</a>
+                </li>
+
                 <li class="menu-title">Komentar</li>
                 <!-- /.menu-title -->
 
@@ -67,29 +76,6 @@
                 <li>
                     <a href="#"> <i class="menu-icon ti-comment-alt"></i>Lihat Pertanyaan</a>
                 </li>
-
-                <li class="menu-title">Informasi</li>
-                <!-- /.menu-title -->
-                <li>
-                    <a href="#"> <i class="menu-icon ti-gift"></i>Iklan</a>
-                </li>
-                <li>
-                    <a href="#"> <i class="menu-icon ti-shield"></i>Hadis Harian</a>
-                </li>
-                <li>
-                    <a href="#"> <i class="menu-icon ti-shine"></i>Akan Datang</a>
-                </li>
-
-                <li class="menu-title">Tentang</li>
-                <!-- /.menu-title -->
-
-                <li>
-                    <a href="#"> <i class="menu-icon ti-facebook"></i>Media Sosial</a>
-                </li>
-                <li>
-                    <a href="#"> <i class="menu-icon ti-medall"></i>Profil</a>
-                </li>
-
             </ul>
         </div>
         <!-- /.navbar-collapse -->
