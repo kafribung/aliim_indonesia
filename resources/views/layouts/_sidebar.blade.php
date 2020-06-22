@@ -59,8 +59,8 @@
                 <li class=" {{Request()->segment(1) == 'iklan' ? 'active' : ''}} ">
                     <a href="/iklan"> <i class="menu-icon ti-gift"></i>Iklan</a>
                 </li>
-                <li>
-                    <a href="#"> <i class="menu-icon ti-shield"></i>Hadis Harian</a>
+                <li class="{{Request()->segment(1) == 'hadist' ? 'active' : ''}}">
+                    <a href="/hadist"> <i class="menu-icon ti-shield"></i>Hadis Harian</a>
                 </li>
 
                 <li class="menu-title">Komentar</li>

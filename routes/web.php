@@ -32,6 +32,7 @@ Route::group(['middleware' => 'admin'], function () {
 
     // Plugin (Iklan dan Hadist Harian)
     Route::resource('iklan', 'IklanController');
+    Route::resource('hadist', 'HadistController');
 
 });
 
