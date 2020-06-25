@@ -347,10 +347,12 @@
                 </div>
                 {{-- END Artikel Terbaru --}}
 
+                <!-- Iklan 1 -->
+
                 <div class="widget hidden-xs m30">
-                    <img class="img-responsive widget_img" src="assets/img/right_add5.jpg" alt="add_one">
+                    <a href="{{$iklan_1->url}}" target="_blank"> <img class="img-responsive widget_img" src="{{url($iklan_1->img)}}" title="{{$iklan_1->title}}" alt="{{$iklan_1->title}}" width="200" height="100"></a>
                 </div>
-                <!-- Advertisement -->
+                <!-- End Iklan 1 -->
 
                 {{-- Video Terbaru --}}
 
@@ -375,17 +377,11 @@
                 </div>
                 {{-- Video Terbaru --}}
 
-                <div class="widget hidden-xs m30">
-                    <img class="img-responsive widget_img" src="assets/img/right_add6.jpg" alt="add_one">
-                </div>
-                <!-- Advertisement -->
-
-                <div class="widget hidden-xs m30">
-                    <img class="img-responsive widget_img" src="assets/img/right_add6.jpg" alt="add_one">
-                </div>
-                <!-- Advertisement -->
-
-          
+                @foreach ($iklan_2 as $iklan)
+                    <div class="widget hidden-xs m30">
+                        <a href="{{$iklan->url}}" target="_blank"> <img class="img-responsive widget_img" src="{{url($iklan->img)}}" title="{{$iklan->title}}" alt="{{$iklan->title}}" width="200" height="100"></a>
+                    </div>
+                @endforeach
 
 
             </div>

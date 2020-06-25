@@ -16,6 +16,9 @@ use App\Models\Hadist;
 // Import Model Hadist
 use App\Models\DoaHadist;
 
+// Import Model Iklan
+use App\Models\Iklan;
+
 
 class HomeController extends Controller
 {
@@ -49,16 +52,15 @@ class HomeController extends Controller
         $motivasis =  DoaHadist::with('user')->inRandomOrder()->paginate(3);
 
         // Iklan
-        $iklan_1 = '';
-        $iklan_2 = '';
+        $iklan_1 = Iklan::latest()->first();
+        $iklan_2 = Iklan::inRandomOrder()->paginate(2);
 
         // Hadist Harian
         $hadist =  Hadist::inRandomOrder()->first();
 
 
         return view('pages.home', 
-        compact('artikel_1' ,'artikel_2', 'artikel_3', 'artikel_4' ,'artikel_5', 'video_1', 'video_2', 'motivasis' , 'hadist')
-        
+        compact('artikel_1' ,'artikel_2', 'artikel_3', 'artikel_4' ,'artikel_5', 'video_1', 'video_2', 'motivasis' , 'hadist', 'iklan_1', 'iklan_2')
         );
     }
 }
