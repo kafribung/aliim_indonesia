@@ -15,21 +15,11 @@
                             <div class="m-menu-content">
                                 <ul class="col-sm-3">
                                     <li class="dropdown-header">Mengenal Islam</li>
-                                    <li>
-                                        <a href="#">Akidah</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Akhlak</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Manhaj/Aturan</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Al-Quuran</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Fikih dan Muamalah</a>
-                                    </li>
+                                    @foreach ($kategori_artikels as $kategori)
+                                        <li>
+                                            <a href="#">{{$kategori->title}}</a>
+                                        </li>
+                                     @endforeach
                                 </ul>
 
                             </div>
@@ -44,24 +34,11 @@
                             <div class="m-menu-content">
                                 <ul class="col-sm-3">
                                     <li class="dropdown-header">Belajar</li>
+                                    @foreach ($kategori_videos as $kategori)
                                     <li>
-                                        <a href="#">Sholat</a>
+                                        <a href="/belajar-video/{{$kategori->title}}">{{$kategori->title}}</a>
                                     </li>
-                                    <li>
-                                        <a href="#">Istikharah</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Ngaji</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Puasa</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Muamalah</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Haji</a>
-                                    </li>
+                                    @endforeach
                                 </ul>
 
                             </div>

@@ -41,6 +41,15 @@ Route::get('/verification/{token}/{id}', 'Auth\RegisterController@verification')
 
 Route::get('/', 'HomeController@index');
 
+// Single
+Route::get('/belajar/{slug}', 'HomeController@show_artikel');
+Route::get('/belajar-video/{slug}', 'HomeController@show_video');
+
+// Filter
+Route::get('/belajar-artikel/{kategori}', 'HomeController@filter_artikel');
+
+
+
 
 Route::get('/logout', function(){
     return abort('404');

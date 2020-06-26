@@ -1,22 +1,22 @@
  @extends('layouts.page_master')
  @section('content')
-     {{-- Hero --}}
+{{-- Hero --}}
  <section id="feature_news_section" class="feature_news_section">
     <div class="container">
         <div class="row">
             <div class="col-md-7">
                 <div class="feature_article_wrapper">
                     <div class="feature_article_img">
-                        <img class="img-responsive top_static_article_img" src="{{ url($artikel_1->img) }}" title="Gambar {{$artikel_1->tittle}}" alt="feature-top" width="955" height="832">
+                        <img class="img-responsive top_static_article_img" src="{{ url($artikel_1->img) }}" title="Gambar {{$artikel_1->title}}" alt="Gambar {{$artikel_1->title}}" width="955" height="832">
                     </div>
                     <!-- feature_article_img -->
 
-                    {{-- Hot News --}}
+                    <!-- Hot News -->
                     <div class="feature_article_inner">
-                        <div class="tag_lg red"><a href="category.html">Hot News</a></div>
+                        <div class="tag_lg red"><a href="/">Terending</a></div>
                         <div class="feature_article_title">
                             <h1>
-                                <a href="#" target="_self">{{$artikel_1->title}}</a>
+                                <a href="/belajar/{{$artikel_1->slug}}" target="_self">{{$artikel_1->title}}</a>
                             </h1>
                         </div>
                         <!-- feature_article_title -->
@@ -39,7 +39,7 @@
                         <!-- article_social -->
 
                     </div>
-                    {{-- END Hot News --}}
+                    <!-- Hot News -->
 
                 </div>
                 <!-- feature_article_wrapper -->
@@ -57,10 +57,10 @@
                     <!-- feature_article_img -->
 
                     <div class="feature_article_inner">
-                        <div class="tag_lg purple"><a href="category.html">Top Viewed</a></div>
+                        <div class="tag_lg purple"><a href="#">Sering Dibaca</a></div>
                         <div class="feature_article_title">
                             <h1>
-                                <a href="#" target="_self">{{$artikel->title}} </a>
+                                <a href="/belajar/{{$artikel->slug}}" target="_self">{{$artikel->title}} </a>
                             </h1>
                         </div>
                         <!-- feature_article_title -->
@@ -109,7 +109,7 @@
                 <!-- Artikel Belajar Islam -->
                 <div class="category_section mobile">
                     <div class="article_title header_purple">
-                        <h2><a href="category.html" target="_self">Belajar Islam</a></h2>
+                        <h2><a href="#" target="_self">Belajar Islam</a></h2>
                     </div>
                     <!----article_title------>
                     <div class="category_article_wrapper">
@@ -130,7 +130,7 @@
 
                                 <div class="category_article_title">
                                     <h2>
-                                        <a href="#" target="_self">{{$artikel_3->title}}</a>
+                                        <a href="/belajar/{{$artikel_3->slug}}" target="_self">{{$artikel_3->title}}</a>
                                     </h2>
                                 </div>
                                 <!----category_article_title------>
@@ -170,7 +170,7 @@
                                         @endforeach
 
                                         <h3 class="media-heading">
-                                            <a href="#" target="_self">{{$artikel->title}}</a>
+                                            <a href="/belajar/{{$artikel->slug}}" target="_self">{{$artikel->title}}</a>
                                         </h3>
                                         <span class="media-date">
                                             <a href="#">{{$artikel->created_at->format('d-m-Y')}}</a>, by: 
@@ -199,7 +199,7 @@
                 <!-- Video News Section -->
                 <div class="category_section design">
                     <div class="article_title header_blue">
-                        <h2><a href="category.html" target="_self">Video</a></h2>
+                        <h2><a href="" target="_self">Video</a></h2>
                     </div>
                     <!-- row -->
 
@@ -222,7 +222,7 @@
 
                                     <div class="category_article_title">
                                         <h2>
-                                            <a href="#" target="_self">{{$video->title}}</a>
+                                            <a href="/belajar-video/{{$video->slug}}" target="_self">{{$video->title}}</a>
                                         </h2>
                                     </div>
                                     <!-- category_article_title -->
@@ -269,7 +269,7 @@
                 <!-- Doa Harian -->
                 <div class="category_section camera">
                     <div class="article_title header_orange">
-                        <h2><a href="category.html" target="_self">Doa Harian</a></h2>
+                        <h2><a href="" target="_self">Doa Harian</a></h2>
                     </div>
                     <!-- article_title -->
 
@@ -310,21 +310,23 @@
                 {{-- Artikel Terbaru --}}
                 <div class="widget">
                     <div class="widget_title widget_black">
-                        <h2><a href="#">Atikel Terbaruuu</a></h2>
+                        <h2><a href="#">Atikel Terbaru</a></h2>
                     </div>
 
                     @foreach ($artikel_5 as $artikel)
                         
                         <div class="media">
                             <div class="media-left">
-                                <a href="#"><img class="media-object" src="assets/img/pop_right1.jpg" alt="Generic placeholder image"></a>
+                                <a href="#"><img class="media-object" src="{{ url($artikel->img) }}" title="Gambar {{$artikel->title}}" alt="Gambar {{$artikel->title}}" width="122" height="122"></a>
                             </div>
                             <div class="media-body">
                                 <h3 class="media-heading">
-                                    <a href="#" target="_self">{{$artikel->title}}</a>
+                                    <a href="/belajar/{{$artikel->slug}}" target="_self">{{$artikel->title}}</a>
                                 </h3> 
-                                <span class="media-date"><a href="#">10Aug- 2015</a>, by: <a
-                                        href="#">Eric joan</a></span>
+                                <span class="media-date">
+                                    <a href="#">{{$artikel->created_at->format('d-m-Y')}}</a>, by: 
+                                    <a href="#">{{$artikel->user->name}}</a>
+                                </span>
 
                                 <div class="widget_article_social">
                                     <span>
@@ -367,12 +369,30 @@
                         <div class="media-left">
                             <iframe class="media-object" src="{{$video->video}}" frameborder="0" allowfullscreen></iframe>
                         </div>
-                        
+                    </div>
+
+                    <div class="media-body">
+                        <h3 class="media-heading">
+                            <a href="/belajar/" target="_self">{{$video->title}}</a>
+                        </h3> 
+                        <span class="media-date">
+                            <a href="#">{{$video->created_at->format('d-m-Y')}}</a>, by: 
+                            <a href="#">{{$video->user->name}}</a>
+                        </span>
+
+                        <div class="widget_article_social">
+                            <span>
+                                <a href="#" target="_self"> <i
+                                        class="fa fa-share-alt"></i>424</a> Shares
+                            </span>
+                            <span>
+                                <a href="#" target="_self"><i
+                                        class="fa fa-comments-o"></i>4</a> Comments
+                            </span>
+                        </div>
                     </div>
 
                     @endforeach
-
-                  
                     <p class="widget_divider"><a href="#" target="_self">More News&nbsp;&raquo;</a></p>
                 </div>
                 {{-- Video Terbaru --}}

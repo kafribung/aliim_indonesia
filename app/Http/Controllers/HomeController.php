@@ -19,6 +19,12 @@ use App\Models\DoaHadist;
 // Import Model Iklan
 use App\Models\Iklan;
 
+// Import Model KategoriArtikel
+use App\Models\KategoriArtikel;
+
+// Import Model KategoriVideo
+use App\Models\KategoriVideo;
+
 
 class HomeController extends Controller
 {
@@ -58,9 +64,71 @@ class HomeController extends Controller
         // Hadist Harian
         $hadist =  Hadist::inRandomOrder()->first();
 
+        // Navigasi
+        $kategori_artikels = KategoriArtikel::with('artikels')->get(); 
+        $kategori_videos   = KategoriVideo::with('videos')->get(); 
+
 
         return view('pages.home', 
-        compact('artikel_1' ,'artikel_2', 'artikel_3', 'artikel_4' ,'artikel_5', 'video_1', 'video_2', 'motivasis' , 'hadist', 'iklan_1', 'iklan_2')
+        compact('artikel_1' ,'artikel_2', 'artikel_3', 'artikel_4' ,'artikel_5', 'video_1', 'video_2', 'motivasis' , 'hadist', 'iklan_1', 'iklan_2' , 'kategori_artikels', 'kategori_videos')
         );
     }
+
+    // SHOW ARTIKEL
+    public function show_artikel($slug)
+    {
+        $artikel = Artikel::with('user', 'kategori_artikels')->where('slug', $slug)->first();
+        $hadist  =  Hadist::inRandomOrder()->first();
+
+        // Artikel terbaru
+        $artikel_5 = Artikel::with('user','kategori_artikels')->orderBy('id', 'desc')->paginate(3);
+
+        // Vidieo terbaru
+        $video_2 = Video::with('user', 'kategori_videos')->latest()->paginate(4);
+
+        // Iklan
+        $iklan_1 = Iklan::latest()->first();
+        $iklan_2 = Iklan::inRandomOrder()->paginate(2);
+
+        // Navigasi
+        $kategori_artikels = KategoriArtikel::with('artikels')->get(); 
+        $kategori_videos   = KategoriVideo::with('videos')->get(); 
+
+
+        return view('pages.single', compact('artikel', 'hadist' ,'artikel_5', 'iklan_1', 'iklan_2', 'video_2', 'kategori_artikels', 'kategori_videos'));
+    }
+
+    // SHOW VIDEO
+    public function show_video($slug)
+    {
+        $video = Video::with('user', 'kategori_videos')->where('slug', $slug)->first();
+        $hadist  =  Hadist::inRandomOrder()->first();
+
+        // Artikel terbaru
+        $artikel_5 = Artikel::with('user','kategori_artikels')->orderBy('id', 'desc')->paginate(3);
+
+        // Vidieo terbaru
+        $video_2 = Video::with('user', 'kategori_videos')->latest()->paginate(4);
+
+        // Iklan
+        $iklan_1 = Iklan::latest()->first();
+        $iklan_2 = Iklan::inRandomOrder()->paginate(2);
+
+        // Navigasi
+        $kategori_artikels = KategoriArtikel::with('artikels')->get(); 
+        $kategori_videos   = KategoriVideo::with('videos')->get(); 
+  
+
+        return view('pages.single_video', compact('video', 'hadist' ,'artikel_5', 'iklan_1', 'iklan_2', 'video_2', 'kategori_artikels', 'kategori_videos'));
+    }
+
+    // Filter Artikel
+    public function filter_artikel($kategori) 
+    {
+        $artikels = Artikel::with('user', 'kategori_artikels')->whereHas('kategori_artikels', function($query) use($kategori) {
+            $query->where('title', $kategori);
+        })->get();
+
+        dd($artikels);
+    } 
 }
