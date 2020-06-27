@@ -112,7 +112,7 @@
                                     <li>
                                         <div class="m-menu-content">
                                             <ul class="col-sm text-center">
-                                                <li class="dropdown-header">Belajar</li>
+                                                <li class="dropdown-header">Belajar Video</li>
 
                                                 @foreach ($kategori_videos as $kategori)
                                                 <li>
@@ -127,7 +127,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">Doa Harian</a>
+                                <a href="motivasi">Motivasi</a>
                             </li>
                             <li>
                                 <a href="#">Tanya Ustad</a>

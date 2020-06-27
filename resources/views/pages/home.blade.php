@@ -1,7 +1,7 @@
  @extends('layouts.page_master')
  @section('content')
 {{-- Hero --}}
- <section id="feature_news_section" class="feature_news_section">
+<section id="feature_news_section" class="feature_news_section">
     <div class="container">
         <div class="row">
             <div class="col-md-7">
@@ -16,7 +16,7 @@
                         <div class="tag_lg red"><a href="/">Terending</a></div>
                         <div class="feature_article_title">
                             <h1>
-                                <a href="/belajar/{{$artikel_1->slug}}" target="_self">{{$artikel_1->title}}</a>
+                                <a href="/artikel-islam/{{$artikel_1->slug}}" target="_self">{{$artikel_1->title}}</a>
                             </h1>
                         </div>
                         <!-- feature_article_title -->
@@ -28,7 +28,7 @@
                         <!-- feature_article_date -->
 
                         <div class="feature_article_content">
-                            {!! Str::limit($artikel_1->description, 200);  !!}
+                            {!! Str::limit($artikel_1->description, 200)  !!}
                         </div>
                         <!-- feature_article_content -->
 
@@ -60,7 +60,7 @@
                         <div class="tag_lg purple"><a href="#">Sering Dibaca</a></div>
                         <div class="feature_article_title">
                             <h1>
-                                <a href="/belajar/{{$artikel->slug}}" target="_self">{{$artikel->title}} </a>
+                                <a href="/artikel-islam/{{$artikel->slug}}" target="_self">{{$artikel->title}} </a>
                             </h1>
                         </div>
                         <!-- feature_article_title -->
@@ -72,7 +72,7 @@
                         <!-- feature_article_date -->
 
                         <div class="feature_article_content">
-                            {!! Str::limit($artikel->description, 200);  !!}
+                            {!! Str::limit($artikel->description, 200)  !!}
                         </div>
                         <!-- feature_article_content -->
 
@@ -130,7 +130,7 @@
 
                                 <div class="category_article_title">
                                     <h2>
-                                        <a href="/belajar/{{$artikel_3->slug}}" target="_self">{{$artikel_3->title}}</a>
+                                        <a href="/artikel-islam/{{$artikel_3->slug}}" target="_self">{{$artikel_3->title}}</a>
                                     </h2>
                                 </div>
                                 <!----category_article_title------>
@@ -139,7 +139,7 @@
                                     <a href="#">{{$artikel_3->user->name}}</a></div>
                                 <!----category_article_date------>
                                 <div class="category_article_content">
-                                    {!! Str::limit($artikel_3->description, 200);  !!}
+                                    {!! Str::limit($artikel_3->description, 200)  !!}
                                 </div>
                                 <!----category_article_content------>
                                 <div class="media_social">
@@ -170,7 +170,7 @@
                                         @endforeach
 
                                         <h3 class="media-heading">
-                                            <a href="/belajar/{{$artikel->slug}}" target="_self">{{$artikel->title}}</a>
+                                            <a href="/artikel-islam/{{$artikel->slug}}" target="_self">{{$artikel->title}}</a>
                                         </h3>
                                         <span class="media-date">
                                             <a href="#">{{$artikel->created_at->format('d-m-Y')}}</a>, by: 
@@ -222,7 +222,7 @@
 
                                     <div class="category_article_title">
                                         <h2>
-                                            <a href="/belajar-video/{{$video->slug}}" target="_self">{{$video->title}}</a>
+                                            <a href="/video-islam/{{$video->slug}}" target="_self">{{$video->title}}</a>
                                         </h2>
                                     </div>
                                     <!-- category_article_title -->
@@ -235,7 +235,7 @@
                                     <!-- category_article_date -->
 
                                     <div class="category_article_content">
-                                        {!! Str::limit($video->description, 200);  !!}
+                                        {!! Str::limit($video->description, 200)  !!}
                                     </div>
                                     <!-- category_article_content -->
 
@@ -266,10 +266,10 @@
 
 
 
-                <!-- Doa Harian -->
+                <!-- Motivasi -->
                 <div class="category_section camera">
                     <div class="article_title header_orange">
-                        <h2><a href="" target="_self">Doa Harian</a></h2>
+                        <h2><a href="" target="_self">Motivasi</a></h2>
                     </div>
                     <!-- article_title -->
 
@@ -302,7 +302,7 @@
 
                     <p class="divider"><a href="#">More News&nbsp;&raquo;</a></p>
                 </div>
-                <!-- Doa Harian -->
+                <!-- Motivasi -->
             </div>
             <!-- Left Section -->
 
@@ -321,7 +321,7 @@
                             </div>
                             <div class="media-body">
                                 <h3 class="media-heading">
-                                    <a href="/belajar/{{$artikel->slug}}" target="_self">{{$artikel->title}}</a>
+                                    <a href="/artikel-islam/{{$artikel->slug}}" target="_self">{{$artikel->title}}</a>
                                 </h3> 
                                 <span class="media-date">
                                     <a href="#">{{$artikel->created_at->format('d-m-Y')}}</a>, by: 
@@ -357,7 +357,6 @@
                 <!-- End Iklan 1 -->
 
                 {{-- Video Terbaru --}}
-
                 <div class="widget reviews m30">
                     <div class="widget_title widget_black">
                         <h2><a href="#">Video Terbaru</a></h2>
@@ -373,7 +372,7 @@
 
                     <div class="media-body">
                         <h3 class="media-heading">
-                            <a href="/belajar/" target="_self">{{$video->title}}</a>
+                            <a href="/video-islam/{{$video->slug}}" target="_self">{{$video->title}}</a>
                         </h3> 
                         <span class="media-date">
                             <a href="#">{{$video->created_at->format('d-m-Y')}}</a>, by: 

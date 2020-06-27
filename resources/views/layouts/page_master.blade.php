@@ -7,16 +7,20 @@
 
     @include('includes.page_css')
 
+    
+
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar">
     <div id="main-wrapper">
         <!-- Page Preloader -->
-        <div id="preloader">
-            <div id="status">
-                <div class="status-mes"></div>
+        <div class="preloader">
+            <div class="loading">
+              <img src="{{ asset('assets/img/spinner.gif') }}" width="80">
+              <p>Harap Tunggu</p>
             </div>
-        </div>
+          </div>
+
         <!-- End preloader -->
 
         <div class="uc-mobile-menu-pusher">
@@ -41,6 +45,8 @@
     <!-- #main-wrapper -->
 
    @include('includes.page_script')
+
+  
 </body>
 
 </html>

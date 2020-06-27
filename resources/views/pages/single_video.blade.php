@@ -41,10 +41,10 @@
                     </div>
                     <!-- entity_social -->
 
-                    <div class="entity_thumb">
-                        <iframe class="embed-responsive-item" src="{{$video->video}}" frameborder="0" allowfullscreen></iframe>
+                    <div class="embed-responsive embed-responsive-4by3">
+                        <iframe class="embed-responsive-item" src="{{$video->video}}"></iframe>
                     </div>
-                    <!-- entity_thumb -->
+                    <!-- embed-responsive -->
 
                     <div class="entity_content">
                         {!! $video->description !!}
@@ -84,7 +84,7 @@
                         @foreach ($kategori->videos as $video)
                         <div class="col-md-6">
                             <div class="media">
-                                <div class="media-left">
+                                <div class="media-top">
                                     <iframe class="media-object" src="{{$video->video}}" frameborder="0" allowfullscreen></iframe>
                                 </div>
 
@@ -94,7 +94,7 @@
                                         <span class="tag purple">{{$kategori->title}}</span>
                                     @endforeach
 
-                                    <h3 class="media-heading"><a href="" target="_self">{{$video->title}}</a></h3>
+                                    <h3 class="media-heading"><a href="/video-islam/{{$video->slug}}" target="_self">{{$video->title}}</a></h3>
                                     <span class="media-date">
                                         <a href="#">{{$video->created_at->format('d-m-Y')}}</a>, by: 
                                         <a href="#">{{$video->user->name}}</a>
@@ -216,7 +216,7 @@
                             </div>
                             <div class="media-body">
                                 <h3 class="media-heading">
-                                    <a href="#" target="_self">{{$artikel->title}}</a>
+                                    <a href="/artikel-islam/{{$artikel->slug}}" target="_self">{{$artikel->title}}</a>
                                 </h3> 
                                 <span class="media-date">
                                     <a href="#">{{$artikel->created_at->format('d-m-Y')}}</a>, by: 
@@ -259,14 +259,14 @@
                     @foreach ($video_2 as $video)
                         
                     <div class="media">
-                        <div class="media-left">
+                        <div class="media-top">
                             <iframe class="media-object" src="{{$video->video}}" frameborder="0" allowfullscreen></iframe>
                         </div>
                     </div>
 
                     <div class="media-body">
                         <h3 class="media-heading">
-                            <a href="/belajar/" target="_self">{{$video->title}}</a>
+                            <a href="/video-islam/{{$video->slug}}" target="_self">{{$video->title}}</a>
                         </h3> 
                         <span class="media-date">
                             <a href="#">{{$video->created_at->format('d-m-Y')}}</a>, by: 

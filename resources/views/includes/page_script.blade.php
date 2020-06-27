@@ -1,6 +1,11 @@
  <!-- jquery Core-->
  <script src="{{ asset('assets/js/jquery-2.1.4.min.js') }}"></script>
 
+ {{-- <script
+  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+  crossorigin="anonymous"></script> --}}
+
  <!-- Bootstrap -->
  <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 
@@ -21,3 +26,10 @@
 
      hari.innerHTML = namaHari[decrement];
  </script>
+
+ {{-- Page Loader --}}
+ <script>
+    $(document).ready(function(){
+    $(".preloader").fadeOut();
+    })
+</script>

@@ -39,22 +39,23 @@ Route::group(['middleware' => 'admin'], function () {
 // Token Register
 Route::get('/verification/{token}/{id}', 'Auth\RegisterController@verification');
 
+// Index
 Route::get('/', 'HomeController@index');
 
 // Single
-Route::get('/belajar/{slug}', 'HomeController@show_artikel');
-Route::get('/belajar-video/{slug}', 'HomeController@show_video');
+Route::get('/artikel-islam/{slug}', 'HomeController@show_artikel');
+Route::get('/video-islam/{slug}', 'HomeController@show_video');
 
 // Filter
 Route::get('/belajar-artikel/{kategori}', 'HomeController@filter_artikel');
+Route::get('/belajar-video/{kategori}', 'HomeController@filter_video');
 
-
-
+// Motivasi
+Route::get('/motivasi', 'HomeController@motivasi');
 
 Route::get('/logout', function(){
     return abort('404');
 });
-
 
 Auth::routes();
 

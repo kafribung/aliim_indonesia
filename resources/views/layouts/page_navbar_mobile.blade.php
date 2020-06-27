@@ -17,9 +17,9 @@
                                     <li class="dropdown-header">Mengenal Islam</li>
                                     @foreach ($kategori_artikels as $kategori)
                                         <li>
-                                            <a href="#">{{$kategori->title}}</a>
+                                            <a href="/belajar-artikel/{{$kategori->title}}">{{$kategori->title}}</a>
                                         </li>
-                                     @endforeach
+                                    @endforeach
                                 </ul>
 
                             </div>
@@ -33,7 +33,7 @@
                         <li>
                             <div class="m-menu-content">
                                 <ul class="col-sm-3">
-                                    <li class="dropdown-header">Belajar</li>
+                                    <li class="dropdown-header">Belajar Video</li>
                                     @foreach ($kategori_videos as $kategori)
                                     <li>
                                         <a href="/belajar-video/{{$kategori->title}}">{{$kategori->title}}</a>
@@ -46,7 +46,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Doa Harian</a>
+                    <a href="/motivasi">Motivasi</a>
                 </li>
                 <li>
                     <a href="#">Tanya Ustad</a>
