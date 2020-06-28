@@ -34,10 +34,34 @@
                 </div>
                 <div class="col-md-4">
                     <div class="right_section">
+                        @guest
                         <ul class="nav navbar-nav">
                             <li><a href="/login">Masuk</a></li>
                             <li><a href="/register">Daftar</a></li>
                         </ul>
+                        
+                        @else
+                        <ul class="nav navbar-nav" >
+                            <li>
+                                <div class="media-left">
+                                    <img alt="64x64" class="media-object" src="{{url(Auth::user()->img)}}" width=50" height="50">
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{Auth::user()->name}}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/profile">Profile</a>
+                                    <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
+
+                                    <form id="logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
+                        @endguest
 
                         <ul class="nav-cta hidden-xs">
                             <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-search"></i></a>

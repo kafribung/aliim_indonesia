@@ -25,6 +25,12 @@ use App\Models\KategoriArtikel;
 // Import Model KategoriVideo
 use App\Models\KategoriVideo;
 
+// Import Model User
+use App\Models\User;
+
+// Import DB yg llogin
+use Auth;
+
 
 class HomeController extends Controller
 {
@@ -199,5 +205,38 @@ class HomeController extends Controller
         $kategori_videos   = KategoriVideo::with('videos')->get(); 
 
         return view('pages.motivasi', compact('motivasis', 'hadist' ,'artikel_5', 'iklan_1', 'iklan_2', 'video_2', 'kategori_artikels', 'kategori_videos')); 
+    }
+
+    // PROFILE 
+    public function profile() 
+    {
+        $user = Auth::user();
+        $hadist  =  Hadist::inRandomOrder()->first();
+
+        // Navigasi
+        $kategori_artikels = KategoriArtikel::with('artikels')->get(); 
+        $kategori_videos   = KategoriVideo::with('videos')->get(); 
+
+        return view('pages.profile', compact('user', 'hadist', 'kategori_artikels', 'kategori_videos'));
+    }
+
+    // PROFILE UPDATE
+    public function profile_update(Request $request, $id) 
+    {
+        $data = $request->validate([
+            'name'     => ['required', 'string', 'min:3', 'max:20'],
+            'img'      => ['mimes:png,jpg,jpeg']
+        ]);
+
+        if ($request->has('img')) {
+            $img =  $request->file('img');
+            $name= time(). '.'. $img->getClientOriginalExtension();
+            $img->move( public_path('img_users'), $name);
+            $data['img'] = $name;
+        }
+
+        User::findOrFail($id)->update($data);
+
+        return redirect('/profile')->with('msg', 'Data Berhasil di Edit');
     }
 }

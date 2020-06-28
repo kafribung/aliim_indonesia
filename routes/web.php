@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// ----------------------------------------------------------ADMIN
 Route::group(['middleware' => 'admin'], function () {
+
+
     Route::get('/dashboard', 'DashboardController@index');
     Route::resource('user', 'UserController');
     Route::resource('ustad', 'UstadController');
@@ -33,13 +36,19 @@ Route::group(['middleware' => 'admin'], function () {
     // Plugin (Iklan dan Hadist Harian)
     Route::resource('iklan', 'IklanController');
     Route::resource('hadist', 'HadistController');
-
 });
 
+// ----------------------------------------------------------USER
 // Token Register
 Route::get('/verification/{token}/{id}', 'Auth\RegisterController@verification');
 
-// Index
+Route::group(['middleware' => 'auth'], function () {
+    // Profile
+    Route::get('/profile', 'HomeController@profile');
+    Route::put('/profile/{id}','HomeController@profile_update' );
+});
+
+// Home
 Route::get('/', 'HomeController@index');
 
 // Single
@@ -53,6 +62,9 @@ Route::get('/belajar-video/{kategori}', 'HomeController@filter_video');
 // Motivasi
 Route::get('/motivasi', 'HomeController@motivasi');
 
+
+
+// Core Laravel
 Route::get('/logout', function(){
     return abort('404');
 });

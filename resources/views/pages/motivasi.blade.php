@@ -16,17 +16,17 @@
                         
                     <div class="category_article_wrapper">
                         <div class="row">
-                    @foreach ($motivasis as $motivasi)
+                            @foreach ($motivasis as $motivasi)
 
-                    <div class="col-md-6">
-                        <div class="top_article_img">
-                            <a href="#" target="_self">
-                                <img class="img-responsive" src="{{url($motivasi->img)}}" alt="feature-top" width="400" height="200">
-                            </a>
-                        </div>
-                        <!-- top_article_img -->
-                    </div>
-                    @endforeach
+                            <div class="col-md-6">
+                                <div class="top_article_img">
+                                    <a id="kafri" rel="kafri" href="{{ url($motivasi->img) }}">
+                                        <img class="img-responsive" src="{{url($motivasi->img)}}" alt="feature-top" width="400" height="200">
+                                    </a>
+                                </div>
+                                <!-- top_article_img -->
+                            </div>
+                            @endforeach
 
                             <!-- col-md-7 -->
 
@@ -35,7 +35,6 @@
                     </div>
 
                     <!-- category_article_wrapper -->
-                
                     <p class="divider"><a href="#">More News&nbsp;&raquo;</a></p>
                 </div>
                 <!-- Motivasi -->
@@ -88,7 +87,7 @@
                 <!-- Iklan 1 -->
 
                 <div class="widget hidden-xs m30">
-                    <a href="{{$iklan_1->url}}" target="_blank"> <img class="img-responsive widget_img" src="{{url($iklan_1->img)}}" title="{{$iklan_1->title}}" alt="{{$iklan_1->title}}" width="200" height="100"></a>
+                    <a  href="{{$iklan_1->url}}" target="_blank"> <img class="img-responsive widget_img" src="{{url($iklan_1->img)}}" title="{{$iklan_1->title}}" alt="{{$iklan_1->title}}" width="200" height="100"></a>
                 </div>
                 <!-- End Iklan 1 -->
 

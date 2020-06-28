@@ -7,8 +7,8 @@
 
     @include('includes.page_css')
 
-    
 
+    
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar">
@@ -44,9 +44,11 @@
     </div>
     <!-- #main-wrapper -->
 
+
+
    @include('includes.page_script')
 
-  
+
 </body>
 
 </html>
