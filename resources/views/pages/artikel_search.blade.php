@@ -5,36 +5,44 @@
     <div class="container">
         <div class="row">
 
-
             <div class="col-md-8">
 
-                @foreach ($videos as $video)
+                @forelse ($artikels as $artikel)
                 <div class="entity_wrapper">
                     <div class="entity_title">
                         <h1>
-                            <a href="/video-islam/{{$video->slug}}" target="_self">{{$video->title}}</a>
+                            <a href="/artikel-islam/{{$artikel->slug}}" target="_self">{{$artikel->title}}</a>
                         </h1>
                     </div>
                     <!-- entity_title -->
 
                     <div class="entity_meta">
-                        <a href="#" target="_self">{{$video->user->name}}</a>,
-                        <a href="#" target="_self">{{$video->created_at->format('d-m-Y')}}</a>
+                        <a href="#" target="_self">{{$artikel->user->name}}</a>,
+                        <a href="#" target="_self">{{$artikel->created_at->format('d-m-Y')}}</a>
                     </div>
                     <!-- entity_meta -->
 
-                    <div class="embed-responsive embed-responsive-4by3">
-                        <iframe class="embed-responsive-item" src="{{$video->video}}"></iframe>
+                    <div class="entity_thumb">
+                        <img class="img-responsive" src="{{ url($artikel->img) }}" title="Gambar {{$artikel->title}}" alt="Gambar {{$artikel->title}}" >
                     </div>
-                    <!-- embed-responsive -->
+                    <!-- entity_thumb -->
 
                     <div class="entity_content">
-                        {!! Str::limit($video->description, 200)  !!}
+                        {!! Str::limit($artikel->description, 200)  !!}
                     </div>
                     <!-- entity_content -->
 
                 </div>
-                @endforeach
+                @empty
+                <div class="entity_wrapper">
+                    <div class="entity_title">
+                        <h1><a href="/">Hasil tidak ditemukan kembali ke home</a></h1>
+                    </div>
+                    <!-- entity_title -->
+                </div>
+                @endforelse
+
+                
                 <!-- entity_wrapper -->
 
                 <nav aria-label="Page navigation" class="pagination_section">

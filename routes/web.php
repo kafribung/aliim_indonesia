@@ -59,6 +59,9 @@ Route::get('/video-islam/{slug}', 'HomeController@show_video');
 Route::get('/belajar-artikel/{kategori}', 'HomeController@filter_artikel');
 Route::get('/belajar-video/{kategori}', 'HomeController@filter_video');
 
+// Search
+Route::get('/search/artikel', 'HomeController@search_artikel');
+
 // Motivasi
 Route::get('/motivasi', 'HomeController@motivasi');
 

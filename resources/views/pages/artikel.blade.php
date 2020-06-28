@@ -22,30 +22,6 @@
                     </div>
                     <!-- entity_meta -->
 
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-full"></i>
-                    </div>
-                    <!-- rating -->
-
-                    <div class="entity_social">
-                        <a href="#" class="icons-sm sh-ic">
-                            <i class="fa fa-share-alt"></i><b>424</b>
-                            <span class="share_ic">Shares</span>
-                        </a>
-                        <a href="#" class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a>
-                        <!--Twitter-->
-                        <a href="#" class="icons-sm tw-ic"><i class="fa fa-twitter"></i></a>
-                        <!--Google +-->
-                        <a href="#" class="icons-sm inst-ic"><i class="fa fa-instagram"> </i></a>
-                        
-                        <span class="arrow">&raquo;</span>
-                    </div>
-                    <!-- entity_social -->
-
                     <div class="entity_thumb">
                         <img class="img-responsive" src="{{ url($artikel->img) }}" title="Gambar {{$artikel->title}}" alt="Gambar {{$artikel->title}}" >
                     </div>

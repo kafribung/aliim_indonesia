@@ -318,9 +318,9 @@
                                 <a href="#"><img class="media-object" src="{{ url($artikel->img) }}" title="Gambar {{$artikel->title}}" alt="Gambar {{$artikel->title}}" width="122" height="122"></a>
                             </div>
                             <div class="media-body">
-                                <h3 class="media-heading">
+                                <h1 class="media-heading">
                                     <a href="/artikel-islam/{{$artikel->slug}}" target="_self">{{$artikel->title}}</a>
-                                </h3> 
+                                </h1> 
                                 <span class="media-date">
                                     <a href="#">{{$artikel->created_at->format('d-m-Y')}}</a>, by: 
                                     <a href="#">{{$artikel->user->name}}</a>
@@ -369,9 +369,9 @@
                     </div>
 
                     <div class="media-body">
-                        <h3 class="media-heading">
+                        <h1 class="media-heading">
                             <a href="/video-islam/{{$video->slug}}" target="_self">{{$video->title}}</a>
-                        </h3> 
+                        </h1> 
                         <span class="media-date">
                             <a href="#">{{$video->created_at->format('d-m-Y')}}</a>, by: 
                             <a href="#">{{$video->user->name}}</a>
