@@ -8,7 +8,7 @@
                 <div class="entity_wrapper">
                     <div class="entity_title">
                         <h1>
-                            <a href="#">{{$artikel->title}}</a>
+                            <a href="/artikel-islam/{{$artikel->slug}}">{{$artikel->title}}</a>
                         </h1>
                     </div>
                     <!-- entity_title -->
@@ -29,15 +29,7 @@
                     <!-- entity_rating -->
 
                     <div class="entity_social">
-                        <a href="#" class="icons-sm sh-ic">
-                            <i class="fa fa-share-alt"></i>
-                            <b>424</b> <span class="share_ic">Shares</span>
-                        </a>
-                        <a href="#" class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a>
-                        <!--Twitter-->
-                        <a href="#" class="icons-sm tw-ic"><i class="fa fa-twitter"></i></a>
-                        <!--Google +-->
-                        <a href="#" class="icons-sm inst-ic"><i class="fa fa-instagram"> </i></a>
+                        <div class="sharethis-inline-share-buttons"></div>
                     </div>
                     <!-- entity_social -->
 

@@ -7,7 +7,7 @@
             <div class="col-md-7">
                 <div class="feature_article_wrapper">
                     <div class="feature_article_img">
-                        <img class="img-responsive top_static_article_img" src="{{ url($artikel_1->img) }}" title="Gambar {{$artikel_1->title}}" alt="Gambar {{$artikel_1->title}}" width="955" height="832">
+                        <img class="img-responsive top_static_article_img" src="{{ url($artikel_1->img) }}" title="Gambar {{$artikel_1->title}}" alt="Gambar {{$artikel_1->title}}" width="832px" height="955px">
                     </div>
                     <!-- feature_article_img -->
 
@@ -49,10 +49,10 @@
 
             {{-- Top Viewd --}}
             @foreach ($artikel_2 as $artikel)
-            <div class="col-md-5">
+            <div class="col-md-5" style="margin-bottom: 20px">
                 <div class="feature_static_wrapper">
                     <div class="feature_article_img">
-                        <img class="img-responsive" src="{{ url($artikel->img)}}" alt="feature-top" title="Gambar {{$artikel->tttle}}" alt="Gambar {{$artikel->title}}" width="500" height="400">
+                        <img class="img-responsive" src="{{ url($artikel->img)}}" alt="feature-top" title="Gambar {{$artikel->tttle}}" alt="Gambar {{$artikel->title}}" width="670" height=395">
                     </div>
                     <!-- feature_article_img -->
 
@@ -72,7 +72,7 @@
                         <!-- feature_article_date -->
 
                         <div class="feature_article_content">
-                            {!! Str::limit($artikel->description, 200)  !!}
+                            {!! Str::limit($artikel->description, 100)  !!}
                         </div>
                         <!-- feature_article_content -->
 
@@ -107,6 +107,11 @@
         <div class="row">
             <div class="col-md-8">
                 <!-- Artikel Belajar Islam -->
+
+                @if (session('status'))
+                    <p class="alert alert-info">{{ session('status') }}</p> 
+                @endif
+
                 <div class="category_section mobile">
                     <div class="article_title header_purple">
                         <h2><a href="#" target="_self">Belajar Islam</a></h2>
@@ -280,26 +285,19 @@
 
                             <div class="col-md-6">
                                 <div class="top_article_img">
-                                    <a href="#" target="_self">
+                                    <a href="/motivasi" target="_self">
                                         <img class="img-responsive" src="{{url($motivasi->img)}}" alt="feature-top" width="400" height="200">
                                     </a>
                                 </div>
                                 <!-- top_article_img -->
                             </div>
                     @endforeach
-
-                           
                             <!-- col-md-7 -->
-
                         </div>
                         <!-- row -->
                     </div>
-
                     <!-- category_article_wrapper -->
-
                 
-                    <!-- category_article_wrapper -->
-
                     <p class="divider"><a href="#">More News&nbsp;&raquo;</a></p>
                 </div>
                 <!-- Motivasi -->

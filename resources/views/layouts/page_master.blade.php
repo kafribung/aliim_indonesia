@@ -7,7 +7,6 @@
 
     @include('includes.page_css')
 
-
     
 </head>
 
@@ -43,8 +42,6 @@
 
     </div>
     <!-- #main-wrapper -->
-
-
 
    @include('includes.page_script')
 

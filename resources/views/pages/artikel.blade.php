@@ -11,7 +11,7 @@
                 <div class="entity_wrapper">
                     <div class="entity_title">
                         <h1>
-                            <a href="single.html" target="_self">{{$artikel->title}}</a>
+                            <a href="/artikel-islam/{{$artikel->slug}}" target="_self">{{$artikel->title}}</a>
                         </h1>
                     </div>
                     <!-- entity_title -->
@@ -97,7 +97,7 @@
                             </div>
                             <div class="media-body">
                                 <h3 class="media-heading">
-                                    <a href="#" target="_self">{{$artikel->title}}</a>
+                                    <a href="/artikel-islam/{{$artikel->slug}}" target="_self">{{$artikel->title}}</a>
                                 </h3> 
                                 <span class="media-date">
                                     <a href="#">{{$artikel->created_at->format('d-m-Y')}}</a>, by: 
@@ -140,14 +140,35 @@
                     @foreach ($video_2 as $video)
                         
                     <div class="media">
-                        <div class="media-left">
+                        <div class="media-top">
                             <iframe class="media-object" src="{{$video->video}}" frameborder="0" allowfullscreen></iframe>
+                        </div>
+
+                        <div class="media-body">
+                            <h3 class="media-heading">
+                                <a href="/video-islam/{{$video->slug}}" target="_self">{{$video->title}}</a>
+                            </h3> 
+                            <span class="media-date">
+                                <a href="#">{{$video->created_at->format('d-m-Y')}}</a>, by: 
+                                <a href="#">{{$video->user->name}}</a>
+                            </span>
+    
+                            <div class="widget_article_social">
+                                <span>
+                                    <a href="#" target="_self"> <i
+                                            class="fa fa-share-alt"></i>424</a> Shares
+                                </span>
+                                <span>
+                                    <a href="#" target="_self"><i
+                                            class="fa fa-comments-o"></i>4</a> Comments
+                                </span>
+                            </div>
                         </div>
                         
                     </div>
 
                     @endforeach
-                  
+                
                     <p class="widget_divider"><a href="#" target="_self">More News&nbsp;&raquo;</a></p>
                 </div>
                 {{-- Video Terbaru --}}
@@ -157,6 +178,7 @@
                         <a href="{{$iklan->url}}" target="_blank"> <img class="img-responsive widget_img" src="{{url($iklan->img)}}" title="{{$iklan->title}}" alt="{{$iklan->title}}" width="200" height="100"></a>
                     </div>
                 @endforeach
+
 
             </div>
             <!-- Right Section -->
