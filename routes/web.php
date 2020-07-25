@@ -46,25 +46,29 @@ Route::group(['middleware' => 'auth'], function () {
     // Profile
     Route::get('/profile', 'HomeController@profile');
     Route::put('/profile/{id}','HomeController@profile_update' );
+
+    // Koment
+    Route::post('komentar-artikel/{id}', 'KomentArtikelController@store');
 });
 
 // Home
 Route::get('/', 'HomeController@index');
 
+// Filter
+Route::get('/belajar-artikel/{kategori}', 'HomeController@filter_artikel');
+Route::get('/belajar-video/{kategori}', 'HomeController@filter_video');
+
 // Single
 Route::get('/artikel-islam/{slug}', 'HomeController@show_artikel');
 Route::get('/video-islam/{slug}', 'HomeController@show_video');
 
-// Filter
-Route::get('/belajar-artikel/{kategori}', 'HomeController@filter_artikel');
-Route::get('/belajar-video/{kategori}', 'HomeController@filter_video');
+
 
 // Search
 Route::get('/search/artikel', 'HomeController@search_artikel');
 
 // Motivasi
 Route::get('/motivasi', 'HomeController@motivasi');
-
 
 
 // Core Laravel

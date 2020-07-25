@@ -153,7 +153,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="motivasi">Motivasi</a>
+                                <a href="/motivasi">Motivasi</a>
                             </li>
                             <li>
                                 <a href="#">Tanya Ustad</a>

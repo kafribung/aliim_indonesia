@@ -61,7 +61,7 @@
                                     <label for="gender" class="control-label mb-1">Jenis Kelamin</label>
                                     <select id="gender" name="gender"  class="form-control @error('gender') is-invalid @enderror"  required autocomplete="off">
                                         <option {{$admin->gender == 'Pria' ? 'selected' : ''}} value="Pria">Pria</option>
-                                        <option {{$admin->gender == 'Pria' ? 'selected' : ''}} value="Wanita">Wanita</option>
+                                        <option {{$admin->gender == 'Wanita' ? 'selected' : ''}} value="Wanita">Wanita</option>
                                     </select>
 
                                     @error('gender')

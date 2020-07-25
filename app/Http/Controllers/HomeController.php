@@ -107,7 +107,7 @@ class HomeController extends Controller
     // SHOW VIDEO
     public function show_video($slug)
     {
-        $video = Video::with('user', 'kategori_videos')->where('slug', $slug)->first();
+        $video   = Video::with('user', 'kategori_videos')->where('slug', $slug)->first();
         $hadist  =  Hadist::inRandomOrder()->first();
 
         // Artikel terbaru
@@ -133,7 +133,7 @@ class HomeController extends Controller
 
         $artikels = Artikel::with('user', 'kategori_artikels')->whereHas('kategori_artikels', function($query) use($kategori) {
             $query->where('title', $kategori);
-        })->get();
+        })->latest()->get();
 
         $hadist  =  Hadist::inRandomOrder()->first();
 
@@ -230,7 +230,7 @@ class HomeController extends Controller
         $kategori_artikels = KategoriArtikel::with('artikels')->get(); 
         $kategori_videos   = KategoriVideo::with('videos')->get(); 
 
-        return view('pages.motivasi', compact('motivasis', 'hadist' ,'artikel_5', 'iklan_1', 'iklan_2', 'video_2', 'kategori_artikels', 'kategori_videos')); 
+        return view('pages.motivasi', compact('motivasis', 'hadist' , 'artikel_5', 'iklan_1', 'iklan_2', 'video_2', 'kategori_artikels', 'kategori_videos')); 
     }
 
     // PROFILE 

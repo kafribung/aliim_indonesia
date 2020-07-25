@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8ddeb6ec6e9461274c9af68d927bc04",
+    "content-hash": "17b78c1b0cba3bac0dce570588bfc94e",
     "packages": [
         {
             "name": "anhskohbo/no-captcha",
@@ -163,6 +163,52 @@
                 "math"
             ],
             "time": "2020-04-15T15:59:35+00:00"
+        },
+        {
+            "name": "caouecs/laravel-lang",
+            "version": "7.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/caouecs/Laravel-lang.git",
+                "reference": "fe2872f7c2dd19afb11d83443a81ac9e8e4cb2b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/fe2872f7c2dd19afb11d83443a81ac9e8e4cb2b8",
+                "reference": "fe2872f7c2dd19afb11d83443a81ac9e8e4cb2b8",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*"
+            },
+            "suggest": {
+                "andrey-helldar/laravel-lang-publisher": "Easy installation and update of translation files for your project",
+                "arcanedev/laravel-lang": "Translations manager and checker for Laravel 5",
+                "overtrue/laravel-lang": "Command to add languages in your project"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "caouecs",
+                    "email": "caouecs@caouecs.net"
+                }
+            ],
+            "description": "Languages for Laravel",
+            "keywords": [
+                "lang",
+                "languages",
+                "laravel",
+                "lpm"
+            ],
+            "support": {
+                "issues": "https://github.com/caouecs/Laravel-lang/issues",
+                "source": "https://github.com/caouecs/Laravel-lang/tree/7.0.1"
+            },
+            "time": "2020-07-14T08:27:14+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -5533,5 +5579,6 @@
     "platform": {
         "php": "^7.2.5"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }
