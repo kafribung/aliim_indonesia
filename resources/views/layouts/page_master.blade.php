@@ -7,7 +7,7 @@
 
     @include('includes.page_css')
 
-    
+
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar">
@@ -15,10 +15,10 @@
         <!-- Page Preloader -->
         <div class="preloader">
             <div class="loading">
-              <img src="{{ asset('assets/img/spinner.gif') }}" width="80">
-              <p>Harap Tunggu</p>
+                <img src="{{ asset('assets/img/spinner.gif') }}" width="80">
+                <p>Harap Tunggu</p>
             </div>
-          </div>
+        </div>
 
         <!-- End preloader -->
 
@@ -43,7 +43,7 @@
     </div>
     <!-- #main-wrapper -->
 
-   @include('includes.page_script')
+    @include('includes.page_script')
 
 
 </body>

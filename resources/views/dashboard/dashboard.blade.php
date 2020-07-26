@@ -13,12 +13,12 @@
                     <div class="card-body">
                         <div class="stat-widget-five">
                             <div class="stat-icon dib flat-color-1">
-                                <i class="pe-7s-cash"></i>
+                                <i class="pe-7s-users"></i>
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text">$<span class="count">23569</span></div>
-                                    <div class="stat-heading">Revenue</div>
+                                    <div class="stat-text"><span class="count">{{ $user }}</span></div>
+                                    <div class="stat-heading">User</div>
                                 </div>
                             </div>
                         </div>
@@ -31,12 +31,12 @@
                     <div class="card-body">
                         <div class="stat-widget-five">
                             <div class="stat-icon dib flat-color-2">
-                                <i class="pe-7s-cart"></i>
+                                <i class="pe-7s-moon"></i>
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">3435</span></div>
-                                    <div class="stat-heading">Sales</div>
+                                    <div class="stat-text"><span class="count">{{ $ustad }}</span></div>
+                                    <div class="stat-heading">Ustad</div>
                                 </div>
                             </div>
                         </div>
@@ -49,12 +49,12 @@
                     <div class="card-body">
                         <div class="stat-widget-five">
                             <div class="stat-icon dib flat-color-3">
-                                <i class="pe-7s-browser"></i>
+                                <i class="pe-7s-users"></i>
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">349</span></div>
-                                    <div class="stat-heading">Templates</div>
+                                    <div class="stat-text"><span class="count">{{ $admin }}</span></div>
+                                    <div class="stat-heading">Admin</div>
                                 </div>
                             </div>
                         </div>
@@ -67,12 +67,52 @@
                     <div class="card-body">
                         <div class="stat-widget-five">
                             <div class="stat-icon dib flat-color-4">
-                                <i class="pe-7s-users"></i>
+                                <i class="pe-7s-notebook"></i>
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">2986</span></div>
-                                    <div class="stat-heading">Clients</div>
+                                    <div class="stat-text"><span class="count">{{ $article }}</span></div>
+                                    <div class="stat-heading">Artikel</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-5">
+                                <i class="pe-7s-next"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="text-left dib">
+                                    <div class="stat-text"><span class="count">{{ $video }}</span></div>
+                                    <div class="stat-heading">Video</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-6">
+                                <i class="pe-7s-news-paper"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="text-left dib">
+                                    <div class="stat-text"><span class="count">{{ $doa }}</span></div>
+                                    <div class="stat-heading">Doa & Hadist</div>
                                 </div>
                             </div>
                         </div>
@@ -88,7 +128,8 @@
                     <div class="card-body ">
                         <div class="stat-widget-five ">
                             <div class="stat-content  text-center">
-                                <h1>Selamat Datang {{$user->role == 1 ? 'Admin' : 'Ustad'}} {{$user->name}}</h1>
+                                <h1>Selamat Datang {{Auth::user()->role == 1 ? 'Admin' : 'Ustad'}}
+                                    {{auth()->user()->name}}</h1>
                                 <h3>Ini adalah halaman dashboard Aliim Indonesia</h3>
                                 <p>Berikan yang terbaik untuk agama bangsa dan negara</p>
                             </div>
@@ -103,5 +144,5 @@
     <!-- .animated -->
 </div>
 <!-- /.content -->
-    
+
 @endsection

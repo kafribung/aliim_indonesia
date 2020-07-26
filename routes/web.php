@@ -15,8 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 // ----------------------------------------------------------ADMIN
 Route::group(['middleware' => 'admin'], function () {
-
-
+    // Admin 
     Route::get('/dashboard', 'DashboardController@index');
     Route::resource('user', 'UserController');
     Route::resource('ustad', 'UstadController');
@@ -45,7 +44,7 @@ Route::get('/verification/{token}/{id}', 'Auth\RegisterController@verification')
 Route::group(['middleware' => 'auth'], function () {
     // Profile
     Route::get('/profile', 'HomeController@profile');
-    Route::put('/profile/{id}','HomeController@profile_update' );
+    Route::put('/profile/{id}', 'HomeController@profile_update');
 
     // Koment
     Route::post('komentar-artikel/{id}', 'KomentArtikelController@store');
@@ -72,9 +71,8 @@ Route::get('/motivasi', 'HomeController@motivasi');
 
 
 // Core Laravel
-Route::get('/logout', function(){
+Route::get('/logout', function () {
     return abort('404');
 });
 
 Auth::routes();
-
