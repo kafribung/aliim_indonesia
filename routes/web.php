@@ -1,18 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 // ----------------------------------------------------------ADMIN
 Route::group(['middleware' => 'admin'], function () {
     // Admin 
@@ -60,8 +48,6 @@ Route::get('/belajar-video/{kategori}', 'HomeController@filter_video');
 // Single
 Route::get('/artikel-islam/{slug}', 'HomeController@show_artikel');
 Route::get('/video-islam/{slug}', 'HomeController@show_video');
-
-
 
 // Search
 Route::get('/search/artikel', 'HomeController@search_artikel');

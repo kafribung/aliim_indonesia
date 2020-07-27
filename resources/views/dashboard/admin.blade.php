@@ -8,7 +8,7 @@
     <div class="animated fadeIn">
 
         @if (session('msg'))
-            <p class="alert alert-info">{{session('msg')}}</p>
+        <p class="alert alert-info">{{session('msg')}}</p>
         @endif
 
         <div class="row">
@@ -17,7 +17,8 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="box-title text-center">Admin Aliim</h4>
-                            <a href="/admin/create" class="btn btn-primary btn-sm float-right"><i class="fa fa-plus"></i></a>
+                            <a href="/admin/create" class="btn btn-primary btn-sm float-right"><i
+                                    class="fa fa-plus"></i></a>
                         </div>
                         <div class="table-stats">
                             <table class="table table-hover">
@@ -37,15 +38,16 @@
                                 </thead>
                                 <tbody>
                                     @php
-                                        $angkaAwal =  1
+                                    $angkaAwal = 1
                                     @endphp
                                     @foreach ($admins as $admin)
-                                        
+
                                     <tr>
                                         <td>{{$angkaAwal}}</td>
                                         <td class="avatar">
                                             <div class="round-img">
-                                                <img class="rounded-circle" src="{{url($admin->img)}}" alt="Foto {{$admin->name}}" title="Foto {{$admin->name}}">
+                                                <img class="rounded-circle" src="{{url($admin->img)}}"
+                                                    alt="Foto {{$admin->name}}" title="Foto {{$admin->name}}">
                                             </div>
                                         </td>
                                         <td>{{$admin->name}}</td>
@@ -54,13 +56,16 @@
                                         <td>{{$admin->gender}}</td>
                                         <td>{{$admin->provinci}}</td>
                                         <td>{{$admin->status == 1 ? 'Active' : 'Not Active'}}</td>
-                                        <td>{{($admin->role == 0) ? 'User' : (($admin->role == 1) ? 'Admin' : 'Ustad')}}</td>
+                                        <td>{{($admin->role == 0) ? 'User' : (($admin->role == 1) ? 'Admin' : 'Ustad')}}
+                                        </td>
                                         <td>
-                                            <a href="/admin/{{$admin->id}}/edit" class="btn btn-warning btn-sm {{$admin->status != 1 ? 'disabled' : ''}}"><i class="fa fa-edit"></i></a>
+                                            <a href="/admin/{{$admin->id}}/edit"
+                                                class="btn btn-warning btn-sm {{$admin->status != 1 ? 'disabled' : ''}}"><i
+                                                    class="fa fa-edit"></i></a>
                                         </td>
                                     </tr>
                                     @php
-                                        $angkaAwal++
+                                    $angkaAwal++
                                     @endphp
                                     @endforeach
 
@@ -77,5 +82,5 @@
     <!-- .animated -->
 </div>
 <!-- /.content -->
-    
+
 @endsection

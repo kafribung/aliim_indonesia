@@ -54,8 +54,8 @@ class User extends Authenticatable
     }
 
     //MUTATOR
-    public function getImgAttribute($value)
+    public function gettakeImgAttribute()
     {
-        return url('img_users', $value);
+        return url('storage', $this->img);
     }
 }

@@ -8,7 +8,7 @@
     <div class="animated fadeIn">
 
         @if (session('msg'))
-            <p class="alert alert-info">{{session('msg')}}</p>
+        <p class="alert alert-info">{{session('msg')}}</p>
         @endif
 
         <div class="row">
@@ -36,15 +36,16 @@
                                 </thead>
                                 <tbody>
                                     @php
-                                        $angkaAwal =  1
+                                    $angkaAwal = 1
                                     @endphp
                                     @foreach ($users as $user)
-                                        
+
                                     <tr>
                                         <td>{{$angkaAwal}}</td>
                                         <td class="avatar">
                                             <div class="round-img">
-                                                <img class="rounded-circle" src="{{url($user->img)}}" alt="Foto {{$user->name}}" title="Foto {{$user->name}}">
+                                                <img class="rounded-circle" src="{{url($user->img)}}"
+                                                    alt="Foto {{$user->name}}" title="Foto {{$user->name}}">
                                             </div>
                                         </td>
                                         <td>{{$user->name}}</td>
@@ -53,21 +54,25 @@
                                         <td>{{$user->gender}}</td>
                                         <td>{{$user->provinci}}</td>
                                         <td>{{$user->status == 1 ? 'Active' : 'Not Active'}}</td>
-                                        <td>{{($user->role == 0) ? 'User' : (($user->role == 1) ? 'Admin' : 'Ustad')}}</td>
+                                        <td>{{($user->role == 0) ? 'User' : (($user->role == 1) ? 'Admin' : 'Ustad')}}
+                                        </td>
                                         <td>
-                                            <a href="/user/{{$user->id}}/edit" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                            <a href="/user/{{$user->id}}/edit" class="btn btn-warning btn-sm"><i
+                                                    class="fa fa-edit"></i></a>
 
                                             <form action="/user/{{$user->id}}" method="POST" class="d-inline-flex">
                                                 @csrf
                                                 @method('DELETE')
 
-                                                <button type="submit" onclick="return confirm('Hapus Data {{$user->email}}?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                                <button type="submit"
+                                                    onclick="return confirm('Hapus Data {{$user->email}}?')"
+                                                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
                                             </form>
 
                                         </td>
                                     </tr>
                                     @php
-                                        $angkaAwal++
+                                    $angkaAwal++
                                     @endphp
                                     @endforeach
 
@@ -84,5 +89,5 @@
     <!-- .animated -->
 </div>
 <!-- /.content -->
-    
+
 @endsection
