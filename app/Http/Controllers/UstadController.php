@@ -41,19 +41,16 @@ class UstadController extends Controller
             return redirect('/ustad')->with('msg', 'Data Ustad Hanya Boleh 5');
         }
         $data = $request->all();
-
+        // Set Img
         if ($request->has('img')) {
             $img = $request->file('img');
             $data['img'] = $request->file('img')->storeAs('img_users', time() . '.' . $img->getClientOriginalExtension());
         }
-
         $data['password'] = Hash::make($request->password);
         $data['status']   = 1;
         $data['role']     = 2;
         $data['token']    = Str::random(30);
-
         User::create($data);
-
         return redirect('/ustad')->with('msg', 'Data Ustad Berhasil di Tambah');
     }
 
@@ -69,7 +66,6 @@ class UstadController extends Controller
         $ustad = User::findOrFail($id);
         $provincis = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
         $provincis->json();
-
         return view('dashboard_edit.ustad_edit', compact('ustad', 'provincis'));
     }
 
@@ -81,19 +77,18 @@ class UstadController extends Controller
             'name'     => ['required', 'string', 'max:255'],
             'email'    => ['required', 'string', 'email', 'max:255'],
         ]);
-
         $ustad = User::findOrFail($id);
-
+        // Set Img
         if ($request->has('img')) {
-            Storage::delete($ustad->img);
+            // Dont Delete IMG Default
+            if ($ustad->img != 'img_users/default_user.jpg') {
+                Storage::delete($ustad->img);
+            }
             $img = $request->file('img');
             $data['img'] = $request->file('img')->storeAs('img_users', time() . '.' . $img->getClientOriginalExtension());
         }
-
         $data['password'] = Hash::make($request->password);
-
         $ustad->update($data);
-
         return redirect('/ustad')->with('msg', 'Data Ustad Berhasil di Edit');
     }
 

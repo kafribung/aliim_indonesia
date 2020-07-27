@@ -88,7 +88,7 @@ class RegisterController extends Controller
             'bulan' => ['required'],
             'tahun' => ['required'],
             'gender' => ['required'],
-            'provinci'=> ['required'],
+            'provinci' => ['required'],
             'g-recaptcha-response' => ['required', 'captcha']
         ]);
     }
@@ -101,7 +101,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $tanggal = $data['tahun'] . '-' . $data['bulan']. '-' . $data['tanggal'];
+        $tanggal = $data['tahun'] . '-' . $data['bulan'] . '-' . $data['tanggal'];
 
         $user = User::create([
             'name' => $data['name'],
@@ -111,9 +111,9 @@ class RegisterController extends Controller
             'date_birth' => $tanggal,
             'gender' => $data['gender'],
             'provinci' => $data['provinci'],
-            ]);
+        ]);
 
-        Mail::to($user->email)->send(new EmailVerifikasi($user));
+        // Mail::to($user->email)->send(new EmailVerifikasi($user));
     }
 
     public function verification($token, $id)

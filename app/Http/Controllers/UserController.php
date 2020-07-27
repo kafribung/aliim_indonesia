@@ -1,17 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
 
-// Import User Request
-use App\Http\Requests\UserRequest;
-
-// Import Class Hash
-use Illuminate\Support\Facades\Hash;
-
-// Import DB User
 use App\Models\User;
 
+// Import User Request
+use Illuminate\Http\Request;
+
+// Import Class Hash
+use App\Http\Requests\UserRequest;
+
+// Import DB User
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -31,21 +33,22 @@ class UserController extends Controller
     //CREATE
     public function store(UserRequest $request)
     {
-        return abort('404'); 
+        return abort('404');
     }
 
     // SHOW
     public function show($id)
     {
-        return abort('404'); 
+        return abort('404');
     }
 
     // EDIT
     public function edit($id)
     {
         $user = User::findOrFail($id);
-
-        return view('dashboard_edit.user_edit', compact('user'));
+        $provincis = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
+        $provincis->json();
+        return view('dashboard_edit.user_edit', compact('user', 'provincis'));
     }
 
     // UPDATE
@@ -56,19 +59,26 @@ class UserController extends Controller
             'email'    => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:6']
         ]);
-
+        $user = User::findOrFail($id);
+        if ($request->has('img')) {
+            // Dont Delete IMG Default
+            if ($user->img != 'img_users/default_user.jpg') {
+                Storage::delete($user->img);
+            }
+            $img = $request->file('img');
+            $data['img'] = $request->file('img')->storeAs('img_users', time() . '.' . $img->getClientOriginalExtension());
+        }
         $data['password'] = Hash::make($request->password);
-
-        User::findOrFail($id)->update($data);
-
+        $user->update($data);
         return redirect('/user')->with('msg', 'Data User Berhasil di Edit');
     }
 
     // DELETE
     public function destroy($id)
     {
+        $user = User::findOrFail($id);
+        Storage::delete($user->img);
         User::destroy($id);
-
         return redirect('/user')->with('msg', 'Data User Berhasil di Hapus');
     }
 }

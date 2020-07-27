@@ -39,12 +39,11 @@
                                     $angkaAwal = 1
                                     @endphp
                                     @foreach ($users as $user)
-
                                     <tr>
                                         <td>{{$angkaAwal}}</td>
                                         <td class="avatar">
                                             <div class="round-img">
-                                                <img class="rounded-circle" src="{{url($user->img)}}"
+                                                <img class="rounded-circle" src="{{url($user->takeImg)}}"
                                                     alt="Foto {{$user->name}}" title="Foto {{$user->name}}">
                                             </div>
                                         </td>

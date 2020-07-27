@@ -54,7 +54,6 @@
                                     @endif
                                 </div>
 
-
                                 <div class="form-group">
                                     <label for="date_birth" class="control-label mb-1">Tgl Lahir</label>
                                     <input id="date_birth" name="date_birth" type="date"
