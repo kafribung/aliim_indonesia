@@ -17,8 +17,6 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="box-title text-center">Admin Aliim</h4>
-                            <a href="/admin/create" class="btn btn-primary btn-sm float-right"><i
-                                    class="fa fa-plus"></i></a>
                         </div>
                         <div class="table-stats">
                             <table class="table table-hover">
@@ -46,7 +44,7 @@
                                         <td>{{$angkaAwal}}</td>
                                         <td class="avatar">
                                             <div class="round-img">
-                                                <img class="rounded-circle" src="{{url($admin->img)}}"
+                                                <img class="rounded-circle" src="{{url($admin->takeImg)}}"
                                                     alt="Foto {{$admin->name}}" title="Foto {{$admin->name}}">
                                             </div>
                                         </td>
@@ -60,8 +58,9 @@
                                         </td>
                                         <td>
                                             <a href="/admin/{{$admin->id}}/edit"
-                                                class="btn btn-warning btn-sm {{$admin->status != 1 ? 'disabled' : ''}}"><i
-                                                    class="fa fa-edit"></i></a>
+                                                class="btn btn-warning btn-sm {{$admin->status != 1 ? 'disabled' : ''}}">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                     @php

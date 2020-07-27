@@ -82,17 +82,17 @@ class UstadController extends Controller
             'email'    => ['required', 'string', 'email', 'max:255'],
         ]);
 
-        $user = User::findOrFail($id);
+        $ustad = User::findOrFail($id);
 
         if ($request->has('img')) {
-            Storage::delete($user->img);
+            Storage::delete($ustad->img);
             $img = $request->file('img');
             $data['img'] = $request->file('img')->storeAs('img_users', time() . '.' . $img->getClientOriginalExtension());
         }
 
         $data['password'] = Hash::make($request->password);
 
-        $user->update($data);
+        $ustad->update($data);
 
         return redirect('/ustad')->with('msg', 'Data Ustad Berhasil di Edit');
     }
@@ -100,8 +100,8 @@ class UstadController extends Controller
     // DELETE
     public function destroy($id)
     {
-        $user = User::findOrFail($id);
-        Storage::delete($user->img);
+        $ustad = User::findOrFail($id);
+        Storage::delete($ustad->img);
         User::destroy($id);
 
         return redirect('/ustad')->with('msg', 'Data Ustad Berhasil di Hapus');

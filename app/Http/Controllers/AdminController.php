@@ -1,23 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
 
-// Import User Request
-use App\Http\Requests\UstadAdminRequest;
-
-// Import Class Hash
-use Illuminate\Support\Facades\Hash;
-
-// Import Class Str
-use Illuminate\Support\Str;
-
-// Import DB User
 use App\Models\User;
-
-// Import Class HTTP
+use App\Http\Requests\UstadAdminRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
-
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -31,43 +21,18 @@ class AdminController extends Controller
     //URL CREATE
     public function create()
     {
-        $provincis = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
-        $provincis->json();
-
-        return view('dashboard_create.admin_create', compact('provincis'));
+        return abort('404');
     }
 
     //CREATE
     public function store(UstadAdminRequest $request)
     {
-        // Batas Admin
-        if (User::where('role', 1)->count() >= 1) {
-            return redirect('/admin')->with('msg', 'Data Admin Hanya Boleh 1');
-        }
-
-        $data = $request->all();
-
-        if ($request->has('img')) {
-            $img =  $request->file('img');
-            $name= time(). '.'. $img->getClientOriginalExtension();
-            $img->move( public_path('img_users'), $name);
-            $data['img'] = $name;
-        }
-
-        $data['password'] = Hash::make($request->password);
-        $data['status']   = 1;
-        $data['role']     = 1;
-        $data['token']    = Str::random(30);
-
-        User::create($data);
-
-        return redirect('/admin')->with('msg', 'Data Ustad Berhasil di Tambah');
     }
 
     // SHOW
     public function show($id)
     {
-        return abort('404'); 
+        return abort('404');
     }
 
     // EDIT
@@ -76,7 +41,6 @@ class AdminController extends Controller
         $admin = User::findOrFail($id);
         $provincis = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
         $provincis->json();
-
         return view('dashboard_edit.admin_edit', compact('admin', 'provincis'));
     }
 
@@ -88,20 +52,18 @@ class AdminController extends Controller
             'name'     => ['required', 'string', 'max:255'],
             'email'    => ['required', 'string', 'email', 'max:255'],
         ]);
-
-        
+        $admin = User::findOrfail($id);
+        // Set Img
         if ($request->has('img')) {
-            $img =  $request->file('img');
-            $name= time(). '.'. $img->getClientOriginalExtension();
-            $img->move( public_path('img_users'), $name);
-            $data['img'] = $name;
+            // Dont Delete IMG Default
+            if ($admin->img != 'img_users/default_user.jpg') {
+                Storage::delete($admin->img);
+            }
+            $img = $request->file('img');
+            $data['img'] = $request->file('img')->storeAs('img_users', time() . '.' . $img->getClientOriginalExtension());
         }
-
-        
         $data['password'] = Hash::make($request->password);
-
-        User::findOrFail($id)->update($data);
-
+        $admin->update($data);
         return redirect('/admin')->with('msg', 'Data Admin Berhasil di Edit');
     }
 
