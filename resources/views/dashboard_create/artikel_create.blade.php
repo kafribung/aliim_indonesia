@@ -44,7 +44,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="kategori" class="control-label mb-1">Kategori</label>
+                                    <label for="kategori" class="control-label mb-1">Kategori (Ctrl + Shift )</label>
 
                                     <select id="kategori" name="kategori[]"
                                         class="form-control @error('kategori') is-invalid @enderror" multiple required>

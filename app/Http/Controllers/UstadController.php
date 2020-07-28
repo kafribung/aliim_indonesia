@@ -3,17 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// Import User Request
 use App\Http\Requests\UstadAdminRequest;
-// Import Class Hash
-use Illuminate\Support\Facades\Hash;
-// Import Class Str
 use Illuminate\Support\Str;
-// Import DB User
 use App\Models\User;
-// Import Class HTTP
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\{Storage, Http, Hash};
 
 class UstadController extends Controller
 {

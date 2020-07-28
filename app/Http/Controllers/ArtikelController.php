@@ -1,11 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-// Import Class Request Artikel
+
 use Illuminate\Support\Str;
-// Import Class STR
 use App\Http\Requests\ArtikelRequest;
-// Import Model Artikel & KategoriArtikel
 use Illuminate\Support\Facades\Storage;
 use App\Models\{Artikel, KategoriArtikel};
 
@@ -14,7 +12,7 @@ class ArtikelController extends Controller
     // READ
     public function index()
     {
-        $artikels = Artikel::with('kategori_artikels')->orderBy('id', 'desc')->get();
+        $artikels = Artikel::with('kategori_artikels', 'user')->orderBy('id', 'desc')->get();
         return view('dashboard.artikel', compact('artikels'));
     }
 
@@ -62,7 +60,9 @@ class ArtikelController extends Controller
         $data = $request->all();
         // Store Img
         if ($img = $request->file('img')) {
-            Storage::delete($artikel->img);
+            if ($artikel->img != 'img_artikels/default_artikel.jpg') {
+                Storage::delete($artikel->img);
+            }
             $data['img'] = $request->file('img')->storeAs('img_artikels', time() . '.' . $img->getClientOriginalExtension());
         }
         $data_slug = Str::slug($request->title);
@@ -77,7 +77,9 @@ class ArtikelController extends Controller
     public function destroy($id)
     {
         $artikel = Artikel::findOrFail($id);
-        Storage::delete($artikel->img);
+        if ($artikel->img != 'img_artikels/default_artikel.jpg') {
+            Storage::delete($artikel->img);
+        }
         Artikel::destroy($id);
         return redirect('/artikel')->with('msg', 'Data Artikel Berhasil dihapus');
     }

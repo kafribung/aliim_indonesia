@@ -26,8 +26,8 @@ class VideoRequest extends FormRequest
         return [
             'title'      => ['required', 'string', 'min:3', 'max:255', 'unique:videos'],
             'video'      => ['required', 'min:3', 'max:255', 'url'],
-            'kategori'   => ['required', 'string'],
-            'description'=> ['required'],
+            'kategori'   => ['required', 'array'],
+            'description' => ['required'],
         ];
     }
 }

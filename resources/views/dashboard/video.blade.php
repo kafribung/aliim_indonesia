@@ -2,57 +2,67 @@
 @section('title', 'Video | Aliim Indonesia')
 @section('content')
 
- <!-- Content -->
+<!-- Content -->
 <div class="content">
-    
+
     <!-- Animated -->
     <div class="animated fadeIn">
 
         @if (session('msg'))
-            <p class="alert alert-info">{{session('msg')}}</p>
+        <p class="alert alert-info">{{session('msg')}}</p>
         @endif
 
         <div class="row">
-             @foreach ($videos as $video)
-                <div class="col-md-3">
-                    <aside class="profile-nav alt">
-                        <section class="card">
-                            <div class="card-header">
-                                @foreach ($video->kategori_videos as $kategori)
-                                    <h6 class="badge badge-primary">{{$kategori->title}}</h6>
-                                @endforeach
-                                <strong class="card-title mb-3">{{$video->title}}</strong>
-                            </div>
-                            <div class="card-header alt bg-dark">
-                                <iframe class="align-self-center p-2" style="width:240px; height:200px;" alt="video" src="{{$video->video}}" frameborder="0"></iframe>
-                            </div>
-                            <div class="card-body">
-                                {!! Str::limit($video->description, 100) !!}
-                            </div>
-                            <hr>
+            @foreach ($videos as $video)
+            <div class="col-md-3">
+                <aside class="profile-nav alt">
+                    <section class="card">
+                        <div class="card-header">
+                            @foreach ($video->kategori_videos as $kategori)
+                            <p class="badge badge-primary">{{$kategori->title}}</p>
+                            @endforeach
+                            <h6 class="card-title mb-3">{{$video->title}}</h6>
+                        </div>
+                        <div class="card-header alt bg-dark">
+                            <iframe class="align-self-center p-2" style="width:240px; height:200px;" alt="video"
+                                src="{{$video->video}}" frameborder="0"></iframe>
+                        </div>
+                        <div class="card-body">
+                            {!! Str::limit($video->description, 80) !!}
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-end">
+                            <small>{{ $video->user->name }} | </small>
+                            <small>{{ $video->created_at->diffForHumans() }}</small>
+                        </div>
+                        <hr>
 
-                            @if ($video->author())
-                                <div class="card-text text-sm-center">
-                                    <a href="/video/{{$video->slug}}/edit" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                        @if ($video->author())
+                        <div class="card-text text-sm-center">
+                            <a href="/video/{{$video->slug}}/edit" class="btn btn-outline-warning btn-sm">
+                                <i class="fa fa-edit"></i>
+                            </a>
 
-                                    <form action="/video/{{$video->id}}" method="POST" class="d-inline-flex">
-                                        @csrf
-                                        @method('DELETE')
+                            <form action="/video/{{$video->id}}" method="POST" class="d-inline-flex">
+                                @csrf
+                                @method('DELETE')
 
-                                        <button type="submit" onclick="return confirm('Hapus Data {{$video->title}} ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
-                                    </form>
-                                </div>
-                            @endif
+                                <button type="submit" onclick="return confirm('Hapus Data {{$video->title}} ?')"
+                                    class="btn btn-outline-danger btn-sm">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
+                        </div>
+                        @endif
 
-                        </section>
-                    </aside>
-                </div>
-             @endforeach
+                    </section>
+                </aside>
+            </div>
+            @endforeach
         </div>
-        
+
     </div>
     <!-- .animated -->
 </div>
-<!-- /.content -->   
+<!-- /.content -->
 @endsection
-

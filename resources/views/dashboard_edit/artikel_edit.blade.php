@@ -42,13 +42,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="kategori" class="control-label mb-1">Kategori</label>
+                                    <label for="kategori" class="control-label mb-1">Kategori (Ctrl + Shift )</label>
 
                                     <select id="kategori" name="kategori[]"
                                         class="form-control @error('kategori') is-invalid @enderror" required multiple>
                                         <optgroup label="Old Kategori">
                                             @foreach ($artikel->kategori_artikels as $kategori)
-                                            <option {{old('kategori') == $kategori->id ? 'selected' : ''}} disabled>
+                                            <option disabled>
                                                 {{$kategori->title}}
                                             </option>
                                             @endforeach

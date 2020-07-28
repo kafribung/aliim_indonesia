@@ -3,17 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-
-// Import User Request
 use Illuminate\Http\Request;
-
-// Import Class Hash
 use App\Http\Requests\UserRequest;
-
-// Import DB User
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\{Storage, Hash, Http};
 
 class UserController extends Controller
 {

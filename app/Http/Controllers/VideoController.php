@@ -2,23 +2,16 @@
 
 namespace App\Http\Controllers;
 
-// Import Class Request
-use App\Http\Requests\VideoRequest;
-// Import Class STR
 use Illuminate\Support\Str;
-// Import DB Video
-use App\Models\Video;
-// Import DB KategoriVideo
-use App\Models\KategoriVideo;
-
+use App\Http\Requests\VideoRequest;
+use App\Models\{Video, KategoriVideo};
 
 class VideoController extends Controller
 {
     // READ
     public function index()
     {
-        $videos = Video::with('kategori_videos')->orderBy('id', 'desc')->get();
-
+        $videos = Video::with('kategori_videos', 'user')->orderBy('id', 'desc')->get();
         return view('dashboard.video', compact('videos'));
     }
 
@@ -26,27 +19,18 @@ class VideoController extends Controller
     public function create()
     {
         $kategoris = KategoriVideo::latest()->get();
-
         return view('dashboard_create.video_create', compact('kategoris'));
     }
 
     // STORE
     public function store(VideoRequest $request)
     {
-        $data_slug = Str::slug($request->title);
-
-        $video = $request->user()->videos()->create([
-            'title' => $request->title,
-            'video' => $request->video,
-            'description' => $request->description,
-            'slug'        => $data_slug,
-        ]);
-
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->title);
+        // Eloquet Store Video
+        $video = $request->user()->videos()->create($data);
         // Store Data Kategori(Mani to Many)
-        $kategoris = $request->kategori;
-
-        $video->kategori_videos()->attach($kategoris);
-
+        $video->kategori_videos()->attach($request->kategori);
         return redirect('/video')->with('msg', 'Data Video Berhasil ditambahkan ');
     }
 
@@ -61,36 +45,26 @@ class VideoController extends Controller
     {
         $video =  Video::where('slug', $slug)->first();
         $kategoris = KategoriVideo::latest()->get();
-
         return view('dashboard_edit.video_edit', compact('video', 'kategoris'));
     }
 
     // UPDATE
     public function update(VideoRequest $request, $id)
     {
-        $data_slug = Str::slug($request->title);
-
-        Video::findOrFail($id)->update([
-            'title' => $request->title,
-            'video' => $request->video,
-            'description' => $request->description,
-            'slug'        => $data_slug,
-        ]);
-
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->title);
+        $video = Video::findOrFail($id);
+        // Eloquet Update Video
+        $video->update($data);
         // Store Data Kategori(Mani to Many)
-        $kategoris = $request->kategori;
-        $video= Video::findOrFail($id);
-
-        $video->kategori_videos()->sync($kategoris);
-
-        return redirect('/video')->with('msg', 'Data Video Berhasil diupdate ');
+        $video->kategori_videos()->sync($request->kategori);
+        return redirect('/video')->with('msg', 'Data Video Berhasil diupdate');
     }
 
     // DELETE
     public function destroy($id)
     {
         Video::destroy($id);
-
-        return redirect('/vidoe')->with('msg', 'Data Video Berhasil dihapus');
+        return redirect('/video')->with('msg', 'Data Video Berhasil dihapus');
     }
 }

@@ -7,8 +7,8 @@ use Auth;
 
 class Video extends Model
 {
-    protected $touhches= ['user'];
-    protected $guarded = ['created_at', 'updated_at'];
+    protected $touhches = ['user'];
+    protected $fillable = ['title', 'description', 'video', 'slug'];
 
     // RELATION MANY TO ONE (USER)
     public function user()
@@ -25,7 +25,7 @@ class Video extends Model
     // AUTHOR
     public function author()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
             return Auth::user()->id == $this->user_id;
         } else return false;
     }
