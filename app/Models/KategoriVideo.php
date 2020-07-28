@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class KategoriVideo extends Model
 {
-    protected $guarded = ['created_at', 'updated_at'];
-    
+    protected $fillable = ['title'];
+
     // RELATION MANY to MANY (KategoriVideo)
     public function videos()
     {

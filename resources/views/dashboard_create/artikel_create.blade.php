@@ -8,7 +8,7 @@
     <div class="animated fadeIn">
 
         @if (session('msg'))
-            <p class="alert alert-info">{{session('msg')}}</p>
+        <p class="alert alert-info">{{session('msg')}}</p>
         @endif
 
         <div class="row">
@@ -23,43 +23,53 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="title" class="control-label mb-1">Judul</label>
-                                    <input id="title" name="title" type="text" class="form-control @error('title') is-invalid @enderror" autofocus  autocomplete="off" value="{{old('title')}}">
+                                    <input id="title" name="title" type="text"
+                                        class="form-control @error('title') is-invalid @enderror" autofocus
+                                        autocomplete="off" required value="{{old('title')}}">
 
                                     @error('title')
-                                        <p class="alert alert-danger">{{$message}}</p>
+                                    <p class="alert alert-danger">{{$message}}</p>
                                     @enderror
                                 </div>
 
                                 <div class="form-group">
                                     <label for="img" class="control-label mb-1">Gambar</label>
-                                    <input id="img" name="img" type="file" class="form-control @error('img') is-invalid @enderror"   accept="image/*">
+                                    <input id="img" name="img" type="file"
+                                        class="form-control @error('img') is-invalid @enderror" required
+                                        accept="image/*">
 
                                     @if ($errors->has('img'))
-                                        <p class="alert alert-danger">{{$errors->first('img')}}</p>
+                                    <p class="alert alert-danger">{{$errors->first('img')}}</p>
                                     @endif
                                 </div>
 
                                 <div class="form-group">
                                     <label for="kategori" class="control-label mb-1">Kategori</label>
 
-                                    <select id="kategori" name="kategori" class="form-control @error('kategori') is-invalid @enderror"  autocomplete="off">
+                                    <select id="kategori" name="kategori[]"
+                                        class="form-control @error('kategori') is-invalid @enderror" multiple required>
                                         @foreach ($kategoris as $kategori)
-                                            <option value="{{$kategori->id}}">{{$kategori->title}}</option>
+                                        <option {{ old('kategori') ? 'selected' : '' }} value="{{ $kategori->id }}">
+                                            {{$kategori->title}}
+                                        </option>
                                         @endforeach
                                     </select>
 
                                     @error('kategori')
-                                        <p class="alert alert-danger">{{$message}}</p>
+                                    <p class="alert alert-danger">{{$message}}</p>
                                     @enderror
                                 </div>
 
-
                                 <div class="form-group">
                                     <label for="description" class="control-label mb-1">Deskripsi</label>
-                                    <textarea id="description" name="description" class="form-control ckeditor @error('description') is-invalid @enderror"  >{{old('description')}}</textarea>
+                                    <textarea id="description" name="description"
+                                        class="form-control ckeditor @error('description') is-invalid @enderror"
+                                        required>
+                                        {{old('description')}}
+                                    </textarea>
 
                                     @error('description')
-                                        <p class="alert alert-danger">{{$message}}</p>
+                                    <p class="alert alert-danger">{{$message}}</p>
                                     @enderror
                                 </div>
 
@@ -79,6 +89,9 @@
 </div>
 <!-- /.content -->
 
+
+
+
 @push('after_script')
 <script src="https://cdn.ckeditor.com/ckeditor5/19.1.1/classic/ckeditor.js"></script>
 <script>
@@ -93,4 +106,3 @@
 </script>
 @endpush
 @endsection
-

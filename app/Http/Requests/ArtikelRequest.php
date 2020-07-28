@@ -26,8 +26,8 @@ class ArtikelRequest extends FormRequest
         return [
             'title'      => ['required', 'string', 'min:3', 'max:255', 'unique:artikels'],
             'img'        => ['required', 'mimes:png,jpg,jpeg'],
-            'kategori'   => ['required', 'string'],
-            'description'=> ['required'],
+            'kategori'   => ['required', 'array'],
+            'description' => ['required'],
         ];
     }
 }

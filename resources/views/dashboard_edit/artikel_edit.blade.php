@@ -17,53 +17,69 @@
                         <div class="card-body">
                             <form action="/artikel/{{$artikel->id}}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                @method('PUT')
+                                @method('PATCH')
                                 <div class="form-group">
                                     <label for="title" class="control-label mb-1">Judul</label>
-                                    <input id="title" name="title" type="text" class="form-control @error('title') is-invalid @enderror" autofocus required autocomplete="off" value="{{old('title')?old('title') : $artikel->title}}">
+                                    <input id="title" name="title" type="text"
+                                        class="form-control @error('title') is-invalid @enderror" autofocus required
+                                        autocomplete="off" value="{{old('title')?old('title') : $artikel->title}}">
 
                                     @error('title')
-                                        <p class="alert alert-danger">{{$message}}</p>
+                                    <p class="alert alert-danger">{{$message}}</p>
                                     @enderror
                                 </div>
 
                                 <div class="form-group">
                                     <label for="img" class="control-label mb-1">Gambar</label>
-                                    <img src="{{url($artikel->img)}}" alt="Gambar {{$artikel->slug}}" title="{{$artikel->slug}}" width="200" height="200">
-                                    <input id="img" name="img" type="file" class="form-control @error('img') is-invalid @enderror" accept="image/*">
+                                    <img src="{{ url($artikel->takeImg) }}" alt="Gambar {{$artikel->slug}}"
+                                        title="{{$artikel->slug}}" width="200" height="200">
+                                    <input id="img" name="img" type="file"
+                                        class="form-control @error('img') is-invalid @enderror" accept="image/*">
 
                                     @if ($errors->has('img'))
-                                        <p class="alert alert-danger">{{$errors->first('img')}}</p>
+                                    <p class="alert alert-danger">{{$errors->first('img')}}</p>
                                     @endif
                                 </div>
 
                                 <div class="form-group">
                                     <label for="kategori" class="control-label mb-1">Kategori</label>
 
-                                    @foreach ($artikel->kategori_artikels as $old)
-                                        <select id="kategori" name="kategori" class="form-control @error('kategori') is-invalid @enderror" required autocomplete="off">
-                                            @foreach ($kategoris as $kategori)
-                                                <option {{$old->id == $kategori->id ? 'selected' : ''}} value="{{$kategori->id}}">{{$kategori->title}}</option>
+                                    <select id="kategori" name="kategori[]"
+                                        class="form-control @error('kategori') is-invalid @enderror" required multiple>
+                                        <optgroup label="Old Kategori">
+                                            @foreach ($artikel->kategori_artikels as $kategori)
+                                            <option {{old('kategori') == $kategori->id ? 'selected' : ''}} disabled>
+                                                {{$kategori->title}}
+                                            </option>
                                             @endforeach
-                                        </select>
-                                    @endforeach
+
+                                            @foreach ($kategoris as $kategori)
+                                            <option {{$kategori->id ? 'selected' : ''}} value="{{$kategori->id}}">
+                                                {{$kategori->title}}</option>
+                                            @endforeach
+                                    </select>
 
                                     @error('kategori')
-                                        <p class="alert alert-danger">{{$message}}</p>
+                                    <p class="alert alert-danger">{{$message}}</p>
                                     @enderror
                                 </div>
 
                                 <div class="form-group">
                                     <label for="description" class="control-label mb-1">Deskripsi</label>
-                                    <textarea id="description" name="description" class="form-control ckeditor @error('description') is-invalid @enderror"  >{{old('description') ? old('description') : $artikel->description}}</textarea>
+                                    <textarea id="description" name="description"
+                                        class="form-control ckeditor @error('description') is-invalid @enderror"
+                                        required>
+                                        {{old('description') ?? $artikel->description}}
+                                    </textarea>
 
                                     @error('description')
-                                        <p class="alert alert-danger">{{$message}}</p>
+                                    <p class="alert alert-danger">{{$message}}</p>
                                     @enderror
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-md btn-warning btn-block">Update Artikel</button>
+                                    <button type="submit" class="btn btn-md btn-warning btn-block">Update
+                                        Artikel</button>
                                 </div>
                             </form>
                         </div>
