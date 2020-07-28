@@ -13,8 +13,6 @@ $factory->define(Artikel::class, function (Faker $faker) {
             'slug' => \Str::slug($faker->sentence()),
             'img'  => 'img_artikels/default_artikel.jpg',
             'user_id' => 1,
-            'created_at' => now(),
-            'updated_at' => now(),
         ])
     ];
 });
