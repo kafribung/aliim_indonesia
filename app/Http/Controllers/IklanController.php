@@ -2,14 +2,9 @@
 
 namespace App\Http\Controllers;
 
-// Import Class IklanRequest
 use App\Http\Requests\IklanRequest;
-
-// Import DB Iklan
 use App\Models\Iklan;
-
-// Import Class File
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class IklanController extends Controller
 {
@@ -17,7 +12,6 @@ class IklanController extends Controller
     public function index()
     {
         $iklans = Iklan::latest()->get();
-
         return view('dashboard.iklan', compact('iklans'));
     }
 
@@ -31,17 +25,10 @@ class IklanController extends Controller
     public function store(IklanRequest $request)
     {
         $data = $request->all();
-
-        if ($request->has('img')) {
-            $img = $request->file('img');
-            $name= time().'.'. $img->getClientOriginalExtension();
-            $img->move(public_path('img_iklans'), $name);
-
-            $data['img'] = $name;
+        if ($img = $request->file('img')) {
+            $data['img'] = $img->storeAs('img_iklans', time() . '.' . $img->getClientOriginalExtension());
         }
-
         Iklan::create($data);
-
         return redirect('/iklan')->with('msg', 'Data Iklan Berhasil di Tambahkan');
     }
 
@@ -55,7 +42,6 @@ class IklanController extends Controller
     public function edit($id)
     {
         $iklan = Iklan::findOrFail($id);
-
         return view('dashboard_edit.iklan_edit', compact('iklan'));
     }
 
@@ -63,29 +49,25 @@ class IklanController extends Controller
     public function update(IklanRequest $request, $id)
     {
         $data = $request->all();
-
-        if ($request->has('img')) {
-            $img = $request->file('img');
-            $name= time().'.'. $img->getClientOriginalExtension();
-            $img->move(public_path('img_iklans'), $name);
-
-            $data['img'] = $name;
+        $iklan = Iklan::findOrFail($id);
+        if ($img = $request->file('img')) {
+            if ($iklan->img != 'img_iklans/default_iklan.jpg') {
+                Storage::delete($iklan->img);
+            }
+            $data['img'] = $img->storeAs('img_iklans', time() . '.' . $img->getClientOriginalExtension());
         }
-
-        Iklan::findOrFail($id)->update($data);
-
+        $iklan->update($data);
         return redirect('/iklan')->with('msg', 'Data Iklan Berhasil di Edit');
     }
 
     // DELETE
     public function destroy($id)
     {
-        $img = Iklan::findOrFail($id);
-
-        $name = unlink($img->img);
-
-        File::delete(public_path('img_iklans'), $name);
-
+        $iklan = Iklan::findOrFail($id);
+        if ($iklan->img != 'img_iklans/default_iklan.jpg') {
+            Storage::delete($iklan->img);
+        }
+        Iklan::destroy($id);
         return redirect('/iklan')->with('msg', 'Data Iklan Berhasil di Hapus');
     }
 }

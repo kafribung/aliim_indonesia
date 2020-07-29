@@ -7,12 +7,10 @@ use Faker\Generator as Faker;
 
 $factory->define(Artikel::class, function (Faker $faker) {
     return [
-        Artikel::create([
-            'title' => $faker->sentence(),
-            'description' => $faker->paragraph(),
-            'slug' => \Str::slug($faker->sentence()),
-            'img'  => 'img_artikels/default_artikel.jpg',
-            'user_id' => 1,
-        ])
+        'title' => $faker->sentence(),
+        'description' => $faker->paragraph(),
+        'slug' => \Str::slug($faker->sentence()),
+        'img'  => 'img_artikels/default_artikel.jpg',
+        'user_id' => 1,
     ];
 });

@@ -9,8 +9,8 @@ class Iklan extends Model
     protected $guarded = ['created_at', 'updated_at'];
 
     // Mutator
-    public function getImgAttribute($value)
+    public function getTakeImgAttribute()
     {
-        return url('img_iklans', $value);
+        return url('storage', $this->img);
     }
 }
