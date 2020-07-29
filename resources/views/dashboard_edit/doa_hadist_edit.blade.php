@@ -8,7 +8,7 @@
     <div class="animated fadeIn">
 
         @if (session('msg'))
-            <p class="alert alert-info">{{session('msg')}}</p>
+        <p class="alert alert-info">{{session('msg')}}</p>
         @endif
 
         <div class="row">
@@ -24,25 +24,31 @@
                                 @method('PUT')
                                 <div class="form-group">
                                     <label for="title" class="control-label mb-1">Judul</label>
-                                    <input id="title" name="title" type="text" class="form-control @error('title') is-invalid @enderror" autofocus required autocomplete="off" value="{{old('title') ? old('title') : $doa->title}}">
+                                    <input id="title" name="title" type="text"
+                                        class="form-control @error('title') is-invalid @enderror" autofocus required
+                                        autocomplete="off" value="{{old('title') ? old('title') : $doa->title}}">
 
                                     @error('title')
-                                        <p class="alert alert-danger">{{$message}}</p>
+                                    <p class="alert alert-danger">{{$message}}</p>
                                     @enderror
                                 </div>
 
                                 <div class="form-group">
                                     <label for="img" class="control-label mb-1">Gambar</label>
-                                    <img src="{{url($doa->img)}}" alt="Gambar {{$doa->slug}}" title="{{$doa->slug}}" width="200" height="200">
-                                    <input id="img" name="img" type="file" class="form-control @error('img') is-invalid @enderror"  autocomplete="off" accept="image/*">
+                                    <img src="{{url($doa->takeImg)}}" alt="Gambar {{$doa->slug}}" title="{{$doa->slug}}"
+                                        width="200" height="200">
+                                    <input id="img" name="img" type="file"
+                                        class="form-control @error('img') is-invalid @enderror" autocomplete="off"
+                                        accept="image/*">
 
                                     @error('img')
-                                        <p class="alert alert-danger">{{$message}}</p>
+                                    <p class="alert alert-danger">{{$message}}</p>
                                     @enderror
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-md btn-warning btn-block">Update Doa Hadist</button>
+                                    <button type="submit" class="btn btn-md btn-warning btn-block">Update Doa
+                                        Hadist</button>
                                 </div>
 
                             </form>
@@ -57,6 +63,5 @@
     <!-- .animated -->
 </div>
 <!-- /.content -->
-    
-@endsection
 
+@endsection

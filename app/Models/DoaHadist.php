@@ -9,24 +9,24 @@ class DoaHadist extends Model
 {
     protected $touches  = ['user'];
     protected $fillable = ['img', 'title', 'slug'];
-    
-     // RELATION MANY  TO  ONE (USER)
-     public function user()
-     {
-         return $this->belongsTo('App\Models\User');
-     }
+
+    // RELATION MANY  TO  ONE (USER)
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 
     // AUTHOR
     public function author()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
             return Auth::user()->id == $this->user_id;
         } else return false;
     }
 
     // MUTATOR
-    public function getImgAttribute($value)
+    public function getTakeImgAttribute()
     {
-        return url('img_doa_hadists', $value);
+        return url('storage', $this->img);
     }
 }
