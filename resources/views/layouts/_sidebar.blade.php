@@ -1,11 +1,13 @@
-  <!-- Left Panel -->
-  <aside id="left-panel" class="left-panel">
+<!-- Left Panel -->
+<aside id="left-panel" class="left-panel">
     <nav class="navbar navbar-expand-sm navbar-default">
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="{{Request::segment(1) == 'dashboard' ? 'active' : ''}}">
                     <a href="/dashboard"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                 </li>
+
+                @if (auth()->user()->role != 2)
                 <li class="menu-title">Manajemen</li>
                 <!-- /.menu-title -->
                 <li class="{{Request::segment(1) == 'user' ? 'active' : ''}}">
@@ -17,6 +19,8 @@
                 <li class="{{Request::segment(1) == 'admin' ? 'active' : ''}}">
                     <a href="/admin"> <i class="menu-icon ti-crown"></i>Admin</a>
                 </li>
+                @endif
+
 
                 <li class="menu-title">Artikel</li>
 
@@ -44,6 +48,7 @@
                     <a href="/video/create"> <i class="menu-icon ti-control-play"></i>Tambah Video</a>
                 </li>
 
+                @if (auth()->user()->role != 2)
                 <li class="menu-title">Doa & Hadist</li>
                 <!-- /.menu-title -->
 
@@ -62,6 +67,8 @@
                 <li class="{{Request()->segment(1) == 'hadist' ? 'active' : ''}}">
                     <a href="/hadist"> <i class="menu-icon ti-shield"></i>Hadis Harian</a>
                 </li>
+                @endif
+
 
                 <li class="menu-title">Komentar</li>
                 <!-- /.menu-title -->

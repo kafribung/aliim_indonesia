@@ -37,20 +37,27 @@
                         </div>
                         <hr>
 
-                        @if ($artikel->author())
+                        {{-- Auth Lama --}}
+                        {{-- @if ($artikel->author())
+                        @endif --}}
+
                         <div class="card-text text-sm-center">
+                            @can('edit', $artikel)
                             <a href="/artikel/{{$artikel->slug}}/edit" class="btn btn-outline-warning btn-sm">
                                 <i class="fa fa-edit"></i>
                             </a>
+                            @endcan
 
+                            @can('delete', $artikel)
                             <form action="/artikel/{{$artikel->id}}" method="POST" class="d-inline-flex">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" onclick="return confirm('Hapus Data {{$artikel->title}} ?')"
                                     class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
                             </form>
+                            @endcan
+
                         </div>
-                        @endif
 
                     </section>
                 </aside>

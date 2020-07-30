@@ -5,9 +5,9 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'admin'], function () {
     // Admin 
     Route::get('/dashboard', 'DashboardController@index');
-    Route::resource('user', 'UserController');
-    Route::resource('ustad', 'UstadController');
-    Route::resource('admin', 'AdminController');
+    Route::resource('user', 'UserController')->middleware('tolak.ustad');
+    Route::resource('ustad', 'UstadController')->middleware('tolak.ustad');
+    Route::resource('admin', 'AdminController')->middleware('tolak.ustad');
 
     // Artikel 
     Route::resource('artikel', 'ArtikelController');
@@ -18,11 +18,11 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('kategori-video', 'KategoriVideoController');
 
     // Doa & Motivasi
-    Route::resource('/doa-hadist', 'DoaHadistController');
+    Route::resource('/doa-hadist', 'DoaHadistController')->middleware('tolak.ustad');
 
     // Plugin (Iklan dan Hadist Harian)
-    Route::resource('iklan', 'IklanController');
-    Route::resource('hadist', 'HadistController');
+    Route::resource('iklan', 'IklanController')->middleware('tolak.ustad');
+    Route::resource('hadist', 'HadistController')->middleware('tolak.ustad');
 });
 
 // ----------------------------------------------------------USER

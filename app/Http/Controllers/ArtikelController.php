@@ -50,6 +50,8 @@ class ArtikelController extends Controller
     {
         $artikel   = Artikel::where('slug', $slug)->first();
         $kategoris = KategoriArtikel::orderBy('id', 'desc')->get();
+        // Cek Author
+        $this->authorize('edit', $artikel);
         return view('dashboard_edit.artikel_edit', compact('artikel', 'kategoris'));
     }
 
@@ -57,6 +59,8 @@ class ArtikelController extends Controller
     public function update(ArtikelRequest $request, $id)
     {
         $artikel = Artikel::findOrFail($id);
+        // Cek Author
+        $this->authorize('edit', $artikel);
         $data = $request->all();
         // Store Img
         if ($img = $request->file('img')) {
@@ -77,6 +81,8 @@ class ArtikelController extends Controller
     public function destroy($id)
     {
         $artikel = Artikel::findOrFail($id);
+        // Cek Author
+        $this->authorize('edit', $artikel);
         if ($artikel->img != 'img_artikels/default_artikel.jpg') {
             Storage::delete($artikel->img);
         }
