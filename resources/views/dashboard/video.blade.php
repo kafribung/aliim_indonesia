@@ -37,24 +37,27 @@
                         </div>
                         <hr>
 
-                        @if ($video->author())
+                        <a href="/video/{{$video->slug}}/edit" class="btn btn-outline-warning btn-sm">
+                            <i class="fa fa-edit"></i>
+                        </a>
+
                         <div class="card-text text-sm-center">
+                            @can('edit', $video)
                             <a href="/video/{{$video->slug}}/edit" class="btn btn-outline-warning btn-sm">
                                 <i class="fa fa-edit"></i>
                             </a>
-
+                            @endcan
+                            @can('delete', $video)
                             <form action="/video/{{$video->id}}" method="POST" class="d-inline-flex">
                                 @csrf
                                 @method('DELETE')
-
                                 <button type="submit" onclick="return confirm('Hapus Data {{$video->title}} ?')"
                                     class="btn btn-outline-danger btn-sm">
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </form>
+                            @endcan
                         </div>
-                        @endif
-
                     </section>
                 </aside>
             </div>

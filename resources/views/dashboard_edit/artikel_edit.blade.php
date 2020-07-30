@@ -54,8 +54,10 @@
                                             @endforeach
 
                                             @foreach ($kategoris as $kategori)
-                                            <option {{$kategori->id ? 'selected' : ''}} value="{{$kategori->id}}">
-                                                {{$kategori->title}}</option>
+                                            <option {{old('kategori') == $kategori->id ? 'selected' : ''}}
+                                                value="{{$kategori->id}}">
+                                                {{$kategori->title}}
+                                            </option>
                                             @endforeach
                                     </select>
 

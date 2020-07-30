@@ -45,6 +45,8 @@ class VideoController extends Controller
     {
         $video =  Video::where('slug', $slug)->first();
         $kategoris = KategoriVideo::latest()->get();
+        // Cek Author
+        $this->authorize('edit', $video);
         return view('dashboard_edit.video_edit', compact('video', 'kategoris'));
     }
 
@@ -54,6 +56,8 @@ class VideoController extends Controller
         $data = $request->all();
         $data['slug'] = Str::slug($request->title);
         $video = Video::findOrFail($id);
+        // Cek Author
+        $this->authorize('edit', $video);
         // Eloquet Update Video
         $video->update($data);
         // Store Data Kategori(Mani to Many)
@@ -64,6 +68,9 @@ class VideoController extends Controller
     // DELETE
     public function destroy($id)
     {
+        $video = Video::findOrFail($id);
+        // Cek Author
+        $this->authorize('edit', $video);
         Video::destroy($id);
         return redirect('/video')->with('msg', 'Data Video Berhasil dihapus');
     }
