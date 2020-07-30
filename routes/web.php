@@ -46,8 +46,8 @@ Route::get('/belajar-artikel/{kategori}', 'HomeController@filter_artikel');
 Route::get('/belajar-video/{kategori}', 'HomeController@filter_video');
 
 // Single
-Route::get('/artikel-islam/{slug}', 'HomeController@show_artikel');
-Route::get('/video-islam/{slug}', 'HomeController@show_video');
+Route::get('/artikel-islam/{artikel:slug}', 'SingelController@show');
+Route::get('/video-islam/{artikel:slug}', 'SingelController@show');
 
 // Search
 Route::get('/search/artikel', 'HomeController@search_artikel');
