@@ -128,8 +128,8 @@
                                                 <li class="dropdown-header">Mengenal Islam</li>
                                                 @foreach ($kategori_artikels as $kategori)
                                                 <li>
-                                                    <a
-                                                        href="/belajar-artikel/{{$kategori->title}}">{{$kategori->title}}</a>
+                                                    <a href="/belajar-artikel/{{$kategori->title}}">{{$kategori->title}}
+                                                    </a>
                                                 </li>
                                                 @endforeach
                                             </ul>
@@ -137,7 +137,6 @@
                                     </li>
                                 </ul>
                             </li>
-
                             <li class="dropdown m-menu-fw {{ Request::is('belajar-video/*') ? 'active' : '' }}">
                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">
                                     Video

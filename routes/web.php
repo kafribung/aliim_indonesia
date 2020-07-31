@@ -42,12 +42,12 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/', 'HomeController@index');
 
 // Filter
-Route::get('/belajar-artikel/{kategori}', 'HomeController@filter_artikel');
-Route::get('/belajar-video/{kategori}', 'HomeController@filter_video');
+Route::get('/belajar-artikel/{kategori}', 'FilterController@filter_artikel');
+Route::get('/belajar-video/{kategori}', 'FilterController@filter_video');
 
 // Single
-Route::get('/artikel-islam/{artikel:slug}', 'SingelController@show');
-Route::get('/video-islam/{artikel:slug}', 'SingelController@show');
+Route::get('/artikel-islam/{artikel:slug}', 'SingelController@show_artikel');
+Route::get('/video-islam/{video:slug}', 'SingelController@show_video');
 
 // Search
 Route::get('/search/artikel', 'HomeController@search_artikel');
