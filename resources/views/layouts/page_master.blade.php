@@ -4,8 +4,8 @@
 <head>
     <title>Aliim - Belajar Islam dengan asik dan menarik</title>
     @include('includes.page_meta')
-
     @include('includes.page_css')
+    @stack('after_css')
 
 
 </head>
@@ -44,6 +44,7 @@
     <!-- #main-wrapper -->
 
     @include('includes.page_script')
+    @stack('after_script')
 
 
 </body>

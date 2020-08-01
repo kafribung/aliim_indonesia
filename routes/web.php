@@ -34,7 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile', 'HomeController@profile');
     Route::put('/profile/{id}', 'HomeController@profile_update');
 
-    // Koment
+    // Koment Artikel
     Route::post('komentar-artikel/{id}', 'KomentArtikelController@store');
 });
 
@@ -53,8 +53,7 @@ Route::get('/video-islam/{video:slug}', 'SingelController@show_video');
 Route::get('/search/artikel', 'HomeController@search_artikel');
 
 // Motivasi
-Route::get('/motivasi', 'HomeController@motivasi');
-
+Route::get('/motivasi', 'MotivasiController@index');
 
 // Core Laravel
 Route::get('/logout', function () {

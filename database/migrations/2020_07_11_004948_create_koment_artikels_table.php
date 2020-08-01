@@ -15,12 +15,13 @@ class CreateKomentArtikelsTable extends Migration
     {
         Schema::create('koment_artikels', function (Blueprint $table) {
             $table->id();
-            $table->text('descrption');
+            $table->text('description');
 
-            $table->bigInteger('user_id')->unsigned();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->bigInteger('artikel_id')->unsigned();
 
             $table->timestamps();
+            $table->foreign('artikel_id')->references('id')->on('artikels')->onDelete('cascade');
         });
     }
 

@@ -53,12 +53,17 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\DoaHadist');
     }
 
+    // RELATION ONE TO MANY( KOMENTAR ARTIKEL)
+    public function komentars()
+    {
+        return $this->hasMany('App\Models\KomentArtikel');
+    }
+
     // KING
     public function king()
     {
         return $this->email == 'admin@admin.com';
     }
-
 
     //MUTATOR
     public function gettakeImgAttribute()

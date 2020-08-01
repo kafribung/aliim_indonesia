@@ -103,7 +103,8 @@
                         <form action="/komentar-artikel/{{ $artikel->id }}" method="POST">
                             @csrf
                             <div class="form-group comment">
-                                <textarea class="form-control" id="inputComment" placeholder="Comment"></textarea>
+                                <textarea class="form-control" name="description" id="inputComment"
+                                    placeholder="Komentar disini"></textarea>
                             </div>
 
                             <button type="submit" class="btn btn-submit green float-right">Komentar</button>
@@ -117,27 +118,32 @@
                         <h2>Baca Komentar</h2>
                     </div>
                     <!-- entity_title -->
-
+                    @foreach ($artikel->komentars as $komentar)
                     <div class="media">
                         <div class="media-left">
                             <a href="#">
-                                <img alt="64x64" class="media-object" data-src="assets/img/reader_img1.jpg"
-                                    src="assets/img/reader_img1.jpg" data-holder-rendered="true">
+                                <img alt="64x64" class="media-object" data-src="{{ url($komentar->user->takeImg) }}"
+                                    src="{{ url($komentar->user->takeImg) }}" height="64" width="64"
+                                    data-holder-rendered="true">
                             </a>
                         </div>
                         <div class="media-body">
-                            <h2 class="media-heading"><a href="#">Sr. Ryan</a></h2>
-                            But who has any right to find fault with a man who chooses to enjoy a
-                            pleasure that has
-                            no annoying consequences, or one who avoids a pain that produces no
-                            resultant pleasure?
+                            <h2 class="media-heading"><a href="#">{{ $komentar->user->name }}</a></h2>
+                            <p>{{ $komentar->description }}</p>
+
 
                             <div class="entity_vote">
-                                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>
+                                @can('edit', $komentar)
+                                <a href="#"><i class="fa fa-edit btn-warning" aria-hidden="true"></i></a>
+                                @endcan
+
+                                @can('delete', $komentar)
+                                <a href="#" onclick="submit()"><i class="fa fa-trash btn-daanger"
+                                        aria-hidden="true"></i></a>
                                 <a href="#"><span class="reply_ic">Reply </span></a>
+                                @endcan
                             </div>
-                            <div class="media">
+                            {{-- <div class="media">
                                 <div class="media-left">
                                     <a href="#">
                                         <img alt="64x64" class="media-object" data-src="assets/img/reader_img2.jpg"
@@ -158,10 +164,10 @@
                                         <a href="#"><span class="reply_ic">Reply </span></a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
-
                     </div>
+                    @endforeach
                     <!-- media end -->
                 </div>
                 <!--Readers Comment-->
