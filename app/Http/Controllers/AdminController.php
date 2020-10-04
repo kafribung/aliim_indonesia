@@ -45,14 +45,9 @@ class AdminController extends Controller
     }
 
     // UPDATE
-    public function update(Request $request, $id)
+    public function update(UstadAdminRequest $request, User $admin)
     {
-        $data = $request->validate([
-            'img'      => ['required', 'mimes:png,jpg,jpeg'],
-            'name'     => ['required', 'string', 'max:255'],
-            'email'    => ['required', 'string', 'email', 'max:255'],
-        ]);
-        $admin = User::findOrfail($id);
+        $data =$request->except('password_confirmation');
         // Set Img
         if ($request->has('img')) {
             // Dont Delete IMG Default
