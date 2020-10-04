@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Rules\LowercaseRule;
 use Illuminate\Http\Request;
-// Import Db KategoriVideo
 use App\Models\KategoriVideo;
 
 class KategoriVideoController extends Controller
@@ -12,7 +12,6 @@ class KategoriVideoController extends Controller
     public function index()
     {
         $kategoris = KategoriVideo::latest()->get();
-
         return view('dashboard.kategori_video', compact('kategoris'));
     }
 
@@ -26,11 +25,9 @@ class KategoriVideoController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'title' =>  ['required', 'string', 'min:3', 'max:255', 'unique:kategori_videos']
+            'title' =>  ['required', 'string', 'min:3', 'max:255', 'unique:kategori_videos', new LowercaseRule]
         ]);
-
         KategoriVideo::create($data);
-
         return redirect('/kategori-video')->with('msg','Data Kategori Berhasil ditambahakan');
     }
 
@@ -44,7 +41,6 @@ class KategoriVideoController extends Controller
     public function edit($id)
     {
         $kategori = KategoriVideo::findOrFail($id);
-
         return view('dashboard_edit.kategori_video_edit', compact('kategori'));
     }
 
@@ -52,11 +48,9 @@ class KategoriVideoController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'title' => ['required', 'string', 'min:3', 'max:255']
+            'title' => ['required', 'string', 'min:3', 'max:255', new LowercaseRule]
         ]);
-
         KategoriVideo::findOrFail($id)->update($data);
-
         return redirect('/kategori-video')->with('msg', 'Data Kategori Berhasil diupdate');
     }
 
@@ -64,7 +58,6 @@ class KategoriVideoController extends Controller
     public function destroy($id)
     {
         KategoriVideo::destroy($id);
-
         return redirect('/kategori-video')->with('msg','Data Kategori Berhasil dihapus');
     }
 }

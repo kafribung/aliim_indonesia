@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 // Import Class DB Kategoti Artikel
 use App\Models\KategoriArtikel;
+use App\Rules\LowercaseRule;
 
 class KategoriArtikelController extends Controller
 {
@@ -26,11 +27,9 @@ class KategoriArtikelController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'title' => ['required', 'string', 'min:3', 'max:255', 'unique:kategori_artikels'], 
+            'title' => ['required', 'string', 'min:3', 'max:255', 'unique:kategori_artikels', new LowercaseRule], 
         ]);
-
         KategoriArtikel::create($data);
-
         return redirect('/kategori-artikel')->with('msg', 'Data Kategori Berhasil ditambahkan');
     }
 
@@ -44,7 +43,6 @@ class KategoriArtikelController extends Controller
     public function edit($id)
     {
         $kategori = KategoriArtikel::findOrFail($id);
-
         return view('dashboard_edit.kategori_artikel_edit', compact('kategori'));
     }
 
@@ -52,11 +50,9 @@ class KategoriArtikelController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'title' => ['required', 'string', 'min:3', 'max:255'], 
+            'title' => ['required', 'string', 'min:3', 'max:255', new LowercaseRule], 
         ]);
-
         KategoriArtikel::findOrFail($id)->update($data);
-
         return redirect('/kategori-artikel')->with('msg', 'Data Kategori Berhasil diupdate');
     }
 
@@ -64,7 +60,6 @@ class KategoriArtikelController extends Controller
     public function destroy($id)
     {
         KategoriArtikel::destroy($id);
-
         return redirect('/kategori-artikel')->with('msg', 'Data Kategori Berhasil dihapus');
     }
 }
