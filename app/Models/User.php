@@ -62,7 +62,7 @@ class User extends Authenticatable
     // KING
     public function king()
     {
-        return $this->email == 'admin@admin.com';
+        return $this->email == 'admin@aliim.com';
     }
 
     //MUTATOR

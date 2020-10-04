@@ -88,12 +88,10 @@
 					<span class="focus-input100"></span>
 				</div>
 
-
 				<div class=" m-b-16" data-validate = "Please enter captcha">
-					{!! NoCaptcha::renderJs() !!}
-					{!! NoCaptcha::display() !!}
+					{!! RecaptchaV3::initJs() !!}
+					{!! RecaptchaV3::field('register') !!}
 				</div>
-
 
 				<div class="container-login100-form-btn">
 					<button type="submit" class="login100-form-btn">

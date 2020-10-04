@@ -33,7 +33,7 @@ class UstadController extends Controller
         if (User::where('role', 2)->count() >= 5) {
             return redirect('/ustad')->with('msg', 'Data Ustad Hanya Boleh 5');
         }
-        $data = $request->all();
+        $data = $request->except('password_confirmation');
         // Set Img
         if ($request->has('img')) {
             $img = $request->file('img');
@@ -54,23 +54,17 @@ class UstadController extends Controller
     }
 
     // EDIT
-    public function edit($id)
+    public function edit(User $ustad)
     {
-        $ustad = User::findOrFail($id);
         $provincis = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
         $provincis->json();
         return view('dashboard_edit.ustad_edit', compact('ustad', 'provincis'));
     }
 
     // UPDATE
-    public function update(Request $request, $id)
+    public function update(UstadAdminRequest $request, User $ustad)
     {
-        $data = $request->validate([
-            'img'      => ['required', 'mimes:png,jpg,jpeg'],
-            'name'     => ['required', 'string', 'max:255'],
-            'email'    => ['required', 'string', 'email', 'max:255'],
-        ]);
-        $ustad = User::findOrFail($id);
+        $data = $request->except(['password_confirmation']);
         // Set Img
         if ($request->has('img')) {
             // Dont Delete IMG Default

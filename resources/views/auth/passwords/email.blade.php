@@ -34,7 +34,6 @@
 						Reset Link Password
 					</button>
 				</div>
-
 			</form>
 		</div>
 	</div>

@@ -24,13 +24,13 @@ class UstadAdminRequest extends FormRequest
     public function rules()
     {
         return [
-            'img'      => ['required', 'mimes:png,jpg,jpeg'],
+            'img'      => ['required', 'mimes:jpg,jpeg'],
             'name'     => ['required', 'string', 'max:255'],
             'email'    => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'date_birth'=> ['required', 'date'],
             'gender'   => ['required', 'string', 'min:4', 'max:6'],
             'provinci' => ['required', 'string', 'min:3'],
-            'password' => ['required', 'string', 'min:6'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
         ];
     }
 }

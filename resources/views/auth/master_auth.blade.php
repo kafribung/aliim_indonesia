@@ -24,6 +24,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('log/css/util.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('log/css/main.css') }}">
 <!--===============================================================================================-->
+
 </head>
 <body>
 	

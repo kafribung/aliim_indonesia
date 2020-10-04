@@ -21,8 +21,6 @@ use Illuminate\Support\Facades\Mail;
 // Import Class Mauk
 use App\Mail\EmailVerifikasi;
 
-
-
 class RegisterController extends Controller
 {
     /*
@@ -89,7 +87,7 @@ class RegisterController extends Controller
             'tahun' => ['required'],
             'gender' => ['required'],
             'provinci' => ['required'],
-            'g-recaptcha-response' => ['required', 'captcha']
+            'g-recaptcha-response' => ['required', 'recaptchav3:register,0.5'],
         ]);
     }
 
@@ -127,7 +125,6 @@ class RegisterController extends Controller
         // Ubah status user
         $user->status = 1;
         $user->save();
-
         $this->guard()->login($user);
 
         return redirect(RouteServiceProvider::HOME);
