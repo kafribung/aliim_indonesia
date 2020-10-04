@@ -15,9 +15,9 @@
                             <strong class="card-title">Edit Data Ustad</strong>
                         </div>
                         <div class="card-body">
-                            <form action="/ustad/{{$ustad->id}}" method="POST" enctype="multipart/form-data">
+                            <form action="/ustad/{{$ustad->email}}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                @method('PUT')
+                                @method('PATCH')
                                 @include('dashboard_form.ustad_form', compact($ustad))
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-md btn-warning btn-block">Update Ustad</button>

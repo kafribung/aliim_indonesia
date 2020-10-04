@@ -43,7 +43,7 @@
                                     @foreach ($ustads as $ustad)
 
                                     <tr>
-                                        <td>{{$angkaAwal}}</td>
+                                        <td>{{$angkaAwal++}}</td>
                                         <td class="avatar">
                                             <div class="round-img">
                                                 <a href="#"><img class="rounded-circle" src="{{url($ustad->takeImg)}}"
@@ -59,7 +59,7 @@
                                         <td>{{($ustad->role == 0) ? 'User' : (($ustad->role == 1) ? 'Admin' : 'Ustad')}}
                                         </td>
                                         <td>
-                                            <a href="/ustad/{{$ustad->id}}/edit"
+                                            <a href="/ustad/{{$ustad->email}}/edit"
                                                 class="btn btn-warning btn-sm {{$ustad->status != 1 ? 'disabled' : ''}}"><i
                                                     class="fa fa-edit"></i></a>
 
@@ -73,14 +73,9 @@
                                                     {{$ustad->status != 1 ? 'disabled' : ''}}><i
                                                         class="fa fa-trash"></i></button>
                                             </form>
-
                                         </td>
                                     </tr>
-                                    @php
-                                    $angkaAwal++
-                                    @endphp
                                     @endforeach
-
                                 </tbody>
                             </table>
                         </div> <!-- /.table-stats -->

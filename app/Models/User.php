@@ -35,6 +35,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // Route Key Name
+    public function getRouteKeyName()
+    {
+        return 'email';
+    }
+
     // RELATION ONE TO MANY (ARTIKEL)
     public function artikels()
     {
