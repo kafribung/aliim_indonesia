@@ -10,6 +10,12 @@ class Artikel extends Model
     protected $touhches = ['user'];
     protected $fillable = ['title', 'description', 'img', 'slug'];
 
+    // ROUTE KEY NAME
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     // RELATION MANY TO ONE (USER)
     public function user()
     {
@@ -26,14 +32,6 @@ class Artikel extends Model
     public function komentars()
     {
         return $this->hasMany('App\Models\KomentArtikel');
-    }
-
-    // AUTHOR
-    public function author()
-    {
-        if (Auth::check()) {
-            return Auth::user()->id == $this->user_id;
-        } else return false;
     }
 
     // MUTATOR

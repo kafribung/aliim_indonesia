@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\UstadAdminRequest;
 use Illuminate\Support\Str;
 use App\Models\User;
@@ -80,12 +79,10 @@ class UstadController extends Controller
     }
 
     // DELETE
-    public function destroy($id)
+    public function destroy(User $ustad)
     {
-        $ustad = User::findOrFail($id);
         Storage::delete($ustad->img);
-        User::destroy($id);
-
+        $ustad->delete();
         return redirect('/ustad')->with('msg', 'Data Ustad Berhasil di Hapus');
     }
 }

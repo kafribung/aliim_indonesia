@@ -12,7 +12,9 @@ class ArtikelController extends Controller
     // READ
     public function index()
     {
-        $artikels = Artikel::with('kategori_artikels', 'user')->orderBy('id', 'desc')->get();
+        $search = urlencode(request('search'));
+        if ($search) $artikels = Artikel::with('kategori_artikels', 'user')->orderBy('id', 'desc')->where('title', 'LIKE', '%'. $search .'%')->paginate(1);
+        else $artikels = Artikel::with('kategori_artikels', 'user')->orderBy('id', 'desc')->paginate(1);
         return view('dashboard.artikel', compact('artikels'));
     }
 
@@ -46,9 +48,8 @@ class ArtikelController extends Controller
     }
 
     // EDIT
-    public function edit($slug)
+    public function edit(Artikel $artikel)
     {
-        $artikel   = Artikel::where('slug', $slug)->first();
         $kategoris = KategoriArtikel::orderBy('id', 'desc')->get();
         // Cek Author
         $this->authorize('edit', $artikel);
@@ -56,9 +57,8 @@ class ArtikelController extends Controller
     }
 
     // UPDATE
-    public function update(ArtikelRequest $request, $id)
+    public function update(ArtikelRequest $request, Artikel $artikel)
     {
-        $artikel = Artikel::findOrFail($id);
         // Cek Author
         $this->authorize('edit', $artikel);
         $data = $request->all();
@@ -69,24 +69,23 @@ class ArtikelController extends Controller
             }
             $data['img'] = $request->file('img')->storeAs('img_artikels', time() . '.' . $img->getClientOriginalExtension());
         }
-        $data_slug = Str::slug($request->title);
+        $data['slug']= Str::slug($request->title);
         // Eloquent Update Data 
-        $artikel->findOrFail($id)->update($data);
+        $artikel->update($data);
         // Store Kategori
         $artikel->kategori_artikels()->sync($request->kategori);
         return redirect('/artikel')->with('msg', 'Data Artikel Berhasil diupdate');
     }
 
     // DELETE
-    public function destroy($id)
+    public function destroy(Artikel $artikel)
     {
-        $artikel = Artikel::findOrFail($id);
         // Cek Author
         $this->authorize('edit', $artikel);
         if ($artikel->img != 'img_artikels/default_artikel.jpg') {
             Storage::delete($artikel->img);
         }
-        Artikel::destroy($id);
+        $artikel->delete();
         return redirect('/artikel')->with('msg', 'Data Artikel Berhasil dihapus');
     }
 }

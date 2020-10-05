@@ -15,7 +15,7 @@
     <label for="name" class="control-label mb-1">nama</label>
     <input id="name" name="name" type="text"
         class="form-control @error('name') is-invalid @enderror" required
-        autocomplete="off" value="{{old('name') ? old('name') : $admin->name}}">
+        autocomplete="off" value="{{old('name') ?? $admin->name}}">
 
     @error('name')
     <p class="alert alert-danger">{{$message}}</p>
@@ -26,7 +26,7 @@
     <label for="email" class="control-label mb-1">email</label>
     <input id="email" name="email" email="email"
         class="form-control @error('email') is-invalid @enderror" autocomplete="off"
-        required value="{{old('email') ? old('email') : $admin->email}}">
+        required value="{{old('email') ?? $admin->email}}">
 
     @if ($errors->has('email'))
     <p class="alert alert-danger">{{$errors->first('email')}}</p>
@@ -39,7 +39,7 @@
     <input id="date_birth" name="date_birth" type="date"
         class="form-control @error('date_birth') is-invalid @enderror" required
         autocomplete="off"
-        value="{{old('date_birth') ? old('date_birth') : $admin->date_birth}}">
+        value="{{old('date_birth') ?? $admin->date_birth}}">
 
     @error('date_birth')
     <p class="alert alert-danger">{{$message}}</p>

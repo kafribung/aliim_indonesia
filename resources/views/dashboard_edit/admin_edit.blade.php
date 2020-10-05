@@ -15,7 +15,7 @@
                             <strong class="card-title">Edit Data Admin</strong>
                         </div>
                         <div class="card-body">
-                            <form action="/admin/{{$admin->id}}" method="POST" enctype="multipart/form-data">
+                            <form action="/admin/{{$admin->email}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PATCH')
                                 @include('dashboard_form.admin_form')

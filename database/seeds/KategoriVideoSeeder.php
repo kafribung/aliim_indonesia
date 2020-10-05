@@ -12,7 +12,7 @@ class KategoriVideoSeeder extends Seeder
      */
     public function run()
     {
-        $kategoris = ['Sholat', 'Puasa', 'Al-Quran', 'Thaharah', 'Haji'];
+        $kategoris = ['sholat', 'puasa', 'al-quran', 'thaharah', 'haji'];
 
         for ($i = 0; $i < count($kategoris); $i++) {
             KategoriVideo::create([

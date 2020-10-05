@@ -2,6 +2,23 @@
 @section('title', 'Artikel | Aliim Indonesia')
 @section('content')
 
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-12">
+                <div class="page-header float-right">
+                    <div class="form-inline p-2">
+                        <form class="search-form" action="/artikel" method="GET">
+                            <input class="form-control mr-sm-2" name="search" type="search"
+                                placeholder="Cari Artikel..." autocomplete="off" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Content -->
 <div class="content">
 
@@ -13,7 +30,8 @@
         @endif
 
         <div class="row">
-            @foreach ($artikels as $artikel)
+            @forelse ($artikels as $artikel)
+                
             <div class="col-md-3">
                 <aside class="profile-nav alt">
                     <section class="card">
@@ -31,15 +49,11 @@
                             {!! Str::limit($artikel->description, 80) !!}
                         </div>
                         <hr>
-                        <div class="d-flex justify-content-end">
-                            <small>{{ $artikel->user->name }} | </small>
+                        <div class="d-flex justify-content-between p-1">
+                            <small>{{ $artikel->user->name }}</small>
                             <small>{{ $artikel->created_at->diffForHumans() }}</small>
                         </div>
                         <hr>
-
-                        {{-- Auth Lama --}}
-                        {{-- @if ($artikel->author())
-                        @endif --}}
 
                         <div class="card-text text-sm-center">
                             @can('edit', $artikel)
@@ -49,23 +63,23 @@
                             @endcan
 
                             @can('delete', $artikel)
-                            <form action="/artikel/{{$artikel->id}}" method="POST" class="d-inline-flex">
+                            <form action="/artikel/{{$artikel->slug}}" method="POST" class="d-inline-flex">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" onclick="return confirm('Hapus Data {{$artikel->title}} ?')"
                                     class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
                             </form>
                             @endcan
-
                         </div>
-
                     </section>
                 </aside>
             </div>
-
-            @endforeach
-
-
+            @empty
+                <p class="text-center alert alert-light">Data Artikel Tidak Ditemukan ...</p>
+            @endforelse
+        </div>
+        <div class="row float-right">
+            {{ $artikels->links('pagination::simple-bootstrap-4') }}
         </div>
     </div>
     <!-- .animated -->

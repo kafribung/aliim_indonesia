@@ -41,7 +41,7 @@
                                     @foreach ($admins as $admin)
 
                                     <tr>
-                                        <td>{{$angkaAwal}}</td>
+                                        <td>{{$angkaAwal++}}</td>
                                         <td class="avatar">
                                             <div class="round-img">
                                                 <img class="rounded-circle" src="{{url($admin->takeImg)}}"
@@ -57,17 +57,13 @@
                                         <td>{{($admin->role == 0) ? 'User' : (($admin->role == 1) ? 'Admin' : 'Ustad')}}
                                         </td>
                                         <td>
-                                            <a href="/admin/{{$admin->id}}/edit"
-                                                class="btn btn-warning btn-sm {{$admin->status != 1 ? 'disabled' : ''}}">
+                                            <a href="/admin/{{$admin->email}}/edit"
+                                                class="btn btn-warning btn-sm">
                                                 <i class="fa fa-edit"></i>
                                             </a>
                                         </td>
                                     </tr>
-                                    @php
-                                    $angkaAwal++
-                                    @endphp
                                     @endforeach
-
                                 </tbody>
                             </table>
                         </div> <!-- /.table-stats -->
@@ -81,5 +77,4 @@
     <!-- .animated -->
 </div>
 <!-- /.content -->
-
 @endsection

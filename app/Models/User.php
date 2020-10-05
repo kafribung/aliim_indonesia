@@ -35,7 +35,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // Route Key Name
+    // ROUTE KEY NAME
     public function getRouteKeyName()
     {
         return 'email';

@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Http\Requests\UstadAdminRequest;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\{Storage, Http, Hash};
 
 class AdminController extends Controller
 {
@@ -27,18 +24,18 @@ class AdminController extends Controller
     //CREATE
     public function store(UstadAdminRequest $request)
     {
+        return abort('404');
     }
 
     // SHOW
-    public function show($id)
+    public function show(User $admin)
     {
         return abort('404');
     }
 
     // EDIT
-    public function edit($id)
+    public function edit(User $admin)
     {
-        $admin = User::findOrFail($id);
         $provincis = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
         $provincis->json();
         return view('dashboard_edit.admin_edit', compact('admin', 'provincis'));
@@ -63,7 +60,7 @@ class AdminController extends Controller
     }
 
     // DELETE
-    public function destroy($id)
+    public function destroy(User $admin)
     {
         return abort('404');
     }

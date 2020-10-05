@@ -21,7 +21,6 @@
                 </li>
                 @endif
 
-
                 <li class="menu-title">Artikel</li>
 
                 <!-- /.menu-title -->

@@ -21,61 +21,8 @@
                         <div class="card-body">
                             <form action="/artikel" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <div class="form-group">
-                                    <label for="title" class="control-label mb-1">Judul</label>
-                                    <input id="title" name="title" type="text"
-                                        class="form-control @error('title') is-invalid @enderror" autofocus
-                                        autocomplete="off" required value="{{old('title')}}">
-
-                                    @error('title')
-                                    <p class="alert alert-danger">{{$message}}</p>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="img" class="control-label mb-1">Gambar</label>
-                                    <input id="img" name="img" type="file"
-                                        class="form-control @error('img') is-invalid @enderror" required
-                                        accept="image/*">
-
-                                    @if ($errors->has('img'))
-                                    <p class="alert alert-danger">{{$errors->first('img')}}</p>
-                                    @endif
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="kategori" class="control-label mb-1">Kategori (Ctrl + Shift )</label>
-
-                                    <select id="kategori" name="kategori[]"
-                                        class="form-control @error('kategori') is-invalid @enderror" multiple required>
-                                        @foreach ($kategoris as $kategori)
-                                        <option {{ old('kategori') ? 'selected' : '' }} value="{{ $kategori->id }}">
-                                            {{$kategori->title}}
-                                        </option>
-                                        @endforeach
-                                    </select>
-
-                                    @error('kategori')
-                                    <p class="alert alert-danger">{{$message}}</p>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="description" class="control-label mb-1">Deskripsi</label>
-                                    <textarea id="description" name="description"
-                                        class="form-control ckeditor @error('description') is-invalid @enderror"
-                                        required>
-                                        {{old('description')}}
-                                    </textarea>
-
-                                    @error('description')
-                                    <p class="alert alert-danger">{{$message}}</p>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-md btn-info btn-block">Tambah Artikel</button>
-                                </div>
+                                @include('dashboard_form.artikel_form', ['artikel' => new App\Models\Artikel])
+                                <button type="submit" class="btn btn-md btn-info btn-block">Tambah Artikel</button>
                             </form>
                         </div>
                     </div>

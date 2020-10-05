@@ -12,7 +12,7 @@ class KategoriArtikelSeeder extends Seeder
      */
     public function run()
     {
-        $kategoris = ['Akidah', 'Akhlak', 'Manhaj', 'Alquran', 'Fiqih & Muamalah'];
+        $kategoris = ['akidah', 'akhlak', 'manhaj', 'al-quran', 'fiqih & muamalah'];
 
         foreach ($kategoris as $kategori) {
             KategoriArtikel::create([

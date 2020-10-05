@@ -63,7 +63,7 @@
                                                 class="btn btn-warning btn-sm {{$ustad->status != 1 ? 'disabled' : ''}}"><i
                                                     class="fa fa-edit"></i></a>
 
-                                            <form action="/ustad/{{$ustad->id}}" method="POST" class="d-inline-flex">
+                                            <form action="/ustad/{{$ustad->email}}" method="POST" class="d-inline-flex">
                                                 @csrf
                                                 @method('DELETE')
 
