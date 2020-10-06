@@ -13,8 +13,8 @@ class ArtikelController extends Controller
     public function index()
     {
         $search = urlencode(request('search'));
-        if ($search) $artikels = Artikel::with('kategori_artikels', 'user')->orderBy('id', 'desc')->where('title', 'LIKE', '%'. $search .'%')->paginate(1);
-        else $artikels = Artikel::with('kategori_artikels', 'user')->orderBy('id', 'desc')->paginate(1);
+        if ($search) $artikels = Artikel::with('kategori_artikels', 'user')->orderBy('id', 'desc')->where('title', 'LIKE', '%'. $search .'%')->paginate(12);
+        else $artikels = Artikel::with('kategori_artikels', 'user')->orderBy('id', 'desc')->paginate(12);
         return view('dashboard.artikel', compact('artikels'));
     }
 

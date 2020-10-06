@@ -2,6 +2,7 @@
 @section('title', 'Ustad | Aliim Indonesia')
 @section('content')
 
+@include('dashboard_form.cari_form', ['data' => request()->path()])
 <!-- Content -->
 <div class="content">
     <!-- Animated -->
@@ -40,8 +41,7 @@
                                     @php
                                     $angkaAwal = 1
                                     @endphp
-                                    @foreach ($ustads as $ustad)
-
+                                    @forelse ($ustads as $ustad)
                                     <tr>
                                         <td>{{$angkaAwal++}}</td>
                                         <td class="avatar">
@@ -75,13 +75,18 @@
                                             </form>
                                         </td>
                                     </tr>
-                                    @endforeach
+                                    @empty
+                                        <p class="alert alert-info">Data Ustad Belum ditambahkan</p>                                        
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div> <!-- /.table-stats -->
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row float-right">
+            {{ $ustads->links('pagination::simple-bootstrap-4') }}
         </div>
 
         <!-- /#add-category -->

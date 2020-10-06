@@ -12,7 +12,9 @@ class UstadController extends Controller
     //READ
     public function index()
     {
-        $ustads = User::orderBy('id', 'DESC')->where('role', 2)->get();
+        $search = urlencode(request('search'));
+        if ($search) $ustads = User::orderBy('id', 'DESC')->where('role', 2)->where('name', 'LIKE', '%'. $search .'%')->paginate(10);
+        else $ustads = User::orderBy('id', 'DESC')->where('role', 2)->paginate(10);
         return view('dashboard.ustad', compact('ustads'));
     }
 
@@ -21,7 +23,6 @@ class UstadController extends Controller
     {
         $provincis = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
         $provincis->json();
-
         return view('dashboard_create.ustad_create', compact('provincis'));
     }
 
@@ -29,8 +30,8 @@ class UstadController extends Controller
     public function store(UstadAdminRequest $request)
     {
         // Batas Ustad
-        if (User::where('role', 2)->count() >= 5) {
-            return redirect('/ustad')->with('msg', 'Data Ustad Hanya Boleh 5');
+        if (User::where('role', 2)->count() >= 30) {
+            return redirect('/ustad')->with('msg', 'Data Ustad Hanya Boleh 30');
         }
         $data = $request->except('password_confirmation');
         // Set Img
