@@ -21,32 +21,9 @@
                         <div class="card-body">
                             <form action="/doa-hadist" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <div class="form-group">
-                                    <label for="title" class="control-label mb-1">Judul</label>
-                                    <input id="title" name="title" type="text"
-                                        class="form-control @error('title') is-invalid @enderror" autofocus required
-                                        autocomplete="off" value="{{old('title')}}">
-
-                                    @error('title')
-                                    <p class="alert alert-danger">{{$message}}</p>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="img" class="control-label mb-1">Gambar</label>
-                                    <input id="img" name="img" type="file"
-                                        class="form-control @error('img') is-invalid @enderror" required
-                                        autocomplete="off" accept="image/*">
-
-                                    @error('img')
-                                    <p class="alert alert-danger">{{$message}}</p>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-md btn-info btn-block">Tambah Doa
-                                        Hadist</button>
-                                </div>
+                                @include('dashboard_form.doa_hadist_form', ['doaHadist' => new App\Models\DoaHadist])
+                                <button type="submit" class="btn btn-md btn-info btn-block">Tambah Doa
+                                    Hadist</button>
                             </form>
                         </div>
                     </div>

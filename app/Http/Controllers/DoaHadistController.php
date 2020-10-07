@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 // Import Class Request DoaHadist
 use App\Http\Requests\DoaHadistRequest;
 // Import Class STR
@@ -16,8 +15,10 @@ class DoaHadistController extends Controller
     // READ
     public function index()
     {
-        $doas = DoaHadist::with('user')->latest()->get();
-        return view('dashboard.doa_hadist', compact('doas'));
+        $search = urlencode(request('search'));
+        if ($search) $doaHadists = DoaHadist::with('user')->latest()->where('title', 'LIKE', '%'. $search . '%')->paginate(12);
+        else $doaHadists = DoaHadist::with('user')->latest()->paginate(12);
+        return view('dashboard.doa_hadist', compact('doaHadists'));
     }
 
     // CREATE
@@ -47,40 +48,35 @@ class DoaHadistController extends Controller
     }
 
     // EDIT
-    public function edit($slug)
+    public function edit(DoaHadist $doaHadist)
     {
-        $doa = DoaHadist::where('slug', $slug)->first();
-        return view('dashboard_edit.doa_hadist_edit', compact('doa'));
+        $this->authorize('author', $doaHadist);
+        return view('dashboard_edit.doa_hadist_edit', compact('doaHadist'));
     }
 
     // UPDATE
-    public function update(Request $request, $id)
+    public function update(DoaHadistRequest $request, DoaHadist $doaHadist)
     {
-        $data = $request->validate([
-            'title' => ['required', 'string', 'min:3', 'max:255'],
-            'img'   => ['mimes:png,jpg,jpeg'],
-        ]);
-        $doa = DoaHadist::findOrFail($id);
+        $data = $request->all();
         // Store Img
         if ($img = $request->file('img')) {
-            if ($doa->img != 'img_doa_hadists/default_doa.jpg') {
-                Storage::delete($doa->img);
+            if ($doaHadist->img != 'img_doa_hadists/default_doa.jpg') {
+                Storage::delete($doaHadist->img);
             }
             $data['img'] = $request->file('img')->storeAs('img_doa_hadists', time() . '.' . $img->getClientOriginalExtension());
         }
         $data['slug'] = Str::slug($request->title);
-        $doa->update($data);
+        $doaHadist->update($data);
         return redirect('/doa-hadist')->with('msg', 'Data Doa & Hadist Berhasil diupdate');
     }
 
     // DELETE
-    public function destroy($id)
+    public function destroy(DoaHadist $doaHadist)
     {
-        $doa = DoaHadist::findOrFail($id);
-        if ($doa->img != 'img_doa_hadists/default_doa.jpg') {
-            Storage::delete($doa->img);
+        if ($doaHadist->img != 'img_doa_hadists/default_doa.jpg') {
+            Storage::delete($doaHadist->img);
         }
-        DoaHadist::destroy($id);
+        $doaHadist->delete();
         return redirect('/doa-hadist')->with('msg', 'Data Doa & Hadist Berhasil dihapus');
     }
 }

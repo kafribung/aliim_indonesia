@@ -54,7 +54,7 @@
                 <li class="{{Request()->is('doa-hadist') ? 'active' : ''}}">
                     <a href="/doa-hadist"> <i class="menu-icon ti-image"></i>Semua Doa & Hadist</a>
                 </li>
-                <li class="{{Request()->is('doa-hadist/create') ? 'active' : ''}}">
+                <li class="{{Request()->is('doa-hadist/*') ? 'active' : ''}}">
                     <a href="/doa-hadist/create"> <i class="menu-icon ti-plus"></i>Tambah Doa & Hadist</a>
                 </li>
 
