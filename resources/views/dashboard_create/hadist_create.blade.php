@@ -21,7 +21,7 @@
                         <div class="card-body">
                             <form action="/hadist" method="POST">
                                 @csrf
-                                @include('dashboard_form.doa_hadist_form', ['hadist' => new App\Models\Hadist])
+                                @include('dashboard_form.hadist_form', ['hadist' => new App\Models\Hadist])
                                 <button type="submit" class="btn btn-md btn-info btn-block">Tambah Hadist</button>
                             </form>
                         </div>

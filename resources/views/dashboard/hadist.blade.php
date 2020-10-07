@@ -28,7 +28,7 @@
                                     @foreach ($hadists as $hadist)
                                         <tr>
                                             <th>No</th>
-                                            <td>{{$angkaAwal}}</td>
+                                            <td>{{$angkaAwal++}}</td>
                                         </tr>
 
                                         <tr>
@@ -58,12 +58,8 @@
                                                     <button type="submit" onclick="return confirm('Hapus Data hadist {{$hadist->title}}?')" class="btn btn-danger btn-sm" ><i class="fa fa-trash"></i></button>
                                                 </form>
                                             </td>
-                                       </tr>
-                                    @php
-                                        $angkaAwal++
-                                    @endphp
+                                    </tr>
                                     @endforeach
-
                                 </tbody>
                             </table>
                         </div> <!-- /.table-stats -->

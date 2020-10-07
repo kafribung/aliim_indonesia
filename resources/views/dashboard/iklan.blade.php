@@ -39,7 +39,7 @@
                                     @endphp
                                     @foreach ($iklans as $iklan)
                                     <tr>
-                                        <td>{{$angkaAwal}}</td>
+                                        <td>{{$angkaAwal++}}</td>
                                         <td>
                                             <img src="{{url($iklan->takeImg)}}" alt="Foto {{$iklan->name}}"
                                                 title="Foto {{$iklan->name}}" width="100">
@@ -64,11 +64,7 @@
 
                                         </td>
                                     </tr>
-                                    @php
-                                    $angkaAwal++
-                                    @endphp
                                     @endforeach
-
                                 </tbody>
                             </table>
                         </div> <!-- /.table-stats -->

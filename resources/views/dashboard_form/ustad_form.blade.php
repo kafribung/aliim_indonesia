@@ -61,9 +61,9 @@
     <label for="provinci" class="control-label mb-1">Provinsi</label>
     <select id="provinci" name="provinci" class="form-control @error('provinci') is-invalid @enderror" required
         autocomplete="off">
-        @foreach ($provincis['provinsi'] as $provinci)
-        <option {{ $ustad->provinci == $provinci['nama'] ? 'selected' : '' }} value="{{$provinci['nama']}}">
-            {{$provinci['nama']}}</option>
+        @foreach ($provincis['rajaongkir']['results'] as $provinci)
+        <option {{ $ustad->provinci == $provinci['province'] ? 'selected' : '' }} value="{{ $provinci['province'] }}">
+            {{ $provinci['province'] }}</option>
         @endforeach
     </select>
 

@@ -22,7 +22,7 @@
                             <form action="/hadist/{{$hadist->id}}" method="POST">
                                 @csrf
                                 @method('PUT')
-                                @include('dashboard_form.doa_hadist_form', compact($hadist))
+                                @include('dashboard_form.hadist_form', compact($hadist))
                                 <button type="submit" class="btn btn-md btn-warning btn-block">Update Hadist</button>
                             </form>
                         </div>

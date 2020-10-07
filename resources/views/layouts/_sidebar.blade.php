@@ -9,15 +9,13 @@
 
                 @if (auth()->user()->role != 2)
                 <li class="menu-title">Manajemen</li>
-                <!-- /.menu-title -->
-                <li class="{{Request::segment(1) == 'user' ? 'active' : ''}}">
-                    <a href="/user"> <i class="menu-icon ti-user"></i>User</a>
-                </li>
-                <li class="{{Request::segment(1) == 'ustad' ? 'active' : ''}}">
-                    <a href="/ustad"> <i class="menu-icon ti-heart"></i>Ustad</a>
-                </li>
-                <li class="{{Request::segment(1) == 'admin' ? 'active' : ''}}">
-                    <a href="/admin"> <i class="menu-icon ti-crown"></i>Admin</a>
+                <li class="menu-item-has-children dropdown {{Request::segment(1) == 'ustad' ? 'active' : ''}} {{ request()->is('ustad') ? 'active' : '' }} {{ request()->is('admin') ? 'active' : '' }}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs "></i>Manajemen</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-user"></i><a href="/user">User</a></li>
+                        <li><i class="fa fa-heart"></i><a href="/ustad">Ustad</a></li>
+                        <li><i class="fa fa-user-circle"></i><a href="/admin">Admin</a></li>
+                    </ul>
                 </li>
                 @endif
 
