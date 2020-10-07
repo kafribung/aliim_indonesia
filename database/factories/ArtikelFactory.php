@@ -11,6 +11,6 @@ $factory->define(Artikel::class, function (Faker $faker) {
         'description' => $faker->paragraph(20),
         'slug' => \Str::slug($faker->sentence()),
         'img'  => 'img_artikels/default_artikel.jpg',
-        'user_id' => 2,
+        'user_id' => 1,
     ];
 });

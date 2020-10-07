@@ -2,6 +2,7 @@
 @section('title', 'Video | Aliim Indonesia')
 @section('content')
 
+@include('dashboard_form.cari_form', ['data' => request()->path()])
 <!-- Content -->
 <div class="content">
 
@@ -13,7 +14,7 @@
         @endif
 
         <div class="row">
-            @foreach ($videos as $video)
+            @forelse ($videos as $video)
             <div class="col-md-3">
                 <aside class="profile-nav alt">
                     <section class="card">
@@ -31,8 +32,8 @@
                             {!! Str::limit($video->description, 80) !!}
                         </div>
                         <hr>
-                        <div class="d-flex justify-content-end">
-                            <small>{{ $video->user->name }} | </small>
+                        <div class="d-flex justify-content-between">
+                            <small>{{ $video->user->name }}</small>
                             <small>{{ $video->created_at->diffForHumans() }}</small>
                         </div>
                         <hr>
@@ -58,9 +59,13 @@
                     </section>
                 </aside>
             </div>
-            @endforeach
+            @empty
+            <p class="text-center alert alert-light">Data Video Tidak Ditemukan ...</p>
+            @endforelse
         </div>
-
+        <div class="row float-right">
+            {{ $videos->links('pagination::simple-bootstrap-4') }}
+        </div>
     </div>
     <!-- .animated -->
 </div>

@@ -17,9 +17,7 @@ class CreateKategoriVideoVideo extends Migration
             $table->id();
             $table->bigInteger('video_id')->unsigned();
             $table->bigInteger('kategori_video_id')->unsigned();
-
             $table->timestamps();
-
             $table->foreign('video_id')->references('id')->on('videos')->onDelete('cascade');
             $table->foreign('kategori_video_id')->references('id')->on('kategori_videos')->onDelete('cascade');
         });

@@ -11,7 +11,9 @@ class VideoController extends Controller
     // READ
     public function index()
     {
-        $videos = Video::with('kategori_videos', 'user')->orderBy('id', 'desc')->get();
+        $search = urlencode(request('search'));
+        if ($search) $videos = Video::with('kategori_videos', 'user')->orderBy('id', 'desc')->where('title', 'LIKE', '%'. $search .'%')->paginate(12);
+        else $videos = Video::with('kategori_videos', 'user')->orderBy('id', 'desc')->paginate(12);
         return view('dashboard.video', compact('videos'));
     }
 
@@ -40,7 +42,7 @@ class VideoController extends Controller
         return abort('404');
     }
 
-    //
+    // EDIT
     public function edit($slug)
     {
         $video =  Video::where('slug', $slug)->first();

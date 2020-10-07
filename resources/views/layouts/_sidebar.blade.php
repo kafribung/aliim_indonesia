@@ -30,7 +30,7 @@
                 <li class=" {{Request()->is('artikel') ? 'active' : ''}}">
                     <a href="/artikel"> <i class="menu-icon ti-book"></i>Semua Artikel</a>
                 </li>
-                <li class=" {{Request()->is('artikel/create') ? 'active' : ''}}">
+                <li class=" {{Request()->is('artikel/*') ? 'active' : ''}}">
                     <a href="/artikel/create"> <i class="menu-icon ti-pencil-alt"></i>Tambah Artikel</a>
                 </li>
 
@@ -43,7 +43,7 @@
                 <li class=" {{Request()->is('video') ? 'active' : ''}} ">
                     <a href="/video"> <i class="menu-icon ti-video-clapper"></i>Semua Video</a>
                 </li>
-                <li class=" {{Request()->is('video/create') ? 'active' : ''}} ">
+                <li class=" {{Request()->is('video/*') ? 'active' : ''}} ">
                     <a href="/video/create"> <i class="menu-icon ti-control-play"></i>Tambah Video</a>
                 </li>
 

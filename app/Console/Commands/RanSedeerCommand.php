@@ -40,8 +40,7 @@ class RanSedeerCommand extends Command
     public function handle()
     {
         $this->info('---Start---');
-        $this->call(KategoriArtikelSeeder::class);
-        $this->call(KategoriVideoSeeder::class);
+        $this->call('db:seed');
         $this->line('---Finish---');
     }
 }

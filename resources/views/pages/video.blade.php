@@ -19,7 +19,7 @@
                     </div>
                     <!-- entity_meta -->
                     <div class="embed-responsive embed-responsive-4by3">
-                        <iframe class="embed-responsive-item" src="{{ $video->video }}"></iframe>
+                        <iframe class="embed-responsive-item" width="300" src="{{ $video->video }}"></iframe>
                     </div>
                     <!-- embed-responsive -->
                     <div class="entity_content">
