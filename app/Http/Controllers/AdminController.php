@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Http\Requests\UstadAdminRequest;
-use Illuminate\Support\Facades\{Storage, Http, Hash};
+use Illuminate\Support\Facades\{Storage, Hash};
 
 class AdminController extends Controller
 {
@@ -36,8 +36,7 @@ class AdminController extends Controller
     // EDIT
     public function edit(User $admin)
     {
-        $provincis = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
-        $provincis->json();
+        $provincis = ApiRajaOngkir::apiProvinsi();
         return view('dashboard_edit.admin_edit', compact('admin', 'provincis'));
     }
 

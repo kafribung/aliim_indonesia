@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UstadAdminRequest;
 use Illuminate\Support\Str;
 use App\Models\User;
-use Illuminate\Support\Facades\{Storage, Http, Hash};
+use Illuminate\Support\Facades\{Storage, Hash};
 
 class UstadController extends Controller
 {
@@ -22,7 +22,7 @@ class UstadController extends Controller
     public function create()
     {
         // $provincis = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
-        $provincis = $this->apiProvinsi();
+        $provincis = ApiRajaOngkir::apiProvinsi();
         return view('dashboard_create.ustad_create', compact('provincis'));
     }
 
@@ -56,8 +56,7 @@ class UstadController extends Controller
     // EDIT
     public function edit(User $ustad)
     {
-        $provincis = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
-        $provincis->json();
+        $provincis = ApiRajaOngkir::apiProvinsi();
         return view('dashboard_edit.ustad_edit', compact('ustad', 'provincis'));
     }
 
@@ -87,29 +86,5 @@ class UstadController extends Controller
         return redirect('/ustad')->with('msg', 'Data Ustad Berhasil di Hapus');
     }
 
-    // API PROVINSI
-    public function apiProvinsi()
-    {
-        $curl = curl_init();
-
-        curl_setopt_array($curl, array(
-        CURLOPT_URL => "https://api.rajaongkir.com/starter/province",
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => "",
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 30,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => "GET",
-        CURLOPT_HTTPHEADER => array(
-            "key: d54612ec18f6217de0657bbbd8c60b31"
-        ),
-        ));
-        $provincis = curl_exec($curl);
-        $err = curl_error($curl);
-        curl_close($curl);
-        if ($err) {
-        echo "cURL Error #:" . $err;
-        }
-        return  json_decode($provincis, true);
-    }
+    
 }

@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
-use Illuminate\Support\Facades\{Storage, Hash, Http};
+use Illuminate\Support\Facades\{Storage, Hash};
 
 class UserController extends Controller
 {
@@ -38,20 +37,14 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        $provincis = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
-        $provincis->json();
+        $provincis = ApiRajaOngkir::apiProvinsi();
         return view('dashboard_edit.user_edit', compact('user', 'provincis'));
     }
 
     // UPDATE
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, User $user)
     {
-        $data = $request->validate([
-            'name'     => ['required', 'string', 'max:255'],
-            'email'    => ['required', 'string', 'email', 'max:255'],
-            'password' => ['required', 'string', 'min:6']
-        ]);
-        $user = User::findOrFail($id);
+        $data = $request->all();
         if ($request->has('img')) {
             // Dont Delete IMG Default
             if ($user->img != 'img_users/default_user.jpg') {
@@ -66,11 +59,10 @@ class UserController extends Controller
     }
 
     // DELETE
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        $user = User::findOrFail($id);
         Storage::delete($user->img);
-        User::destroy($id);
+        $user->delete();
         return redirect('/user')->with('msg', 'Data User Berhasil di Hapus');
     }
 }

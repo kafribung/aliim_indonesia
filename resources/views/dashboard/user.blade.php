@@ -56,10 +56,10 @@
                                         <td>{{($user->role == 0) ? 'User' : (($user->role == 1) ? 'Admin' : 'Ustad')}}
                                         </td>
                                         <td>
-                                            <a href="/user/{{$user->id}}/edit" class="btn btn-warning btn-sm"><i
-                                                    class="fa fa-edit"></i></a>
+                                            <a href="/user/{{$user->email}}/edit" class="btn btn-warning btn-sm"><i
+                                                class="fa fa-edit"></i></a>
 
-                                            <form action="/user/{{$user->id}}" method="POST" class="d-inline-flex">
+                                            <form action="/user/{{$user->email}}" method="POST" class="d-inline-flex">
                                                 @csrf
                                                 @method('DELETE')
 

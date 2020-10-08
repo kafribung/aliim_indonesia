@@ -9,12 +9,12 @@
 
                 @if (auth()->user()->role != 2)
                 <li class="menu-title">Manajemen</li>
-                <li class="menu-item-has-children dropdown {{Request::segment(1) == 'ustad' ? 'active' : ''}} {{ request()->is('ustad') ? 'active' : '' }} {{ request()->is('admin') ? 'active' : '' }}">
+                <li class="menu-item-has-children dropdown {{Request::segment(1) == 'user' ? 'active' : ''}} {{ request()->segment(1) == 'ustad' ? 'active' : '' }} {{ request()->segment(1) == 'admin' ? 'active' : '' }}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs "></i>Manajemen</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-user"></i><a href="/user">User</a></li>
-                        <li><i class="fa fa-heart"></i><a href="/ustad">Ustad</a></li>
-                        <li><i class="fa fa-user-circle"></i><a href="/admin">Admin</a></li>
+                        <li><i class="menu-icon fa fa-user"></i><a href="/user">User</a></li>
+                        <li><i class="menu-icon fa fa-heart"></i><a href="/ustad">Ustad</a></li>
+                        <li><i class="menu-icon fa fa-user-circle"></i><a href="/admin">Admin</a></li>
                     </ul>
                 </li>
                 @endif
