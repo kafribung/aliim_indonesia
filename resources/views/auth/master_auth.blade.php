@@ -5,7 +5,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" href="{{ asset('log/images/icons/favicon.png') }}"/>
+	@include('includes.favicon')
+
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('log/vendor/bootstrap/css/bootstrap.min.css') }}">
 <!--===============================================================================================-->

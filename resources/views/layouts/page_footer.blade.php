@@ -5,18 +5,18 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="footer_widget_title">
-                    <h3><a href="#" target="_self">Tentang Aliim</a></h3>
+                    <h3><a href="" target="_self">Tentang Aliim</a></h3>
                 </div>
                 <div class="logo footer-logo">
-                    <a title="fontanero" href="#">
-                        <img src="{{ asset('assets/img/tech_about.png') }}" alt="Belajar" title="Aliim Indonesia" width="300" height="180">
+                    <a title="fontanero" href="">
+                        <img src="{{ asset('assets/img/karakter.jpg') }}" alt="Belajar" title="Aliim Indonesia" width="250">
                     </a>
                     <p>Sebuah tempat pembelajaran dan pengetahuan mulai dari dasar tentang islam, dilengkapi dengan artikel islam dan video pembelajaran</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="footer_widget_title">
-                    <h3><a href="#" target="_self">Informasi</a></h3>
+                    <h3><a href="" target="_self">Informasi</a></h3>
                 </div>
                 <div class="row">
                     <div class="col-xs-4">
@@ -49,15 +49,15 @@
             </div>
             <div class="col-md-4">
                 <div class="footer_widget_title">
-                    <h3><a href="#" target="_self">Akan Datang</a></h3>
+                    <h3><a href="" target="_self">Akan Datang</a></h3>
                 </div>
                 <div class="media">
                     <div class="media-left">
-                        <a href="#"><img class="media-object" src="{{ asset('assets/img/editor_pic1.jpg')}}" width="65" height="65" alt="Generic placeholder image"></a>
+                        <a href=""><img class="media-object" src="{{ asset('assets/img/editor_pic1.jpg')}}" width="65" height="65" alt="Generic placeholder image"></a>
                     </div>
                     <div class="media-body">
                         <h3 class="media-heading">
-                            <a href="#">Fitur Bimbingan Mengaji
+                            <a href="">Fitur Bimbingan Mengaji
                         </h3>
                         <span class="rating">
                             <i class="fa fa-star"></i>
@@ -70,7 +70,7 @@
                 </div>
                 <div class="media">
                     <div class="media-left">
-                        <a href="#"><img class="media-object" src="{{ asset('assets/img/editor_pic2.jpg') }}" width="65" height="65" alt="Generic placeholder image"></a>
+                        <a href=""><img class="media-object" src="{{ asset('assets/img/editor_pic2.jpg') }}" width="65" height="65" alt="Generic placeholder image"></a>
                     </div>
                     <div class="media-body">
                         <h3 class="media-heading">
@@ -87,7 +87,7 @@
                 </div>
                 <div class="media">
                     <div class="media-left">
-                        <a href="#"><img class="media-object" src="{{ asset('assets/img/editor_pic3.jpg') }}" width="65" height="65" alt="Generic placeholder image"></a>
+                        <a href=""><img class="media-object" src="{{ asset('assets/img/editor_pic3.jpg') }}" width="65" height="65" alt="Generic placeholder image"></a>
                     </div>
                     <div class="media-body">
                         <h3 class="media-heading">

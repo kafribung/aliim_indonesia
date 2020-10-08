@@ -28,7 +28,7 @@
                 <div class="col-md-4">
                     <div class="logo">
                         <a href="/">
-                            <img src="{{ asset('assets/img/logo.png') }}" title="Aliim | Indonesia" alt="Aliim Logo">
+                            <img src="{{ asset('assets/img/logo.jpg') }}" title="Aliim | Indonesia" alt="Aliim Logo">
                         </a>
                         <p>~ Belajar Islam Dengan Mudah ~</p>
                     </div>
@@ -51,13 +51,13 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{Auth::user()->name}}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/profile">Profile</a>
-                                    <a class="dropdown-item" href="#"
+                                    <a class="dropdown-item" href=""
                                         onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
                                     <form id="logout" action="{{ route('logout') }}" method="POST"
                                         style="display: none;">
@@ -69,7 +69,7 @@
                         @endguest
 
                         <ul class="nav-cta hidden-xs">
-                            <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><i
+                            <li class="dropdown"><a href="" data-toggle="dropdown" class="dropdown-toggle"><i
                                         class="fa fa-search"></i></a>
                                 <ul class="dropdown-menu">
                                     <li>
@@ -106,19 +106,19 @@
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#navbar-collapse-1"><span class="sr-only">Toggle
+                            data-target="navbar-collapse-1"><span class="sr-only">Toggle
                                 navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span
                                 class="icon-bar"></span>
                         </button>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="#navbar-collapse-1">
+                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
                         <ul class="nav navbar-nav main-nav">
                             <li class="{{ Request::is('/') ? 'active' : '' }}">
                                 <a href="/">Home</a>
                             </li>
                             <li class="dropdown m-menu-fw {{ Request::is('belajar-artikel/*') ? 'active' : '' }}">
-                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                                <a href="" data-toggle="dropdown" class="dropdown-toggle">
                                     Belajar Islam
                                     <span><i class="fa fa-angle-down"></i></span></a>
                                 <ul class="dropdown-menu">
@@ -138,7 +138,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown m-menu-fw {{ Request::is('belajar-video/*') ? 'active' : '' }}">
-                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                                <a href="" data-toggle="dropdown" class="dropdown-toggle">
                                     Video
                                     <span><i class="fa fa-angle-down"></i></span></a>
                                 <ul class="dropdown-menu">
@@ -159,7 +159,7 @@
                                 <a href="/motivasi">Motivasi</a>
                             </li>
                             <li class="{{  request()->is('tanya-ustad') ? 'active' : '' }}">
-                                <a href="#">Tanya Ustad</a>
+                                <a href="">Tanya Ustad</a>
                             </li>
                         </ul>
                     </div>

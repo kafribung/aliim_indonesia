@@ -24,8 +24,8 @@
                         </div>
                         <!-- feature_article_title -->
                         <div class="feature_article_date">
-                            <a href="#" target="_self">{{ $artikel_1->user->name }}</a>,
-                            <a href="#" target="_self">{{ $artikel_1->created_at->diffForHumans() }}</a>
+                            <a href="" target="_self">{{ $artikel_1->user->name }}</a>,
+                            <a href="" target="_self">{{ $artikel_1->created_at->diffForHumans() }}</a>
                         </div>
                         <!-- feature_article_date -->
                         <div class="feature_article_content">
@@ -33,8 +33,8 @@
                         </div>
                         <!-- feature_article_content -->
                         <div class="article_social">
-                            <span><i class="fa fa-share-alt"></i><a href="#">424</a>Shares</span>
-                            <span><i class="fa fa-comments-o"></i><a href="#">4</a>Comments</span>
+                            <span><i class="fa fa-share-alt"></i><a href="">424</a>Shares</span>
+                            <span><i class="fa fa-comments-o"></i><a href="">4</a>Comments</span>
                         </div>
                         <!-- article_social -->
                     </div>
@@ -54,7 +54,7 @@
                     </div>
                     <!-- feature_article_img -->
                     <div class="feature_article_inner">
-                        <div class="tag_lg purple"><a href="#">Sering Dibaca</a></div>
+                        <div class="tag_lg purple"><a href="">Populer</a></div>
                         <div class="feature_article_title">
                             <h1>
                                 <a href="/artikel-islam/{{$artikel->slug}}" target="_self">{{$artikel->title}} </a>
@@ -62,8 +62,8 @@
                         </div>
                         <!-- feature_article_title -->
                         <div class="feature_article_date">
-                            <a href="#" target="_self">{{$artikel->user->name}}</a>,
-                            <a href="#" target="_self">{{$artikel->created_at->diffForHumans()}}</a>
+                            <a href="" target="_self">{{$artikel->user->name}}</a>,
+                            <a href="" target="_self">{{$artikel->created_at->diffForHumans()}}</a>
                         </div>
                         <!-- feature_article_date -->
                         <div class="feature_article_content">
@@ -71,8 +71,8 @@
                         </div>
                         <!-- feature_article_content -->
                         <div class="article_social">
-                            <span><i class="fa fa-share-alt"></i><a href="#">424</a>Shares</span>
-                            <span><i class="fa fa-comments-o"></i><a href="#">4</a>Comments</span>
+                            <span><i class="fa fa-share-alt"></i><a href="">424</a>Shares</span>
+                            <span><i class="fa fa-comments-o"></i><a href="">4</a>Comments</span>
                         </div>
                         <!-- article_social -->
                     </div>
@@ -102,14 +102,14 @@
 
                 <div class="category_section mobile">
                     <div class="article_title header_purple">
-                        <h2><a href="#" target="_self">Belajar Islam</a></h2>
+                        <h2><a href="" target="_self">Belajar Islam</a></h2>
                     </div>
                     <!----article_title------>
                     <div class="category_article_wrapper">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="top_article_img">
-                                    <a href="#" target="_self">
+                                    <a href="" target="_self">
                                         <img class="img-responsive" src="{{ url($artikel_3->takeImg) }}"
                                             title="Gambar {{$artikel_3->title}}" alt="Gambar {{$artikel_3->title}}"
                                             width="500" height="400">
@@ -129,17 +129,17 @@
                                 </div>
                                 <!----category_article_title------>
                                 <div class="category_article_date">
-                                    <a href="#">{{$artikel_3->created_at->diffForHumans()}}</a>, by:
-                                    <a href="#">{{$artikel_3->user->name}}</a></div>
+                                    <a href="">{{$artikel_3->created_at->diffForHumans()}}</a>, by:
+                                    <a href="">{{$artikel_3->user->name}}</a></div>
                                 <!----category_article_date------>
                                 <div class="category_article_content">
                                     {!! Str::limit($artikel_3->description, 200) !!}
                                 </div>
                                 <!----category_article_content------>
                                 <div class="media_social">
-                                    <span><a href="#"><i class="fa fa-share-alt"></i>424 </a>
+                                    <span><a href=""><i class="fa fa-share-alt"></i>424 </a>
                                         Shares</span>
-                                    <span><i class="fa fa-comments-o"></i><a href="#">4</a>
+                                    <span><i class="fa fa-comments-o"></i><a href="">4</a>
                                         Comments</span>
                                 </div>
                                 <!----media_social------>
@@ -153,7 +153,7 @@
                             <div class="col-md-6 mb-3">
                                 <div class="media">
                                     <div class="media-left">
-                                        <a href="#">
+                                        <a href="">
                                             <img class="media-object" src="{{ url($artikel->takeImg) }}"
                                                 title="Gambar {{$artikel->title}}" alt="Gambar {{$artikel->title}}"
                                                 width="100" height="100">
@@ -168,13 +168,13 @@
                                                 target="_self">{{$artikel->title}}</a>
                                         </h3>
                                         <span class="media-date">
-                                            <a href="#">{{$artikel->created_at->diffForHumans()}}</a>, by:
-                                            <a href="#">{{$artikel->user->name}}</a>
+                                            <a href="">{{$artikel->created_at->diffForHumans()}}</a>, by:
+                                            <a href="">{{$artikel->user->name}}</a>
                                         </span>
                                         <div class="media_social">
-                                            <span><a href="#"><i class="fa fa-share-alt"></i>424</a>
+                                            <span><a href=""><i class="fa fa-share-alt"></i>424</a>
                                                 Shares</span>
-                                            <span><a href="#"><i class="fa fa-comments-o"></i>4</a>
+                                            <span><a href=""><i class="fa fa-comments-o"></i>4</a>
                                                 Comments</span>
                                         </div>
                                     </div>
@@ -203,7 +203,7 @@
                                     </div>
                                     <!-- top_article_img -->
                                     @foreach ($video->kategori_videos as $kategori)
-                                    <span class="tag blue"><a href="#" target="_self">{{ $kategori->title }}</a></span>
+                                    <span class="tag blue"><a href="" target="_self">{{ $kategori->title }}</a></span>
                                     @endforeach
                                     <div class="category_article_title">
                                         <h2>
@@ -213,8 +213,8 @@
                                     </div>
                                     <!-- category_article_title -->
                                     <div class="category_article_date">
-                                        <a href="#">{{ $video->created_at->diffForHumans() }}</a>, by:
-                                        <a href="#">{{ $video->user->name }}</a>
+                                        <a href="">{{ $video->created_at->diffForHumans() }}</a>, by:
+                                        <a href="">{{ $video->user->name }}</a>
                                     </div>
                                     <!-- category_article_date -->
                                     <div class="category_article_content">
@@ -222,9 +222,9 @@
                                     </div>
                                     <!-- category_article_content -->
                                     <div class="media_social">
-                                        <span><a href="#"><i class="fa fa-share-alt"></i>424 </a>
+                                        <span><a href=""><i class="fa fa-share-alt"></i>424 </a>
                                             Shares</span>
-                                        <span><i class="fa fa-comments-o"></i><a href="#">4</a>
+                                        <span><i class="fa fa-comments-o"></i><a href="">4</a>
                                             Comments</span>
                                     </div>
                                     <!-- media_social -->
@@ -272,12 +272,12 @@
                 {{-- Artikel Terbaru --}}
                 <div class="widget">
                     <div class="widget_title widget_black">
-                        <h2><a href="#">Atikel Terbaru</a></h2>
+                        <h2><a href="">Atikel Terbaru</a></h2>
                     </div>
                     @foreach ($artikel_5 as $artikel)
                     <div class="media">
                         <div class="media-left">
-                            <a href="#"><img class="media-object" src="{{ url( $artikel->takeImg ) }}"
+                            <a href=""><img class="media-object" src="{{ url( $artikel->takeImg ) }}"
                                     title="Gambar {{$artikel->title}}" alt="Gambar {{ $artikel->title }}" width="122"
                                     height="122"></a>
                         </div>
@@ -286,16 +286,16 @@
                                 <a href="/artikel-islam/{{$artikel->slug}}" target="_self">{{ $artikel->title }}</a>
                             </h1>
                             <span class="media-date">
-                                <a href="#">{{ $artikel->created_at->diffForHumans() }}</a>, by:
-                                <a href="#">{{ $artikel->user->name }}</a>
+                                <a href="">{{ $artikel->created_at->diffForHumans() }}</a>, by:
+                                <a href="">{{ $artikel->user->name }}</a>
                             </span>
 
                             <div class="widget_article_social">
                                 <span>
-                                    <a href="#" target="_self"> <i class="fa fa-share-alt"></i>424</a> Shares
+                                    <a href="" target="_self"> <i class="fa fa-share-alt"></i>424</a> Shares
                                 </span>
                                 <span>
-                                    <a href="#" target="_self"><i class="fa fa-comments-o"></i>4</a> Comments
+                                    <a href="" target="_self"><i class="fa fa-comments-o"></i>4</a> Comments
                                 </span>
                             </div>
                         </div>
@@ -316,7 +316,7 @@
                 {{-- Video Terbaru --}}
                 <div class="widget reviews m30">
                     <div class="widget_title widget_black">
-                        <h2><a href="#">Video Terbaru</a></h2>
+                        <h2><a href="">Video Terbaru</a></h2>
                     </div>
                     @foreach ($video_2 as $video)
                     <div class="media">
@@ -330,16 +330,16 @@
                             <a href="/video-islam/{{ $video->slug }}" target="_self">{{ $video->title }}</a>
                         </h1>
                         <span class="media-date">
-                            <a href="#">{{ $video->created_at->diffForHumans() }}</a>, by:
-                            <a href="#">{{ $video->user->name }}</a>
+                            <a href="">{{ $video->created_at->diffForHumans() }}</a>, by:
+                            <a href="">{{ $video->user->name }}</a>
                         </span>
 
                         <div class="widget_article_social">
                             <span>
-                                <a href="#" target="_self"> <i class="fa fa-share-alt"></i>424</a> Shares
+                                <a href="" target="_self"> <i class="fa fa-share-alt"></i>424</a> Shares
                             </span>
                             <span>
-                                <a href="#" target="_self"><i class="fa fa-comments-o"></i>4</a> Comments
+                                <a href="" target="_self"><i class="fa fa-comments-o"></i>4</a> Comments
                             </span>
                         </div>
                     </div>

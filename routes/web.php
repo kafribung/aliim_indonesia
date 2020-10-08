@@ -1,6 +1,6 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+
 // ----------------------------------------------------------ADMIN
 Route::group(['middleware' => 'admin'], function () {
     // Admin 
@@ -26,38 +26,31 @@ Route::group(['middleware' => 'admin'], function () {
 });
 
 // ----------------------------------------------------------USER
+Route::namespace('pages')->group(function(){
+    Route::group(['middleware' => 'auth'], function () {
+        // Profile
+        Route::get('/profile', 'HomeController@profile');
+        Route::put('/profile/{id}', 'HomeController@profile_update');
+        // Koment Artikel
+        Route::post('komentar-artikel/{id}', 'KomentArtikelController@store');
+    });
+    // Home
+    Route::get('/', 'HomeController@index');
+    // Filter
+    Route::get('/belajar-artikel/{kategori}', 'FilterArtikelController');
+    Route::get('/belajar-video/{kategori}', 'FilterVideoController');
+    // Single
+    Route::get('/artikel-islam/{artikel:slug}', 'SingelArtikelController');
+    Route::get('/video-islam/{video:slug}', 'SingelVideoController');
+    // Search
+    Route::get('/search/artikel', 'HomeController@search_artikel');
+    // Motivasi
+    Route::get('/motivasi', 'MotivasiController@index');
+});
 // Token Register
 Route::get('/verification/{token}/{id}', 'Auth\RegisterController@verification');
-
-Route::group(['middleware' => 'auth'], function () {
-    // Profile
-    Route::get('/profile', 'HomeController@profile');
-    Route::put('/profile/{id}', 'HomeController@profile_update');
-
-    // Koment Artikel
-    Route::post('komentar-artikel/{id}', 'KomentArtikelController@store');
-});
-
-// Home
-Route::get('/', 'HomeController@index');
-
-// Filter
-Route::get('/belajar-artikel/{kategori}', 'FilterController@filter_artikel');
-Route::get('/belajar-video/{kategori}', 'FilterController@filter_video');
-
-// Single
-Route::get('/artikel-islam/{artikel:slug}', 'SingelController@show_artikel');
-Route::get('/video-islam/{video:slug}', 'SingelController@show_video');
-
-// Search
-Route::get('/search/artikel', 'HomeController@search_artikel');
-
-// Motivasi
-Route::get('/motivasi', 'MotivasiController@index');
-
 // Core Laravel
 Route::get('/logout', function () {
     return abort('404');
 });
-
 Auth::routes();

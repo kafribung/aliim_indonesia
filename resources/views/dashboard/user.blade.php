@@ -40,7 +40,7 @@
                                     @endphp
                                     @foreach ($users as $user)
                                     <tr>
-                                        <td>{{$angkaAwal}}</td>
+                                        <td>{{$angkaAwal++}}</td>
                                         <td class="avatar">
                                             <div class="round-img">
                                                 <img class="rounded-circle" src="{{url($user->takeImg)}}"
@@ -70,11 +70,7 @@
 
                                         </td>
                                     </tr>
-                                    @php
-                                    $angkaAwal++
-                                    @endphp
                                     @endforeach
-
                                 </tbody>
                             </table>
                         </div> <!-- /.table-stats -->

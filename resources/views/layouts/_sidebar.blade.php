@@ -19,50 +19,48 @@
                 </li>
                 @endif
 
-                <li class="menu-title">Artikel</li>
+                <li class="menu-title">Artikel & Video</li>
 
-                <!-- /.menu-title -->
-                <li class=" {{Request()->segment(1) == 'kategori-artikel' ? 'active' : ''}} ">
-                    <a href="/kategori-artikel"> <i class="menu-icon ti-infinite"></i>Kategori Artikel</a>
-                </li>
-                <li class=" {{Request()->is('artikel') ? 'active' : ''}}">
-                    <a href="/artikel"> <i class="menu-icon ti-book"></i>Semua Artikel</a>
-                </li>
-                <li class=" {{Request()->is('artikel/*') ? 'active' : ''}}">
-                    <a href="/artikel/create"> <i class="menu-icon ti-pencil-alt"></i>Tambah Artikel</a>
+                <!-- /Artikel -->
+                <li class="menu-item-has-children dropdown {{Request()->segment(1) == 'kategori-artikel' ? 'active' : ''}} {{Request()->segment(1) == 'artikel' ? 'active' : ''}}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-newspaper-o "></i>Artikel</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-list"></i><a href="/kategori-artikel">Kategori Artikel</a></li>
+                        <li><i class="menu-icon fa fa-newspaper-o"></i><a href="/artikel">Semua Artikel</a></li>
+                        <li><i class="menu-icon fa fa-pencil"></i><a href="/artikel/create">Tambah Artikel</a></li>
+                    </ul>
                 </li>
 
-                <li class="menu-title">Video</li>
-
-                <!-- /.menu-title -->
-                <li class=" {{Request()->segment(1) == 'kategori-video' ? 'active' : ''}} ">
-                    <a href="/kategori-video"> <i class="menu-icon ti-infinite"></i>Kategori Video</a>
-                </li>
-                <li class=" {{Request()->is('video') ? 'active' : ''}} ">
-                    <a href="/video"> <i class="menu-icon ti-video-clapper"></i>Semua Video</a>
-                </li>
-                <li class=" {{Request()->is('video/*') ? 'active' : ''}} ">
-                    <a href="/video/create"> <i class="menu-icon ti-control-play"></i>Tambah Video</a>
+                <!-- /Video -->
+                <li class="menu-item-has-children dropdown {{Request()->segment(1) == 'kategori-video' ? 'active' : ''}} {{Request()->segment(1) == 'video' ? 'active' : ''}}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-video-camera "></i>Video</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-list"></i><a href="/kategori-video">Kategori Video</a></li>
+                        <li><i class="menu-icon fa fa-video-camera"></i><a href="/video">Semua Video</a></li>
+                        <li><i class="menu-icon fa fa-pencil"></i><a href="/video/create">Tambah Video</a></li>
+                    </ul>
                 </li>
 
                 @if (auth()->user()->role != 2)
-                <li class="menu-title">Doa & Hadist</li>
-                <!-- /.menu-title -->
+                <li class="menu-title">Motivasi</li>
+                <!-- /Motivasi -->
+                <li class="menu-item-has-children dropdown {{Request()->segment(1) == 'doa-hadist' ? 'active' : ''}}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-file-image-o "></i>Doa & Hadist</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-image"></i><a href="/doa-hadist">Semua Doa & Hadist</a></li>
+                        <li><i class="menu-icon fa fa-pencil"></i><a href="/doa-hadist/create">Tambah Doa & Hadist</a></li>
+                    </ul>
+                </li>
 
-                <li class="{{Request()->is('doa-hadist') ? 'active' : ''}}">
-                    <a href="/doa-hadist"> <i class="menu-icon ti-image"></i>Semua Doa & Hadist</a>
-                </li>
-                <li class="{{Request()->is('doa-hadist/*') ? 'active' : ''}}">
-                    <a href="/doa-hadist/create"> <i class="menu-icon ti-plus"></i>Tambah Doa & Hadist</a>
-                </li>
 
                 <li class="menu-title">Plugin</li>
-                <!-- /.menu-title -->
-                <li class=" {{Request()->segment(1) == 'iklan' ? 'active' : ''}} ">
-                    <a href="/iklan"> <i class="menu-icon ti-gift"></i>Iklan</a>
-                </li>
-                <li class="{{Request()->segment(1) == 'hadist' ? 'active' : ''}}">
-                    <a href="/hadist"> <i class="menu-icon ti-shield"></i>Hadis Harian</a>
+                <!-- /Plugin -->
+                <li class="menu-item-has-children dropdown {{Request()->segment(1) == 'iklan' ? 'active' : ''}} {{Request()->segment(1) == 'hadist' ? 'active' : ''}}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-plug"></i>Doa & Hadist</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-gift"></i><a href="/iklan">Iklan</a></li>
+                        <li><i class="menu-icon fa fa-shield"></i><a href="/hadist">Hadist Harian</a></li>
+                    </ul>
                 </li>
                 @endif
 

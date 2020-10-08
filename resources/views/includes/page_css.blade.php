@@ -1,6 +1,4 @@
-<!-- favicon -->
-<link href="{{ asset('assets/img/favicon.png') }}" rel=icon>
-
+@include('includes.favicon')
 <!-- web-fonts -->
 <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
 
