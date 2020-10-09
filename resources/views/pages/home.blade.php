@@ -7,8 +7,8 @@
             <div class="col-md-7">
                 <div class="feature_article_wrapper">
                     <div class="feature_article_img">
-                        <img class="img-responsive top_static_article_img" src="{{ url($artikel_1->takeImg) }}"
-                            title="Gambar {{$artikel_1->title}}" alt="Gambar {{$artikel_1->title}}" width="832px"
+                        <img class="img-responsive top_static_article_img" src="{{ url($heroFirst->takeImg) }}"
+                            title="Gambar {{$heroFirst->title}}" alt="Gambar {{$heroFirst->title}}" width="832px"
                             height="955px">
                     </div>
                     <!-- feature_article_img -->
@@ -18,18 +18,18 @@
                         <div class="tag_lg red"><a href="/">Baru Upload</a></div>
                         <div class="feature_article_title">
                             <h1>
-                                <a href="/artikel-islam/{{ $artikel_1->slug }}"
-                                    target="_self">{{ $artikel_1->title }}</a>
+                                <a href="/artikel-islam/{{ $heroFirst->slug }}"
+                                    target="_self">{{ $heroFirst->title }}</a>
                             </h1>
                         </div>
                         <!-- feature_article_title -->
                         <div class="feature_article_date">
-                            <a href="" target="_self">{{ $artikel_1->user->name }}</a>,
-                            <a href="" target="_self">{{ $artikel_1->created_at->diffForHumans() }}</a>
+                            <a href="" target="_self">{{ $heroFirst->user->name }}</a>,
+                            <a href="" target="_self">{{ $heroFirst->created_at->diffForHumans() }}</a>
                         </div>
                         <!-- feature_article_date -->
                         <div class="feature_article_content">
-                            {!! Str::limit($artikel_1->description, 200) !!}
+                            {!! Str::limit($heroFirst->description, 200) !!}
                         </div>
                         <!-- feature_article_content -->
                         <div class="article_social">
@@ -45,7 +45,7 @@
             <!-- col-md-7 -->
 
             {{-- Top Viewd --}}
-            @foreach ($artikel_2 as $artikel)
+            @foreach ($heroTwo as $artikel)
             <div class="col-md-5" style="margin-bottom: 20px">
                 <div class="feature_static_wrapper">
                     <div class="feature_article_img">
@@ -110,30 +110,30 @@
                             <div class="col-md-6">
                                 <div class="top_article_img">
                                     <a href="" target="_self">
-                                        <img class="img-responsive" src="{{ url($artikel_3->takeImg) }}"
-                                            title="Gambar {{$artikel_3->title}}" alt="Gambar {{$artikel_3->title}}"
+                                        <img class="img-responsive" src="{{ url($artikel->takeImg) }}"
+                                            title="Gambar {{$artikel->title}}" alt="Gambar {{$artikel->title}}"
                                             width="500" height="400">
                                     </a>
                                 </div>
                                 <!----top_article_img------>
                             </div>
                             <div class="col-md-6">
-                                @foreach ($artikel_3->kategori_artikels as $kategori)
+                                @foreach ($artikel->kategori_artikels as $kategori)
                                 <span class="tag purple">{{$kategori->title}}</span>
                                 @endforeach
                                 <div class="category_article_title">
                                     <h2>
-                                        <a href="/artikel-islam/{{$artikel_3->slug}}"
-                                            target="_self">{{$artikel_3->title}}</a>
+                                        <a href="/artikel-islam/{{$artikel->slug}}"
+                                            target="_self">{{$artikel->title}}</a>
                                     </h2>
                                 </div>
                                 <!----category_article_title------>
                                 <div class="category_article_date">
-                                    <a href="">{{$artikel_3->created_at->diffForHumans()}}</a>, by:
-                                    <a href="">{{$artikel_3->user->name}}</a></div>
+                                    <a href="">{{$artikel->created_at->diffForHumans()}}</a>, by:
+                                    <a href="">{{$artikel->user->name}}</a></div>
                                 <!----category_article_date------>
                                 <div class="category_article_content">
-                                    {!! Str::limit($artikel_3->description, 200) !!}
+                                    {!! Str::limit($artikel->description, 200) !!}
                                 </div>
                                 <!----category_article_content------>
                                 <div class="media_social">
@@ -149,7 +149,7 @@
                     {{-- Artikel Collenction  --}}
                     <div class="category_article_wrapper">
                         <div class="row">
-                            @foreach ($artikel_4 as $artikel)
+                            @foreach ($artikels as $artikel)
                             <div class="col-md-6 mb-3">
                                 <div class="media">
                                     <div class="media-left">
@@ -194,7 +194,7 @@
                     <!-- row -->
                     <div class="category_article_wrapper">
                         <div class="row">
-                            @foreach ($video_1 as $video)
+                            @foreach ($videos as $video)
                             <div class="col-md-6">
                                 <div class="category_article_body">
                                     <div class="embed-responsive embed-responsive-4by3">
@@ -268,93 +268,7 @@
             </div>
             <!-- Left Section -->
 
-            <div class="col-md-4">
-                {{-- Artikel Terbaru --}}
-                <div class="widget">
-                    <div class="widget_title widget_black">
-                        <h2><a href="">Atikel Terbaru</a></h2>
-                    </div>
-                    @foreach ($artikel_5 as $artikel)
-                    <div class="media">
-                        <div class="media-left">
-                            <a href=""><img class="media-object" src="{{ url( $artikel->takeImg ) }}"
-                                    title="Gambar {{$artikel->title}}" alt="Gambar {{ $artikel->title }}" width="122"
-                                    height="122"></a>
-                        </div>
-                        <div class="media-body">
-                            <h1 class="media-heading">
-                                <a href="/artikel-islam/{{$artikel->slug}}" target="_self">{{ $artikel->title }}</a>
-                            </h1>
-                            <span class="media-date">
-                                <a href="">{{ $artikel->created_at->diffForHumans() }}</a>, by:
-                                <a href="">{{ $artikel->user->name }}</a>
-                            </span>
-
-                            <div class="widget_article_social">
-                                <span>
-                                    <a href="" target="_self"> <i class="fa fa-share-alt"></i>424</a> Shares
-                                </span>
-                                <span>
-                                    <a href="" target="_self"><i class="fa fa-comments-o"></i>4</a> Comments
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-                {{-- END Artikel Terbaru --}}
-
-                <!-- Iklan 1 -->
-                <div class="widget hidden-xs m30">
-                    <a href="{{ $iklan_1->link }}" target="_blank">
-                        <img class="img-responsive widget_img" src="{{ url($iklan_1->takeImg) }}"
-                            title="{{ $iklan_1->title }}" alt="{{ $iklan_1->title }}" width="200" height="100">
-                    </a>
-                </div>
-                <!-- End Iklan 1 -->
-
-                {{-- Video Terbaru --}}
-                <div class="widget reviews m30">
-                    <div class="widget_title widget_black">
-                        <h2><a href="">Video Terbaru</a></h2>
-                    </div>
-                    @foreach ($video_2 as $video)
-                    <div class="media">
-                        <div class="media-left">
-                            <iframe class="media-object" src="{{ $video->video }}" frameborder="0"
-                                allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="media-body">
-                        <h1 class="media-heading">
-                            <a href="/video-islam/{{ $video->slug }}" target="_self">{{ $video->title }}</a>
-                        </h1>
-                        <span class="media-date">
-                            <a href="">{{ $video->created_at->diffForHumans() }}</a>, by:
-                            <a href="">{{ $video->user->name }}</a>
-                        </span>
-
-                        <div class="widget_article_social">
-                            <span>
-                                <a href="" target="_self"> <i class="fa fa-share-alt"></i>424</a> Shares
-                            </span>
-                            <span>
-                                <a href="" target="_self"><i class="fa fa-comments-o"></i>4</a> Comments
-                            </span>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-                {{-- Iklan--}}
-                @foreach ($iklan_2 as $iklan)
-                <div class="widget hidden-xs m30">
-                    <a href="{{ $iklan->link }}" target="_blank">
-                        <img class="img-responsive widget_img" src="{{ url($iklan->takeImg) }}"
-                            title="{{ $iklan->title }}" alt="{{ $iklan->title }}" width="200" height="100">
-                    </a>
-                </div>
-                @endforeach
-            </div>
+            @include('layouts.page_sidebar')
             <!-- Right Section -->
         </div>
         <!-- Row -->

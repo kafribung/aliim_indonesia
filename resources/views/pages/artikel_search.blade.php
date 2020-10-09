@@ -73,9 +73,7 @@
                     <div class="widget_title widget_black">
                         <h2><a href="#">Atikel Terbaru</a></h2>
                     </div>
-
                     @foreach ($artikel_5 as $artikel)
-                        
                         <div class="media">
                             <div class="media-left">
                                 <a href="#"><img class="media-object" src="{{ url($artikel->img) }}" title="Gambar {{$artikel->title}}" alt="Gambar {{$artikel->title}}" width="122" height="122"></a>

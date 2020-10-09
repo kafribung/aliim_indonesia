@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{Artikel, Video, Hadist, DoaHadist,  Iklan, KategoriArtikel, KategoriVideo, User};
+use App\Models\{Artikel, Video, Hadist, DoaHadist,  Iklan, User};
 
 use Auth;
 
@@ -12,32 +12,30 @@ class HomeController extends Controller
 {
     public function index()
     {
+        // Navigasi Kategori
+        $kategori_artikels = NavbarKategori::navbarArtikel();
+        $kategori_videos   = NavbarKategori::navbarVideo();
         // Hero
-        $artikel_1 = Artikel::with('user', 'kategori_artikels')->latest()->first();
-        $artikel_2 = Artikel::with('user', 'kategori_artikels')->where('view', '>=', 20)->limit(2)->get();
+        $heroFirst     = Artikel::with('user', 'kategori_artikels')->latest()->first();
+        $heroTwo       = Artikel::with('user', 'kategori_artikels')->where('view', '>=', 20)->limit(2)->get();
         // Singl Artikel
-        $artikel_3 = Artikel::with('user', 'kategori_artikels')->inRandomOrder()->first();
+        $artikel       = Artikel::with('user', 'kategori_artikels')->inRandomOrder()->first();
         // All Artikel
-        $artikel_4 = Artikel::with('user', 'kategori_artikels')->inRandomOrder()->limit(4)->get();
-        // Artikel terbaru
-        $artikel_5 = Artikel::with('user', 'kategori_artikels')->orderBy('id', 'desc')->limit(4)->get();
+        $artikels      = Artikel::with('user', 'kategori_artikels')->inRandomOrder()->limit(4)->get();
         // Video
-        $video_1 = Video::with('user', 'kategori_videos')->inRandomOrder()->limit(4)->get();
-        // Vidieo terbaru
-        $video_2 = Video::with('user', 'kategori_videos')->latest()->limit(4)->get();
+        $videos        = Video::with('user', 'kategori_videos')->inRandomOrder()->limit(4)->get();
         // Doa & Hadist
-        $motivasis =  DoaHadist::with('user')->inRandomOrder()->limit(4)->get();
-        // Iklan
-        $iklan_1 = Iklan::latest()->first();
-        $iklan_2 = Iklan::inRandomOrder()->limit(2)->get();
+        $motivasis     = DoaHadist::with('user')->inRandomOrder()->limit(4)->get();
+        // Sidebar (Artikel  Vidieo terbaru, iklan)
+        $artikelsTerbaru = Sidebar::ArtikelTerbaru(); 
+        $videosTerbaru   = Sidebar::VedioTerbaru();
+        $iklan_1         = Sidebar::Iklan();
+        $iklan_2         = Sidebar::AllIklan();
         // Hadist Harian
-        $hadist =  Hadist::inRandomOrder()->first();
-        // Navigasi
-        $kategori_artikels = KategoriArtikel::with('artikels')->get();
-        $kategori_videos = KategoriVideo::with('videos')->get();
+        $hadist         =  Hadist::inRandomOrder()->first();
         return view(
             'pages.home',
-            compact('artikel_1', 'artikel_2', 'artikel_3', 'artikel_4', 'artikel_5', 'video_1', 'video_2', 'motivasis', 'hadist', 'iklan_1', 'iklan_2', 'kategori_artikels', 'kategori_videos')
+            compact('heroFirst', 'heroTwo', 'artikel', 'artikels', 'artikelsTerbaru', 'videos', 'videosTerbaru', 'motivasis', 'hadist', 'iklan_1', 'iklan_2', 'kategori_artikels', 'kategori_videos')
         );
     }
 
@@ -65,38 +63,5 @@ class HomeController extends Controller
         $kategori_videos   = KategoriVideo::with('videos')->get();
 
         return view('pages.artikel_search', compact('artikels', 'hadist', 'artikel_5', 'iklan_1', 'iklan_2', 'video_2', 'kategori_artikels', 'kategori_videos'));
-    }
-
-    // PROFILE 
-    public function profile()
-    {
-        $user = Auth::user();
-        $hadist  =  Hadist::inRandomOrder()->first();
-
-        // Navigasi
-        $kategori_artikels = KategoriArtikel::with('artikels')->get();
-        $kategori_videos   = KategoriVideo::with('videos')->get();
-
-        return view('pages.profile', compact('user', 'hadist', 'kategori_artikels', 'kategori_videos'));
-    }
-
-    // PROFILE UPDATE
-    public function profile_update(Request $request, $id)
-    {
-        $data = $request->validate([
-            'name'     => ['required', 'string', 'min:3', 'max:20'],
-            'img'      => ['mimes:png,jpg,jpeg']
-        ]);
-
-        if ($request->has('img')) {
-            $img =  $request->file('img');
-            $name = time() . '.' . $img->getClientOriginalExtension();
-            $img->move(public_path('img_users'), $name);
-            $data['img'] = $name;
-        }
-
-        User::findOrFail($id)->update($data);
-
-        return redirect('/profile')->with('msg', 'Data Berhasil di Edit');
     }
 }
