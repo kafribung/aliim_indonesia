@@ -5,7 +5,7 @@
     <div>
         <ul id="menu">
             <!-- Home -->
-            <li><a href="index.html">Home</a></li>
+            <li><a href="">Home</a></li>
             <!-- Belajar Islam-->
             <li class="dropdown m-menu-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Belajar Islam
                     <span><i class="fa fa-angle-down"></i></span></a>
@@ -25,7 +25,7 @@
                 </ul>
             </li>
             <!-- Video -->
-            <li class="dropdown m-menu-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Vidoe
+            <li class="dropdown m-menu-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Video
                     <span><i class="fa fa-angle-down"></i></span></a>
                 <ul class="dropdown-menu">
                     <li>
@@ -51,5 +51,5 @@
             </li>
         </ul>
     </div>
-</>
+</div>
 <!-- .uc-mobile-menu -->

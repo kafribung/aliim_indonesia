@@ -39,7 +39,7 @@ $(function () {
             documentWrapper: '#main-wrapper'
             , contentWrapper: '.content-wrapper'
             , position: 'uc-offcanvas-left', // class name
-            // opener         : 'st-menu-open',            // class name
+            opener         : 'st-menu-open',            // class name
             effect: 'slide-along', // class name
             closeButton: '#uc-mobile-menu-close-btn'
             , menuWrapper: '.uc-mobile-menu', // class name below-pusher

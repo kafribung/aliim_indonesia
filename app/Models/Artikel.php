@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Auth;
-
+// System Comment
+use Laravelista\Comments\Commentable;
 class Artikel extends Model
 {
+    use Commentable;
     protected $touhches = ['user'];
     protected $fillable = ['title', 'description', 'img', 'slug'];
 
