@@ -20,7 +20,7 @@
                     </div>
                     <!-- entity_social -->
                     <div class="entity_thumb">
-                        <img class="img-responsive" src="{{ url($artikel->takeImg) }}"
+                        <img class="lazy img-responsive" data-src="{{ url($artikel->takeImg) }}"
                             title="Gambar {{ $artikel->title }}" alt="Gambar {{ $artikel->title }}" width="955"
                             height="832">
                     </div>
@@ -59,8 +59,8 @@
                         <div class="col-md-6">
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="">
-                                        <img class="media-object" src="{{ url($artikel->takeImg) }}"
+                                    <a href="/artikel-islam/{{ $artikel->slug }}">
+                                        <img class="lazy media-object" data-src="{{ url($artikel->takeImg) }}"
                                             title="Gambar {{ $artikel->title }}" alt="Gambar {{ $artikel->title }}"
                                             width="122" height="122">
                                     </a>

@@ -5,9 +5,6 @@
     <title>Aliim - Belajar Islam dengan asik dan menarik</title>
     @include('includes.page_meta')
     @include('includes.page_css')
-    @stack('after_css')
-
-
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar">

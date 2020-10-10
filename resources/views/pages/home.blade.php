@@ -7,7 +7,7 @@
             <div class="col-md-7">
                 <div class="feature_article_wrapper">
                     <div class="feature_article_img">
-                        <img class="img-responsive top_static_article_img" src="{{ url($heroFirst->takeImg) }}"
+                        <img class="lazy img-responsive top_static_article_img" src="{{ url($heroFirst->takeImg) }}"
                             title="Gambar {{$heroFirst->title}}" alt="Gambar {{$heroFirst->title}}" width="832px"
                             height="955px">
                     </div>
@@ -49,7 +49,7 @@
             <div class="col-md-5" style="margin-bottom: 20px">
                 <div class="feature_static_wrapper">
                     <div class="feature_article_img">
-                        <img class="img-responsive" src="{{ url($artikel->takeImg)}}" alt="feature-top"
+                        <img class="lazy img-responsive" src="{{ url($artikel->takeImg)}}" alt="feature-top"
                             title="Gambar {{$artikel->tttle}}" alt="Gambar {{$artikel->title}}" width="670" height=395">
                     </div>
                     <!-- feature_article_img -->
@@ -110,7 +110,7 @@
                             <div class="col-md-6">
                                 <div class="top_article_img">
                                     <a href="" target="_self">
-                                        <img class="img-responsive" src="{{ url($artikel->takeImg) }}"
+                                        <img class="lazy img-responsive" data-src="{{ url($artikel->takeImg) }}"
                                             title="Gambar {{$artikel->title}}" alt="Gambar {{$artikel->title}}"
                                             width="500" height="400">
                                     </a>
@@ -154,7 +154,7 @@
                                 <div class="media">
                                     <div class="media-left">
                                         <a href="">
-                                            <img class="media-object" src="{{ url($artikel->takeImg) }}"
+                                            <img class="lazy media-object" data-src="{{ url($artikel->takeImg) }}"
                                                 title="Gambar {{$artikel->title}}" alt="Gambar {{$artikel->title}}"
                                                 width="100" height="100">
                                         </a>
@@ -198,7 +198,7 @@
                             <div class="col-md-6">
                                 <div class="category_article_body">
                                     <div class="embed-responsive embed-responsive-4by3">
-                                        <iframe class="embed-responsive-item" src="{{ $video->video }}" frameborder="0"
+                                        <iframe class="lazy embed-responsive-item" src="{{ $video->video }}" frameborder="0"
                                             allowfullscreen></iframe>
                                     </div>
                                     <!-- top_article_img -->
@@ -251,7 +251,7 @@
                             <div class="col-md-6">
                                 <div class="top_article_img">
                                     <a href="/motivasi" target="_self">
-                                        <img class="img-responsive" src="{{ url($motivasi->takeImg) }}"
+                                        <img class="lazy img-responsive" data-src="{{ url($motivasi->takeImg) }}"
                                             alt="feature-top" width="400" height="200">
                                     </a>
                                 </div>

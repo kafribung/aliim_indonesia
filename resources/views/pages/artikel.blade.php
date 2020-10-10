@@ -20,7 +20,7 @@
                     <!-- entity_meta -->
                     <div class="entity_thumb">
                         <a href="/artikel-islam/{{ $artikel->slug }}" target="_self">
-                            <img class="img-responsive" src="{{ url($artikel->takeImg) }}"
+                            <img class="lazy img-responsive" data-src="{{ url($artikel->takeImg) }}"
                                 title="Gambar {{ $artikel->title }}" alt="Gambar {{ $artikel->title }}">
                         </a>
                     </div>

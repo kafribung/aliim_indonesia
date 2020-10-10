@@ -7,9 +7,11 @@
         @foreach ($artikelsTerbaru as $artikel)
         <div class="media">
             <div class="media-left">
-                <a href=""><img class="media-object" src="{{ url( $artikel->takeImg ) }}"
+                <a href="/artikel-islam/{{$artikel->slug}}">
+                    <img class="lazy media-object" data-src="{{ url( $artikel->takeImg ) }}"
                         title="Gambar {{$artikel->title}}" alt="Gambar {{ $artikel->title }}" width="122"
-                        height="122"></a>
+                        height="122">
+                </a>
             </div>
             <div class="media-body">
                 <h1 class="media-heading">
@@ -37,7 +39,7 @@
     <!-- Iklan 1 -->
     <div class="widget hidden-xs m30">
         <a href="{{ $iklan_1->link }}" target="_blank">
-            <img class="img-responsive widget_img" src="{{ url($iklan_1->takeImg) }}"
+            <img class="lazy img-responsive widget_img" data-src="{{ url($iklan_1->takeImg) }}"
                 title="{{ $iklan_1->title }}" alt="{{ $iklan_1->title }}" width="200" height="100">
         </a>
     </div>
@@ -80,7 +82,7 @@
     @foreach ($iklan_2 as $iklan)
     <div class="widget hidden-xs m30">
         <a href="{{ $iklan->link }}" target="_blank">
-            <img class="img-responsive widget_img" src="{{ url($iklan->takeImg) }}"
+            <img class="lazy img-responsive widget_img" data-src="{{ url($iklan->takeImg) }}"
                 title="{{ $iklan->title }}" alt="{{ $iklan->title }}" width="200" height="100">
         </a>
     </div>
