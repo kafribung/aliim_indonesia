@@ -93,21 +93,14 @@
                 </div>
                 {{-- Komentar --}}
                 <!-- Related news -->
-
-                <div class="entity_comments">
-                    <div class="entity_inner__title header_black">
+                <hr>
+                <div class="readers_comment">
+                    <div class="entity_inner__title header_purple">
                         <h2>Komentar</h2>
                     </div>
-                    <!--Entity Title -->
-
-                    <div class="entity_comment_from">
-                    </div>
                     @comments(['model' => $artikel])
-                    <!--Entity Comments From -->
                 </div>
-                <!--Entity Comments -->
-
-                {{-- End Comment --}}
+                <!--Readers Comment-->
             </div>
             <!--Left Section-->
             @include('layouts.page_sidebar')
