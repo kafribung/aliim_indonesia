@@ -4,9 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Auth;
+// System Comment
+use Laravelista\Comments\Commentable;
+
 
 class Video extends Model
 {
+    use Commentable;
+    
     protected $touhches = ['user'];
     protected $fillable = ['title', 'description', 'video', 'slug'];
 

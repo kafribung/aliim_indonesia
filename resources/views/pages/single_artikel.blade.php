@@ -93,7 +93,6 @@
                 </div>
                 {{-- Komentar --}}
                 <!-- Related news -->
-                <hr>
                 <div class="readers_comment">
                     <div class="entity_inner__title header_purple">
                         <h2>Komentar</h2>

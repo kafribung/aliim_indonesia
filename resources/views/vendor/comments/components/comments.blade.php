@@ -20,9 +20,9 @@
 @else
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Authentication required</h5>
-            <p class="card-text">Silahkan masuk terlebih dahulu</p>
-            <a href="{{ route('login') }}" class="btn btn-primary">Masuk</a>
+            <h5 class="card-title">Membutuhkan akses login</h5>
+            <p class="card-text">Silahkan login terlebih dahulu</p>
+            <a href="{{ route('login') }}" class="btn btn-primary">login</a>
         </div>
     </div>
 @endauth

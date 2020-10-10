@@ -47,7 +47,7 @@
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <label for="message">Update your message here:</label>
+                                    <label for="message">Update Komentar:</label>
                                     <textarea required class="form-control" name="message" rows="3">{{ $comment->comment }}</textarea>
                                 </div>
                             </div>
@@ -67,7 +67,7 @@
                         <form method="POST" action="{{ route('comments.reply', $comment->getKey()) }}">
                             @csrf
                             <div class="modal-header">
-                                <h5 class="modal-title">Reply to Comment</h5>
+                                <h5 class="modal-title">Balas komentar</h5>
                                 <button type="button" class="close" data-dismiss="modal">
                                 <span>&times;</span>
                                 </button>

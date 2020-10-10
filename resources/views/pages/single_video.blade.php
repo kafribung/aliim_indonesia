@@ -84,78 +84,11 @@
                 </div>
                 <!-- Related news -->
 
-                <div class="entity_comments">
-                    <div class="entity_inner__title header_black">
-                        <h2>Komentar</h2>
-                    </div>
-                    <!--Entity Title -->
-                    <div class="entity_comment_from">
-                        <div class="entity_comment_from">
-                            <form action="/komentar-artikel/{{ $video->id }}" method="POST">
-                                @csrf
-                                <div class="form-group comment">
-                                    <textarea class="form-control" id="inputComment" placeholder="Comment"></textarea>
-                                </div>
-
-                                <button type="submit" class="btn btn-submit green float-right">Komentar</button>
-                            </form>
-                        </div>
-                    </div>
-                    <!--Entity Comments From -->
-
-                </div>
-                <!--Entity Comments -->
-
-
                 <div class="readers_comment">
                     <div class="entity_inner__title header_purple">
-                        <h2>Baca Komentar</h2>
+                        <h2>Komentar</h2>
                     </div>
-                    <!-- entity_title -->
-
-                    <div class="media">
-                        <div class="media-left">
-                            <a href="">
-                                <img alt="64x64" class="media-object" data-src="assets/img/reader_img1.jpg"
-                                    src="assets/img/reader_img1.jpg" data-holder-rendered="true">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h2 class="media-heading"><a href="">Sr. Ryan</a></h2>
-                            But who has any right to find fault with a man who chooses to enjoy a
-                            pleasure that has
-                            no annoying consequences, or one who avoids a pain that produces no
-                            resultant pleasure?
-
-                            <div class="entity_vote">
-                                <a href=""><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
-                                <a href=""><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>
-                                <a href=""><span class="reply_ic">Reply </span></a>
-                            </div>
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="">
-                                        <img alt="64x64" class="media-object" data-src="assets/img/reader_img2.jpg"
-                                            src="assets/img/reader_img2.jpg" data-holder-rendered="true">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h2 class="media-heading"><a href="">Admin</a></h2>
-                                    But who has any right to find fault with a man who chooses to enjoy
-                                    a pleasure
-                                    that has no annoying consequences, or one who avoids a pain that
-                                    produces no
-                                    resultant pleasure?
-                                    <div class="entity_vote">
-                                        <a href=""><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
-                                        <a href=""><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a>
-                                        <a href=""><span class="reply_ic">Reply </span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- media end -->
+                    @comments(['model' => $video])
                 </div>
                 <!--Readers Comment-->
             </div>
@@ -168,8 +101,4 @@
     <!-- container -->
 </section>
 <!-- Entity Section Wrapper -->
-
-
-
-
 @endsection
