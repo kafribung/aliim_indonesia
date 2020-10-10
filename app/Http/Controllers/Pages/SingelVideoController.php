@@ -9,20 +9,19 @@ class SingelVideoController extends Controller
 {
     public function __invoke(Video $video)
     {
+        // Navigasi Kategori
+        $kategori_artikels = NavbarKategori::navbarArtikel();
+        $kategori_videos   = NavbarKategori::navbarVideo();
+        // Sidebar (Artikel  Vidieo terbaru, iklan)
+        $artikelsTerbaru = Sidebar::ArtikelTerbaru(); 
+        $videosTerbaru   = Sidebar::VedioTerbaru();
+        $iklan_1         = Sidebar::Iklan();
+        $iklan_2         = Sidebar::AllIklan();
         // Hadist terbaru
         $hadist  =  Hadist::inRandomOrder()->first();
-        // Artikel terbaru
-        $artikel_5 = Artikel::with('user', 'kategori_artikels')->orderBy('id', 'desc')->limit(4)->get();
 
-        // Vidieo terbaru
-        $video_2 = Video::with('user', 'kategori_videos')->latest()->limit(4)->get();
-
-        // Iklan
-        $iklan_1 = Iklan::latest()->inRandomOrder()->first();
-        // Navigasi
-        $kategori_artikels = KategoriArtikel::with('artikels')->get();
-        $kategori_videos   = KategoriVideo::with('videos')->get();
-
-        return view('pages.single_video', compact('video', 'hadist', 'artikel_5', 'video_2', 'iklan_1',  'kategori_artikels', 'kategori_videos'));
+        return view('pages.single_video',
+            compact('video', 'hadist', 'artikelsTerbaru', 'videosTerbaru', 'iklan_1', 'iklan_2', 'kategori_artikels', 'kategori_videos')
+        );
     }
 }

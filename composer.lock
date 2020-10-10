@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b8fbc23eb628cb9dff90f9b4f580f89",
+    "content-hash": "2b477720c9e52839d9d3bf7f4fdc04e9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3586,6 +3586,69 @@
                 "php"
             ],
             "time": "2020-03-13T01:23:26+00:00"
+        },
+        {
+            "name": "yajra/laravel-disqus",
+            "version": "v1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yajra/laravel-disqus.git",
+                "reference": "0a163934880125bd441f1f727a5290e9a5e893aa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yajra/laravel-disqus/zipball/0a163934880125bd441f1f727a5290e9a5e893aa",
+                "reference": "0a163934880125bd441f1f727a5290e9a5e893aa",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/filesystem": "*",
+                "illuminate/support": "*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Yajra\\Disqus\\DisqusServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yajra\\Disqus\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arjay Angeles",
+                    "email": "aqangeles@gmail.com",
+                    "homepage": "http://yajrabox.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple Disqus platform integration with Laravel.",
+            "homepage": "https://github.com/yajra/laravel-disqus",
+            "keywords": [
+                "disqus",
+                "laravel",
+                "yajra"
+            ],
+            "support": {
+                "issues": "https://github.com/yajra/laravel-disqus/issues",
+                "source": "https://github.com/yajra/laravel-disqus/tree/v1.2.2"
+            },
+            "time": "2020-03-07T02:33:19+00:00"
         }
     ],
     "packages-dev": [

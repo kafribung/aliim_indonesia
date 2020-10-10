@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
-use App\Models\{Hadist, DoaHadist, KategoriVideo};
+use App\Models\{Hadist, KategoriVideo};
 
 class FilterVideoController extends Controller
 {
@@ -16,8 +16,6 @@ class FilterVideoController extends Controller
         // Filter Video Cara ke-2
         $kategori = KategoriVideo::with('videos')->where('title', $kategori)->first();
         $videos = $kategori->videos()->inrandomOrder()->paginate(5);
-        // Doa & Hadist
-        $motivasis =  DoaHadist::with('user')->inRandomOrder()->limit(4)->get();
         // Sidebar (Artikel  Vidieo terbaru, iklan)
         $artikelsTerbaru = Sidebar::ArtikelTerbaru(); 
         $videosTerbaru   = Sidebar::VedioTerbaru();
@@ -27,7 +25,7 @@ class FilterVideoController extends Controller
         $hadist =  Hadist::inRandomOrder()->first();
         return view(
             'pages.video',
-            compact('videos',  'motivasis', 'hadist', 'artikelsTerbaru', 'videosTerbaru', 'iklan_1', 'iklan_2', 'kategori_artikels', 'kategori_videos')
+            compact('videos',  'hadist', 'artikelsTerbaru', 'videosTerbaru', 'iklan_1', 'iklan_2', 'kategori_artikels', 'kategori_videos')
         );
     }
 }

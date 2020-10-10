@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
-use App\Models\{Artikel, Hadist, DoaHadist};
+use App\Models\{Artikel, Hadist};
 
 class FilterArtikelController extends Controller
 {
@@ -16,8 +16,6 @@ class FilterArtikelController extends Controller
         $artikels = Artikel::with('user', 'kategori_artikels')->whereHas('kategori_artikels', function ($query) use ($kategori) {
             $query->where('title', $kategori);
         })->inRandomOrder()->paginate(5);
-        // Doa & Hadist
-        $motivasis =  DoaHadist::with('user')->inRandomOrder()->limit(4)->get();
         // Sidebar (Artikel  Vidieo terbaru, iklan)
         $artikelsTerbaru = Sidebar::ArtikelTerbaru(); 
         $videosTerbaru   = Sidebar::VedioTerbaru();
@@ -27,7 +25,7 @@ class FilterArtikelController extends Controller
         $hadist         =  Hadist::inRandomOrder()->first();
         return view(
             'pages.artikel',
-            compact('artikels',  'motivasis', 'hadist', 'artikelsTerbaru', 'videosTerbaru', 'iklan_1', 'iklan_2', 'kategori_artikels', 'kategori_videos')
+            compact('artikels', 'hadist', 'artikelsTerbaru', 'videosTerbaru', 'iklan_1', 'iklan_2', 'kategori_artikels', 'kategori_videos')
         );
     }
 }
