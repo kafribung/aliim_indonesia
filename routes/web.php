@@ -33,7 +33,7 @@ Route::namespace('pages')->group(function(){
         Route::put('/profile/{id}', 'ProfilController@update');
     });
     // Home
-    Route::get('/', 'HomeController@index');
+    Route::get('/', 'HomeController@index')->name('home');
     // Filter
     Route::get('/belajar-artikel/{kategori}', 'FilterArtikelController');
     Route::get('/belajar-video/{kategori}', 'FilterVideoController');

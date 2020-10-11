@@ -38,10 +38,10 @@ class User extends Authenticatable
     ];
 
     // ROUTE KEY NAME
-    public function getRouteKeyName()
-    {
-        return 'email';
-    }
+    // public function getRouteKeyName()
+    // {
+    //     return 'email';
+    // }
 
     // RELATION ONE TO MANY (ARTIKEL)
     public function artikels()

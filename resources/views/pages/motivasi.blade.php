@@ -14,7 +14,7 @@
                     <!-- article_title -->
                     <div class="category_article_wrapper">
                         <div class="row">
-                            <div class="inline" id="lightgallery">
+                            <div  id="lightgallery">
                                 @foreach ($motivasis as $motivasi)
                                     <a class="col-md-6 top_article_img" href="{{ url($motivasi->takeImg) }}">
                                         <img class="lazy img-responsive" data-src="{{ url($motivasi->takeImg) }}" alt="feature-top"

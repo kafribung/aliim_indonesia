@@ -160,7 +160,7 @@
                                 <a href="/motivasi">Motivasi</a>
                             </li>
                             <li class="{{  request()->is('tanya-ustad') ? 'active' : '' }}">
-                                <a href="">Tanya Ustad</a>
+                                <a href="/tanya-ustad">Tanya Ustad</a>
                             </li>
                         </ul>
                     </div>
