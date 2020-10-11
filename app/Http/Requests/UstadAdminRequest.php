@@ -30,7 +30,7 @@ class UstadAdminRequest extends FormRequest
             'date_birth'=> ['required', 'date'],
             'gender'   => ['required', 'string', 'min:4', 'max:6'],
             'provinci' => ['required', 'string', 'min:3'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ];
     }
 }

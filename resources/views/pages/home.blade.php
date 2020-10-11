@@ -32,11 +32,6 @@
                             {!! Str::limit($heroFirst->description, 200) !!}
                         </div>
                         <!-- feature_article_content -->
-                        <div class="article_social">
-                            <span><i class="fa fa-share-alt"></i><a href="">424</a>Shares</span>
-                            <span><i class="fa fa-comments-o"></i><a href="">4</a>Comments</span>
-                        </div>
-                        <!-- article_social -->
                     </div>
                     <!-- Hot News -->
                 </div>
@@ -70,11 +65,6 @@
                             {!! Str::limit($artikel->description, 100) !!}
                         </div>
                         <!-- feature_article_content -->
-                        <div class="article_social">
-                            <span><i class="fa fa-share-alt"></i><a href="">424</a>Shares</span>
-                            <span><i class="fa fa-comments-o"></i><a href="">4</a>Comments</span>
-                        </div>
-                        <!-- article_social -->
                     </div>
                     <!-- feature_article_inner -->
                 </div>
@@ -136,13 +126,6 @@
                                     {!! Str::limit($artikel->description, 200) !!}
                                 </div>
                                 <!----category_article_content------>
-                                <div class="media_social">
-                                    <span><a href=""><i class="fa fa-share-alt"></i>424 </a>
-                                        Shares</span>
-                                    <span><i class="fa fa-comments-o"></i><a href="">4</a>
-                                        Comments</span>
-                                </div>
-                                <!----media_social------>
                             </div>
                         </div>
                     </div>
@@ -171,11 +154,8 @@
                                             <a href="">{{$artikel->created_at->diffForHumans()}}</a>, by:
                                             <a href="">{{$artikel->user->name}}</a>
                                         </span>
-                                        <div class="media_social">
-                                            <span><a href=""><i class="fa fa-share-alt"></i>424</a>
-                                                Shares</span>
-                                            <span><a href=""><i class="fa fa-comments-o"></i>4</a>
-                                                Comments</span>
+                                        <div class="category_article_content">
+                                            {!! Str::limit($artikel->description, 60) !!}
                                         </div>
                                     </div>
                                 </div>
@@ -221,13 +201,6 @@
                                         {!! Str::limit($video->description, 100) !!}
                                     </div>
                                     <!-- category_article_content -->
-                                    <div class="media_social">
-                                        <span><a href=""><i class="fa fa-share-alt"></i>424 </a>
-                                            Shares</span>
-                                        <span><i class="fa fa-comments-o"></i><a href="">4</a>
-                                            Comments</span>
-                                    </div>
-                                    <!-- media_social -->
                                 </div>
                                 <!-- category_article_body -->
                             </div>
@@ -267,7 +240,6 @@
                 <!-- Motivasi -->
             </div>
             <!-- Left Section -->
-
             @include('layouts.page_sidebar')
             <!-- Right Section -->
         </div>

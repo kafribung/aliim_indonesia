@@ -29,8 +29,8 @@ Route::group(['middleware' => 'admin'], function () {
 Route::namespace('pages')->group(function(){
     Route::group(['middleware' => 'auth'], function () {
         // Profile
-        Route::get('/profile', 'ProfilController@index');
-        Route::put('/profile/{id}', 'ProfilController@update');
+        Route::get('/profil', 'ProfilController@index');
+        Route::put('/profil/{id}', 'ProfilController@update');
     });
     // Home
     Route::get('/', 'HomeController@index')->name('home');

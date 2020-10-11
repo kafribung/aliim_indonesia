@@ -21,14 +21,8 @@
                     <a href="">{{ $artikel->created_at->diffForHumans() }}</a>, by:
                     <a href="">{{ $artikel->user->name }}</a>
                 </span>
-
-                <div class="widget_article_social">
-                    <span>
-                        <a href="" target="_self"> <i class="fa fa-share-alt"></i>424</a> Shares
-                    </span>
-                    <span>
-                        <a href="" target="_self"><i class="fa fa-comments-o"></i>4</a> Comments
-                    </span>
+                <div class="category_article_content">
+                    {!! Str::limit($artikel->description, 60) !!}
                 </div>
             </div>
         </div>
@@ -65,14 +59,8 @@
                 <a href="">{{ $video->created_at->diffForHumans() }}</a>, by:
                 <a href="">{{ $video->user->name }}</a>
             </span>
-
-            <div class="widget_article_social">
-                <span>
-                    <a href="" target="_self"> <i class="fa fa-share-alt"></i>424</a> Shares
-                </span>
-                <span>
-                    <a href="" target="_self"><i class="fa fa-comments-o"></i>4</a> Comments
-                </span>
+            <div class="category_article_content">
+                {!! Str::limit($video->description, 60) !!}
             </div>
         </div>
         @endforeach

@@ -16,21 +16,18 @@
                     @endif
 
                     <div class="entity_comment_from">
-                        <form action="/profile/{{$user->id}}" method="POST" enctype="multipart/form-data">
+                        <form action="/profil/{{$user->id}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
-                            <img  src="{{ url($user->img) }}" title="Gambar {{$user->title}}" alt="Gambar {{$user->title}}" width="122" height="122">
-                                
+                            <img  src="{{ url($user->takeImg) }}" title="Gambar {{$user->title}}" alt="Gambar {{$user->title}}" width="100">
                             <div class="form-group comment">
-                                <input name="img" class="form-control" type="file" accept="image/*" placeholder="foto profile">
-
+                                <input name="img" class="form-control"  type="file" accept="image/*" placeholder="foto profile">
                                 @if ($errors->has('img'))
                                     <p class="alert alert-danger">{{$errors->first('img')}}</p>
                                 @endif
                             </div>
                             <div class="form-group comment">
-                                <input name="name" type="tex" class="form-control"  placeholder="Masukkan Nama" value="{{$user->name}}">
-
+                                <input name="name" type="tex" class="form-control"  placeholder="Masukkan Nama" value="{{ old('name') ?? $user->name }}">
                                 @error('name')
                                     <p class="alert alert-danger">{{$message}}</p>
                                 @enderror
@@ -39,46 +36,28 @@
                                 <input  type="email" class="form-control"  placeholder="Masukkan Email" disabled value="{{$user->email}}">
                             </div>
                             <div class="form-group comment">
-                                <input  type="text" class="form-control"  placeholder="Jenis kelamin" disabled value="{{$user->gender}}">
+                                <input  type="password" class="form-control"  name="old_password" placeholder="Passowrd Lama">
+                                @error('old_password')
+                                <p class="alert alert-danger">{{$message}}</p>
+                                @enderror
                             </div>
                             <div class="form-group comment">
-                                <input type="text" class="form-control"  placeholder="Tanggal Lahir" disabled value="{{$user->date_birth}}">
+                                <input  type="password" class="form-control"  name="new_password" placeholder="Password Baru">
+                                @error('new_password')
+                                <p class="alert alert-danger">{{$message}}</p>
+                                @enderror
                             </div>
-                            <div class="form-group comment">
-                                <input  type="text" class="form-control"  placeholder="Masukkan provinsi" disabled value="{{$user->provinci}}">
-                            </div>
-
                             <button type="submit" class="btn btn-submit red">Perbaruhi</button>
                         </form>
                     </div>
                     <!--Entity Comments From -->
-
                 </div>
                 <!--Entity Comments -->
-
             </div>
-
-            <!--Left Section-->
-
-            <div class="col-md-4">
-                {{-- Foto Profile --}}
-                <div class="widget">
-
-                    
-
-                </div>
-                {{-- END Foto Profile --}}
-            </div>
-
-
         </div>
         <!-- row -->
-
     </div>
     <!-- container -->
-
 </section>
 <!-- Entity Section Wrapper -->
-
-
 @endsection

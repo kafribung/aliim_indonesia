@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers\Pages;
 
-use App\Http\Controllers\Controller;
+use Auth;
+use App\Models\User;
+use App\Models\Hadist;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class ProfilController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
+        // Navigasi Kategori
+        $kategori_artikels = NavbarKategori::navbarArtikel();
+        $kategori_videos   = NavbarKategori::navbarVideo();
+        $user     = Auth::user();
         $hadist  =  Hadist::inRandomOrder()->first();
-
-        // Navigasi
-        $kategori_artikels = KategoriArtikel::with('artikels')->get();
-        $kategori_videos   = KategoriVideo::with('videos')->get();
-
         return view('pages.profile', compact('user', 'hadist', 'kategori_artikels', 'kategori_videos'));
     }
 
@@ -23,18 +25,29 @@ class ProfilController extends Controller
     {
         $data = $request->validate([
             'name'     => ['required', 'string', 'min:3', 'max:20'],
-            'img'      => ['mimes:png,jpg,jpeg']
+            'img'      => ['required','mimes:jpg,jpeg'],
+            'old_password' => ['required', 'string', 'min:8'],
+            'new_password' => ['required', 'string', 'min:8'],
         ]);
-
-        if ($request->has('img')) {
-            $img =  $request->file('img');
-            $name = time() . '.' . $img->getClientOriginalExtension();
-            $img->move(public_path('img_users'), $name);
-            $data['img'] = $name;
-        }
-
-        User::findOrFail($id)->update($data);
-
-        return redirect('/profile')->with('msg', 'Data Berhasil di Edit');
+        $oldPass = request('old_password');
+        $newPass = auth()->user()->password;
+        
+        if (Hash::check($oldPass, $newPass)) {
+            // Update Img
+            if ($img =  $request->file('img')) {
+                // Dont Delete IMG Default
+                if (Auth::user()->img != 'img_users/default_user.jpg') {
+                    Storage::delete(auth()->user()->img);
+                }
+                $data['img'] = $request->file('img')->storeAs('img_users', time() . '.' . $img->getClientOriginalExtension());
+            }
+            User::findOrFail($id)->update([
+                'name' => $data['name'],
+                'img'  => $data['img'],
+                'password' => bcrypt($data['new_password'])
+            ]);
+            Auth::logout();
+            return redirect('/login')->with('msg', 'Silahkan login terlebih dahulu');
+        } else return back()->withErrors(['old_password' => 'Password lama salah']);
     }
 }

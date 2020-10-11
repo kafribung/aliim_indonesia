@@ -56,7 +56,7 @@
                                     {{Auth::user()->name}}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/profile">Profile</a>
+                                    <a class="dropdown-item" href="/profil">Profile</a>
                                     <a class="dropdown-item" href=""
                                         onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
                                     <form id="logout" action="{{ route('logout') }}" method="POST"
