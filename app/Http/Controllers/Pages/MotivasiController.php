@@ -13,7 +13,7 @@ class MotivasiController extends Controller
         $kategori_artikels = NavbarKategori::navbarArtikel();
         $kategori_videos   = NavbarKategori::navbarVideo();
         // Doa & Hadist
-        $motivasis       =  DoaHadist::with('user')->inRandomOrder()->get();
+        $motivasis       =  DoaHadist::with('user')->inRandomOrder()->limit(12)->get();
         // Sidebar (Artikel  Vidieo terbaru, iklan)
         $artikelsTerbaru = Sidebar::ArtikelTerbaru(); 
         $videosTerbaru   = Sidebar::VedioTerbaru();

@@ -14,20 +14,17 @@
                     <!-- article_title -->
                     <div class="category_article_wrapper">
                         <div class="row">
-                            @foreach ($motivasis as $motivasi)
-                            <div class="col-md-6">
-                                <div class="top_article_img myBtn">
-                                    <a>
-                                        <img class="lazy img-responsive" data-src="{{ url($motivasi->takeImg) }}"
-                                            alt="feature-top" width="400" height="200">
+                            <div class="inline" id="lightgallery">
+                                @foreach ($motivasis as $motivasi)
+                                    <a class="col-md-6 top_article_img" href="{{ url($motivasi->takeImg) }}">
+                                        <img class="lazy img-responsive" data-src="{{ url($motivasi->takeImg) }}" alt="feature-top"
+                                            width="400" height="200">
                                     </a>
-                                </div>
-                                <!-- top_article_img -->
+                                @endforeach
+                                <!-- col-md-7 -->
                             </div>
-                            @endforeach
-                            <!-- col-md-7 -->
+                            <!-- row -->
                         </div>
-                        <!-- row -->
                     </div>
                 </div>
                 <!-- Motivasi -->
@@ -41,8 +38,9 @@
     <!-- Container -->
 </section>
 <!-- END Category News Section -->
-
-
 @push('after_script')
+<script type="text/javascript">
+    lightGallery(document.getElementById('lightgallery')); 
+</script>
 @endpush
 @endsection

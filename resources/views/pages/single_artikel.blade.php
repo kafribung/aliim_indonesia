@@ -15,8 +15,15 @@
                         <a href="">{{ $artikel->created_at->format('d-m-Y') }}</a>
                     </div>
                     <!-- entity_meta -->
-                    <div class="entity_social" style="margin-top: 8px; padding:0% ">
-                        <div class="sharethis-inline-share-buttons"></div>
+                    <div class="entity_social">
+                        <a target="_blank" rel="nofollow" href="https://www.facebook.com/sharer/sharer.php?u={{ request()->fullUrl() }}"><i class="fa fa-facebook"></i></a>
+                        <!--Twitter-->
+                        <a target="_blank" rel="nofollow" href="https://twitter.com/intent/tweet?text={{ request()->fullUrl() }}"><i class="fa fa-twitter"></i></a>
+                        <!--WA-->
+                        <a target="_blank" href="whatsapp://send?text={{ request()->fullUrl() }}" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"> </i></a>
+                        <!--Google +-->
+                        <a target="_blank" href="mailto:?subject=I wanted you to see this site&amp;body={{ request()->fullUrl() }}"
+                        title="Share by Email"><i class="fa fa-google"></i></a>
                     </div>
                     <!-- entity_social -->
                     <div class="entity_thumb">
@@ -110,8 +117,4 @@
     <!-- container -->
 </section>
 <!-- Entity Section Wrapper -->
-
-@push('after_script')
-<script id="dsq-count-scr" src="//aliim-indonesia.disqus.com/count.js" async></script>
-@endpush
 @endsection

@@ -31,8 +31,6 @@ Route::namespace('pages')->group(function(){
         // Profile
         Route::get('/profile', 'ProfilController@index');
         Route::put('/profile/{id}', 'ProfilController@update');
-        // Koment Artikel
-        Route::post('komentar-artikel/{id}', 'KomentArtikelController@store');
     });
     // Home
     Route::get('/', 'HomeController@index');
