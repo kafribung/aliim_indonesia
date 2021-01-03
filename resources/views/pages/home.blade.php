@@ -178,7 +178,7 @@
                             <div class="col-md-6">
                                 <div class="category_article_body">
                                     <div class="embed-responsive embed-responsive-4by3">
-                                        <iframe class="lazy embed-responsive-item" src="{{ $video->video }}?controls=0&rel=0" frameborder="0"></iframe>
+                                        <iframe class="lazy embed-responsive-item" src="{{ $video->video }}?controls=0&rel=0&disablekb=1" frameborder="0"></iframe>
                                     </div>
                                     <!-- top_article_img -->
                                     @foreach ($video->kategori_videos as $kategori)
