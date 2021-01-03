@@ -117,7 +117,7 @@
                             <li class="{{ Request::is('/') ? 'active' : '' }}">
                                 <a href="/">Home</a>
                             </li>
-                            <li class="dropdown m-menu-fw {{ Request::is('belajar-artikel/*') ? 'active' : '' }}">
+                            <li class="dropdown m-menu-fw {{ Request::is('belajar-artikel/*') ? 'active' : '' }} {{ Request::is('artikel-islam/*') ? 'active' : '' }}">
                                 <a href="" data-toggle="dropdown" class="dropdown-toggle">
                                     Belajar Islam
                                     <span><i class="fa fa-angle-down"></i></span></a>
@@ -137,7 +137,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="dropdown m-menu-fw {{ Request::is('video-islam/*') ? 'active' : '' }}">
+                            <li class="dropdown m-menu-fw {{ Request::is('belajar-video/*') ? 'active' : ''}} {{ Request::is('video-islam/*') ? 'active' : '' }}">
                                 <a href="" data-toggle="dropdown" class="dropdown-toggle">
                                     Video
                                     <span><i class="fa fa-angle-down"></i></span></a>

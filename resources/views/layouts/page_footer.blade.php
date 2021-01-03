@@ -3,7 +3,7 @@
     <div class="container">
         <hr class="footer-top">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="footer_widget_title">
                     <h3><a href="" target="_self">Tentang Aliim</a></h3>
                 </div>
@@ -14,7 +14,7 @@
                     <p>Sebuah tempat pembelajaran dan pengetahuan mulai dari dasar tentang islam, dilengkapi dengan artikel islam dan video pembelajaran</p>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="footer_widget_title">
                     <h3><a href="" target="_self">Informasi</a></h3>
                 </div>
@@ -41,13 +41,13 @@
                             </li>
                             <li>nomads.corporetion</li>
                             <li>
-                                Jl. H. R. Rasuna Said No.Kav 32-33, RW.7, Kuningan, Karet Kuningan, Setia Budi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta - 12920
+                                Jl. Romangpolong, Somba Opu, Romangpolong, Kec. Somba Opu, Kabupaten Gowa, Sulawesi Selatan 92113
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            {{-- <div class="col-md-4">
                 <div class="footer_widget_title">
                     <h3><a href="" target="_self">Akan Datang</a></h3>
                 </div>
@@ -103,7 +103,7 @@
                         </span>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 

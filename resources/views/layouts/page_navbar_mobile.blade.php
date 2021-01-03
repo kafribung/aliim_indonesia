@@ -43,11 +43,11 @@
                     </li>
                 </ul>
             </li>
-            <li>
+            <li class="{{  request()->is('motivasi') ? 'active' : '' }}">
                 <a href="/motivasi">Motivasi</a>
             </li>
-            <li>
-                <a href="#">Tanya Ustad</a>
+            <li class="{{  request()->is('tanya-ustad') ? 'active' : '' }}">
+                <a href="/tanya-ustad">Tanya Ustad</a>
             </li>
         </ul>
     </div>
