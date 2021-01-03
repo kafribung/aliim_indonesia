@@ -46,8 +46,8 @@
                         </div>
                         <!-- entity_tag -->
                         <div class="entity_social">
-                            <span><i class="fa fa-share-alt"></i>424 <a href="">Shares</a> </span>
-                            <span><i class="fa fa-comments-o"></i>4 <a href="">Comments</a> </span>
+                            <span><i class="fa fa-share-alt"></i>424 Shares</span>
+                            <span><i class="fa fa-comments-o"></i>{{ $artikel->comments->count() }} Komentar</span>
                         </div>
                         <!-- entity_social -->
                     </div>
@@ -86,10 +86,8 @@
                                     </span>
 
                                     <div class="media_social">
-                                        <span><a href=""><i class="fa fa-share-alt"></i>424</a>
-                                            Shares</span>
-                                        <span><a href=""><i class="fa fa-comments-o"></i>4</a>
-                                            Comments</span>
+                                        <span><i class="fa fa-share-alt"></i>424 Shares</span>
+                                        <span><i class="fa fa-comments-o"></i>{{ $artikel->comments->count() }} Komentar</span>
                                     </div>
                                 </div>
                             </div>
