@@ -111,7 +111,7 @@ class RegisterController extends Controller
             'provinci' => $data['provinci'],
         ]);
 
-        // Mail::to($user->email)->send(new EmailVerifikasi($user));
+        Mail::to($user->email)->send(new EmailVerifikasi($user));
     }
 
     public function verification($token, $id)
