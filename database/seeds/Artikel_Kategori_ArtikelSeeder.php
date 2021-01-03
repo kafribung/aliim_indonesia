@@ -1,9 +1,7 @@
 <?php
 
-use App\Models\Artikel;
-use App\Models\KategoriArtikel;
+use App\Models\{Artikel, KategoriArtikel};
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class Artikel_Kategori_ArtikelSeeder extends Seeder
 {
@@ -18,7 +16,7 @@ class Artikel_Kategori_ArtikelSeeder extends Seeder
         $artikels = Artikel::get();
         KategoriArtikel::get()->each(function ($kategoriArtikel) use ($artikels) { 
             $kategoriArtikel->artikels()->attach(
-                $artikels->random(rand(1, 15))->pluck('id')->toArray()
+                $artikels->random(rand(1, 5))->pluck('id')->toArray()
             ); 
         });
     }
