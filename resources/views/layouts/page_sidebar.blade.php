@@ -47,8 +47,7 @@
         @foreach ($videosTerbaru as $video)
         <div class="media">
             <div class="media-left">
-                <iframe class="media-object" src="{{ $video->video }}?controls=0&showinfo=0" frameborder="0"
-                    allowfullscreen></iframe>
+                <iframe class="media-object" src="{{ $video->video }}?controls=0&rel=0" frameborder="0"></iframe>
             </div>
         </div>
         <div class="media-body">

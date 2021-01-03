@@ -20,7 +20,7 @@
                     </div>
                     <!-- entity_social -->
                     <div class="embed-responsive embed-responsive-4by3">
-                        <iframe class="embed-responsive-item" src="{{ $video->video }}"></iframe>
+                        <iframe class="embed-responsive-item" src="{{ $video->video }}?rel=0"></iframe>
                     </div>
                     <!-- embed-responsive -->
                     <div class="entity_content">
@@ -55,8 +55,7 @@
                         <div class="col-md-6">
                             <div class="media">
                                 <div class="media-top">
-                                    <iframe class="media-object" src="{{ $video->video }}" frameborder="0"
-                                        allowfullscreen></iframe>
+                                    <iframe class="media-object" src="{{ $video->video }}?controls=0&rel=0" frameborder="0"></iframe>
                                 </div>
                                 <div class="media-body">
                                     @foreach ($video->kategori_videos as $kategori)
