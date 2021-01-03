@@ -74,7 +74,7 @@
                                         <a href="">{{$video->user->name}}</a>
                                     </span>
                                     <div class="media_social">
-                                        <span><i class="fa fa-share-alt"></i>{{ $video->view }} Orang</span>
+                                        <span><i class="fa fa-eye"></i>{{ $video->view }} Orang</span>
                                         <span><i class="fa fa-comments-o"></i>{{ $video->comments->count() }} Komentar</span>
                                     </div>
                                 </div>

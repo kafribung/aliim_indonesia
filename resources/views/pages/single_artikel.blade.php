@@ -44,7 +44,7 @@
                         </div>
                         <!-- entity_tag -->
                         <div class="entity_social">
-                            <span><i class="fa fa-share-alt"></i>{{ $artikel->view }} Mata</span>
+                            <span><i class="fa fa-eye"></i>{{ $artikel->view }} Mata</span>
                             <span><i class="fa fa-comments-o"></i>{{ $artikel->comments->count() }} Komentar</span>
                         </div>
                         <!-- entity_social -->
@@ -84,7 +84,7 @@
                                     </span>
 
                                     <div class="media_social">
-                                        <span><i class="fa fa-share-alt"></i>{{ $artikel->view }} Mata</span>
+                                        <span><i class="fa fa-eye"></i>{{ $artikel->view }} Mata</span>
                                         <span><i class="fa fa-comments-o"></i>{{ $artikel->comments->count() }} Komentar</span>
                                     </div>
                                 </div>
