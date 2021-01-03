@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
 use App\Models\{Hadist, DoaHadist};
+use App\Http\Controllers\Pages\{NavbarKategori,  Sidebar};
 
 class MotivasiController extends Controller
 {

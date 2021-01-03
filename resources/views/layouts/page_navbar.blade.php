@@ -77,7 +77,7 @@
                                             <form role="form" action="/search/artikel" method="get">
                                                 <!-- Input Group -->
                                                 <div class="input-group">
-                                                    <input type="text" name="search" class="form-control"
+                                                    <input type="text" name="cari" class="form-control"
                                                         placeholder="Cari Artikel">
                                                     <span class="input-group-btn">
                                                         <button type="submit" class="btn btn-primary">Cari

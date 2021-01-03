@@ -33,7 +33,7 @@ Route::namespace('pages')->group(function(){
         Route::put('/profil/{id}', 'ProfilController@update');
     });
     // Home
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeController')->name('home');
     // Filter
     Route::get('/belajar-artikel/{kategori}', 'FilterArtikelController');
     Route::get('/belajar-video/{kategori}', 'FilterVideoController');
@@ -41,7 +41,7 @@ Route::namespace('pages')->group(function(){
     Route::get('/artikel-islam/{artikel:slug}', 'SingelArtikelController');
     Route::get('/video-islam/{video:slug}', 'SingelVideoController');
     // Search
-    Route::get('/search/artikel', 'HomeController@search_artikel');
+    Route::get('/search/artikel', 'SearchArtikelController');
     // Motivasi
     Route::get('/motivasi', 'MotivasiController@index');
 });

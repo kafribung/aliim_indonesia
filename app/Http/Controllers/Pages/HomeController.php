@@ -3,14 +3,11 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\{Artikel, Video, Hadist, DoaHadist,  Iklan, User};
-
-use Auth;
+use App\Models\{Artikel, Video, Hadist, DoaHadist};
 
 class HomeController extends Controller
 {
-    public function index()
+    public function __invoke()
     {
         // Navigasi Kategori
         $kategori_artikels = NavbarKategori::navbarArtikel();
@@ -37,31 +34,5 @@ class HomeController extends Controller
             'pages.home',
             compact('heroFirst', 'heroTwo', 'artikel', 'artikels', 'artikelsTerbaru', 'videos', 'videosTerbaru', 'motivasis', 'hadist', 'iklan_1', 'iklan_2', 'kategori_artikels', 'kategori_videos')
         );
-    }
-
-    // Search Artikel
-    public function search_artikel(Request $request)
-    {
-        $serach = urldecode($request->input('search'));
-
-        $artikels = Artikel::with('user', 'kategori_artikels')->where('title', 'like', '%' . $serach . '%')->get();
-
-        $hadist  =  Hadist::inRandomOrder()->first();
-
-        // Artikel terbaru
-        $artikel_5 = Artikel::with('user', 'kategori_artikels')->orderBy('id', 'desc')->paginate(3);
-
-        // Vidieo terbaru
-        $video_2 = Video::with('user', 'kategori_videos')->latest()->paginate(4);
-
-        // Iklan
-        $iklan_1 = Iklan::latest()->first();
-        $iklan_2 = Iklan::inRandomOrder()->paginate(2);
-
-        // Navigasi
-        $kategori_artikels = KategoriArtikel::with('artikels')->get();
-        $kategori_videos   = KategoriVideo::with('videos')->get();
-
-        return view('pages.artikel_search', compact('artikels', 'hadist', 'artikel_5', 'iklan_1', 'iklan_2', 'video_2', 'kategori_artikels', 'kategori_videos'));
     }
 }
