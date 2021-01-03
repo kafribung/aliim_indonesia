@@ -5,10 +5,9 @@
     <div>
         <ul id="menu">
             <!-- Home -->
-            <li><a href="">Home</a></li>
+            <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="/">Home</a></li>
             <!-- Belajar Islam-->
-            <li class="dropdown m-menu-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Belajar Islam
-                    <span><i class="fa fa-angle-down"></i></span></a>
+            <li class="dropdown m-menu-fw {{ Request::is('belajar-artikel/*') ? 'active' : '' }} {{ Request::is('artikel-islam/*') ? 'active' : '' }}"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Belajar Islam <span><i class="fa fa-angle-down"></i></span></a>
                 <ul class="dropdown-menu">
                     <li>
                         <div class="m-menu-content">
@@ -25,8 +24,7 @@
                 </ul>
             </li>
             <!-- Video -->
-            <li class="dropdown m-menu-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Video
-                    <span><i class="fa fa-angle-down"></i></span></a>
+            <li class="dropdown m-menu-fw {{ Request::is('belajar-video/*') ? 'active' : ''}} {{ Request::is('video-islam/*') ? 'active' : '' }}"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Video <span><i class="fa fa-angle-down"></i></span></a>
                 <ul class="dropdown-menu">
                     <li>
                         <div class="m-menu-content">
