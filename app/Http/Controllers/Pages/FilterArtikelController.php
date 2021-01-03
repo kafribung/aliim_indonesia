@@ -12,9 +12,9 @@ class FilterArtikelController extends Controller
         // Navigasi Kategori
         $kategori_artikels = NavbarKategori::navbarArtikel();
         $kategori_videos   = NavbarKategori::navbarVideo();
-        // Filter Video Cara ke-1
-        $artikels = Artikel::with('user', 'kategori_artikels')->whereHas('kategori_artikels', function ($query) use ($kategori) {
-            $query->where('title', $kategori);
+        // Filter Artikel Cara ke-1
+        $artikels = Artikel::with('user', 'kategori_artikels')->whereHas('kategori_artikels', function ($artikel) use ($kategori) {
+            $artikel->where('title', $kategori);
         })->inRandomOrder()->paginate(5);
         // Sidebar (Artikel  Vidieo terbaru, iklan)
         $artikelsTerbaru = Sidebar::ArtikelTerbaru(); 
