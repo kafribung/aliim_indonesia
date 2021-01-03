@@ -12,11 +12,16 @@
                     <!-- entity_title -->
                     <div class="entity_meta">
                         <a href="" target="_self">{{$video->user->name}}</a> <span>|</span>
-                        <a href="" target="_self">{{$video->created_at->diffForHumans()}}</a>
+                        <a href="" target="_self">{{$video->created_at->format('d-m-Y')}}</a>
                     </div>
                     <!-- entity_meta -->
                     <div class="entity_social">
-                        <div class="sharethis-inline-share-buttons"></div>
+                        <!--Fb-->
+                        <a target="_blank" rel="nofollow" href="https://www.facebook.com/sharer/sharer.php?u={{ request()->fullUrl() }}"><i class="fa fa-facebook"></i></a>
+                        <!--Twitter-->
+                        <a target="_blank" rel="nofollow" href="https://twitter.com/intent/tweet?text={{ request()->fullUrl() }}"><i class="fa fa-twitter"></i></a>
+                        <!--WA-->
+                        <a target="_blank" href="https://api.whatsapp.com/send?text={{ request()->fullUrl() }}" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"> </i></a>
                     </div>
                     <!-- entity_social -->
                     <div class="embed-responsive embed-responsive-4by3">
@@ -35,8 +40,8 @@
                         </div>
                         <!-- entity_tag -->
                         <div class="entity_social">
-                            <span><i class="fa fa-share-alt"></i>424 <a href="">Shares</a> </span>
-                            <span><i class="fa fa-comments-o"></i>4 <a href="">Comments</a> </span>
+                            <span><i class="fa fa-eye"></i>{{ $video->view }} Orang</span>
+                            <span><i class="fa fa-comments-o"></i>{{ $video->comments->count() }} Komentar</span>
                         </div>
                         <!-- entity_social -->
                     </div>
@@ -69,10 +74,8 @@
                                         <a href="">{{$video->user->name}}</a>
                                     </span>
                                     <div class="media_social">
-                                        <span><a href=""><i class="fa fa-share-alt"></i>424</a>
-                                            Shares</span>
-                                        <span><a href=""><i class="fa fa-comments-o"></i>4</a>
-                                            Comments</span>
+                                        <span><i class="fa fa-share-alt"></i>{{ $video->view }} Orang</span>
+                                        <span><i class="fa fa-comments-o"></i>{{ $video->comments->count() }} Komentar</span>
                                     </div>
                                 </div>
                             </div>

@@ -19,7 +19,7 @@ class CreateVideosTable extends Migration
             $table->text('description');
             $table->string('video');
             $table->string('slug');
-            $table->bigInteger('view')->unsigned()->nullable();
+            $table->bigInteger('view')->unsigned()->default(0);
             $table->bigInteger('user_id')->unsigned();
 
             $table->timestamps();

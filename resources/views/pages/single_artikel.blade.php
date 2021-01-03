@@ -16,14 +16,12 @@
                     </div>
                     <!-- entity_meta -->
                     <div class="entity_social">
+                        <!--Fb-->
                         <a target="_blank" rel="nofollow" href="https://www.facebook.com/sharer/sharer.php?u={{ request()->fullUrl() }}"><i class="fa fa-facebook"></i></a>
                         <!--Twitter-->
                         <a target="_blank" rel="nofollow" href="https://twitter.com/intent/tweet?text={{ request()->fullUrl() }}"><i class="fa fa-twitter"></i></a>
                         <!--WA-->
-                        <a target="_blank" href="whatsapp://send?text={{ request()->fullUrl() }}" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"> </i></a>
-                        <!--Google +-->
-                        <a target="_blank" href="mailto:?subject=I wanted you to see this site&amp;body={{ request()->fullUrl() }}"
-                        title="Share by Email"><i class="fa fa-google"></i></a>
+                        <a target="_blank" href="https://api.whatsapp.com/send?text={{ request()->fullUrl() }}" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"> </i></a>
                     </div>
                     <!-- entity_social -->
                     <div class="entity_thumb">
@@ -46,7 +44,7 @@
                         </div>
                         <!-- entity_tag -->
                         <div class="entity_social">
-                            <span><i class="fa fa-share-alt"></i>424 Shares</span>
+                            <span><i class="fa fa-share-alt"></i>{{ $artikel->view }} Mata</span>
                             <span><i class="fa fa-comments-o"></i>{{ $artikel->comments->count() }} Komentar</span>
                         </div>
                         <!-- entity_social -->
@@ -86,7 +84,7 @@
                                     </span>
 
                                     <div class="media_social">
-                                        <span><i class="fa fa-share-alt"></i>424 Shares</span>
+                                        <span><i class="fa fa-share-alt"></i>{{ $artikel->view }} Mata</span>
                                         <span><i class="fa fa-comments-o"></i>{{ $artikel->comments->count() }} Komentar</span>
                                     </div>
                                 </div>
