@@ -43,7 +43,7 @@ Route::namespace('pages')->group(function(){
     // Search
     Route::get('/search/artikel', 'SearchArtikelController');
     // Motivasi
-    Route::get('/motivasi', 'MotivasiController@index');
+    Route::get('/motivasi', 'MotivasiController');
 });
 // Token Register
 Route::get('/verification/{token}/{id}', 'Auth\RegisterController@verification');

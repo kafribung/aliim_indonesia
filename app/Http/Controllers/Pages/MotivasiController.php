@@ -8,7 +8,7 @@ use App\Http\Controllers\Pages\{NavbarKategori,  Sidebar};
 
 class MotivasiController extends Controller
 {
-    public function index()
+    public function __invoke()
     {
         // Navigasi Kategori
         $kategori_artikels = NavbarKategori::navbarArtikel();
