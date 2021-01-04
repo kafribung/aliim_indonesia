@@ -23,8 +23,8 @@
                             <strong class="card-title mb-3">{{$doaHadist->title}}</strong>
                         </div>
                         <div class="card-header alt bg-dark">
-                            <img class="align-self-center mr-3" style="width:400px; height:200px;" alt="artikel"
-                                src="{{ url($doaHadist->takeImg) }}">
+                            <img class="lazy img-thumbnail align-self-center mr-3" style="width:400px; height:200px;" alt="artikel"
+                                data-src="{{ url($doaHadist->takeImg) }}">
                         </div>
                         <hr>
                         <div class="d-flex justify-content-between">

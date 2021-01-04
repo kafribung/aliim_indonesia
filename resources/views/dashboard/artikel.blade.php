@@ -26,8 +26,8 @@
                             <h6 class="card-title mb-3">{{$artikel->title}}</h6>
                         </div>
                         <div class="card-header alt bg-dark">
-                            <img class="align-self-center mr-3" style="width:400px" alt="artikel"
-                                src="{{url($artikel->takeImg)}}">
+                            <img class="lazy img-thumbnail align-self-center mr-3" style="width:400px" alt="artikel"
+                                data-src="{{url($artikel->takeImg)}}">
                         </div>
                         <div class="card-body">
                             {!! Str::limit($artikel->description, 80) !!}
