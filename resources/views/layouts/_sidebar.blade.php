@@ -13,7 +13,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs "></i>Manajemen</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-user"></i><a href="/user">User</a></li>
-                        <li><i class="menu-icon fa fa-heart"></i><a href="/ustad">Ustad</a></li>
+                        <li><i class="menu-icon fa fa-moon-o"></i><a href="/ustad">Ustad</a></li>
                         <li><i class="menu-icon fa fa-user-circle"></i><a href="/admin">Admin</a></li>
                     </ul>
                 </li>
