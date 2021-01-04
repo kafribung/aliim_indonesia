@@ -46,7 +46,7 @@
                         <ul class="nav navbar-nav">
                             <li>
                                 <div class="media-left">
-                                    <img alt="64x64" class="media-object" src="{{url(Auth::user()->takeImg)}}" width=50"
+                                    <img alt="64x64" class="rounded-circle" src="{{url(Auth::user()->takeImg)}}" width=50"
                                         height="50">
                                 </div>
                             </li>
@@ -63,6 +63,9 @@
                                         style="display: none;">
                                         @csrf
                                     </form>
+                                    @if (Auth::user()->role==2 || Auth::user()->role==1)
+                                    <a class="dropdown-item" href="/dashboard"><b>Dashboard</b></a>
+                                    @endif
                                 </div>
                             </li>
                         </ul>
