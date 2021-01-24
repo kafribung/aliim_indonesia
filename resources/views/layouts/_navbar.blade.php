@@ -11,18 +11,7 @@
             <div class="header-left">
 
                 <div class="dropdown for-notification">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="notification"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-bell"></i>
-                        <span class="count bg-danger">3</span>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="notification">
-                        <p class="red">You have 3 Notification</p>
-                        <a class="dropdown-item media" href="#">
-                            <i class="fa fa-check"></i>
-                            <p>Server #1 overloaded.</p>
-                        </a>
-                    </div>
+                    <a href="/" class=""><i class="fa fa-home"></i>Beranda</a>
                 </div>
 
                 <div class="dropdown for-message">

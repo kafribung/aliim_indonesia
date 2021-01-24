@@ -49,12 +49,6 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Artikel');
     }
 
-    // RELATION ONE TO MANY (VIDEO)
-    public function videos()
-    {
-        return $this->hasMany('App\Models\Video');
-    }
-
     // RELATION ONE TO MANY (DOA & HADIST)
     public function doa_hadists()
     {

@@ -83,45 +83,7 @@
 
         </div>
 
-        <div class="row">
-            <div class="col-lg-6 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="stat-widget-five">
-                            <div class="stat-icon dib flat-color-5">
-                                <i class="pe-7s-next"></i>
-                            </div>
-                            <div class="stat-content">
-                                <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">{{ $video }}</span></div>
-                                    <div class="stat-heading">Video</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="stat-widget-five">
-                            <div class="stat-icon dib flat-color-6">
-                                <i class="pe-7s-news-paper"></i>
-                            </div>
-                            <div class="stat-content">
-                                <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">{{ $doa }}</span></div>
-                                    <div class="stat-heading">Doa & Hadist</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- /Widgets -->
-
         <div class="row">
             <div class="col-lg-12">
                 <div class=" card ">

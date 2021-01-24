@@ -31,16 +31,6 @@
                     </ul>
                 </li>
 
-                <!-- /Video -->
-                <li class="menu-item-has-children dropdown {{Request()->segment(1) == 'kategori-video' ? 'active' : ''}} {{Request()->segment(1) == 'video' ? 'active' : ''}}">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-video-camera "></i>Video</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-list"></i><a href="/kategori-video">Kategori Video</a></li>
-                        <li><i class="menu-icon fa fa-video-camera"></i><a href="/video">Semua Video</a></li>
-                        <li><i class="menu-icon fa fa-pencil"></i><a href="/video/create">Tambah Video</a></li>
-                    </ul>
-                </li>
-
                 @if (auth()->user()->role != 2)
                 <li class="menu-title">Motivasi</li>
                 <!-- /Motivasi -->
@@ -51,7 +41,6 @@
                         <li><i class="menu-icon fa fa-pencil"></i><a href="/doa-hadist/create">Tambah Doa & Hadist</a></li>
                     </ul>
                 </li>
-
 
                 <li class="menu-title">Plugin</li>
                 <!-- /Plugin -->

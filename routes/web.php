@@ -13,10 +13,6 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('artikel', 'ArtikelController');
     Route::resource('kategori-artikel', 'KategoriArtikelController');
 
-    // Video
-    Route::resource('video', 'VideoController');
-    Route::resource('kategori-video', 'KategoriVideoController');
-
     // Doa & Motivasi
     Route::resource('/doa-hadist', 'DoaHadistController')->middleware('tolak.ustad');
 
@@ -36,10 +32,8 @@ Route::namespace('pages')->group(function(){
     Route::get('/', 'HomeController')->name('home');
     // Filter
     Route::get('/belajar-artikel/{kategori}', 'FilterArtikelController');
-    Route::get('/belajar-video/{kategori}', 'FilterVideoController');
     // Single
     Route::get('/artikel-islam/{artikel:slug}', 'SingelArtikelController');
-    Route::get('/video-islam/{video:slug}', 'SingelVideoController');
     // Search
     Route::get('/search/artikel', 'SearchArtikelController');
     // Motivasi
