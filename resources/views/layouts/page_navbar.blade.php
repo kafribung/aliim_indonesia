@@ -140,25 +140,6 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="dropdown m-menu-fw {{ Request::is('belajar-video/*') ? 'active' : ''}} {{ Request::is('video-islam/*') ? 'active' : '' }}">
-                                <a href="" data-toggle="dropdown" class="dropdown-toggle">
-                                    Video
-                                    <span><i class="fa fa-angle-down"></i></span></a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <div class="m-menu-content">
-                                            <ul class="col-sm text-center">
-                                                <li class="dropdown-header">Belajar Video</li>
-                                                @foreach ($kategori_videos as $kategori)
-                                                <li>
-                                                    <a href="/belajar-video/{{$kategori->title}}">{{$kategori->title}}</a> 
-                                                </li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
                             <li class="{{  request()->is('motivasi') ? 'active' : '' }}">
                                 <a href="/motivasi">Motivasi</a>
                             </li>

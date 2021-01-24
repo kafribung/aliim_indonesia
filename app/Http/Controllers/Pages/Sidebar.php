@@ -10,11 +10,6 @@ class Sidebar {
         return Artikel::with('user', 'kategori_artikels')->latest()->limit(3)->get();   
     }
 
-    public static function VedioTerbaru()
-    {
-        return Video::with('user', 'kategori_videos')->latest()->limit(3)->get();
-    }
-
     public static function Iklan()
     {
         return Iklan::latest()->inRandomOrder()->first();
