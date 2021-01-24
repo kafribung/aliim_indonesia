@@ -22,7 +22,6 @@
                     <div class="col-xs-4">
                         <ul class="list-unstyled left">
                             <li>Page Aliim</li>
-                            <li>Kontak</li>
                             <li>Email</li>
                             <li>Pengembang</li>
                             <li>Alamat</li>
@@ -34,12 +33,9 @@
                                 <a href="aliim.web.id">Aliim Lending Page</a>
                             </li>
                             <li>
-                                <a href="tel:+628534669993">+628534669993</a>
-                            </li>
-                            <li>
                                 <a href="mailto:aliim.nomads@gmail.com">aliim.nomads@gmail.com</a>
                             </li>
-                            <li>nomads.corporetion</li>
+                            <li>Aliim Indonesia</li>
                             <li>
                                 Jl. Romangpolong, Somba Opu, Romangpolong, Kec. Somba Opu, Kabupaten Gowa, Sulawesi Selatan 92113
                             </li>
