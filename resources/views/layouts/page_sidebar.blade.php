@@ -39,32 +39,6 @@
     </div>
     <!-- End Iklan 1 -->
 
-    {{-- Video Terbaru --}}
-    <div class="widget reviews m30">
-        <div class="widget_title widget_black">
-            <h2><a href="">Video Terbaru</a></h2>
-        </div>
-        @foreach ($videosTerbaru as $video)
-        <div class="media">
-            <div class="media-left">
-                <iframe class="media-object" src="{{ $video->video }}?controls=0&rel=0" frameborder="0"></iframe>
-            </div>
-        </div>
-        <div class="media-body">
-            <h1 class="media-heading">
-                <a href="/video-islam/{{ $video->slug }}" target="_self">{{ $video->title }}</a>
-            </h1>
-            <span class="media-date">
-                <a href="">{{ $video->created_at->diffForHumans() }}</a>, by:
-                <a href="">{{ $video->user->name }}</a>
-            </span>
-            <div class="category_article_content">
-                {!! Str::limit($video->description, 60) !!}
-            </div>
-        </div>
-        @endforeach
-    </div>
-
     {{-- Iklan 2--}}
     @foreach ($iklan_2 as $iklan)
     <div class="widget hidden-xs m30">
@@ -74,4 +48,5 @@
         </a>
     </div>
     @endforeach
+    {{-- End Iklan 2--}}
 </div>

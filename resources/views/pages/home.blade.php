@@ -166,51 +166,6 @@
                 </div>
                 <!-- End Artikel Belajar Islam -->
 
-                <!-- Video News Section -->
-                <div class="category_section design">
-                    <div class="article_title header_blue">
-                        <h2><a href="" target="_self">Video</a></h2>
-                    </div>
-                    <!-- row -->
-                    <div class="category_article_wrapper">
-                        <div class="row">
-                            @foreach ($videos as $video)
-                            <div class="col-md-6">
-                                <div class="category_article_body">
-                                    <div class="embed-responsive embed-responsive-4by3">
-                                        <iframe class="lazy embed-responsive-item" src="{{ $video->video }}?controls=0&rel=0&disablekb=1" frameborder="0"></iframe>
-                                    </div>
-                                    <!-- top_article_img -->
-                                    @foreach ($video->kategori_videos as $kategori)
-                                    <span class="tag blue"><a href="" target="_self">{{ $kategori->title }}</a></span>
-                                    @endforeach
-                                    <div class="category_article_title">
-                                        <h2>
-                                            <a href="/video-islam/{{ $video->slug }}"
-                                                target="_self">{{ $video->title }}</a>
-                                        </h2>
-                                    </div>
-                                    <!-- category_article_title -->
-                                    <div class="category_article_date">
-                                        <a href="">{{ $video->created_at->diffForHumans() }}</a>, by:
-                                        <a href="">{{ $video->user->name }}</a>
-                                    </div>
-                                    <!-- category_article_date -->
-                                    <div class="category_article_content">
-                                        {!! Str::limit($video->description, 100) !!}
-                                    </div>
-                                    <!-- category_article_content -->
-                                </div>
-                                <!-- category_article_body -->
-                            </div>
-                            <!-- col-md-6 -->
-                            @endforeach
-                        </div>
-                        <!-- row -->
-                    </div>
-                </div>
-                <!-- End Video News Section -->
-
                 <!-- Motivasi -->
                 <div class="category_section camera">
                     <div class="article_title header_orange">
