@@ -59,6 +59,7 @@ class ArtikelController extends Controller
     // UPDATE
     public function update(ArtikelRequest $request, Artikel $artikel)
     {
+        
         // Cek Author
         $this->authorize('edit', $artikel);
         $data = $request->all();

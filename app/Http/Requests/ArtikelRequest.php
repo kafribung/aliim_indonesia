@@ -24,8 +24,8 @@ class ArtikelRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'      => ['required', 'string', 'min:3', 'max:255', 'unique:artikels'],
-            'img'        => ['required', 'mimes:png,jpg,jpeg'],
+            'title'      => ['required', 'string', 'min:3', 'max:255', 'unique:artikels,title,' . optional($this->artikel)->id],
+            'img'        => [(Request()->isMethod('Patch') ? '' : 'required'),  'mimes:png,jpg,jpeg'],
             'kategori'   => ['required', 'array'],
             'description' => ['required'],
         ];
