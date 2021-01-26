@@ -16,9 +16,11 @@ Route::group(['middleware' => 'admin'], function () {
     // Galeri
     Route::resource('/galeri', 'GaleriController')->middleware('tolak.ustad');
 
-    // Plugin (Iklan dan Hadist Harian)
+    // Iklan
     Route::resource('iklan', 'IklanController')->middleware('tolak.ustad');
-    Route::resource('hadist', 'HadistController')->middleware('tolak.ustad');
+
+    // Hadist Harian
+    Route::resource('hadist', 'HadistController');
 });
 
 // ----------------------------------------------------------USER

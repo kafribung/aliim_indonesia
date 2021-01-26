@@ -29,24 +29,25 @@
                 </li>
 
                 @if (auth()->user()->role != 2)
-                <li class="menu-title">Galeri</li>
                 <!-- /Galeri -->
+                <li class="menu-title">Galeri</li>
                 <li class="{{Request()->segment(1) == 'galeri' ? 'active' : ''}}">
                     <a href="/galeri"> <i class="menu-icon fa fa-file-image-o"></i>Galeri</a>
                 </li>
 
-                <li class="menu-title">Plugin</li>
-                <!-- /Plugin -->
-                <li class="menu-item-has-children dropdown {{Request()->segment(1) == 'iklan' ? 'active' : ''}} {{Request()->segment(1) == 'hadist' ? 'active' : ''}}">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-plug"></i>Doa & Hadist</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-gift"></i><a href="/iklan">Iklan</a></li>
-                        <li><i class="menu-icon fa fa-shield"></i><a href="/hadist">Hadist Harian</a></li>
-                    </ul>
+                <!-- /Iklan -->
+                <li class="menu-title">Iklan & Hadist</li>
+                <li class="{{Request()->segment(1) == 'iklan' ? 'active' : ''}}">
+                    <a href="/iklan"> <i class="menu-icon fa fa-gift"></i>Iklan</a>
                 </li>
                 @endif
 
-                <li class="menu-title">Komentar</li>
+                <!-- /Hadist -->
+                <li class="{{Request()->segment(1) == 'hadist' ? 'active' : ''}}">
+                    <a href="/hadist"> <i class="menu-icon fa fa-shield"></i>Hadist Harian</a>
+                </li>
+
+                {{-- <li class="menu-title">Komentar</li>
                 <!-- /.menu-title -->
 
                 <li>
@@ -58,7 +59,7 @@
 
                 <li>
                     <a href="#"> <i class="menu-icon ti-comment-alt"></i>Lihat Pertanyaan</a>
-                </li>
+                </li> --}}
             </ul>
         </div>
         <!-- /.navbar-collapse -->
