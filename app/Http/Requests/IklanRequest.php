@@ -25,7 +25,6 @@ class IklanRequest extends FormRequest
     {
         return [
             'img'    => ['required', 'mimes:png,jpg,jpeg'],
-            'title'  => ['required', 'string', 'min:3', 'max:30'],
             'owner'  => ['required', 'string', 'min:3', 'max:30'],
             'owner'  => ['required', 'string', 'min:3', 'max:30'],
             'wa'     => ['required', 'numeric'],

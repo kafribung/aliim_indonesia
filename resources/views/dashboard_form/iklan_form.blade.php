@@ -1,6 +1,6 @@
 <div class="form-group">
     <label for="img" class="control-label mb-1">Gambar</label>
-    @empty(!$iklan->title)
+    @empty(!$iklan->img)
     <img src="{{url($iklan->takeImg)}}" alt="Gambar Error" width="100" height="100">
     @endempty
     <input id="img" name="img" type="file"
@@ -8,17 +8,6 @@
         autocomplete="off" accept="image/*">
 
     @error('img')
-    <p class="alert alert-danger">{{$message}}</p>
-    @enderror
-</div>
-
-<div class="form-group">
-    <label for="title" class="control-label mb-1">Judul</label>
-    <input id="title" name="title" type="text"
-        class="form-control @error('title') is-invalid @enderror" required
-        autocomplete="off" value="{{old('title') ? old('title') : $iklan->title}}">
-
-    @error('title')
     <p class="alert alert-danger">{{$message}}</p>
     @enderror
 </div>
