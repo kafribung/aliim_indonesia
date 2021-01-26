@@ -16,10 +16,8 @@ class CreateGalerisTable extends Migration
         Schema::create('galeris', function (Blueprint $table) {
             $table->id();
             $table->string('img');
-            $table->string('slug');
             $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

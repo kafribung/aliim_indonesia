@@ -19,9 +19,9 @@
                             <strong class="card-title">Edit Data Galeri</strong>
                         </div>
                         <div class="card-body">
-                            <form action="/galeri/{{$galeri->slug}}" method="POST" enctype="multipart/form-data">
+                            <form action="/galeri/{{$galeri->id}}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                @method('PUT')
+                                @method('PATCH')
                                 @include('dashboard_form.galeri_form', compact($galeri))
                                 <button type="submit" class="btn btn-md btn-warning btn-block">Update Galeri</button>
                             </form>

@@ -2,8 +2,6 @@
 @section('title', 'Galeri | Aliim Indonesia')
 @section('content')
 
-@include('dashboard_form.cari_form', ['data' => request()->path()])
-
 <!-- Content -->
 <div class="content">
 
@@ -36,10 +34,10 @@
 
                         @can('author', $galeri)
                         <div class="card-text text-sm-center">
-                            <a href="/galeri/{{$galeri->slug}}/edit" class="btn btn-outline-warning btn-sm">
+                            <a href="/galeri/{{$galeri->id}}/edit" class="btn btn-outline-warning btn-sm">
                                 <i class="fa fa-edit"></i>
                             </a>
-                            <form action="/galeri/{{$galeri->slug}}" method="POST" class="d-inline-flex">
+                            <form action="/galeri/{{ $galeri->id }}" method="POST" class="d-inline-flex">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" onclick="return confirm('Hapus Data {{$galeri->title}} ?')"

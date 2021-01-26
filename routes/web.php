@@ -13,7 +13,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('artikel', 'ArtikelController');
     Route::resource('kategori-artikel', 'KategoriArtikelController');
 
-    // Doa & Motivasi
+    // Galeri
     Route::resource('/galeri', 'GaleriController')->middleware('tolak.ustad');
 
     // Plugin (Iklan dan Hadist Harian)

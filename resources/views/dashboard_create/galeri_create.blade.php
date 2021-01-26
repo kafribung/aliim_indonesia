@@ -16,12 +16,12 @@
                 <div class="card-body ">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Tambah Data Doa & Hadist</strong>
+                            <strong class="card-title">Tambah Data Galeri</strong>
                         </div>
                         <div class="card-body">
                             <form action="/galeri" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                @include('dashboard_form.galeri_form', ['geleri' => new App\Models\Galeri])
+                                @include('dashboard_form.galeri_form', ['galeri' => new App\Models\Galeri])
                                 <button type="submit" class="btn btn-md btn-info btn-block">Tambah Galeri</button>
                             </form>
                         </div>

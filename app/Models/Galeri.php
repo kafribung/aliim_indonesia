@@ -10,12 +10,6 @@ class Galeri extends Model
     protected $touches  = ['user'];
     protected $fillable = ['img', 'title', 'slug'];
 
-    // ROUTE KEY NAME
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
     // RELATION MANY  TO  ONE (USER)
     public function user()
     {

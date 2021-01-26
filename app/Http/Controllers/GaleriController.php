@@ -15,9 +15,7 @@ class GaleriController extends Controller
     // READ
     public function index()
     {
-        $search = urlencode(request('search'));
-        if ($search) $galeris = Galeri::with('user')->latest()->where('title', 'LIKE', '%'. $search . '%')->paginate(12);
-        else $galeris = Galeri::with('user')->latest()->paginate(12);
+        $galeris = Galeri::with('user')->latest()->paginate(12);
         return view('dashboard.galeri', compact('galeris'));
     }
 
@@ -35,9 +33,8 @@ class GaleriController extends Controller
         if ($img = $request->file('img')) {
             $data['img'] = $request->file('img')->storeAs('img_galeris', time() . '.' . $img->getClientOriginalExtension());
         }
-        $data['slug'] = Str::slug($request->title);
-        // Eloquent Store DoaHadist
-        $request->user()->doa_hadists()->create($data);
+        // Eloquent Store Galeri
+        $request->user()->galeries()->create($data);
         return redirect('/galeri')->with('msg', 'Galeri Berhasil ditambahkan');
     }
 
@@ -65,7 +62,6 @@ class GaleriController extends Controller
             }
             $data['img'] = $request->file('img')->storeAs('img_galeris', time() . '.' . $img->getClientOriginalExtension());
         }
-        $data['slug'] = Str::slug($request->title);
         $galeri->update($data);
         return redirect('/galeri')->with('msg', 'Galeri Berhasil diupdate');
     }

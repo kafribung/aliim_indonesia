@@ -24,7 +24,6 @@ class GaleriRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'string', 'min:3', 'max:255', 'unique:doa_hadists'],
             'img'   => ['required', 'mimes:png,jpg,jpeg'],
         ];
     }
