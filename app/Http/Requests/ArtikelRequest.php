@@ -25,7 +25,7 @@ class ArtikelRequest extends FormRequest
     {
         return [
             'title'      => ['required', 'string', 'min:3', 'max:255', 'unique:artikels,title,' . optional($this->artikel)->id],
-            'img'        => [(Request()->isMethod('Patch') ? '' : 'required'),  'mimes:png,jpg,jpeg'],
+            'img'        => [(Request()->isMethod('patch') ? '' : 'required'),  'mimes:png,jpg,jpeg'],
             'kategori'   => ['required', 'array'],
             'description' => ['required'],
         ];
