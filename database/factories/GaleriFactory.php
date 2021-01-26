@@ -2,13 +2,13 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\DoaHadist;
+use App\Models\Galeri;
 use Faker\Generator as Faker;
 
-$factory->define(DoaHadist::class, function (Faker $faker) {
+$factory->define(Galeri::class, function (Faker $faker) {
     return [
         'title' => $faker->sentence(),
-        'img'   => 'img_doa_hadists/default_doa.jpg',
+        'img'   => 'img_galeris/default_doa.jpg',
         'slug'  => \Str::slug($faker->sentence()),
         'user_id' => 1,
     ];
