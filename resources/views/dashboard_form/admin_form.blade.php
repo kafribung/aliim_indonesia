@@ -62,7 +62,7 @@
     @enderror
 </div>
 
-<div class="form-group">
+{{-- <div class="form-group">
     <label for="provinci" class="control-label mb-1">Provinsi</label>
     <select id="provinci" name="provinci"
         class="form-control @error('provinci') is-invalid @enderror" required
@@ -77,6 +77,10 @@
     @error('provinci')
     <p class="alert alert-danger">{{$message}}</p>
     @enderror
+</div> --}}
+
+<div class="form-group">
+    
 </div>
 
 <div class="form-group">

@@ -28,7 +28,6 @@
 					<input class="input100" type="email" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 					<span class="focus-input100"></span>
 				</div>
-				
 
 				<div class="wrap-input100 validate-input" data-validate = "Please enter password">
 					<input class="input100" type="password" name="password" placeholder="Password"  required autocomplete="current-password">
@@ -36,30 +35,17 @@
 				</div>
 
 				<div class="text-right p-t-13 p-b-23">
-					<span class="txt1">
-						Lupa
-					</span>
-
-					<a href="{{ route('password.request') }}"class="txt2">
-						Email / Password?
-					</a>
-					
+					<span class="txt1">Lupa</span>
+					<a href="{{ route('password.request') }}"class="txt2">Password?</a>
 				</div>
 
 				<div class="container-login100-form-btn">
-					<button type="submit" class="login100-form-btn">
-						Masuk
-					</button>
+					<button type="submit" class="login100-form-btn">Masuk</button>
 				</div>
 
-				<div class="flex-col-c p-t-80 p-b-40">
-					<span class="txt1 p-b-9">
-						Belum Memiliki Akun ?
-					</span>
-
-					<a href="/register" class="txt3">
-						Daftar Sekarang
-					</a>
+				<div class="flex-col-c p-t-20 p-b-20">
+					<span class="txt1 p-b-9">Belum Memiliki Akun ?</span>
+					<a href="/register" class="txt3">Daftar Sekarang</a>
 				</div>
 			</form>
 		</div>

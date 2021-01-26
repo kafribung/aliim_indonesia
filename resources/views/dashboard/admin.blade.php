@@ -28,7 +28,7 @@
                                         <th>Email</th>
                                         <th>Tgl Lahir</th>
                                         <th>JK</th>
-                                        <th>Provinsi</th>
+                                        <th>Kabupaten</th>
                                         <th>Status</th>
                                         <th>Peran</th>
                                         <th>Action</th>
@@ -44,23 +44,19 @@
                                         <td>{{$angkaAwal++}}</td>
                                         <td class="avatar">
                                             <div class="round-img">
-                                                <img class="rounded-circle" src="{{url($admin->takeImg)}}"
-                                                    alt="Foto {{$admin->name}}" title="Foto {{$admin->name}}">
+                                                <img class="rounded-circle" src="{{url($admin->takeImg)}}" alt="Foto {{$admin->name}}" title="Foto {{$admin->name}}">
                                             </div>
                                         </td>
                                         <td>{{$admin->name}}</td>
                                         <td>{{$admin->email}}</td>
                                         <td>{{$admin->date_birth}}</td>
                                         <td>{{$admin->gender}}</td>
-                                        <td>{{$admin->provinci}}</td>
+                                        <td>{{$admin->district}}</td>
                                         <td>{{$admin->status == 1 ? 'Active' : 'Not Active'}}</td>
                                         <td>{{($admin->role == 0) ? 'User' : (($admin->role == 1) ? 'Admin' : 'Ustad')}}
                                         </td>
                                         <td>
-                                            <a href="/admin/{{$admin->email}}/edit"
-                                                class="btn btn-warning btn-sm">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
+                                            <a href="/admin/{{$admin->email}}/edit" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
                                         </td>
                                     </tr>
                                     @endforeach
