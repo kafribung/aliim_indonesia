@@ -7,8 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Galeri::class, function (Faker $faker) {
     return [
-        'img'   => 'img_galeris/default_doa.jpg',
-        'slug'  => \Str::slug($faker->sentence()),
+        'img'     => 'img_galeris/default_galeri.jpg',
         'user_id' => 1,
     ];
 });

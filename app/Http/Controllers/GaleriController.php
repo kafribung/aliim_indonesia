@@ -57,7 +57,7 @@ class GaleriController extends Controller
         $data = $request->all();
         // Store Img
         if ($img = $request->file('img')) {
-            if ($galeri->img != 'img_galeris/default_doa.jpg') {
+            if ($galeri->img != 'img_galeris/default_galeri.jpg') {
                 Storage::delete($galeri->img);
             }
             $data['img'] = $request->file('img')->storeAs('img_galeris', time() . '.' . $img->getClientOriginalExtension());
@@ -69,7 +69,7 @@ class GaleriController extends Controller
     // DELETE
     public function destroy(Galeri $galeri)
     {
-        if ($galeri->img != 'img_galeris/default_doa.jpg') {
+        if ($galeri->img != 'img_galeris/default_galeri.jpg') {
             Storage::delete($galeri->img);
         }
         $galeri->delete();
