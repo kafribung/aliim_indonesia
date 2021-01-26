@@ -36,8 +36,7 @@ class AdminController extends Controller
     // EDIT
     public function edit(User $admin)
     {
-        $provincis = ApiRajaOngkir::apiProvinsi();
-        return view('dashboard_edit.admin_edit', compact('admin', 'provincis'));
+        return view('dashboard_edit.admin_edit', compact('admin'));
     }
 
     // UPDATE
@@ -56,11 +55,5 @@ class AdminController extends Controller
         $data['password'] = Hash::make($request->password);
         $admin->update($data);
         return redirect('/admin')->with('msg', 'Data Admin Berhasil di Edit');
-    }
-
-    // DELETE
-    public function destroy(User $admin)
-    {
-        return abort('404');
     }
 }
