@@ -81,12 +81,10 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'tanggal' => ['required'],
-            'bulan' => ['required'],
-            'bulan' => ['required'],
-            'tahun' => ['required'],
+            'date_birth' => ['required'],
             'gender' => ['required'],
             'provinci' => ['required'],
+            'district' => ['required'],
             'g-recaptcha-response' => ['required', 'recaptchav3:register,0.5'],
         ]);
     }
@@ -99,16 +97,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $tanggal = $data['tahun'] . '-' . $data['bulan'] . '-' . $data['tanggal'];
-
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'token'   => Str::random(30),
-            'date_birth' => $tanggal,
+            'date_birth' => $data['date_birth'],
             'gender' => $data['gender'],
             'provinci' => $data['provinci'],
+            'district' => $data['district'],
         ]);
 
         Mail::to($user->email)->send(new EmailVerifikasi($user));
@@ -117,11 +114,9 @@ class RegisterController extends Controller
     public function verification($token, $id)
     {
         $user = User::findOrFail($id);
-
         if ($user->token != $token) {
             return redirect('login')->with('msg', 'Terjadi kesalahan validasi akun');
         }
-
         // Ubah status user
         $user->status = 1;
         $user->save();

@@ -19,27 +19,20 @@
                 </li>
                 @endif
 
-                <li class="menu-title">Artikel & Video</li>
-
                 <!-- /Artikel -->
-                <li class="menu-item-has-children dropdown {{Request()->segment(1) == 'kategori-artikel' ? 'active' : ''}} {{Request()->segment(1) == 'artikel' ? 'active' : ''}}">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-newspaper-o "></i>Artikel</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-list"></i><a href="/kategori-artikel">Kategori Artikel</a></li>
-                        <li><i class="menu-icon fa fa-newspaper-o"></i><a href="/artikel">Semua Artikel</a></li>
-                        <li><i class="menu-icon fa fa-pencil"></i><a href="/artikel/create">Tambah Artikel</a></li>
-                    </ul>
+                <li class="menu-title">Artikel</li>
+                <li class="{{Request()->segment(1) == 'kategori-artikel' ? 'active' : ''}}">
+                    <a href="/kategori-artikel"><i class="menu-icon fa fa-list"></i>Kategori Artikel</a>
+                </li>
+                <li class="{{Request()->segment(1) == 'artikel' ? 'active' : ''}}">
+                    <a href="/artikel"><i class="menu-icon fa fa-newspaper-o"></i>Artikel</a>
                 </li>
 
                 @if (auth()->user()->role != 2)
-                <li class="menu-title">Motivasi</li>
-                <!-- /Motivasi -->
-                <li class="menu-item-has-children dropdown {{Request()->segment(1) == 'doa-hadist' ? 'active' : ''}}">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-file-image-o "></i>Doa & Hadist</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-image"></i><a href="/doa-hadist">Semua Doa & Hadist</a></li>
-                        <li><i class="menu-icon fa fa-pencil"></i><a href="/doa-hadist/create">Tambah Doa & Hadist</a></li>
-                    </ul>
+                <li class="menu-title">Galeri</li>
+                <!-- /Galeri -->
+                <li class="{{Request()->segment(1) == 'galeri' ? 'active' : ''}}">
+                    <a href="/galeri"> <i class="menu-icon fa fa-file-image-o"></i>Galeri</a>
                 </li>
 
                 <li class="menu-title">Plugin</li>
@@ -52,7 +45,6 @@
                     </ul>
                 </li>
                 @endif
-
 
                 <li class="menu-title">Komentar</li>
                 <!-- /.menu-title -->

@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\DoaHadist;
+use App\Models\Galeri;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class DoaHadistPolicy
+class GaleriPolicy
 {
     use HandlesAuthorization;
 
@@ -20,8 +20,8 @@ class DoaHadistPolicy
         //
     }
 
-    public function author(User $user, DoaHadist $doaHadist)
+    public function author(User $user, Galeri $galeri)
     {
-        return $user->id == $doaHadist->user_id;
+        return $user->id == $galeri->user_id;
     }
 }

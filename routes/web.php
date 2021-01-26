@@ -14,7 +14,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('kategori-artikel', 'KategoriArtikelController');
 
     // Doa & Motivasi
-    Route::resource('/doa-hadist', 'DoaHadistController')->middleware('tolak.ustad');
+    Route::resource('/galeri', 'GaleriController')->middleware('tolak.ustad');
 
     // Plugin (Iklan dan Hadist Harian)
     Route::resource('iklan', 'IklanController')->middleware('tolak.ustad');

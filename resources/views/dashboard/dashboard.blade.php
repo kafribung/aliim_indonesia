@@ -13,7 +13,7 @@
                     <div class="card-body">
                         <div class="stat-widget-five">
                             <div class="stat-icon dib flat-color-1">
-                                <i class="pe-7s-users"></i>
+                                <i class="fa fa-user"></i>
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
@@ -31,7 +31,7 @@
                     <div class="card-body">
                         <div class="stat-widget-five">
                             <div class="stat-icon dib flat-color-2">
-                                <i class="pe-7s-moon"></i>
+                                <i class="fa fa-moon-o"></i>
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
@@ -49,7 +49,7 @@
                     <div class="card-body">
                         <div class="stat-widget-five">
                             <div class="stat-icon dib flat-color-3">
-                                <i class="pe-7s-users"></i>
+                                <i class="fa fa-user-circle"></i>
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
@@ -67,7 +67,7 @@
                     <div class="card-body">
                         <div class="stat-widget-five">
                             <div class="stat-icon dib flat-color-4">
-                                <i class="pe-7s-notebook"></i>
+                                <i class="fa fa-newspaper-o"></i>
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
@@ -80,7 +80,23 @@
                 </div>
             </div>
 
-
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-5">
+                                <i class="fa fa-image"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="text-left dib">
+                                    <div class="stat-text"><span class="count">{{ $galeri }}</span></div>
+                                    <div class="stat-heading">Galeri</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- /Widgets -->

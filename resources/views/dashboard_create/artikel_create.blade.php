@@ -19,7 +19,7 @@
                             <strong class="card-title">Tambah Data Artikel</strong>
                         </div>
                         <div class="card-body">
-                            <form action="/artikel" method="POST" enctype="multipart/form-data">
+                            <form action="/artikel" method="POST" enctype="multipart/form-data" novalidate>
                                 @csrf
                                 @include('dashboard_form.artikel_form', ['artikel' => new App\Models\Artikel])
                                 <button type="submit" class="btn btn-md btn-info btn-block">Tambah Artikel</button>

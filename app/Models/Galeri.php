@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Auth;
 
-class DoaHadist extends Model
+class Galeri extends Model
 {
     protected $touches  = ['user'];
     protected $fillable = ['img', 'title', 'slug'];

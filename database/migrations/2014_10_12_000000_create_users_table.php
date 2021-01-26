@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->date('date_birth')->nullable();
             $table->string('gender')->nullable();
             $table->string('provinci')->nullable();
+            $table->string('district')->nullable();
             $table->string('token')->unique();
             $table->tinyInteger('status')->default(0);
             $table->tinyInteger('role')->default(0);

@@ -8,9 +8,7 @@
                     <h3><a href="" target="_self">Tentang Aliim</a></h3>
                 </div>
                 <div class="logo footer-logo">
-                    <a title="fontanero" href="">
-                        <img class="lazy" data-src="{{ asset('assets/img/karakter.jpg') }}" alt="Belajar" title="Aliim Indonesia" width="250">
-                    </a>
+                    <img class="lazy" data-src="{{ asset('assets/img/karakter.jpg') }}" alt="Belajar" title="Aliim Indonesia" width="200">
                     <p>Sebuah tempat pembelajaran dan pengetahuan mulai dari dasar tentang islam, dilengkapi dengan artikel islam dan video pembelajaran</p>
                 </div>
             </div>

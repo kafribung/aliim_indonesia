@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Doa & Hadist | Aliim Indonesia')
+@section('title', 'Galeri | Aliim Indonesia')
 @section('content')
 
 @include('dashboard_form.cari_form', ['data' => request()->path()])
@@ -13,35 +13,36 @@
         @if (session('msg'))
         <p class="alert alert-info">{{session('msg')}}</p>
         @endif
+        <a class="btn btn-primary btn-sm" href="/galeri/create"><i class="fa fa-plus"></i></a>
 
         <div class="row">
-            @forelse ($doaHadists as $doaHadist)
+            @forelse ($galeris as $galeri)
             <div class="col-md-3">
                 <aside class="profile-nav alt">
                     <section class="card">
                         <div class="card-header">
-                            <strong class="card-title mb-3">{{$doaHadist->title}}</strong>
+                            <strong class="card-title mb-3">{{$galeri->title}}</strong>
                         </div>
                         <div class="card-header alt bg-dark">
                             <img class="lazy img-thumbnail align-self-center mr-3" style="width:400px; height:200px;" alt="artikel"
-                                data-src="{{ url($doaHadist->takeImg) }}">
+                                data-src="{{ url($galeri->takeImg) }}">
                         </div>
                         <hr>
                         <div class="d-flex justify-content-between">
-                            <small>{{ $doaHadist->user->name }}</small>
-                            <small>{{ $doaHadist->created_at->diffForHumans() }}</small>
+                            <small>{{ $galeri->user->name }}</small>
+                            <small>{{ $galeri->created_at->diffForHumans() }}</small>
                         </div>
                         <hr>
 
-                        @can('author', $doaHadist)
+                        @can('author', $galeri)
                         <div class="card-text text-sm-center">
-                            <a href="/doa-hadist/{{$doaHadist->slug}}/edit" class="btn btn-outline-warning btn-sm">
+                            <a href="/galeri/{{$galeri->slug}}/edit" class="btn btn-outline-warning btn-sm">
                                 <i class="fa fa-edit"></i>
                             </a>
-                            <form action="/doa-hadist/{{$doaHadist->slug}}" method="POST" class="d-inline-flex">
+                            <form action="/galeri/{{$galeri->slug}}" method="POST" class="d-inline-flex">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" onclick="return confirm('Hapus Data {{$doaHadist->title}} ?')"
+                                <button type="submit" onclick="return confirm('Hapus Data {{$galeri->title}} ?')"
                                     class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i>
                                 </button>
                             </form>
@@ -55,7 +56,7 @@
             @endforelse
         </div>
         <div class="row float-right">
-            {{ $doaHadists->links('pagination::simple-bootstrap-4') }}
+            {{ $galeris->links('pagination::simple-bootstrap-4') }}
         </div>
     </div>
     <!-- .animated -->

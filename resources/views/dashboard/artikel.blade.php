@@ -3,16 +3,15 @@
 @section('content')
 
 @include('dashboard_form.cari_form', ['data' => request()->path()])
+
 <!-- Content -->
 <div class="content">
-
     <!-- Animated -->
     <div class="animated fadeIn">
-
         @if (session('msg'))
         <p class="alert alert-info">{{session('msg')}}</p>
         @endif
-
+        <a class="btn btn-primary btn-sm justify-content-end " href="/artikel/create"><i class="fa fa-plus"></i></a>
         <div class="row">
             @forelse ($artikels as $artikel)
                 

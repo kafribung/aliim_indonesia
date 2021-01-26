@@ -50,9 +50,9 @@ class User extends Authenticatable
     }
 
     // RELATION ONE TO MANY (DOA & HADIST)
-    public function doa_hadists()
+    public function galeries()
     {
-        return $this->hasMany('App\Models\DoaHadist');
+        return $this->hasMany('App\Models\Galeri');
     }
 
     // RELATION ONE TO MANY( KOMENTAR ARTIKEL)

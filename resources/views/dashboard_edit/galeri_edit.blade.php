@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Edit Doa & Hadist | Aliim Indonesia')
+@section('title', 'Edit Galeri | Aliim Indonesia')
 @section('content')
 
 <!-- Content -->
@@ -16,15 +16,14 @@
                 <div class="card-body ">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Edit Data Doa & Hadist</strong>
+                            <strong class="card-title">Edit Data Galeri</strong>
                         </div>
                         <div class="card-body">
-                            <form action="/doa-hadist/{{$doaHadist->slug}}" method="POST" enctype="multipart/form-data">
+                            <form action="/galeri/{{$galeri->slug}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
-                                @include('dashboard_form.doa_hadist_form', compact($doaHadist))
-                                <button type="submit" class="btn btn-md btn-warning btn-block">Update Doa
-                                    Hadist</button>
+                                @include('dashboard_form.galeri_form', compact($galeri))
+                                <button type="submit" class="btn btn-md btn-warning btn-block">Update Galeri</button>
                             </form>
                         </div>
                     </div>

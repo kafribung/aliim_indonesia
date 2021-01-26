@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Create Doa & Hadist | Aliim Indonesia')
+@section('title', 'Create Galeri | Aliim Indonesia')
 @section('content')
 
 <!-- Content -->
@@ -19,11 +19,10 @@
                             <strong class="card-title">Tambah Data Doa & Hadist</strong>
                         </div>
                         <div class="card-body">
-                            <form action="/doa-hadist" method="POST" enctype="multipart/form-data">
+                            <form action="/galeri" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                @include('dashboard_form.doa_hadist_form', ['doaHadist' => new App\Models\DoaHadist])
-                                <button type="submit" class="btn btn-md btn-info btn-block">Tambah Doa
-                                    Hadist</button>
+                                @include('dashboard_form.galeri_form', ['geleri' => new App\Models\Galeri])
+                                <button type="submit" class="btn btn-md btn-info btn-block">Tambah Galeri</button>
                             </form>
                         </div>
                     </div>
