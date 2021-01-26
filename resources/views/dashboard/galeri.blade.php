@@ -52,7 +52,7 @@
                 </aside>
             </div>
             @empty
-            <p class="text-center alert alert-light">Data Doa & Hadist Tidak Ditemukan ...</p>
+            <p class="text-center alert alert-light">Data Galeri Tidak Ditemukan ...</p>
             @endforelse
         </div>
         <div class="row float-right">
