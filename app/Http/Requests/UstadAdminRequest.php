@@ -26,7 +26,7 @@ class UstadAdminRequest extends FormRequest
         return [
             'img'      => [(Request()->isMethod('patch') ? '' : 'required'), 'mimes:jpg,jpeg'],
             'name'     => ['required', 'string', 'max:255'],
-            'email'    => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . optional($this->admin)->id],
+            'email'    => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . optional(isset($this->admin) ? $this->admin : $this->ustad )->id],
             'date_birth'=> ['required', 'date'],
             'gender'   => ['required', 'string', 'min:4', 'max:6'],
             'provinci' => ['required', 'string'],

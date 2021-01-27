@@ -31,7 +31,7 @@
                                         <th>Email</th>
                                         <th>Tgl Lahir</th>
                                         <th>JK</th>
-                                        <th>Provinsi</th>
+                                        <th>Kabupaten</th>
                                         <th>Status</th>
                                         <th>Peran</th>
                                         <th>Action</th>
@@ -54,7 +54,7 @@
                                         <td>{{$ustad->email}}</td>
                                         <td>{{$ustad->date_birth}}</td>
                                         <td>{{$ustad->gender}}</td>
-                                        <td>{{$ustad->provinci}}</td>
+                                        <td>{{$ustad->district}}</td>
                                         <td>{{$ustad->status == 1 ? 'Active' : 'Panding'}}</td>
                                         <td>{{($ustad->role == 0) ? 'User' : (($ustad->role == 1) ? 'Admin' : 'Ustad')}}
                                         </td>

@@ -51,6 +51,9 @@
 
 <div id="app">
     <dash-district-component/>
+    @error('district')
+    <p class="alert alert-danger">{{$message}}</p>
+    @enderror
 </div>
 
 <div class="form-group">

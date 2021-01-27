@@ -21,9 +21,7 @@ class UstadController extends Controller
     //URL CREATE
     public function create()
     {
-        // $provincis = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
-        $provincis = ApiRajaOngkir::apiProvinsi();
-        return view('dashboard_create.ustad_create', compact('provincis'));
+        return view('dashboard_create.ustad_create');
     }
 
     //CREATE
@@ -56,8 +54,7 @@ class UstadController extends Controller
     // EDIT
     public function edit(User $ustad)
     {
-        $provincis = ApiRajaOngkir::apiProvinsi();
-        return view('dashboard_edit.ustad_edit', compact('ustad', 'provincis'));
+        return view('dashboard_edit.ustad_edit', compact('ustad'));
     }
 
     // UPDATE
