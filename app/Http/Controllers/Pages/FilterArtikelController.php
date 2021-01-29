@@ -21,14 +21,13 @@ class FilterArtikelController extends Controller
 
         // Sidebar (Artikel  Vidieo terbaru, iklan)
         $artikelsTerbaru = Sidebar::ArtikelTerbaru(); 
-        $videosTerbaru   = Sidebar::VedioTerbaru();
         $iklan_1         = Sidebar::Iklan();
         $iklan_2         = Sidebar::AllIklan();
         // Hadist Harian
         $hadist         =  Hadist::inRandomOrder()->first();
         return view(
             'pages.artikel',
-            compact('artikels', 'hadist', 'artikelsTerbaru', 'videosTerbaru', 'iklan_1', 'iklan_2', 'kategori_artikels', 'kategori_videos')
+            compact('artikels', 'hadist', 'artikelsTerbaru', 'iklan_1', 'iklan_2', 'kategori_artikels')
         );
     }
 }
