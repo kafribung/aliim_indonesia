@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
-use App\Models\{Hadist, DoaHadist};
+use App\Models\{Hadist, Galeri};
 use App\Http\Controllers\Pages\{NavbarKategori,  Sidebar};
 
 class MotivasiController extends Controller
@@ -12,18 +12,16 @@ class MotivasiController extends Controller
     {
         // Navigasi Kategori
         $kategori_artikels = NavbarKategori::navbarArtikel();
-        $kategori_videos   = NavbarKategori::navbarVideo();
-        // Doa & Hadist
-        $motivasis       =  DoaHadist::with('user')->inRandomOrder()->limit(12)->get();
+        // Galeri
+        $galeris           =  Galeri::with('user')->inRandomOrder()->limit(12)->get();
         // Sidebar (Artikel  Vidieo terbaru, iklan)
-        $artikelsTerbaru = Sidebar::ArtikelTerbaru(); 
-        $videosTerbaru   = Sidebar::VedioTerbaru();
-        $iklan_1         = Sidebar::Iklan();
-        $iklan_2         = Sidebar::AllIklan();
+        $artikelsTerbaru   = Sidebar::ArtikelTerbaru(); 
+        $iklan_1           = Sidebar::Iklan();
+        $iklan_2           = Sidebar::AllIklan();
         // Hadist Harian
-        $hadist          =  Hadist::inRandomOrder()->first();
+        $hadist            =  Hadist::inRandomOrder()->first();
         return view('pages.motivasi', 
-        compact('motivasis',  'motivasis', 'hadist', 'artikelsTerbaru', 'videosTerbaru', 'iklan_1', 'iklan_2', 'kategori_artikels', 'kategori_videos')
+        compact('galeris', 'hadist', 'artikelsTerbaru', 'iklan_1', 'iklan_2', 'kategori_artikels')
     );
     }
 }

@@ -166,19 +166,19 @@
                 </div>
                 <!-- End Artikel Belajar Islam -->
 
-                <!-- Motivasi -->
+                <!-- galeri -->
                 <div class="category_section camera">
                     <div class="article_title header_orange">
-                        <h2><a href="" target="_self">Motivasi</a></h2>
+                        <h2><a href="" target="_self">Galeri</a></h2>
                     </div>
                     <!-- article_title -->
                     <div class="category_article_wrapper">
                         <div class="row">
-                            @foreach ($motivasis as $motivasi)
+                            @foreach ($galeris as $galeri)
                             <div class="col-md-6">
                                 <div class="top_article_img">
-                                    <a href="/motivasi" target="_self">
-                                        <img class="lazy img-responsive" data-src="{{ url($motivasi->takeImg) }}"
+                                    <a href="/galeri" target="_self">
+                                        <img class="lazy img-responsive" data-src="{{ url($galeri->takeImg) }}"
                                             alt="feature-top" width="400" height="200">
                                     </a>
                                 </div>
@@ -191,7 +191,7 @@
                     </div>
                     <!-- category_article_wrapper -->
                 </div>
-                <!-- Motivasi -->
+                <!-- galeri -->
             </div>
             <!-- Left Section -->
             @include('layouts.page_sidebar')

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
-use App\Models\{Artikel, DoaHadist, Hadist};
+use App\Models\{Artikel, Galeri, Hadist};
 
 class HomeController extends Controller
 {
@@ -19,16 +19,16 @@ class HomeController extends Controller
         // All Artikel
         $artikels      = Artikel::with('user', 'kategori_artikels')->inRandomOrder()->limit(4)->get();
         // Doa & Hadist
-        $motivasis     = DoaHadist::with('user')->inRandomOrder()->limit(4)->get();
+        $galeris       = Galeri::with('user')->inRandomOrder()->limit(4)->get();
         // Sidebar (Artikel  Vidieo terbaru, iklan)
         $artikelsTerbaru = Sidebar::ArtikelTerbaru(); 
         $iklan_1         = Sidebar::Iklan();
         $iklan_2         = Sidebar::AllIklan();
         // Hadist Harian
-        $hadist         =  Hadist::inRandomOrder()->first();
+        $hadist          =  Hadist::inRandomOrder()->first();
         return view(
             'pages.home',
-            compact('heroFirst', 'heroTwo', 'artikel', 'artikels', 'artikelsTerbaru',  'motivasis', 'hadist', 'iklan_1', 'iklan_2', 'kategori_artikels')
+            compact('heroFirst', 'heroTwo', 'artikel', 'artikels', 'artikelsTerbaru',  'galeris', 'hadist', 'iklan_1', 'iklan_2', 'kategori_artikels')
         );
     }
 }
