@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
-use App\Models\{Artikel, Hadist};
+use App\Models\{Artikel, Hadist, KategoriArtikel};
 
 class FilterArtikelController extends Controller
 {
@@ -11,11 +11,14 @@ class FilterArtikelController extends Controller
     {
         // Navigasi Kategori
         $kategori_artikels = NavbarKategori::navbarArtikel();
-        $kategori_videos   = NavbarKategori::navbarVideo();
         // Filter Artikel Cara ke-1
         $artikels = Artikel::with('user', 'kategori_artikels')->whereHas('kategori_artikels', function ($artikel) use ($kategori) {
             $artikel->where('title', $kategori);
         })->inRandomOrder()->paginate(5);
+
+        // FIlter Artikel Cara ke-2
+        // $artikels = KategoriArtikel::with('artikels')->with('title', $kategori);
+
         // Sidebar (Artikel  Vidieo terbaru, iklan)
         $artikelsTerbaru = Sidebar::ArtikelTerbaru(); 
         $videosTerbaru   = Sidebar::VedioTerbaru();

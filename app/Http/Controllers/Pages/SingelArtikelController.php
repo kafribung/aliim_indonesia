@@ -11,17 +11,15 @@ class SingelArtikelController extends Controller
     {
         // Navigasi Kategori
         $kategori_artikels = NavbarKategori::navbarArtikel();
-        $kategori_videos   = NavbarKategori::navbarVideo();
         // Sidebar (Artikel  Vidieo terbaru, iklan)
         $artikelsTerbaru = Sidebar::ArtikelTerbaru(); 
-        $videosTerbaru   = Sidebar::VedioTerbaru();
         $iklan_1         = Sidebar::Iklan();
         $iklan_2         = Sidebar::AllIklan();
-         // Hadist terbaru
+        // Hadist terbaru
         $hadist  =  Hadist::inRandomOrder()->first();
 
         return view('pages.single_artikel', 
-        compact('artikel', 'hadist', 'artikelsTerbaru', 'videosTerbaru', 'iklan_1', 'iklan_2', 'kategori_artikels', 'kategori_videos')
+        compact('artikel', 'hadist', 'artikelsTerbaru', 'iklan_1', 'iklan_2', 'kategori_artikels')
     );
     }
 }
