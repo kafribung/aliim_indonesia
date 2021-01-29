@@ -15,10 +15,9 @@ class ProfilController extends Controller
     {
         // Navigasi Kategori
         $kategori_artikels = NavbarKategori::navbarArtikel();
-        $kategori_videos   = NavbarKategori::navbarVideo();
         $user     = Auth::user();
         $hadist  =  Hadist::inRandomOrder()->first();
-        return view('pages.profile', compact('user', 'hadist', 'kategori_artikels', 'kategori_videos'));
+        return view('pages.profile', compact('user', 'hadist', 'kategori_artikels'));
     }
 
     public function update(Request $request, $id)
