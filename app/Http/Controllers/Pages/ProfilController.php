@@ -8,6 +8,7 @@ use App\Models\Hadist;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class ProfilController extends Controller
 {
@@ -24,7 +25,7 @@ class ProfilController extends Controller
     {
         $data = $request->validate([
             'name'     => ['required', 'string', 'min:3', 'max:20'],
-            'img'      => ['required','mimes:jpg,jpeg'],
+            'img'      => ['required','mimes:jpg,jpeg', 'max:10240'],
             'old_password' => ['required', 'string', 'min:8'],
             'new_password' => ['required', 'string', 'min:8'],
         ]);
