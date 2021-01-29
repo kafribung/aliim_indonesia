@@ -118,7 +118,7 @@
                     <div class="collapse navbar-collapse" id="navbar-collapse-1">
                         <ul class="nav navbar-nav main-nav">
                             <li class="{{ Request::is('/') ? 'active' : '' }}">
-                                <a href="/">Home</a>
+                                <a href="/">Beranda</a>
                             </li>
                             <li class="dropdown m-menu-fw {{ Request::is('belajar-artikel/*') ? 'active' : '' }} {{ Request::is('artikel-islam/*') ? 'active' : '' }}">
                                 <a href="" data-toggle="dropdown" class="dropdown-toggle">
@@ -141,7 +141,7 @@
                                 </ul>
                             </li>
                             <li class="{{  request()->is('motivasi') ? 'active' : '' }}">
-                                <a href="/motivasi">Motivasi</a>
+                                <a href="/galeri-islam">Galeri Islam</a>
                             </li>
                             <li class="{{  request()->is('tanya-ustad') ? 'active' : '' }}">
                                 <a href="/tanya-ustad">Tanya Ustad</a>

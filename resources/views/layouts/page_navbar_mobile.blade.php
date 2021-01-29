@@ -25,7 +25,7 @@
             </li>
             <!-- Motivasi -->
             <li class="{{  request()->is('motivasi') ? 'active' : '' }}">
-                <a href="/motivasi">Motivasi</a>
+                <a href="/galeri-islam">Galeri Islam</a>
             </li>
             <!-- TanyaUstad -->
             <li class="{{  request()->is('tanya-ustad') ? 'active' : '' }}">
