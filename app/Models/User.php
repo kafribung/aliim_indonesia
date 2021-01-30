@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Chatify\Http\Models\Message;
+use Laravelista\Comments\Commenter;
 use Illuminate\Notifications\Notifiable;
 // System Comment
-use Laravelista\Comments\Commenter;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -71,5 +73,31 @@ class User extends Authenticatable
     public function gettakeImgAttribute()
     {
         return url('storage', $this->img);
+    }
+
+    // Message
+    public function countUnseenMessages(){
+        // get all users that received/sent message from/to [Auth user]
+        $users = Message::join('users',  function ($join) {
+            $join->on('messages.from_id', '=', 'users.id')
+                ->orOn('messages.to_id', '=', 'users.id');
+        })
+            ->where('messages.from_id', Auth::user()->id)
+            ->orWhere('messages.to_id', Auth::user()->id)
+            ->orderBy('messages.created_at', 'desc')
+            ->get()
+            ->unique('id');
+
+        if ($users->count() > 0) {
+            // fetch contacts
+            $contacts = null;
+            foreach ($users as $user) {
+                if ($user->id != Auth::user()->id) {
+                    // Get user data
+                    $userCollection = User::where('id', $user->id)->first();
+                    return Message::where('from_id', $userCollection->id)->where('to_id',Auth::user()->id)->where('seen',0)->count();
+                }
+            }
+        }
     }
 }

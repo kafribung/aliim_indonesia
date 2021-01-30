@@ -29,7 +29,7 @@
             </li>
             <!-- TanyaUstad -->
             <li class="{{  request()->is('tanya-ustad') ? 'active' : '' }}">
-                <a href="/tanya-ustad">Tanya Ustad</a>
+                <a href="/tanya-ustad">Tanya Ustad <sup class="badge badge-info text-danger">{{ Auth::user()->countUnseenMessages() }}</sup></a>
             </li>
         </ul>
     </div>
