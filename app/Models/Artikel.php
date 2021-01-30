@@ -10,7 +10,7 @@ class Artikel extends Model
 {
     use Commentable;
     protected $touhches = ['user'];
-    protected $fillable = ['title', 'description', 'img', 'slug'];
+    protected $fillable = ['title', 'description', 'img', 'slug', 'view'];
 
     // ROUTE KEY NAME
     public function getRouteKeyName()
