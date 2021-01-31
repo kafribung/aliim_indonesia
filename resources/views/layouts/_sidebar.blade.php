@@ -46,20 +46,6 @@
                 <li class="{{Request()->segment(1) == 'hadist' ? 'active' : ''}}">
                     <a href="/hadist"> <i class="menu-icon fa fa-shield"></i>Hadist Harian</a>
                 </li>
-
-                {{-- <li class="menu-title">Komentar</li>
-                <!-- /.menu-title -->
-
-                <li>
-                    <a href="#"> <i class="menu-icon ti-comments"></i>Lihat Komentar</a>
-                </li>
-
-                <li class="menu-title">Pertanyaan</li>
-                <!-- /.menu-title -->
-
-                <li>
-                    <a href="#"> <i class="menu-icon ti-comment-alt"></i>Lihat Pertanyaan</a>
-                </li> --}}
             </ul>
         </div>
         <!-- /.navbar-collapse -->

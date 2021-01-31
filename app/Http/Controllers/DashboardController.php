@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{User, Artikel, Galeri};
+use App\Models\{User, Artikel, Galeri, Hadist, Iklan};
 
 class DashboardController extends Controller
 {
@@ -13,6 +13,8 @@ class DashboardController extends Controller
         $admin      = User::where('role', 1)->count();
         $article    = Artikel::count();
         $galeri     = Galeri::count();
-        return view('dashboard.dashboard', compact('user', 'ustad', 'admin', 'article', 'galeri'));
+        $iklan      = Iklan::count();
+        $hadist     = Hadist::count();
+        return view('dashboard.dashboard', compact('user', 'ustad', 'admin', 'article', 'galeri', 'iklan', 'hadist'));
     }
 }
