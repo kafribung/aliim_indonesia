@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                @foreach ($artikels as $artikel)
+                @forelse ($artikels as $artikel)
                 <div class="entity_wrapper">
                     <div class="entity_title">
                         <h1>
@@ -30,7 +30,16 @@
                     </div>
                     <!-- entity_content -->
                 </div>
-                @endforeach
+                @empty
+                <div class="entity_wrapper">
+                    <div class="entity_title">
+                        <h1>
+                            <a href="/" target="_self">Artikel tidak ditemukan</a>
+                        </h1>
+                    </div>
+                    <!-- entity_title -->
+                </div>
+                @endforelse
             </div>
             <!--Left Section-->
             @include('layouts.page_sidebar')

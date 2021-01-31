@@ -13,7 +13,6 @@ class SearchArtikelController extends Controller
         $serach = urldecode($request->input('cari'));
         // All Artikel
         $artikels = Artikel::with('user', 'kategori_artikels')->where('title', 'like', '%' . $serach . '%')->get();
-
         // Navigasi Kategori
         $kategori_artikels = NavbarKategori::navbarArtikel();
 
