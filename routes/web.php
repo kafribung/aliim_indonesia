@@ -24,7 +24,7 @@ Route::group(['middleware' => 'admin'], function () {
 });
 
 // ----------------------------------------------------------USER
-Route::namespace('pages')->group(function(){
+Route::namespace('Pages')->group(function(){
     Route::group(['middleware' => 'auth'], function () {
         // Profile
         Route::get('/profil', 'ProfilController@index');
