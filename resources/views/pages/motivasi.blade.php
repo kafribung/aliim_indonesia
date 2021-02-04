@@ -40,7 +40,9 @@
 <!-- END Category News Section -->
 @push('after_script')
 <script type="text/javascript">
-    lightGallery(document.getElementById('lightgallery')); 
+    lightGallery(document.getElementById('lightgallery'), {
+        thumbnail: false,
+    }); 
 </script>
 @endpush
 @endsection
