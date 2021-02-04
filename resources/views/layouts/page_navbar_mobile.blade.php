@@ -24,7 +24,7 @@
                 </ul>
             </li>
             <!-- Motivasi -->
-            <li class="{{  request()->is('motivasi') ? 'active' : '' }}">
+            <li class="{{  request()->is('galeri-islam') ? 'active' : '' }}">
                 <a href="/galeri-islam">Galeri Islam</a>
             </li>
             <!-- TanyaUstad -->
