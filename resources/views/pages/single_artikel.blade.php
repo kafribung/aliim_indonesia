@@ -1,4 +1,9 @@
-@extends('layouts.page_master')
+@extends('layouts.page_master', [
+    'title' => $artikel->title , 
+    'description' => Str::limit($artikel->description, 200),
+    'image' => url($artikel->takeImg),
+    'url'   => request()->url(),
+    ])
 @section('content')
 
 <section id="entity_section" class="entity_section">

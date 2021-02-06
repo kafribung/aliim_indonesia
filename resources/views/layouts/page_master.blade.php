@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Aliim - Belajar Islam dengan asik dan menarik</title>
     @include('includes.page_meta')
     @include('includes.page_css')
 </head>
