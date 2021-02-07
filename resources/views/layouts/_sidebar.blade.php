@@ -46,6 +46,12 @@
                 <li class="{{Request()->segment(1) == 'hadist' ? 'active' : ''}}">
                     <a href="/hadist"> <i class="menu-icon fa fa-shield"></i>Hadist Harian</a>
                 </li>
+
+                <!-- /Iklan -->
+                <li class="menu-title">Tanggapan User</li>
+                <li class="{{Request()->segment(1) == 'response' ? 'active' : ''}}">
+                    <a href="/response"> <i class="menu-icon fa fa-question"></i>Tanggapan</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

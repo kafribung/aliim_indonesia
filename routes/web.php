@@ -21,30 +21,37 @@ Route::group(['middleware' => 'admin'], function () {
 
     // Hadist Harian
     Route::resource('hadist', 'HadistController');
+
+    // Tanggapan
+    Route::get('response', 'TanggapanController@index');
+    Route::delete('response/{response:id}', 'TanggapanController@destroy');
 });
 
 // ----------------------------------------------------------USER
 Route::namespace('Pages')->group(function(){
     Route::group(['middleware' => 'auth'], function () {
         // Profile
-        Route::get('/profil', 'ProfilController@index');
-        Route::put('/profil/{id}', 'ProfilController@update');
+        Route::get('profil', 'ProfilController@index');
+        Route::put('profil/{id}', 'ProfilController@update');
+
+        // Tanggapan
+        Route::post('tanggapan', 'ResponseController')->name('tanggapan.store');
     });
     // Home
     Route::get('/', 'HomeController')->name('home');
     // Filter
-    Route::get('/belajar-artikel/{kategori}', 'FilterArtikelController');
+    Route::get('belajar-artikel/{kategori}', 'FilterArtikelController');
     // Single
-    Route::get('/artikel-islam/{artikel:slug}', 'SingelArtikelController');
+    Route::get('artikel-islam/{artikel:slug}', 'SingelArtikelController');
     // Search
-    Route::get('/search/artikel', 'SearchArtikelController');
+    Route::get('search/artikel', 'SearchArtikelController');
     // Motivasi
-    Route::get('/galeri-islam', 'MotivasiController');
+    Route::get('galeri-islam', 'MotivasiController');
 });
 // Token Register
-Route::get('/verification/{token}/{id}', 'Auth\RegisterController@verification');
+Route::get('verification/{token}/{id}', 'Auth\RegisterController@verification');
 // Core Laravel
-Route::get('/logout', function () {
+Route::get('logout', function () {
     return abort('404');
 });
 Auth::routes();

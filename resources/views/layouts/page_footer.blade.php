@@ -3,18 +3,18 @@
     <div class="container">
         <hr class="footer-top">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="footer_widget_title">
-                    <h3><a href="" target="_self">Tentang Aliim</a></h3>
+                    <h3>Tentang Aliim</h3>
                 </div>
                 <div class="logo footer-logo">
                     <img class="lazy" data-src="{{ asset('assets/img/karakter.jpg') }}" alt="Belajar" title="Aliim Indonesia" width="200">
                     <p>Sebuah tempat pembelajaran dan pengetahuan mulai dari dasar tentang islam, dilengkapi dengan artikel islam dan video pembelajaran</p>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="footer_widget_title">
-                    <h3><a href="" target="_self">Informasi</a></h3>
+                    <h3>Informasi</h3>
                 </div>
                 <div class="row">
                     <div class="col-xs-4">
@@ -41,63 +41,26 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="col-md-4">
+
+            <div class="col-md-4">
                 <div class="footer_widget_title">
-                    <h3><a href="" target="_self">Akan Datang</a></h3>
+                    <h3>Tanggapan</h3>
                 </div>
-                <div class="media">
-                    <div class="media-left">
-                        <img class="lazy media-object" data-src="{{ asset('assets/img/editor_pic1.jpg')}}" width="65" height="65" alt="Generic placeholder image">
+                @if (session('msg'))
+                    <p class="alert alert-info">{{ session('msg') }}</p>
+                @endif
+                <form action="{{ route('tanggapan.store') }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <label for="description">Berikan tanggapan</label>
+                        <textarea name="description" cols="50" rows="8" style="resize: none"  id="description" class="form-control" placeholder="Tanggapan anda mengenai aplikasi ini"></textarea>
+                        @if ($errors->has('description'))
+                            <p class="alert alert-danger">{{ $errors->first('description') }}</p>
+                        @endif
                     </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">
-                            <a href="">Fitur Bimbingan Mengaji</a>
-                        </h3>
-                        <span class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-full"></i>
-                        </span>
-                    </div>
-                </div>
-            
-                <div class="media">
-                    <div class="media-left">
-                        <img class="lazy media-object" data-src="{{ asset('assets/img/editor_pic2.jpg')}}" width="65" height="65" alt="Generic placeholder image">
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">
-                            <a href="">Fitur Cari Penceramah</a>
-                        </h3>
-                        <span class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-full"></i>
-                        </span>
-                    </div>
-                </div>
-                <div class="media">
-                    <div class="media-left">
-                        <img class="lazy media-object" data-src="{{ asset('assets/img/editor_pic3.jpg') }}" width="65" height="65" alt="Generic placeholder image">
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">
-                            <a href="single.html">Layanan Bekam dan Ruqyah Syariah</a>
-                        </h3>
-                        <span class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-full"></i>
-                        </span>
-                    </div>
-                </div>
-            </div> --}}
+                    <button type="submit" class="btn btn-primary btn-sm btn-block">Kirim</button>
+                </form>
+            </div>
         </div>
     </div>
 

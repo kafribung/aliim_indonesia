@@ -63,6 +63,12 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\KomentArtikel');
     }
 
+    // RELATION ONE TO MANY( TANGGAPAN)
+    public function responses()
+    {
+        return $this->hasMany('App\Models\Response');
+    }
+
     // KING
     public function king()
     {
