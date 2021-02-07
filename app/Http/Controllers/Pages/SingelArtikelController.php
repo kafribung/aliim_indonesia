@@ -17,9 +17,8 @@ class SingelArtikelController extends Controller
         $iklan_2         = Sidebar::AllIklan();
         // Hadist terbaru
         $hadist  =  Hadist::inRandomOrder()->first();
-
         return view('pages.single_artikel', 
-        compact('artikel', 'hadist', 'artikelsTerbaru', 'iklan_1', 'iklan_2', 'kategori_artikels')
-    );
+            compact('artikel', 'hadist', 'artikelsTerbaru', 'iklan_1', 'iklan_2', 'kategori_artikels')
+        );
     }
 }

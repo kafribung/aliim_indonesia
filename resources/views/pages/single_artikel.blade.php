@@ -57,12 +57,10 @@
                     <!-- entity_footer -->
                 </div>
                 <!-- entity_wrapper -->
-
                 {{-- Add view Vue.JS--}}
-                <div id="app">
+                {{-- <div id="app">
                     <pages-add-view-artikel-component :getView="{{ $artikel->view }}" :route=" {{ json_encode(route('artikel-islam.update', $artikel->slug))}}"/>
-                </div>
-
+                </div> --}}
                 <div class="related_news">
                     <div class="entity_inner__title header_purple">
                         <h2>Artikel Lainya</h2>
@@ -124,6 +122,26 @@
 </section>
 <!-- Entity Section Wrapper -->
 @push('after_script')
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+    <script>
+        $(function(){
+            setTimeout(loadajax(),10000);
+        });
+        function loadajax() {
+            const data = (parseInt({{ $artikel->view }}) +  1)
+            $.ajax({
+                type: "PATCH",
+                url: "{{ route('artikel-islam.update', $artikel->slug) }}",
+                data: { 
+                    "_token": "{{ csrf_token() }}", 
+                    "view"  : data
+                },
+                success: function() {
+                    console.log(data);
+                },
+            });
+        }
+        
+    </script>
 @endpush
 @endsection
