@@ -6,31 +6,30 @@
 <div class="limiter">
 	<div class="container-login100">
 		<div class="wrap-login100">
-			<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" method="POST" action="{{ route('register') }}">
+			<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" method="POST" action="{{ route('register') }}" novalidate>
 				@csrf
 				<span class="login100-form-title">
 					Daftar Aliim Indonesia
 				</span>
-				{{-- Seleksi Error --}}
-				@if ($errors->any())
-					@foreach ($errors->all() as $error)
-						<p class="alert alert-danger">{{$error}}</p>
-					@endforeach
-				@endif
-				
 				<div class="wrap-input100 validate-input m-b-16">
 					<input class="input100" type="text" name="name" placeholder="Nama" value="{{ old('name') }}" required autocomplete="name" autofocus>
-					<span class="focus-input100"></span>
+					@error('name')
+						<p class="alert alert-danger" style="color:#d9534f">{{ $message }}</p>
+					@enderror
 				</div>
 				
 				<div class="wrap-input100 validate-input m-b-16">
 					<input class="input100" type="email" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email">
-					<span class="focus-input100"></span>
+					@error('email')
+						<p class="alert alert-danger" style="color:#d9534f">{{ $message }}</p>
+					@enderror
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-16">
 					<input class="input100" type="text" name="date_birth" placeholder="Tanggal Lahir" onfocus="(this.type='date')" value="{{ old('date_birth') }}" required >
-					<span class="focus-input100"></span>
+					@error('date_birth')
+						<p class="alert alert-danger" style="color:#d9534f">{{ $message }}</p>
+					@enderror
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-16">
@@ -38,20 +37,27 @@
 						<option value="Pria">Pria</option>
 						<option value="Wanita">Wanita</option>
 					</select>
+					@error('gender')
+						<p class="alert alert-danger" style="color:#d9534f">{{ $message }}</p>
+					@enderror
 				</div>
 
 				<div id="app">
 					<district-component/>
+					@error('district')
+						<p class="alert alert-danger" style="color:#d9534f">{{ $message }}</p>
+					@enderror
 				</div>
 				
 				<div class="wrap-input100 validate-input m-b-16">
 					<input class="input100" type="password" name="password" placeholder="Password"  required autocomplete="new-password">
-					<span class="focus-input100"></span>
+					@error('password')
+						<p class="alert alert-danger" style="color:#d9534f">{{ $message }}</p>
+					@enderror
 				</div>
 				
 				<div class="wrap-input100 validate-input m-b-16">
 					<input class="input100" type="password"  name="password_confirmation"  placeholder="Confirmation" required autocomplete="new-password">
-					<span class="focus-input100"></span>
 				</div>
 				
 				<div class="container-login100-form-btn">

@@ -177,9 +177,8 @@
                             @foreach ($galeris as $galeri)
                             <div class="col-md-6">
                                 <div class="top_article_img">
-                                    <a href="/galeri" target="_self">
-                                        <img class="lazy img-responsive" data-src="{{ url($galeri->takeImg) }}"
-                                            alt="feature-top" width="400" height="200">
+                                    <a href="/galeri-islam" target="_self">
+                                        <img class="lazy img-responsive" data-src="{{ url($galeri->takeImg) }}" alt="feature-top" width="400" height="200">
                                     </a>
                                 </div>
                                 <!-- top_article_img -->

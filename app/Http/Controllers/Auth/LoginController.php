@@ -50,7 +50,7 @@ class LoginController extends Controller
             // Seleksi status
             if (Auth::user()->status == 0) {
                 Auth::logout();
-                return redirect('/login')->with('msg', 'Anda belum melakukan verifikasi di email ' . $request->email);
+                return redirect('/login')->with('msg', 'Anda belum melakukan verifikasi di email ' . '<b>' . $request->email . '</b>');
             }
             return $this->sendLoginResponse($request);
         }

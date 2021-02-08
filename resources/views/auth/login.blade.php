@@ -14,24 +14,21 @@
 
 				{{-- Seleksi Msg --}}
 				@if (session('msg'))
-					<p class="alert alert-info">{{session('msg')}}</p>
+					<p class="alert alert-danger" style="color:#d9534f">{!! session('msg') !!}</p>
 				@endif
 
-				{{-- Seleksi Error --}}
-				@if ($errors->any())
-					@foreach ($errors->all() as $error)
-						<p class="alert alert-danger">{{$error}}</p>
-					@endforeach
-				@endif
-				
 				<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
 					<input class="input100" type="email" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-					<span class="focus-input100"></span>
+					@error('email')
+						<p class="alert alert-danger" style="color:#d9534f">{{ $message }}</p>
+					@enderror
 				</div>
 
 				<div class="wrap-input100 validate-input" data-validate = "Please enter password">
 					<input class="input100" type="password" name="password" placeholder="Password"  required autocomplete="current-password">
-					<span class="focus-input100"></span>
+					@error('password')
+						<p class="alert alert-danger" style="color:#d9534f">{{ $message }}</p>
+					@enderror
 				</div>
 
 				<div class="text-right p-t-13 p-b-23">
