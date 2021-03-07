@@ -2,7 +2,7 @@
 @include('includes.favicon')
 <title>{{ isset($title) ? $title : 'Aliim - Belajar Islam dengan asik dan menarik' }} </title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="revisit-after" content="1 days">
 <meta name="robots" content="all,index,follow">
 <meta name="MSSmartTagsPreventParsing" content="TRUE">

@@ -13,15 +13,11 @@
     <div class="media-body">
         <h2 class="media-heading">{{ $comment->commenter->name ?? $comment->guest_name }} <small class="text-muted">- {{ $comment->created_at->diffForHumans() }}</small></h2>
         <div style="white-space: pre-wrap;">{!! $markdown->line($comment->comment) !!}</div>
-
         <div class="entity_vote">
             @can('reply-to-comment', $comment)
                 <button data-toggle="modal" data-target="#reply-modal-{{ $comment->getKey() }}"><a href="#"><i class="fa fa-reply" aria-hidden="true"></i></a></button>
             @endcan
             @can('edit-comment', $comment)
-            <button class="launch-modal" data-target="#myModal" data-toggle="modal" data-backdrop="static" data-keyboard="false">
-                Launch demo modal
-             </button>`
                 <button  data-toggle="modal" data-target="#comment-modal-{{ $comment->getKey() }}"><i class="fa fa-edit" aria-hidden="true"></i></button>
             @endcan
             @can('delete-comment', $comment)
@@ -35,7 +31,7 @@
 
         @can('edit-comment', $comment)
         {{-- tabindex="-1" role="dialog" --}}
-            <div class="modal fade" id="myModal comment-modal-{{ $comment->getKey() }}">
+            <div class="modal fade" id="comment-modal-{{ $comment->getKey() }}">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <form method="POST" action="{{ route('comments.update', $comment->getKey()) }}">
