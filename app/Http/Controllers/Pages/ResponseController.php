@@ -34,6 +34,6 @@ class ResponseController extends Controller
         ]);
 
         $request->user()->responses()->create($data);
-        return view('pages.home', compact('heroFirst', 'heroTwo', 'artikel', 'artikels', 'artikelsTerbaru',  'galeris', 'hadist', 'iklan_1', 'iklan_2', 'kategori_artikels'))->with('msg', 'Tanggapan berhasil dikirim');
+        return back()->with('msg', 'Tanggapan berhasil dikirim');
     }
 }
