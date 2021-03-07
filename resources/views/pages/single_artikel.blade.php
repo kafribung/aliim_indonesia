@@ -136,12 +136,8 @@
                     "_token": "{{ csrf_token() }}", 
                     "view"  : data
                 },
-                success: function() {
-                    console.log(data);
-                },
             });
         }
-        
     </script>
 @endpush
 @endsection
