@@ -33,9 +33,12 @@ Route::namespace('Pages')->group(function(){
         // Profile
         Route::get('profil', 'ProfilController@index');
         Route::put('profil/{id}', 'ProfilController@update');
-
         // Tanggapan
         Route::post('tanggapan', 'ResponseController')->name('tanggapan.store');
+    });
+    // Redirect Tanggapan
+    Route::get('tanggapan', function(){
+        return redirect('/');
     });
     // Home
     Route::get('/', 'HomeController')->name('home');

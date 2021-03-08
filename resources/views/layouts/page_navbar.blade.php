@@ -46,14 +46,13 @@
                         <ul class="nav navbar-nav">
                             <li>
                                 <div class="media-left">
-                                    <img alt="64x64" class="rounded-circle" src="{{url(Auth::user()->takeImg)}}" width=50"
-                                        height="50">
+                                    <img alt="64x64" class="rounded-circle" src="{{url(Auth::user()->takeImg)}}" width=50" height="50">
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {{Auth::user()->name}}
+                                    {{Auth::user()->name}} <sup class="text-danger font-weight-bold">(3)</sup> <i class="fa fa-caret-down"></i>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/profil">Profile</a>
@@ -66,6 +65,7 @@
                                     @if (Auth::user()->role==2 || Auth::user()->role==1)
                                     <a class="dropdown-item" href="/dashboard"><b>Dashboard</b></a>
                                     @endif
+                                    <a class="dropdown-item" href="/komentar">Komentar</a>
                                 </div>
                             </li>
                         </ul>
