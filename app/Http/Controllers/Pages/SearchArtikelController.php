@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Pages;
 
 use Illuminate\Http\Request;
-use App\Models\{Artikel,  Hadist,};
+use App\Models\{Artikel,  Hadist};
 use App\Http\Controllers\Controller;
 
 class SearchArtikelController extends Controller

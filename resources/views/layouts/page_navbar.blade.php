@@ -41,7 +41,6 @@
                             <li><a href="/login">Masuk</a></li>
                             <li><a href="/register">Daftar</a></li>
                         </ul>
-
                         @else
                         <ul class="nav navbar-nav">
                             <li>
@@ -56,35 +55,29 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/profil">Profile</a>
-                                    <a class="dropdown-item" href=""
-                                        onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
-                                    <form id="logout" action="{{ route('logout') }}" method="POST"
-                                        style="display: none;">
+                                    <a class="dropdown-item" href="" onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
+                                    <form id="logout" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                     @if (Auth::user()->role==2 || Auth::user()->role==1)
                                     <a class="dropdown-item" href="/dashboard"><b>Dashboard</b></a>
                                     @endif
-                                    <a class="dropdown-item" href="/komentar">Komentar</a>
+                                    <a class="dropdown-item" href="/notifikasi">Notifikasi</a>
                                 </div>
                             </li>
                         </ul>
                         @endguest
-
                         <ul class="nav-cta hidden-xs">
-                            <li class="dropdown"><a href="" data-toggle="dropdown" class="dropdown-toggle"><i
-                                        class="fa fa-search"></i></a>
+                            <li class="dropdown"><a href="" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-search"></i></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <div class="head-search">
                                             <form role="form" action="/search/artikel" method="get">
                                                 <!-- Input Group -->
                                                 <div class="input-group">
-                                                    <input type="text" name="cari" class="form-control"
-                                                        placeholder="Cari Artikel">
+                                                    <input type="text" name="cari" class="form-control" placeholder="Cari Artikel">
                                                     <span class="input-group-btn">
-                                                        <button type="submit" class="btn btn-primary">Cari
-                                                        </button>
+                                                        <button type="submit" class="btn btn-primary">Cari</button>
                                                     </span>
                                                 </div>
                                             </form>
@@ -108,11 +101,7 @@
                 <div class="container text-center">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="navbar-collapse-1"><span class="sr-only">Toggle
-                                navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span
-                                class="icon-bar"></span>
-                        </button>
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="navbar-collapse-1"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span><span class="icon-bar"></span></button>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="navbar-collapse-1">

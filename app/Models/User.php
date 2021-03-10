@@ -69,6 +69,12 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Response');
     }
 
+    // RELATION ONE TO MANY( NOTIFIKASI)
+    public function notifications()
+    {
+        return $this->hasMany('App\Models\Notification');
+    }
+
     // KING
     public function king()
     {

@@ -30,6 +30,12 @@ class Artikel extends Model
         return $this->belongsToMany('App\Models\KategoriArtikel');
     }
 
+    // RELATION ONE TO MANY( NOTIFIKASI)
+    public function notifications()
+    {
+        return $this->hasMany('App\Models\Notification');
+    }
+
     // MUTATOR
     public function getTakeImgAttribute()
     {

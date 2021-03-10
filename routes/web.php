@@ -50,6 +50,8 @@ Route::namespace('Pages')->group(function(){
     Route::get('search/artikel', 'SearchArtikelController');
     // Motivasi
     Route::get('galeri-islam', 'MotivasiController');
+    // Notifikasi
+    Route::get('notifikasi', 'NotifikasiController@index');
 });
 // Token Register
 Route::get('verification/{token}/{id}', 'Auth\RegisterController@verification');
