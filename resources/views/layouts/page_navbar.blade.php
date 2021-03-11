@@ -55,14 +55,14 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/profil">Profile</a>
-                                    <a class="dropdown-item" href="" onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
-                                    <form id="logout" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
                                     @if (Auth::user()->role==2 || Auth::user()->role==1)
                                     <a class="dropdown-item" href="/dashboard"><b>Dashboard</b></a>
                                     @endif
                                     <a class="dropdown-item" href="/notifikasi">Notifikasi</a>
+                                    <a class="dropdown-item" style="color:#d9534f" href="" onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
+                                    <form id="logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                                 </div>
                             </li>
                         </ul>

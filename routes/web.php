@@ -40,6 +40,10 @@ Route::namespace('Pages')->group(function(){
     Route::get('tanggapan', function(){
         return redirect('/');
     });
+    // Redirect Provider
+    Route::get('redirect', function(){
+        return redirect()->back();
+    });
     // Home
     Route::get('/', 'HomeController')->name('home');
     // Filter
