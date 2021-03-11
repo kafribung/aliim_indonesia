@@ -12,7 +12,7 @@ class NotifikasiController extends Controller
     public function index()
     {
         // Notif
-        $notifications =  Notification::with('user', 'artikel')->where('artikel_id', Artikel::get('id'))->get();
+        $notifications =  Notification::with('user', 'artikel')->where('user_id', Auth::user()->id)->get();
         // Navigasi Kategori
         $kategori_artikels = NavbarKategori::navbarArtikel();
         // Hadist Harian

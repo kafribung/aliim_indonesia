@@ -19,6 +19,7 @@ class CreateNotificationsTable extends Migration
             $table->foreignId('artikel_id')->nullable()->constrained('artikels')->onDelete('cascade');
             $table->bigInteger('comment_id')->nullable()->unsigned();
             $table->text('description');
+            $table->tinyInteger('seen')->default(0);
             $table->timestamps();
 
             $table->foreign('comment_id')->references('id')->on('comments')->cascadeOnDelete();

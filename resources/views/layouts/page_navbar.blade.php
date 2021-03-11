@@ -51,7 +51,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {{Auth::user()->name}} <sup class="text-danger font-weight-bold">(3)</sup> <i class="fa fa-caret-down"></i>
+                                    {{Auth::user()->name}} <sup class="text-danger font-weight-bold" style="color: #d9534f">({{ auth()->user()->notifications()->where('seen', 1)->count() }})</sup> <i class="fa fa-caret-down"></i>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/profil">Profile</a>
