@@ -35,6 +35,8 @@ Route::namespace('Pages')->group(function(){
         Route::put('profil/{id}', 'ProfilController@update');
         // Tanggapan
         Route::post('tanggapan', 'ResponseController')->name('tanggapan.store');
+        // Notifikasi
+        Route::get('notifikasi', 'NotifikasiController@index');
     });
     // Redirect Tanggapan
     Route::get('tanggapan', function(){
@@ -50,8 +52,6 @@ Route::namespace('Pages')->group(function(){
     Route::get('search/artikel', 'SearchArtikelController');
     // Motivasi
     Route::get('galeri-islam', 'MotivasiController');
-    // Notifikasi
-    Route::get('notifikasi', 'NotifikasiController@index');
 });
 // Token Register
 Route::get('verification/{token}/{id}', 'Auth\RegisterController@verification');

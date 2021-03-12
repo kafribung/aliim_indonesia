@@ -9,9 +9,9 @@
                     <div class="list-group">
                         <a class="list-group-item list-group-item-action active disabled" aria-current="true">List Komentrar </a>
                         @forelse ($notifications as $notification)
-                        <a href="/artikel-islam/{{ $notification->artikel->slug }}/#comment-{{ $notification->comment_id }}" class="list-group-item list-group-item-action">Artikel {{ $notification->artikel->title }} {{ $notification->description }}</a>
+                        <a href="/artikel-islam/{{ $notification->artikel->slug }}/#comment-{{ $notification->comment_id }}" class="list-group-item list-group-item-action">{{ $notification->description }}</a>
                         @empty
-                        <a href="#" class="list-group-item list-group-item-action">Komentrar tidak ditemukan</a>
+                        <a href="#" class="list-group-item list-group-item-action">Komentrar belum ada</a>
                         @endforelse
                     </div>
                 </div>
