@@ -3,6 +3,15 @@
 <head>
     @include('includes.page_meta')
     @include('includes.page_css')
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    {{-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-D6J2E0GVG7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-D6J2E0GVG7');
+    </script> --}}
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar">
