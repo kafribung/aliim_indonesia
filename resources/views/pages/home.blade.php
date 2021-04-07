@@ -5,6 +5,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-7">
+                <p>{{ config('app.url') }}verification/</p>
+
                 <div class="feature_article_wrapper">
                     <div class="feature_article_img">
                         <img class="lazy img-responsive top_static_article_img" data-src="{{ url($heroFirst->takeImg) }}"
