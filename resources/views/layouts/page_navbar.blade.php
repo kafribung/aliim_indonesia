@@ -18,7 +18,7 @@
                                 document.write(new Date().getMonth() + 1)
                             </script>/
                             <script>
-                                document.write(new Date().getFullYear())
+                                // document.write(new Date().getFullYear())
                             </script>
                         </span>
                         <!-- Time -->
