@@ -15,7 +15,7 @@
                                 document.write(new Date().getDate())
                             </script>/
                             <script>
-                                document.write(new Date().getMonth())
+                                document.write(new Date().getMonth() + 1)
                             </script>/
                             <script>
                                 document.write(new Date().getFullYear())
