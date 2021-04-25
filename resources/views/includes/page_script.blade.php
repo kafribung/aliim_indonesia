@@ -19,7 +19,7 @@
 <!-- Hari -->
 <script>
     let hari = document.getElementById('hari');
-    let namaHari = ['ahad', 'senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu'];
+    let namaHari = ['Ahad', 'Senin', 'Selasa', 'Rabu', 'Kamis', "Jum'at", 'Sabtu'];
     let decrement = new Date().getDay();
     hari.innerHTML = namaHari[decrement];
 </script>
