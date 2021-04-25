@@ -12,7 +12,7 @@
                         <!-- Date -->
                         <span class="time">
                             <script>
-                                // document.write(new Date().getDate())
+                                document.write(new Date().getDate())
                             </script>/
                             <script>
                                 document.write(new Date().getMonth())
