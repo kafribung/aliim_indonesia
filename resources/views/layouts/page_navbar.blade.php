@@ -27,9 +27,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="logo">
-                        <a href="/">
-                            <img src="{{ asset('assets/img/logo.jpg') }}" title="Aliim | Indonesia" alt="Aliim Logo">
-                        </a>
+                        <img src="{{ asset('assets/img/logo.jpg') }}" title="Aliim | Indonesia" alt="Aliim Logo">
                         <p>~ Belajar Islam Dengan Mudah ~</p>
                     </div>
                     <!-- Logo Section -->
