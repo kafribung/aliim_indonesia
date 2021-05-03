@@ -11,6 +11,7 @@
         <div class="form-group">
             <label for="distric" class="control-label mb-1">Kabupaten</label>
             <select name="district" id="district" class="form-control" required>
+                <option v-if="districts.length == null" selected disabled value="">Pilih Provinsi Terlebih Dahulu</option>
                 <option v-for="(district, index) in districts" :key="index">{{ district.nama }}</option>
             </select>
         </div>
