@@ -85,7 +85,7 @@ class RegisterController extends Controller
             'gender' => ['required'],
             'provinci' => ['required'],
             'district' => ['required'],
-            // 'g-recaptcha-response' => ['required', 'recaptchav3:register,0.5'],
+            'g-recaptcha-response' => 'required|recaptchav3:register,0.5'
         ]);
     }
 
