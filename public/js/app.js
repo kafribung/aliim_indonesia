@@ -38732,10 +38732,12 @@ var render = function() {
           attrs: { name: "district", id: "district", required: "" }
         },
         [
-          _vm.district.leght == null
-            ? _c("option", { attrs: { disabled: "", value: "" } }, [
-                _vm._v("Pilih Provinsi Terlebih Dahulu")
-              ])
+          _vm.districts.length == null
+            ? _c(
+                "option",
+                { attrs: { selected: "", disabled: "", value: "" } },
+                [_vm._v("Pilih Provinsi Terlebih Dahulu")]
+              )
             : _vm._l(_vm.districts, function(district, index) {
                 return _c("option", { key: index }, [
                   _vm._v(_vm._s(district.nama))

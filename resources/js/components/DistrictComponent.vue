@@ -10,7 +10,7 @@
         <!-- Kabupaten -->
         <div  class="wrap-input100 validate-input m-b-16">
             <select name="district" id="district" class="form-control input100" style="padding: 5px" required>
-                <option v-if="district.leght == null" disabled value="">Pilih Provinsi Terlebih Dahulu</option>
+                <option v-if="districts.length == null" selected disabled value="">Pilih Provinsi Terlebih Dahulu</option>
                 <option v-else v-for="(district, index) in districts" :key="index">{{ district.nama }}</option>
             </select>
         </div>
