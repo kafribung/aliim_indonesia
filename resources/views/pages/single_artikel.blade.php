@@ -30,9 +30,7 @@
                     </div>
                     <!-- entity_social -->
                     <div class="entity_thumb">
-                        <img class="lazy img-responsive" data-src="{{ url($artikel->takeImg) }}"
-                            title="Gambar {{ $artikel->title }}" alt="Gambar {{ $artikel->title }}" width="955"
-                            height="832">
+                        <img class="lazy img-responsive" data-src="{{ url($artikel->takeImg) }}" title="Gambar {{ $artikel->title }}" alt="Gambar {{ $artikel->title }}" width="955" height="832">
                     </div>
                     <!-- entity_thumb -->
 
@@ -73,9 +71,7 @@
                             <div class="media">
                                 <div class="media-left">
                                     <a href="/artikel-islam/{{ $artikel->slug }}">
-                                        <img class="lazy media-object" data-src="{{ url($artikel->takeImg) }}"
-                                            title="Gambar {{ $artikel->title }}" alt="Gambar {{ $artikel->title }}"
-                                            width="122" height="122">
+                                        <img class="lazy media-object" data-src="{{ url($artikel->takeImg) }}" title="Gambar {{ $artikel->title }}" alt="Gambar {{ $artikel->title }}" width="122" height="122">
                                     </a>
                                 </div>
                                 <div class="media-body">
@@ -83,8 +79,7 @@
                                     <span class="tag purple">{{ $kategori->title }}</span>
                                     @endforeach
                                     <h3 class="media-heading">
-                                        <a href="/artikel-islam/{{ $artikel->slug }}"
-                                            target="_self">{{ $artikel->title }}</a>
+                                        <a href="/artikel-islam/{{ $artikel->slug }}" target="_self">{{ $artikel->title }}</a>
                                     </h3>
                                     <span class="media-date">
                                         <a href="">{{ $artikel->created_at->diffForHumans() }}</a>, by:
