@@ -62,6 +62,7 @@
                 <div class="related_news">
                     <div class="entity_inner__title header_purple">
                         <h2>Artikel Lainya</h2>
+                        <p>{{ $artikel->slug }}</p>
                     </div>
                     <!-- entity_title -->
                     <div class="row">
@@ -120,13 +121,14 @@
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     <script>
         $(function(){
-            setTimeout(loadajax(),10000);
+            // setTimeout(loadajax(),10000);
+            console.log({{ $artikel->slug }})
         });
         function loadajax() {
             const data = (parseInt({{ $artikel->view }}) +  1)
             $.ajax({
                 type: "PATCH",
-                url: "{{ route('artikel-islam.update', $artikel->slug) }}",
+                url: "/artikel-islam/{{ $artikel->slug }}",
                 data: { 
                     "_token": "{{ csrf_token() }}", 
                     "view"  : data
