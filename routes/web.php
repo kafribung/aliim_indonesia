@@ -48,7 +48,6 @@ Route::namespace('Pages')->group(function(){
     Route::get('belajar-artikel/{kategori}', 'FilterArtikelController');
     // Single
     Route::get('artikel-islam/{artikel:slug}', 'SingelArtikelController');
-
     // Search
     Route::get('search/artikel', 'SearchArtikelController');
     // Motivasi
