@@ -14,9 +14,7 @@
             <div class="col-md-7">
                 <div class="feature_article_wrapper">
                     <div class="feature_article_img">
-                        <img class="lazy img-responsive top_static_article_img" data-src="{{ url($heroFirst->takeImg) }}"
-                            title="Gambar {{$heroFirst->title}}" alt="Gambar {{$heroFirst->title}}" width="832px"
-                            height="955px">
+                        <img class="lazy img-responsive top_static_article_img" data-src="{{ url($heroFirst->takeImg) }}" title="Gambar {{$heroFirst->title}}" alt="Gambar {{$heroFirst->title}}" width="832px" height="955px">
                     </div>
                     <!-- feature_article_img -->
 
@@ -51,8 +49,7 @@
             <div class="col-md-5" style="margin-bottom: 20px">
                 <div class="feature_static_wrapper">
                     <div class="feature_article_img">
-                        <img class="lazy img-responsive" data-src="{{ url($artikel->takeImg)}}" alt="feature-top"
-                            title="Gambar {{$artikel->tttle}}" alt="Gambar {{$artikel->title}}" width="670" height=395">
+                        <img class="lazy img-responsive" data-src="{{ url($artikel->takeImg)}}" alt="feature-top" title="Gambar {{$artikel->tttle}}" alt="Gambar {{$artikel->title}}" width="670" height=395">
                     </div>
                     <!-- feature_article_img -->
                     <div class="feature_article_inner">
@@ -107,9 +104,7 @@
                             <div class="col-md-6">
                                 <div class="top_article_img">
                                     <a href="" target="_self">
-                                        <img class="lazy img-responsive" data-src="{{ url($artikel->takeImg) }}"
-                                            title="Gambar {{$artikel->title}}" alt="Gambar {{$artikel->title}}"
-                                            width="500" height="400">
+                                        <img class="lazy img-responsive" data-src="{{ url($artikel->takeImg) }}" title="Gambar {{$artikel->title}}" alt="Gambar {{$artikel->title}}" width="500" height="400">
                                     </a>
                                 </div>
                                 <!----top_article_img------>
@@ -120,8 +115,7 @@
                                 @endforeach
                                 <div class="category_article_title">
                                     <h2>
-                                        <a href="/artikel-islam/{{$artikel->slug}}"
-                                            target="_self">{{$artikel->title}}</a>
+                                        <a href="/artikel-islam/{{$artikel->slug}}" target="_self">{{$artikel->title}}</a>
                                     </h2>
                                 </div>
                                 <!----category_article_title------>
@@ -144,9 +138,7 @@
                                 <div class="media">
                                     <div class="media-left">
                                         <a href="">
-                                            <img class="lazy media-object" data-src="{{ url($artikel->takeImg) }}"
-                                                title="Gambar {{$artikel->title}}" alt="Gambar {{$artikel->title}}"
-                                                width="100" height="100">
+                                            <img class="lazy media-object" data-src="{{ url($artikel->takeImg) }}" title="Gambar {{$artikel->title}}" alt="Gambar {{$artikel->title}}" width="100" height="100">
                                         </a>
                                     </div>
                                     <div class="media-body">
@@ -154,8 +146,7 @@
                                         <span class="tag purple">{{$kategori->title}}</span>
                                         @endforeach
                                         <h3 class="media-heading">
-                                            <a href="/artikel-islam/{{$artikel->slug}}"
-                                                target="_self">{{$artikel->title}}</a>
+                                            <a href="/artikel-islam/{{$artikel->slug}}" target="_self">{{$artikel->title}}</a>
                                         </h3>
                                         <span class="media-date">
                                             <a href="">{{$artikel->created_at->diffForHumans()}}</a>, by:
