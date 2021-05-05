@@ -62,7 +62,6 @@
                 <div class="related_news">
                     <div class="entity_inner__title header_purple">
                         <h2>Artikel Lainya</h2>
-                        <p>{{ $artikel->id }}</p>
                         {{-- Passing data to JS --}}
                         <input type="hidden" class="artikel_id" value="{{ $artikel->id }}">
                         <input type="hidden" class="artikel_view" value="{{ $artikel->view }}">
