@@ -113,11 +113,11 @@ class RegisterController extends Controller
 
     public function verification($token, $id)
     {
-        dd($id);
         $user = User::findOrFail($id);
         if ($user->token != $token) {
             return redirect('login')->with('msg', 'Terjadi kesalahan validasi akun');
         }
+        // Validasi setelah user telah terdaftar
         if ($user->status == 1) {
             return redirect('/')->with('msg', 'Anda sudah terdaftar di Aliim.id');
         }
