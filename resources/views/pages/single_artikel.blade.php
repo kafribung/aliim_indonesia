@@ -1,8 +1,8 @@
 @extends('layouts.page_master', [
-    'title' => $artikel->title , 
-    'description' => Str::limit($artikel->description, 200),
-    'image' => url($artikel->takeImg),
-    'url'   => request()->url(),
+    'title' => {!! $artikel->title !!}, 
+    // 'description' => Str::limit($artikel->description, 200),
+    // 'image' => url($artikel->takeImg),
+    // 'url'   => request()->url(),
     ])
 @section('content')
 
