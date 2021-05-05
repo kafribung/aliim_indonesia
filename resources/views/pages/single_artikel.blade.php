@@ -62,7 +62,8 @@
                 <div class="related_news">
                     <div class="entity_inner__title header_purple">
                         <h2>Artikel Lainya</h2>
-                        <p>{{ $artikel->slug }}</p>
+                        <p>{{ $artikel->id }}</p>
+                        <input type="hidden" class="artikel_id" value="{{ $artikel->id }}">
                     </div>
                     <!-- entity_title -->
                     <div class="row">
@@ -121,13 +122,15 @@
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     <script>
         $(function(){
-            setTimeout(loadajax(),10000);
+            // setTimeout(loadajax(),10000);
+         
         });
         function loadajax() {
             const data = (parseInt({{ $artikel->view }}) +  1)
+            let artikel_id = $(".artikel_id").val()
             $.ajax({
                 type: "PATCH",
-                url: "/artikel-islam/{{ $artikel->id }}",
+                url: "{{ route('artikel-islam.update', artikel_id) }}",
                 data: { 
                     "_token": "{{ csrf_token() }}", 
                     "view"  : data
