@@ -121,14 +121,13 @@
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     <script>
         $(function(){
-            // setTimeout(loadajax(),10000);
-            console.log({{ $artikel->slug }})
+            setTimeout(loadajax(),10000);
         });
         function loadajax() {
             const data = (parseInt({{ $artikel->view }}) +  1)
             $.ajax({
                 type: "PATCH",
-                url: "/artikel-islam/{{ $artikel->slug }}",
+                url: "/artikel-islam/{{ $artikel->id }}",
                 data: { 
                     "_token": "{{ csrf_token() }}", 
                     "view"  : data

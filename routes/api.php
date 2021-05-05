@@ -8,5 +8,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::namespace('API')->group(function(){
-    Route::patch('/artikel-islam/{artikel:slug}', 'ApiSingelArtikelController@update')->name('artikel-islam.update');
+    Route::patch('/artikel-islam/{id}', 'ApiSingelArtikelController')->name('artikel-islam.update');
 });

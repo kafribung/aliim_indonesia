@@ -8,12 +8,13 @@ use Illuminate\Http\Request;
 
 class ApiSingelArtikelController extends Controller
 {
-    public function update(Request $request, Artikel $artikel)
+    public function __invoke(Request $request, $id)
     {
+        dd($id);
         $data = $request->validate([
             "view" => ['required', 'integer']
         ]);
-        $artikel->update($data);
+        // $artikel->update($data);
         return response(['msg' => 'Data was succesfully updated'], 200);
     }
 }
