@@ -66,7 +66,7 @@ class RegisterController extends Controller
             return $response;
         }
 
-        return redirect('/login')->with('msg', 'silahkan cek email di ' . $request->email);
+        return redirect('/login')->with('msg', 'silahkan cek email di ' . '<b>' . $request->email . '</b>');
     }
 
     /**
@@ -113,9 +113,13 @@ class RegisterController extends Controller
 
     public function verification($token, $id)
     {
+        dd($id);
         $user = User::findOrFail($id);
         if ($user->token != $token) {
             return redirect('login')->with('msg', 'Terjadi kesalahan validasi akun');
+        }
+        if ($user->status == 1) {
+            return redirect('/')->with('msg', 'Anda sudah terdaftar di Aliim.id');
         }
         // Ubah status user
         $user->status = 1;
