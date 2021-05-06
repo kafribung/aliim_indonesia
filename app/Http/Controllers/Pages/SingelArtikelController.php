@@ -14,8 +14,8 @@ class SingelArtikelController extends Controller
         SEOMeta::setTitle($artikel->title);
         SEOMeta::setDescription(htmlspecialchars($artikel->description));
         SEOMeta::setCanonical(url()->current());
-        SEOMeta::addMeta('article:published_time', $post->published_date->toW3CString(), 'property');
-        SEOMeta::addMeta('article:section', $post->category, 'property');
+        // SEOMeta::addMeta('article:published_time', $post->published_date->toW3CString(), 'property');
+        // SEOMeta::addMeta('article:section', $post->category, 'property');
         SEOMeta::addKeyword(['key1', 'key2', 'key3']);
         // Navigasi Kategori
         $kategori_artikels = NavbarKategori::navbarArtikel();

@@ -39,9 +39,9 @@ return [
             'title'       => 'Aliim Indonesia', // set false to total remove
             'description' => 'Belajar Islam dengan asik dan menarik', // set false to total remove
             'url'         => config('app.url'), // Set null for using Url::current(), set false to total remove
-            'type'        => false,
-            'site_name'   => false,
-            'images'      => [],
+            'type'        => "website",
+            'site_name'   => "aliim.id",
+            'images'      => [asset('assets/img/logo.jpg')],
         ],
     ],
     'twitter' => [
@@ -49,8 +49,8 @@ return [
          * The default values to be used by the twitter cards generator.
          */
         'defaults' => [
-            //'card'        => 'summary',
-            //'site'        => '@LuizVinicius73',
+            'card'        => 'summary',
+            'site'        => '@aliim_indonesia',
         ],
     ],
     'json-ld' => [
@@ -58,11 +58,11 @@ return [
          * The default configurations to be used by the json-ld generator.
          */
         'defaults' => [
-            'title'       => 'Over 9000 Thousand!', // set false to total remove
-            'description' => 'For those who helped create the Genki Dama', // set false to total remove
+            'title'       => false, // set false to total remove
+            'description' => false, // set false to total remove
             'url'         => false, // Set null for using Url::current(), set false to total remove
-            'type'        => 'WebPage',
-            'images'      => [],
+            'type'        => false,
+            'images'      => false,
         ],
     ],
 ];
