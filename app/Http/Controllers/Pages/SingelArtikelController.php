@@ -4,12 +4,16 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
 use App\Models\{Artikel, Hadist};
+use Artesaos\SEOTools\Facades\SEOMeta;
 
 class SingelArtikelController extends Controller
 {
     public function __invoke(Artikel $artikel)
     {
-        // 
+        // SEO
+        SEOMeta::setTitle('Aliim indonesia');
+        SEOMeta::setDescription('This is my page description');
+        SEOMeta::setCanonical('https://kafri.com.br/lesson');
         // Navigasi Kategori
         $kategori_artikels = NavbarKategori::navbarArtikel();
         // Sidebar (Artikel  Vidieo terbaru, iklan)

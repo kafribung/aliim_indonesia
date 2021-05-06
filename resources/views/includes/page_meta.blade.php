@@ -1,6 +1,5 @@
 <meta charset="utf-8">
 @include('includes.favicon')
-<title>{{ isset($title) ? $title : 'Aliim - Belajar Islam dengan asik dan menarik' }} </title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="revisit-after" content="1 days">
@@ -11,6 +10,17 @@
 <meta name="Distribution" content="Global">
 <meta name="Rating" content="General">
 <meta name="author" content="aliim_indonesia">
+
+{{-- {!! SEOMeta::generate() !!}
+{!! OpenGraph::generate() !!}
+{!! Twitter::generate() !!}
+{!! JsonLd::generate() !!}
+// OR with multi
+{!! JsonLdMulti::generate() !!} --}}
+
+<!-- OR -->
+{!! SEO::generate() !!}
+{{--<title>{{ isset($title) ? $title : 'Aliim - Belajar Islam dengan asik dan menarik' }} </title>
 <meta name="keywords" content="Aliim, Aliim Indonesia, Belajar Islam, Islam, UIN ALauddin Makassar, Startup Islam, Belajar Islam Bareng Ustad, Belajar Islam Asik, Hijrah">
 <meta name="description" content="{{isset($description) ? $description : 'Aliim - Belajar Islam dengan asik, menarik, dan menyenangkan dibimbing langsung oleh ustad'}}">
 <meta name="twitter:card" content="summary_large_image">
@@ -28,5 +38,5 @@
 <meta property="og:description" content="{{isset($description) ? $description : 'Aliim - Belajar Islam dengan asik, menarik, dan menyenangkan dibimbing langsung oleh ustad'}}">
 <meta property="og:image" content="{{ isset($image) ? $image : asset('assets/img/logo.jpg') }}">
 <meta property="og:image:width" content="800">
-<meta property="og:image:height" content="800">
+<meta property="og:image:height" content="800"> --}}
 
