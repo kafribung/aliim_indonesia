@@ -13,7 +13,7 @@ return [
             'titleBefore'  => "Belajar Islam dengan asik dan menarik", // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
             'description'  => 'For those who helped create the Genki Dama', // set false to total remove
             'separator'    => ' - ',
-            'keywords'     => [],
+            'keywords'     => ["Aliim", "Aliim Indonesia", "Belajar Islam", "Islam", "Startup Islam", "Belajar Islam Bareng Ustad", "Belajar Islam Asik", "Hijrah", "UIN ALauddin Makassar"],
             'canonical'    => false, // Set null for using Url::current(), set false to total remove
             'robots'       => false, // Set to 'all', 'none' or any combination of index/noindex and follow/nofollow
         ],

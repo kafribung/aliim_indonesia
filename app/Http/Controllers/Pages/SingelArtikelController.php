@@ -11,9 +11,12 @@ class SingelArtikelController extends Controller
     public function __invoke(Artikel $artikel)
     {
         // SEO
-        SEOMeta::setTitle('Aliim indonesia');
-        SEOMeta::setDescription('This is my page description');
-        SEOMeta::setCanonical('https://kafri.com.br/lesson');
+        SEOMeta::setTitle($artikel->title);
+        SEOMeta::setDescription(htmlspecialchars($artikel->description));
+        SEOMeta::setCanonical(url()->full());
+        SEOMeta::addMeta('article:published_time', $post->published_date->toW3CString(), 'property');
+        SEOMeta::addMeta('article:section', $post->category, 'property');
+        SEOMeta::addKeyword(['key1', 'key2', 'key3']);
         // Navigasi Kategori
         $kategori_artikels = NavbarKategori::navbarArtikel();
         // Sidebar (Artikel  Vidieo terbaru, iklan)
