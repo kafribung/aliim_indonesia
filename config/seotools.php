@@ -11,10 +11,10 @@ return [
         'defaults'       => [
             'title'        => "Aliim Indonesia", // set false to total remove
             'titleBefore'  => "Belajar Islam dengan asik dan menarik", // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
-            'description'  => 'For those who helped create the Genki Dama', // set false to total remove
+            'description'  => 'Aliim Indonesia tempat belajar Islam dengan asik, menarik, dan menyenangkan dibimbing langsung oleh ustad yang berpengalaman', // set false to total remove
             'separator'    => ' - ',
-            'keywords'     => ["Aliim", "Aliim Indonesia", "Belajar Islam", "Islam", "Startup Islam", "Belajar Islam Bareng Ustad", "Belajar Islam Asik", "Hijrah", "UIN ALauddin Makassar"],
-            'canonical'    => false, // Set null for using Url::current(), set false to total remove
+            'keywords'     => ["Aliim", "Aliim Indonesia", "Belajar Islam", "Islam", "Startup Islam", "Belajar Islam Bareng Ustad", "Muallaf" ,"Belajar Islam Asik", "Hijrah", "UIN ALauddin Makassar"],
+            'canonical'    => config('app.url'), // Set null for using Url::current(), set false to total remove
             'robots'       => false, // Set to 'all', 'none' or any combination of index/noindex and follow/nofollow
         ],
         /*
@@ -36,9 +36,9 @@ return [
          * The default configurations to be used by the opengraph generator.
          */
         'defaults' => [
-            'title'       => 'Over 9000 Thousand!', // set false to total remove
-            'description' => 'For those who helped create the Genki Dama', // set false to total remove
-            'url'         => false, // Set null for using Url::current(), set false to total remove
+            'title'       => 'Aliim Indonesia', // set false to total remove
+            'description' => 'Belajar Islam dengan asik dan menarik', // set false to total remove
+            'url'         => config('app.url'), // Set null for using Url::current(), set false to total remove
             'type'        => false,
             'site_name'   => false,
             'images'      => [],

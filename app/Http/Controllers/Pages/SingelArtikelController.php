@@ -13,7 +13,7 @@ class SingelArtikelController extends Controller
         // SEO
         SEOMeta::setTitle($artikel->title);
         SEOMeta::setDescription(htmlspecialchars($artikel->description));
-        SEOMeta::setCanonical(url()->full());
+        SEOMeta::setCanonical(url()->current());
         SEOMeta::addMeta('article:published_time', $post->published_date->toW3CString(), 'property');
         SEOMeta::addMeta('article:section', $post->category, 'property');
         SEOMeta::addKeyword(['key1', 'key2', 'key3']);
