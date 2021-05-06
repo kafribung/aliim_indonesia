@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
-use App\Models\{Artikel, Hadist, Video, Iklan, KategoriArtikel, KategoriVideo};
+use App\Models\{Artikel, Hadist};
 
 class SingelArtikelController extends Controller
 {
     public function __invoke(Artikel $artikel)
     {
+        // 
         // Navigasi Kategori
         $kategori_artikels = NavbarKategori::navbarArtikel();
         // Sidebar (Artikel  Vidieo terbaru, iklan)
