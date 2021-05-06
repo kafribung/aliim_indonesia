@@ -28,7 +28,6 @@ return [
             'yandex'    => null,
             'norton'    => null,
         ],
-
         'add_notranslate_class' => false,
     ],
     'opengraph' => [
