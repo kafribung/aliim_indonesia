@@ -15,7 +15,7 @@ return [
             'separator'    => ' - ',
             'keywords'     => ["Aliim", "Aliim Indonesia", "Belajar Islam", "Islam", "Startup Islam", "Belajar Islam Bareng Ustad", "Muallaf" ,"Belajar Islam Asik", "Hijrah", "UIN ALauddin Makassar"],
             'canonical'    => config('app.url'), // Set null for using Url::current(), set false to total remove
-            'robots'       => "index/follow", // Set to 'all', 'none' or any combination of index/noindex and follow/nofollow
+            'robots'       => "index,follow", // Set to 'all', 'none' or any combination of index/noindex and follow/nofollow
         ],
         /*
          * Webmaster tags are always added.
