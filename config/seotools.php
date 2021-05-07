@@ -39,7 +39,7 @@ return [
             'url'         => config('app.url'), // Set null for using Url::current(), set false to total remove
             'type'        => "website",
             'site_name'   => "aliim.id",
-            'images'      => [asset('assets/img/logo.jpg')],
+            'images'      => [config('app.url') . 'assets/img/logo.jpg'],
         ],
     ],
     'twitter' => [
