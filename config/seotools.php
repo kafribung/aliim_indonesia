@@ -39,7 +39,7 @@ return [
             'url'         => config('app.url'), // Set null for using Url::current(), set false to total remove
             'type'        => "website",
             'site_name'   => "aliim.id",
-            'images'      => asset('assets/img/logo.jpg'),
+            'images'      => [asset('assets/img/logo.jpg')],
         ],
     ],
     'twitter' => [
@@ -49,6 +49,7 @@ return [
         'defaults' => [
             'card'        => 'summary',
             'site'        => '@aliim_indonesia',
+            'title'       => 'aliim.indonesia'
         ],
     ],
     'json-ld' => [
@@ -58,7 +59,7 @@ return [
         'defaults' => [
             'title'       => false, // set false to total remove
             'description' => false, // set false to total remove
-            'url'         => false, // Set null for using Url::current(), set false to total remove
+            'url'         => null, // Set null for using Url::current(), set false to total remove
             'type'        => false,
             'images'      => false,
         ],
