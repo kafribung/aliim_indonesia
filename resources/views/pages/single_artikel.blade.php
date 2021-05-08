@@ -101,7 +101,10 @@
                     <div class="entity_inner__title header_purple">
                         <h2>Komentar</h2>
                     </div>
-                    @comments(['model' => $artikel])
+                    @comments([
+                        'model' => $artikel,
+                        'approved' => true
+                    ])
                 </div>
                 <!--Readers Comment-->
             </div>
