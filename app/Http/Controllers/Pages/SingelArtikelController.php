@@ -22,15 +22,13 @@ class SingelArtikelController extends Controller
             $keywords[] .= $kategori->title;
         }
         SEOMeta::addKeyword($keywords);
-
         // OG
         OpenGraph::setDescription($artikel->description);
         OpenGraph::setTitle($artikel->title);
         OpenGraph::setUrl(url()->current());
         OpenGraph::addProperty('type', 'article');
         OpenGraph::addProperty('locale', 'id_ID');
-        OpenGraph::addImage(['url' => asset('assets/img/logo.jpg'), 'size' => 300]);
-
+        OpenGraph::addImage(['url' => url($artikel->takeImg), 'size' => 300]);
         // Navigasi Kategori
         $kategori_artikels = NavbarKategori::navbarArtikel();
         // Sidebar (Artikel  Vidieo terbaru, iklan)
