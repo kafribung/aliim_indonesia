@@ -4,8 +4,7 @@ namespace App\Http\Controllers\Pages;
 
 use App\Models\{Hadist, Galeri};
 use App\Http\Controllers\Controller;
-use Artesaos\SEOTools\Facades\SEOMeta;
-use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\{OpenGraph, SEOMeta};
 use App\Http\Controllers\Pages\{NavbarKategori,  Sidebar};
 
 class MotivasiController extends Controller
