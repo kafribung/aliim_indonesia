@@ -2,14 +2,23 @@
 
 namespace App\Http\Controllers\Pages;
 
-use App\Http\Controllers\Controller;
 use App\Models\{Hadist, Galeri};
+use App\Http\Controllers\Controller;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
 use App\Http\Controllers\Pages\{NavbarKategori,  Sidebar};
 
 class MotivasiController extends Controller
 {
     public function __invoke()
     {
+        // SEO
+        SEOMeta::setCanonical( url()->current() );
+        // OG
+        OpenGraph::setUrl(url()->current());
+        OpenGraph::addProperty('type', 'article');
+        OpenGraph::addProperty('locale', 'id_ID');
+        OpenGraph::addImage(['url' => asset('assets/img/logo.jpg'), 'size' => 300]);
         // Navigasi Kategori
         $kategori_artikels = NavbarKategori::navbarArtikel();
         // Galeri
