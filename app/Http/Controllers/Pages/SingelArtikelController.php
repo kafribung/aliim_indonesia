@@ -4,8 +4,7 @@ namespace App\Http\Controllers\Pages;
 
 use App\Models\{Artikel, Hadist};
 use App\Http\Controllers\Controller;
-use Artesaos\SEOTools\Facades\SEOMeta;
-use Artesaos\SEOTools\Facades\OpenGraph;
+    use Artesaos\SEOTools\Facades\{OpenGraph, SEOMeta};
 
 class SingelArtikelController extends Controller
 {
