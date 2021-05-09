@@ -103,7 +103,7 @@
                     </div>
                     @comments([
                         'model' => $artikel,
-                        // 'approved' => true
+                        'approved' => true
                     ])
                 </div>
                 <!--Readers Comment-->
