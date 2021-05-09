@@ -17,8 +17,7 @@
                             <div  id="lightgallery">
                                 @foreach ($galeris as $galeri)
                                     <a class="col-md-6 top_article_img" href="{{ url($galeri->takeImg) }}">
-                                        <img class="lazy img-responsive" data-src="{{ url($galeri->takeImg) }}" alt="feature-top"
-                                            width="400" height="200">
+                                        <img class="lazy img-responsive" data-src="{{ url($galeri->takeImg) }}" alt="feature-top" width="400" height="200">
                                     </a>
                                 @endforeach
                                 <!-- col-md-7 -->
