@@ -9,7 +9,6 @@ use Laravelista\Comments\Commentable;
 class Artikel extends Model
 {
     use Commentable;
-    protected $touhches = ['user'];
     protected $fillable = ['title', 'description', 'img', 'slug', 'view'];
 
     // ROUTE KEY NAME
