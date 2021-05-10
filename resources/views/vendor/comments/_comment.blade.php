@@ -6,6 +6,9 @@
 @else
   <li id="comment-{{ $comment->getKey() }}" class="media">
 @endif
+    @if ($comment->commentable->id == $comment->commentable_id)
+        <p>{{ $comment->commentable->title }}</p>        
+    @endif
     {{-- Image --}}
     <div class="media-left">
         <img class="media-object" data-holder-rendered="true" src="{{ $comment->commenter->takeImg }}" width="64" height="64">
