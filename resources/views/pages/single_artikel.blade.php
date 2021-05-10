@@ -7,6 +7,7 @@
             <div class="col-md-8">
                 <div class="entity_wrapper">
                     <div class="entity_title">
+                        <h1>{{ $artikel->id }}</h1>
                         <h1>{{ $artikel->title }}</h1>
                     </div>
                     <!-- entity_title -->
@@ -64,28 +65,29 @@
                     <!-- entity_title -->
                     <div class="row">
                         @foreach ($artikel->kategori_artikels as $kategori)
-                        @foreach ($kategori->artikels()->limit(3)->get() as $artikel)
+                        {{-- Variabel artikel change in artikelList sebab di bawah variabel artikel mau di passing --}}
+                        @foreach ($kategori->artikels()->limit(3)->get() as $artikelList)
                         <div class="col-md-6">
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="/artikel-islam/{{ $artikel->slug }}">
-                                        <img class="lazy media-object" data-src="{{ url($artikel->takeImg) }}" title="Gambar {{ $artikel->title }}" alt="Gambar {{ $artikel->title }}" width="122" height="122">
+                                    <a href="/artikel-islam/{{ $artikelList->slug }}">
+                                        <img class="lazy media-object" data-src="{{ url($artikelList->takeImg) }}" title="Gambar {{ $artikelList->title }}" alt="Gambar {{ $artikelList->title }}" width="122" height="122">
                                     </a>
                                 </div>
                                 <div class="media-body">
-                                    @foreach ($artikel->kategori_artikels as $kategori)
+                                    @foreach ($artikelList->kategori_artikels as $kategori)
                                     <span class="tag purple">{{ $kategori->title }}</span>
                                     @endforeach
                                     <h3 class="media-heading">
-                                        <a href="/artikel-islam/{{ $artikel->slug }}" target="_self">{{ $artikel->title }}</a>
+                                        <a href="/artikel-islam/{{ $artikelList->slug }}" target="_self">{{ $artikelList->title }}</a>
                                     </h3>
                                     <span class="media-date">
-                                        <a href="">{{ $artikel->created_at->diffForHumans() }}</a>, by:
-                                        <a href="">{{$artikel->user->name}}</a>
+                                        <a href="">{{ $artikelList->created_at->diffForHumans() }}</a>, by:
+                                        <a href="">{{$artikelList->user->name}}</a>
                                     </span>
                                     <div class="media_social">
-                                        <span><i class="fa fa-eye"></i>{{ $artikel->view }} Mata</span>
-                                        <span><i class="fa fa-comments-o"></i>{{ $artikel->comments->count() }} Komentar</span>
+                                        <span><i class="fa fa-eye"></i>{{ $artikelList->view }} Mata</span>
+                                        <span><i class="fa fa-comments-o"></i>{{ $artikelList->comments->count() }} Komentar</span>
                                     </div>
                                 </div>
                             </div>
@@ -99,7 +101,6 @@
                 <div class="readers_comment">
                     <div class="entity_inner__title header_purple">
                         <h2>Komentar</h2>
-                        <h6>{{ $artikel->id }}</h6>
                     </div>
                     @comments([
                         'model' => $artikel,
