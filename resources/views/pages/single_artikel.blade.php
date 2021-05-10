@@ -83,7 +83,6 @@
                                         <a href="">{{ $artikel->created_at->diffForHumans() }}</a>, by:
                                         <a href="">{{$artikel->user->name}}</a>
                                     </span>
-
                                     <div class="media_social">
                                         <span><i class="fa fa-eye"></i>{{ $artikel->view }} Mata</span>
                                         <span><i class="fa fa-comments-o"></i>{{ $artikel->comments->count() }} Komentar</span>
