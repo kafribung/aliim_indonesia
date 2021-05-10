@@ -99,6 +99,7 @@
                 <div class="readers_comment">
                     <div class="entity_inner__title header_purple">
                         <h2>Komentar</h2>
+                        <h6>{{ $artikel->id }}</h6>
                     </div>
                     @comments([
                         'model' => $artikel,
