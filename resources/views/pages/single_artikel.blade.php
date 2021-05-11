@@ -7,7 +7,6 @@
             <div class="col-md-8">
                 <div class="entity_wrapper">
                     <div class="entity_title">
-                        <h1>{{ $artikel->id }}</h1>
                         <h1>{{ $artikel->title }}</h1>
                     </div>
                     <!-- entity_title -->
