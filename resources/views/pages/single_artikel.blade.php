@@ -57,9 +57,6 @@
                 <div class="related_news">
                     <div class="entity_inner__title header_purple">
                         <h2>Artikel Lainya</h2>
-                        {{-- Passing data to JS --}}
-                        <input type="hidden" class="artikel_id" value="{{ $artikel->id }}">
-                        <input type="hidden" class="artikel_view" value="{{ $artikel->view }}">
                     </div>
                     <!-- entity_title -->
                     <div class="row">
@@ -123,11 +120,10 @@
             setTimeout(loadajax(),10000);
         });
         function loadajax() {
-            const data = (parseInt($(".artikel_view").val()) +  1)
-            let artikel_id = $(".artikel_id").val()
+            const data = (parseInt({{ $artikel->view }}) +  1)
             $.ajax({
                 type: "PATCH",
-                url: "/api/artikel-islam/" + artikel_id,
+                url: "/api/artikel-islam/" + {{ $artikel->id }},
                 data: { 
                     "_token": "{{ csrf_token() }}", 
                     "view"  : data
