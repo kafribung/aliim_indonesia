@@ -8,7 +8,7 @@
 @endif
     {{-- Image --}}
     <div class="media-left">
-        <img class="media-object" data-holder-rendered="true" src="{{ $comment->commenter->takeImg }}" width="64" height="64">
+        <img class="media-object" data-holder-rendered="true" src="{{ $comment->commenter->takeImg }}" width="50" height="50">
     </div>
     <div class="media-body">
         <h2 class="media-heading">{{ $comment->commenter->name ?? $comment->guest_name }} <small class="text-muted">- {{ $comment->created_at->diffForHumans() }}</small></h2>
