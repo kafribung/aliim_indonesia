@@ -19,7 +19,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "laravelista/comments": "^3.6",
-        "munafio/chatify": "^1.0"
+        "munafio/chatify": "^1.0",
+        "intervention/image": "dev-master"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
