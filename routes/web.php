@@ -1,6 +1,5 @@
 <?php
 use Illuminate\Support\Facades\Route;
-
 // ----------------------------------------------------------ADMIN
 Route::group(['middleware' => 'admin'], function () {
     // Admin 
