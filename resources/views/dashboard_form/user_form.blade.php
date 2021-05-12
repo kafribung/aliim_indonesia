@@ -48,15 +48,10 @@
 
 <div class="form-group">
     <label for="gender" class="control-label mb-1">Jenis Kelamin</label>
-    <select id="gender" name="gender"
-        class="form-control @error('gender') is-invalid @enderror" required
-        autocomplete="off">
-        <option {{ $user->gender == 'Pria' ? 'selected' : ''}} value="Pria">Pria
-        </option>
-        <option {{ $user->gender == 'Wanita' ? 'selected' : ''}} value="Wanita">Wanita
-        </option>
+    <select id="gender" name="gender" class="form-control @error('gender') is-invalid @enderror" required autocomplete="off">
+        <option {{ $user->gender == 'Pria' ? 'selected' : ''}} value="Pria">Pria </option>
+        <option {{ $user->gender == 'Wanita' ? 'selected' : ''}} value="Wanita">Wanita </option>
     </select>
-
     @error('gender')
     <p class="alert alert-danger">{{$message}}</p>
     @enderror
@@ -64,15 +59,11 @@
 
 <div class="form-group">
     <label for="provinci" class="control-label mb-1">Provinsi</label>
-    <select id="provinci" name="provinci"
-        class="form-control @error('provinci') is-invalid @enderror" required
-        autocomplete="off">
-        @foreach ($provincis['provinsi'] as $provinci)
-        <option {{ $user->provinci == $provinci['nama'] ? 'selected' : '' }}
-            value="{{$provinci['nama']}}">{{$provinci['nama']}}</option>
+    <select id="provinci" name="provinci" class="form-control @error('provinci') is-invalid @enderror" required autocomplete="off">
+        @foreach ($provincis['rajaongkir']['results'] as $provinci)
+        <option {{ $user->provinci == $provinci['province'] ? 'selected' : '' }} value="{{$provinci['province']}}">{{$provinci['province']}}</option>
         @endforeach
     </select>
-
     @error('provinci')
     <p class="alert alert-danger">{{$message}}</p>
     @enderror
@@ -80,10 +71,7 @@
 
 <div class="form-group">
     <label for="password" class="control-label mb-1">password</label>
-    <input id="password" name="password" type="password"
-        class="form-control @error('password') is-invalid @enderror" autocomplete="off"
-        required ">
-
+    <input id="password" name="password" type="password" class="form-control @error('password') is-invalid @enderror" autocomplete="off" required ">
     @error('password')
         <p class=" alert alert-danger">{{$message}}</p>
     @enderror

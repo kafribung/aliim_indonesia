@@ -37,7 +37,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $provincis = ApiRajaOngkir::apiProvinsi();
-        dd($provincis);
+        dd($provincis['rajaongkir']['results']);
         return view('dashboard_edit.user_edit', compact('user', 'provincis'));
     }
 
