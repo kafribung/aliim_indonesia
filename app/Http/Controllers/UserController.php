@@ -37,7 +37,6 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $provincis = ApiRajaOngkir::apiProvinsi();
-        dd($provincis['rajaongkir']['results']);
         return view('dashboard_edit.user_edit', compact('user', 'provincis'));
     }
 
@@ -61,7 +60,10 @@ class UserController extends Controller
     // DELETE
     public function destroy(User $user)
     {
-        Storage::delete($user->img);
+        // Dont Delete IMG Default
+        if ($user->img != 'img_users/default_user.jpg') {
+            Storage::delete($user->img);
+        }
         $user->delete();
         return redirect('/user')->with('msg', 'Data User Berhasil di Hapus');
     }
