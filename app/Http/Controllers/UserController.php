@@ -34,10 +34,10 @@ class UserController extends Controller
     }
 
     // EDIT
-    public function edit($id)
+    public function edit(User $user)
     {
-        $user = User::findOrFail($id);
         $provincis = ApiRajaOngkir::apiProvinsi();
+        dd($provincis);
         return view('dashboard_edit.user_edit', compact('user', 'provincis'));
     }
 
