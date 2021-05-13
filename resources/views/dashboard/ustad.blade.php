@@ -45,7 +45,7 @@
                                         </td>
                                         <td>{{$ustad->name}}</td>
                                         <td>{{$ustad->email}}</td>
-                                        <td>{{$ustad->date_birth}}</td>
+                                        <td>{{ date('d-M-Y', strtotime($ustad->date_birth)) }}</td>
                                         <td>{{$ustad->gender}}</td>
                                         <td>{{$ustad->district}}</td>
                                         <td>{{$ustad->status == 1 ? 'Active' : 'Panding'}}</td>
