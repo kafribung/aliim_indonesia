@@ -43,7 +43,7 @@
                         <ul class="nav navbar-nav">
                             <li>
                                 <div class="media-left">
-                                    <img alt="64x64" class="rounded-circle" src="{{url(Auth::user()->takeImg)}}" width=50" height="50">
+                                    <img alt="64x64" class="rounded-circle" src="{{url(Auth::user()->takeImg)}}" width=30" height="30">
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
