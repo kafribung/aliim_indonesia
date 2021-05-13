@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
 
-class UstadAdminRequest extends FormRequest
+class UserUstadAdminRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -32,7 +32,7 @@ class UstadAdminRequest extends FormRequest
             'gender'   => ['required', 'string', 'min:4', 'max:6'],
             'provinci' => ['required', 'string'],
             'district' => ['required', 'string'],
-            'password' => ['required', 'string', 'min:8', request()->isMethod('patch') ? '' : 'confirmed'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ];
     }
 }

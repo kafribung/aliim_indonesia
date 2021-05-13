@@ -43,14 +43,9 @@
     @enderror
 </div>
 
-<div class="form-group">
-    <label for="provinci" class="control-label mb-1">Provinsi</label>
-    <select id="provinci" name="provinci" class="form-control @error('provinci') is-invalid @enderror" required autocomplete="off">
-        @foreach ($provincis['rajaongkir']['results'] as $provinci)
-        <option {{ $user->provinci == $provinci['province'] ? 'selected' : '' }} value="{{$provinci['province']}}">{{$provinci['province']}}</option>
-        @endforeach
-    </select>
-    @error('provinci')
+<div id="app">
+    <dash-district-component/>
+    @error('district')
     <p class="alert alert-danger">{{$message}}</p>
     @enderror
 </div>
@@ -62,3 +57,14 @@
         <p class=" alert alert-danger">{{$message}}</p>
     @enderror
 </div>
+
+<div class="form-group">
+    <label for="password_confirmation" class="control-label mb-1">Konfirmasi Password</label>
+    <input id="password_confirmation" name="password_confirmation" type="password" class="form-control @error('password') is-invalid @enderror" autocomplete="off" required ">
+    @error('password')
+        <p class=" alert alert-danger">{{$message}}</p>
+    @enderror
+</div>
+@push('after_script')
+    <script src="{{ asset('js/app.js') }}" defer></script>
+@endpush

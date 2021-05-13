@@ -36,14 +36,13 @@ class UserController extends Controller
     // EDIT
     public function edit(User $user)
     {
-        $provincis = ApiRajaOngkir::apiProvinsi();
-        return view('dashboard_edit.user_edit', compact('user', 'provincis'));
+        return view('dashboard_edit.user_edit', compact('user'));
     }
 
     // UPDATE
     public function update(UstadAdminRequest $request, User $user)
     {
-        $data = $request->except(['password_confirmation']);
+        $data = $request->validated();
         if ($request->has('img')) {
             // Dont Delete IMG Default
             if ($user->img != 'img_users/default_user.jpg') {
