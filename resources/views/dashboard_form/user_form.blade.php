@@ -9,7 +9,7 @@
 </div>
 
 <div class="form-group">
-    <label for="name" class="control-label mb-1">nama</label>
+    <label for="name" class="control-label mb-1">Nama</label>
     <input id="name" name="name" type="text" class="form-control @error('name') is-invalid @enderror" required autocomplete="off" value="{{old('name') ?? $user->name}}">
     @error('name')
     <p class="alert alert-danger">{{$message}}</p>
@@ -17,7 +17,7 @@
 </div>
 
 <div class="form-group">
-    <label for="email" class="control-label mb-1">email</label>
+    <label for="email" class="control-label mb-1">Email</label>
     <input id="email" name="email" email="email" class="form-control @error('email') is-invalid @enderror" autocomplete="off" required value="{{old('email') ?? $user->email}}">
     @if ($errors->has('email'))
     <p class="alert alert-danger">{{$errors->first('email')}}</p>
@@ -56,7 +56,7 @@
 </div>
 
 <div class="form-group">
-    <label for="password" class="control-label mb-1">password</label>
+    <label for="password" class="control-label mb-1">Password</label>
     <input id="password" name="password" type="password" class="form-control @error('password') is-invalid @enderror" autocomplete="off" required ">
     @error('password')
         <p class=" alert alert-danger">{{$message}}</p>
