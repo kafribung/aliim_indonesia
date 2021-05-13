@@ -3,7 +3,7 @@
     @if ($ustad->name != null)
     <img src="{{url($ustad->takeImg)}}" alt="Gambar {{$ustad->name}}" title="Gambar {{$ustad->name}}" width="100"  height="100">
     @endif
-    <input id="img" name="img" type="file" class="form-control @error('img') is-invalid @enderror" autofocus accept="image/*" autocomplete="off"">
+    <input id="img" name="img" accept="image/*" type="file" class="form-control @error('img') is-invalid @enderror" autofocus accept="image/*" autocomplete="off"">
 
     @error('img')
         <p class=" alert alert-danger">{{$message}}</p>
