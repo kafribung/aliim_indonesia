@@ -22,7 +22,7 @@ class UserController extends Controller
     }
 
     //CREATE
-    public function store(UstadAdminRequest $request)
+    public function store()
     {
         return abort('404');
     }
@@ -43,7 +43,7 @@ class UserController extends Controller
     // UPDATE
     public function update(UstadAdminRequest $request, User $user)
     {
-        $data = $request->all();
+        $data = $request->except(['password_confirmation']);
         if ($request->has('img')) {
             // Dont Delete IMG Default
             if ($user->img != 'img_users/default_user.jpg') {
