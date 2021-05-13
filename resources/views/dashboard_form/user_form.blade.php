@@ -1,4 +1,3 @@
-
 <div class="form-group">
     <label for="img" class="control-label mb-1">Foto</label>
     <img src="{{ url($user->takeImg) }}" alt="Gambar {{$user->name}}" title="Gambar {{$user->name}}" width="50" height="50">

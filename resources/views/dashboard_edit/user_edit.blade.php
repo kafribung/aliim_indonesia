@@ -15,7 +15,7 @@
                             <strong class="card-title">Edit User</strong>
                         </div>
                         <div class="card-body">
-                            <form action="/user/{{$user->email}}" method="POST" enctype="multipart/form-data" novalidate>
+                            <form action="/user/{{$user->email}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PATCH')
                                 @include('dashboard_form.user_form', compact($user))
