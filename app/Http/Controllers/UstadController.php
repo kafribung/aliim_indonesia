@@ -78,7 +78,10 @@ class UstadController extends Controller
     // DELETE
     public function destroy(User $ustad)
     {
-        Storage::delete($ustad->img);
+        // Dont Delete IMG Default
+        if ($ustad->img != 'img_users/default_user.jpg') {
+            Storage::delete($ustad->img);
+        }
         $ustad->delete();
         return redirect('/ustad')->with('msg', 'Data Ustad Berhasil di Hapus');
     }
