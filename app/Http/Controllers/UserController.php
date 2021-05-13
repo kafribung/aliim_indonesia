@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\UstadAdminRequest;
 use Illuminate\Support\Facades\{Storage, Hash};
 
 class UserController extends Controller
@@ -22,7 +22,7 @@ class UserController extends Controller
     }
 
     //CREATE
-    public function store(UserRequest $request)
+    public function store(UstadAdminRequest $request)
     {
         return abort('404');
     }
@@ -41,7 +41,7 @@ class UserController extends Controller
     }
 
     // UPDATE
-    public function update(UserRequest $request, User $user)
+    public function update(UstadAdminRequest $request, User $user)
     {
         $data = $request->all();
         if ($request->has('img')) {

@@ -7,25 +7,19 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('user', 'UserController')->middleware('tolak.ustad');
     Route::resource('ustad', 'UstadController')->middleware('tolak.ustad');
     Route::resource('admin', 'AdminController')->middleware('tolak.ustad');
-
-    // Artikel 
+    // Artikel
     Route::resource('artikel', 'ArtikelController');
     Route::resource('kategori-artikel', 'KategoriArtikelController');
-
     // Galeri
     Route::resource('/galeri', 'GaleriController')->middleware('tolak.ustad');
-
     // Iklan
     Route::resource('iklan', 'IklanController')->middleware('tolak.ustad');
-
     // Hadist Harian
     Route::resource('hadist', 'HadistController');
-
     // Tanggapan
     Route::get('response', 'TanggapanController@index');
     Route::delete('response/{response:id}', 'TanggapanController@destroy');
 });
-
 // ----------------------------------------------------------USER
 Route::namespace('Pages')->group(function(){
     Route::group(['middleware' => 'auth'], function () {
