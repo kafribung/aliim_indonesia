@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Http\Requests\UstadAdminRequest;
+use App\Http\Requests\UserUstadAdminRequest;
 use Illuminate\Support\Facades\{Storage, Hash};
 
 class UserController extends Controller
@@ -40,7 +40,7 @@ class UserController extends Controller
     }
 
     // UPDATE
-    public function update(UstadAdminRequest $request, User $user)
+    public function update(UserUstadAdminRequest $request, User $user)
     {
         $data = $request->validated();
         if ($request->has('img')) {
