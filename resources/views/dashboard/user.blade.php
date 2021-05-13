@@ -26,7 +26,7 @@
                                         <th>Email</th>
                                         <th>Tgl Lahir</th>
                                         <th>JK</th>
-                                        <th>Provinsi</th>
+                                        <th>Kabupaten</th>
                                         <th>Status</th>
                                         <th>Peran</th>
                                         <th>Action</th>
@@ -48,7 +48,7 @@
                                         <td>{{$user->email}}</td>
                                         <td>{{$user->date_birth}}</td>
                                         <td>{{$user->gender}}</td>
-                                        <td>{{$user->provinci}}</td>
+                                        <td>{{$user->district}}</td>
                                         <td>{{$user->status == 1 ? 'Active' : 'Not Active'}}</td>
                                         <td>{{($user->role == 0) ? 'User' : (($user->role == 1) ? 'Admin' : 'Ustad')}}
                                         </td>
