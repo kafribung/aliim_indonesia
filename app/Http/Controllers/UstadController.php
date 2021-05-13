@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UstadAdminRequest;
+use App\Http\Requests\UserUstadAdminRequest;
 use Illuminate\Support\Str;
 use App\Models\User;
 use Illuminate\Support\Facades\{Storage, Hash};
@@ -25,7 +25,7 @@ class UstadController extends Controller
     }
 
     //CREATE
-    public function store(UstadAdminRequest $request)
+    public function store(UserUstadAdminRequest $request)
     {
         // Batas Ustad
         if (User::where('role', 2)->count() >= 30) {
@@ -58,7 +58,7 @@ class UstadController extends Controller
     }
 
     // UPDATE
-    public function update(UstadAdminRequest $request, User $ustad)
+    public function update(UserUstadAdminRequest $request, User $ustad)
     {
         $data = $request->except(['password_confirmation']);
         // Set Img

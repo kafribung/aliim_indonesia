@@ -41,8 +41,7 @@
                                     <tr>
                                         <td>{{$angkaAwal++}}</td>
                                         <td>
-                                            <img class="lazy img-thumbnail" data-src="{{url($iklan->takeImg)}}" alt="Foto {{$iklan->name}}"
-                                                title="Foto {{$iklan->name}}" width="100">
+                                            <img class="lazy img-thumbnail" data-src="{{url($iklan->takeImg)}}" alt="Foto {{$iklan->name}}" title="Foto {{$iklan->name}}" width="100">
                                         </td>
                                         <td>{{$iklan->owner}}</td>
                                         <td>{{$iklan->wa}}</td>
