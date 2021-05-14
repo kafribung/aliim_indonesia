@@ -45,7 +45,7 @@
                                         </td>
                                         <td>{{$admin->name}}</td>
                                         <td>{{$admin->email}}</td>
-                                        <td>{{$admin->date_birth}}</td>
+                                        <td>{{ date('d-M-Y', strtotime($admin->date_birth)) }}</td>
                                         <td>{{$admin->gender}}</td>
                                         <td>{{$admin->district}}</td>
                                         <td>{{$admin->status == 1 ? 'Active' : 'Not Active'}}</td>
