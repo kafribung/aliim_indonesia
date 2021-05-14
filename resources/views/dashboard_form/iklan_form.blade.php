@@ -11,7 +11,7 @@
 
 <div class="form-group">
     <label for="owner" class="control-label mb-1">Pemilik</label>
-    <input id="owner" name="owner" type="text" class="form-control @error('owner') is-invalid @enderror" required autocomplete="off" value="{{old('owner') ? old('owner') : $iklan->owner}}">
+    <input id="owner" name="owner" type="text" class="form-control @error('owner') is-invalid @enderror" required autocomplete="off" value="{{old('owner') ?? : $iklan->owner}}">
     @error('owner')
     <p class="alert alert-danger">{{$message}}</p>
     @enderror
