@@ -50,19 +50,18 @@ class ArtikelController extends Controller
     // EDIT
     public function edit(Artikel $artikel)
     {
-        $kategoris = KategoriArtikel::orderBy('id', 'desc')->get();
         // Cek Author
         $this->authorize('edit', $artikel);
+        $kategoris = KategoriArtikel::orderBy('id', 'desc')->get();
         return view('dashboard_edit.artikel_edit', compact('artikel', 'kategoris'));
     }
 
     // UPDATE
     public function update(ArtikelRequest $request, Artikel $artikel)
     {
-        
         // Cek Author
         $this->authorize('edit', $artikel);
-        $data = $request->all();
+        $data = $request->validated();
         // Store Img
         if ($img = $request->file('img')) {
             if ($artikel->img != 'img_artikels/default_artikel.jpg') {
