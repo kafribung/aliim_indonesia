@@ -28,7 +28,7 @@ class ArtikelController extends Controller
     // STORE
     public function store(ArtikelRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
         // Store Img
         if ($img = $request->file('img')) {
             $data['img'] = $request->file('img')->storeAs('img_artikels', time() . '.' . $img->getClientOriginalExtension());
