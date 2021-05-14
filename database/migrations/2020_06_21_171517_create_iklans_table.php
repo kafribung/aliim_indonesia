@@ -18,7 +18,7 @@ class CreateIklansTable extends Migration
             $table->string('owner');
             $table->string('img');
             $table->string('wa');
-            $table->string('link');
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }
