@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Http\Requests\UstadAdminRequest;
+use App\Http\Requests\USerUstadAdminRequest;
 use Illuminate\Support\Facades\{Storage, Hash};
 
 class AdminController extends Controller
@@ -22,13 +22,13 @@ class AdminController extends Controller
     }
 
     //CREATE
-    public function store(UstadAdminRequest $request)
+    public function store()
     {
         return abort('404');
     }
 
     // SHOW
-    public function show(User $admin)
+    public function show()
     {
         return abort('404');
     }
@@ -40,17 +40,17 @@ class AdminController extends Controller
     }
 
     // UPDATE
-    public function update(UstadAdminRequest $request, User $admin)
+    public function update(USerUstadAdminRequest $request, User $admin)
     {
-        $data =$request->except('password_confirmation');
+        $data =$request->validated();
         // Set Img
-        if ($request->has('img')) {
+        if ($request->hasFile('img')) {
             // Dont Delete IMG Default
             if ($admin->img != 'img_users/default_user.jpg') {
                 Storage::delete($admin->img);
             }
-            $img = $request->file('img');
-            $data['img'] = $request->file('img')->storeAs('img_users', time() . '.' . $img->getClientOriginalExtension());
+            $img = $request->img;
+            $data['img'] = $img->storeAs('img_users', time() . '.' . $img->getClientOriginalExtension());
         }
         $data['password'] = Hash::make($request->password);
         $admin->update($data);
