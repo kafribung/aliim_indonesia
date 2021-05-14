@@ -22,11 +22,9 @@ class KategoriArtikelController extends Controller
     }
 
     // STORE
-    public function store(Request $request)
+    public function store(KategoriArtikelRequest $request)
     {
-        $data = $request->validate([
-            'title' => ['required', 'string', 'min:3', 'max:255', 'unique:kategori_artikels', new LowercaseRule], 
-        ]);
+        $data = $request->validated();
         KategoriArtikel::create($data);
         return redirect('/kategori-artikel')->with('msg', 'Data Kategori Berhasil ditambahkan');
     }
