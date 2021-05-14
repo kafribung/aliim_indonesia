@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Http\Requests\KategoriArtikelRequest;
 // Import Class DB Kategoti Artikel
 use App\Models\KategoriArtikel;
-use App\Rules\LowercaseRule;
 
 class KategoriArtikelController extends Controller
 {
@@ -47,11 +45,9 @@ class KategoriArtikelController extends Controller
     }
 
     /// UPDATE
-    public function update(Request $request, $id)
+    public function update(KategoriArtikelRequest $request, $id)
     {
-        $data = $request->validate([
-            'title' => ['required', 'string', 'min:3', 'max:255', new LowercaseRule], 
-        ]);
+        $data = $request->validated();
         KategoriArtikel::findOrFail($id)->update($data);
         return redirect('/kategori-artikel')->with('msg', 'Data Kategori Berhasil diupdate');
     }
