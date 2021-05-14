@@ -43,8 +43,7 @@
                                             <form action="/kategori-artikel/{{$kategori->id}}" method="POST" class="d-inline-flex">
                                                 @csrf
                                                 @method('DELETE')
-
-                                                <button type="submit" onclick="return confirm('Hapus Kategori {{$kategori->title}}?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                                <button type="submit" onclick="return confirm('Hapus Kategori Artike {{$kategori->title}}?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
                                             </form>
                                         </td>
                                     </tr>
