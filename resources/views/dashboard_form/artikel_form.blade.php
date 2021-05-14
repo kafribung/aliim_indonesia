@@ -1,9 +1,6 @@
 <div class="form-group">
     <label for="title" class="control-label mb-1">Judul</label>
-    <input id="title" name="title" type="text"
-        class="form-control @error('title') is-invalid @enderror" autofocus required
-        autocomplete="off" value="{{old('title')?? $artikel->title}}">
-
+    <input id="title" name="title" type="text" class="form-control @error('title') is-invalid @enderror" autofocus required autocomplete="off" value="{{old('title')?? $artikel->title}}">
     @error('title')
     <p class="alert alert-danger">{{$message}}</p>
     @enderror
@@ -12,12 +9,9 @@
 <div class="form-group">
     <label for="img" class="control-label mb-1">Gambar</label>
     @if ($artikel->slug != null)
-    <img src="{{ url($artikel->takeImg) }}" alt="Gambar {{$artikel->slug}}"
-    title="{{$artikel->slug}}" width="200" height="200">
+    <img src="{{ url($artikel->takeImg) }}" alt="Gambar {{$artikel->slug}}" title="{{$artikel->slug}}" width="200" height="200">
     @endif
-    <input id="img" name="img" type="file"
-        class="form-control @error('img') is-invalid @enderror" accept="image/*">
-
+    <input id="img" name="img" type="file" class="form-control @error('img') is-invalid @enderror" accept="image/*">
     @if ($errors->has('img'))
     <p class="alert alert-danger">{{$errors->first('img')}}</p>
     @endif
@@ -25,7 +19,6 @@
 
 <div class="form-group">
     <label for="kategori" class="control-label mb-1">Kategori (Ctrl + Shift )</label>
-
     <select id="kategori" name="kategori[]"
         class="form-control @error('kategori') is-invalid @enderror" required multiple>
         <optgroup label="Old Kategori">
@@ -34,7 +27,7 @@
                 {{$kategori->title}}
             </option>
             @endforeach
-
+            {{-- <p>{{ old('kategori') ?? 'ok' }}</p> --}}
             @foreach ($kategoris as $kategori)
             <option {{old('kategori') == $kategori->id ? 'selected' : ''}}
                 value="{{$kategori->id}}">
@@ -42,7 +35,6 @@
             </option>
             @endforeach
     </select>
-
     @error('kategori')
     <p class="alert alert-danger">{{$message}}</p>
     @enderror
@@ -55,7 +47,6 @@
         required>
         {{old('description') ?? $artikel->description}}
     </textarea>
-
     @error('description')
     <p class="alert alert-danger">{{$message}}</p>
     @enderror
