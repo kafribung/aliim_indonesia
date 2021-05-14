@@ -6,11 +6,9 @@
 <div class="content">
     <!-- Animated -->
     <div class="animated fadeIn">
-
         @if (session('msg'))
         <p class="alert alert-info">{{session('msg')}}</p>
         @endif
-
         <div class="row">
             <div class="col-lg-12">
                 <div class="card-body ">
@@ -67,7 +65,6 @@
                 </div>
             </div>
         </div>
-
         <!-- /#add-category -->
     </div>
     <!-- .animated -->
