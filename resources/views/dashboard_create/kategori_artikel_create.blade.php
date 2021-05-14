@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('title', 'Create Kategori Artikel | Aliim Indonesia')
 @section('content')
-
 <!-- Content -->
 <div class="content">
     <!-- Animated -->
@@ -26,12 +25,10 @@
                 </div>
             </div>
         </div>
-
         <!-- /#add-category -->
     </div>
     <!-- .animated -->
 </div>
 <!-- /.content -->
-    
 @endsection
 
