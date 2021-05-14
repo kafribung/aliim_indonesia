@@ -81,7 +81,7 @@ class ArtikelController extends Controller
     public function destroy(Artikel $artikel)
     {
         // Cek Author
-        $this->authorize('edit', $artikel);
+        $this->authorize('delete', $artikel);
         if ($artikel->img != 'img_artikels/default_artikel.jpg') {
             Storage::delete($artikel->img);
         }
