@@ -28,10 +28,10 @@ class GaleriController extends Controller
     // STORE
     public function store(GaleriRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
         // Store Img
-        if ($img = $request->file('img')) {
-            $data['img'] = $request->file('img')->storeAs('img_galeris', time() . '.' . $img->getClientOriginalExtension());
+        if ($img = $request->img) {
+            $data['img'] = $img->storeAs('img_galeris', time() . '.' . $img->getClientOriginalExtension());
         }
         // Eloquent Store Galeri
         $request->user()->galeries()->create($data);
