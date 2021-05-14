@@ -1,9 +1,7 @@
 @extends('layouts.master')
 @section('title', 'Artikel | Aliim Indonesia')
 @section('content')
-
 @include('dashboard_form.cari_form', ['data' => request()->path()])
-
 <!-- Content -->
 <div class="content">
     <!-- Animated -->
@@ -25,8 +23,7 @@
                             <h6 class="card-title mb-3">{{$artikel->title}}</h6>
                         </div>
                         <div class="card-header alt bg-dark">
-                            <img class="lazy img-thumbnail align-self-center mr-3" style="width:400px" alt="artikel"
-                                data-src="{{url($artikel->takeImg)}}">
+                            <img class="lazy img-thumbnail align-self-center mr-3" style="width:400px" alt="artikel" data-src="{{url($artikel->takeImg)}}">
                         </div>
                         <div class="card-body">
                             {!! Str::limit($artikel->description, 80) !!}
@@ -40,17 +37,14 @@
 
                         <div class="card-text text-sm-center">
                             @can('edit', $artikel)
-                            <a href="/artikel/{{$artikel->slug}}/edit" class="btn btn-outline-warning btn-sm">
-                                <i class="fa fa-edit"></i>
-                            </a>
+                            <a href="/artikel/{{$artikel->slug}}/edit" class="btn btn-outline-warning btn-sm"> <i class="fa fa-edit"></i> </a>
                             @endcan
 
                             @can('delete', $artikel)
                             <form action="/artikel/{{$artikel->slug}}" method="POST" class="d-inline-flex">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" onclick="return confirm('Hapus Data {{$artikel->title}} ?')"
-                                    class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                <button type="submit" onclick="return confirm('Hapus Data {{$artikel->title}} ?')" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
                             </form>
                             @endcan
                         </div>
