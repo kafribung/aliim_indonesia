@@ -1,10 +1,8 @@
 @extends('layouts.master')
 @section('title', 'Galeri | Aliim Indonesia')
 @section('content')
-
 <!-- Content -->
 <div class="content">
-
     <!-- Animated -->
     <div class="animated fadeIn">
         @if (session('msg'))
