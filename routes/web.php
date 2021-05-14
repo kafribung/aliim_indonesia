@@ -11,7 +11,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('artikel', 'ArtikelController');
     Route::resource('kategori-artikel', 'KategoriArtikelController');
     // Galeri
-    Route::resource('/galeri', 'GaleriController')->middleware('tolak.ustad');
+    Route::resource('galeri', 'GaleriController')->middleware('tolak.ustad');
     // Iklan
     Route::resource('iklan', 'IklanController')->middleware('tolak.ustad');
     // Hadist Harian
