@@ -28,7 +28,7 @@ class IklanRequest extends FormRequest
             'owner'  => ['required', 'string', 'min:3', 'max:30'],
             'owner'  => ['required', 'string', 'min:3', 'max:30'],
             'wa'     => ['required', 'numeric'],
-            'link'   => ['required', 'url']
+            'link'   => ['url'],
         ];
     }
 }
