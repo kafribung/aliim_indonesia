@@ -45,22 +45,14 @@
                                         </td>
                                         <td>{{$iklan->owner}}</td>
                                         <td>{{$iklan->wa}}</td>
-                                        <td><a href="{{$iklan->link}}" target="_blank">{{$iklan->link}}</a></td>
+                                        <td><a href="{{ $iklan->link }}" target="_blank">{{ !empty($iklan->link) ?  $iklan->link : '-'   }}</a></td>
                                         <td>
-                                            <a href="/iklan/{{$iklan->id}}/edit"
-                                                class="btn btn-outline-warning btn-sm ">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-
+                                            <a href="/iklan/{{$iklan->id}}/edit" class="btn btn-outline-warning btn-sm "> <i class="fa fa-edit"></i> </a>
                                             <form action="/iklan/{{$iklan->id}}" method="POST" class="d-inline-flex">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit"
-                                                    onclick="return confirm('Hapus Data iklan {{$iklan->name}}?')"
-                                                    class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i>
-                                                </button>
+                                                <button type="submit" onclick="return confirm('Hapus Data iklan {{$iklan->name}}?')" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i> </button>
                                             </form>
-
                                         </td>
                                     </tr>
                                     @endforeach
@@ -71,11 +63,9 @@
                 </div>
             </div>
         </div>
-
         <!-- /#add-category -->
     </div>
     <!-- .animated -->
 </div>
 <!-- /.content -->
-
 @endsection

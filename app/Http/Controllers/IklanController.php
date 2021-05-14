@@ -24,7 +24,7 @@ class IklanController extends Controller
     // STORE
     public function store(IklanRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
         if ($img = $request->file('img')) {
             $data['img'] = $img->storeAs('img_iklans', time() . '.' . $img->getClientOriginalExtension());
         }

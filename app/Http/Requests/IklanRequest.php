@@ -24,11 +24,11 @@ class IklanRequest extends FormRequest
     public function rules()
     {
         return [
-            'img'    => ['required', 'mimes:png,jpg,jpeg'],
+            'img'    => [request()->isMethod('patch') ? '' : 'required', 'mimes:png,jpg,jpeg'],
             'owner'  => ['required', 'string', 'min:3', 'max:30'],
             'owner'  => ['required', 'string', 'min:3', 'max:30'],
-            'wa'     => ['required', 'numeric'],
-            'link'   => ['url'],
+            'wa'     => ['required', 'numeric', 'digits:12'],
+            'link'   => [ empty(request('url')) ? '' : 'url'],
         ];
     }
 }
