@@ -51,7 +51,7 @@
                                             <form action="/iklan/{{$iklan->id}}" method="POST" class="d-inline-flex">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" onclick="return confirm('Hapus Data iklan {{$iklan->name}}?')" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i> </button>
+                                                <button type="submit" onclick="return confirm('Hapus Data iklan {{$iklan->owner}}?')" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i> </button>
                                             </form>
                                         </td>
                                     </tr>

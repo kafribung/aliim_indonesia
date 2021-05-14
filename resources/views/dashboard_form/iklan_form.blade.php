@@ -3,7 +3,7 @@
     @empty(!$iklan->img)
     <img src="{{url($iklan->takeImg)}}" alt="Gambar Error" width="100" height="100">
     @endempty
-    <input id="img" name="img" type="file" class="form-control @error('img') is-invalid @enderror" autofocus required autocomplete="off" accept="image/*">
+    <input id="img" name="img" type="file" class="form-control @error('img') is-invalid @enderror" autofocus  autocomplete="off" accept="image/*">
     @error('img')
     <p class="alert alert-danger">{{$message}}</p>
     @enderror
@@ -11,7 +11,7 @@
 
 <div class="form-group">
     <label for="owner" class="control-label mb-1">Pemilik</label>
-    <input id="owner" name="owner" type="text" class="form-control @error('owner') is-invalid @enderror" required autocomplete="off" value="{{old('owner') ?? : $iklan->owner}}">
+    <input id="owner" name="owner" type="text" class="form-control @error('owner') is-invalid @enderror" required autocomplete="off" value="{{old('owner') ?? $iklan->owner}}">
     @error('owner')
     <p class="alert alert-danger">{{$message}}</p>
     @enderror

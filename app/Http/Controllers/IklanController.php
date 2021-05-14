@@ -67,7 +67,7 @@ class IklanController extends Controller
         if ($iklan->img != 'img_iklans/default_iklan.jpg') {
             Storage::delete($iklan->img);
         }
-        Iklan::destroy($id);
+        $iklan->delete();
         return redirect('/iklan')->with('msg', 'Data Iklan Berhasil di Hapus');
     }
 }
