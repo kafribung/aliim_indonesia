@@ -10,7 +10,10 @@
         <div class="header-menu">
             <div class="header-left">
                 <div class="dropdown for-notification">
-                    <a href="/" class=""><i class="fa fa-home"></i>Beranda</a>
+                    <a href="/" class=""><i class="fa fa-home"></i>Beranda | </a>
+                </div>
+                <div class="dropdown for-notification">
+                    <p>Hi, {{ Auth::user()->name }}</p>
                 </div>
             </div>
 
