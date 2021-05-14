@@ -64,7 +64,5 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'admin' => \App\Http\Middleware\Admin::class,
         'tolak.ustad' => \App\Http\Middleware\TolakUstad::class,
-
-
     ];
 }
