@@ -7,14 +7,12 @@
 
     <!-- Animated -->
     <div class="animated fadeIn">
-
         @if (session('msg'))
         <p class="alert alert-info">{{session('msg')}}</p>
         @endif
         <a class="btn btn-primary btn-sm" href="/galeri/create"><i class="fa fa-plus"></i></a>
-
         <div class="row">
-            @forelse ($galeris as $galeri)
+            @foreach ( $galeris as $galeri )
             <div class="col-md-3">
                 <aside class="profile-nav alt">
                     <section class="card">
@@ -30,12 +28,9 @@
                             <small>{{ $galeri->created_at->diffForHumans() }}</small>
                         </div>
                         <hr>
-
                         @can('author', $galeri)
                         <div class="card-text text-sm-center">
-                            <a href="/galeri/{{$galeri->id}}/edit" class="btn btn-outline-warning btn-sm">
-                                <i class="fa fa-edit"></i>
-                            </a>
+                            <a href="/galeri/{{$galeri->id}}/edit" class="btn btn-outline-warning btn-sm"> <i class="fa fa-edit"></i> </a>
                             <form action="/galeri/{{ $galeri->id }}" method="POST" class="d-inline-flex">
                                 @csrf
                                 @method('DELETE')
@@ -48,9 +43,7 @@
                     </section>
                 </aside>
             </div>
-            @empty
-            <p class="text-center alert alert-light">Data Galeri Tidak Ditemukan ...</p>
-            @endforelse
+            @endforeach
         </div>
         <div class="row float-right">
             {{ $galeris->links('pagination::simple-bootstrap-4') }}
