@@ -41,9 +41,7 @@
                                     <tr>
                                         <td>{{$angkaAwal++}}</td>
                                         <td class="avatar">
-                                            <div class="round-img">
-                                                <img class="rounded-circle" src="{{url($admin->takeImg)}}" alt="Foto {{$admin->name}}" title="Foto {{$admin->name}}">
-                                            </div>
+                                            <img class="lazy img-thumbnail" data-src="{{url($admin->takeImg)}}" alt="Foto {{$admin->name}}" title="Foto {{$admin->name}}" width="80" height="80">
                                         </td>
                                         <td>{{$admin->name}}</td>
                                         <td>{{$admin->email}}</td>

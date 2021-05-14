@@ -22,8 +22,7 @@
                             <strong class="card-title mb-3">{{$galeri->title}}</strong>
                         </div>
                         <div class="card-header alt bg-dark">
-                            <img class="lazy img-thumbnail align-self-center mr-3" style="width:400px; height:200px;" alt="artikel"
-                                data-src="{{ url($galeri->takeImg) }}">
+                            <img class="lazy img-thumbnail align-self-center mr-3" style="width:400px; height:200px;" alt="artikel" data-src="{{ url($galeri->takeImg) }}">
                         </div>
                         <hr>
                         <div class="d-flex justify-content-between">
