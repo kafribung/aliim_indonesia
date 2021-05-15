@@ -31,8 +31,8 @@
 				</div>
 				<div class="wrap-input100 validate-input m-b-16">
 					<select name="gender" id="gender" class="form-control input100" style="padding: 5px" required>
-						<option value="Pria">Pria</option>
-						<option value="Wanita">Wanita</option>
+						<option {{ old('gender') == 'Pria' ? 'selected' : '' }} value="Pria">Pria</option>
+						<option {{ old('gender') == 'Wanita' ? 'selected' : '' }} value="Wanita">Wanita</option>
 					</select>
 					@error('gender')
 						<p class="alert alert-danger" style="color:#d9534f">{{ $message }}</p>
