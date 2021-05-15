@@ -24,7 +24,7 @@ class ProfilController extends Controller
     {
         $data = $request->validate([
             'name'     => ['required', 'string', 'min:3', 'max:20'],
-            'img'      => ['required','mimes:jpg,jpeg', 'max:10240'],
+            'img'      => ['required', 'mimes:jpg,jpeg', 'max:20240'],
             'old_password' => ['required', 'string', 'min:8'],
             'new_password' => ['required', 'string', 'min:8'],
         ]);
@@ -45,7 +45,7 @@ class ProfilController extends Controller
                 'password' => bcrypt($data['new_password'])
             ]);
             Auth::logout();
-            return redirect('/login')->with('msg', 'Silahkan login terlebih dahulu');
+            return redirect('/login')->with('msg', 'Profil berhasil diperbaruhi, seilahkan login kembali');
         } else return back()->withErrors(['old_password' => 'Password lama salah']);
     }
 }

@@ -52,7 +52,7 @@
                                     {{Auth::user()->name}} <sup class="text-danger font-weight-bold" style="color: #d9534f">({{ auth()->user()->notifications()->where('seen', 1)->count() }})</sup> <i class="fa fa-caret-down"></i>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/profil">Profile</a>
+                                    <a class="dropdown-item" href="/profil">Profil</a>
                                     @if (Auth::user()->role==2 || Auth::user()->role==1)
                                     <a class="dropdown-item" href="/dashboard"><b>Dashboard</b></a>
                                     @endif
