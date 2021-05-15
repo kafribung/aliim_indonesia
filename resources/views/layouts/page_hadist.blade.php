@@ -4,8 +4,9 @@
         <div class="well">
             <div class="row">
                 <div class="col-md-12 text-center">
+                    <h4>{{ $hadist->title }}</h4>
                     <h5>{!! $hadist->description !!}</h5>
-                    <p>({{$hadist->info}})</p>
+                    <p>({{ $hadist->info }})</p>
                 </div>
             </div>
             <!-- row -->
