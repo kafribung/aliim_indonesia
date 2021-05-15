@@ -1,2 +1,14 @@
-User-agent: *
-Disallow:
+User-Agent: *
+Disallow: 
+Allow: /
+Allow: /login
+Allow: /register
+Allow: /tanya-ustad
+Allow: /belajar-artikel/akidah
+Allow: /belajar-artikel/akhlak
+Allow: /belajar-artikel/manhaj
+Allow: /belajar-artikel/al-quran
+Allow: /belajar-artikel/fiqih%20&amp;%20muamalah
+Allow: /galeri-islam
+Allow: /profil
+Allow: /notifikasi
