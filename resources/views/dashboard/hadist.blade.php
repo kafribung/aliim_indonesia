@@ -46,11 +46,11 @@
                                         <tr>
                                             <th>Action</th>
                                             <td>
-                                                <a href="/hadist/{{ $hadist->id }}/edit" class="btn btn-warning btn-sm "><i class="fa fa-edit"></i></a>
+                                                <a href="/hadist/{{ $hadist->id }}/edit" class="btn btn-outline-warning btn-sm "><i class="fa fa-edit"></i></a>
                                                 <form action="/hadist/{{ $hadist->id }}" method="POST" class="d-inline-flex">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" onclick="return confirm('Hapus Data hadist {{ $hadist->title }}?')" class="btn btn-danger btn-sm" ><i class="fa fa-trash"></i></button>
+                                                    <button type="submit" onclick="return confirm('Hapus Data hadist {{ $hadist->title }}?')" class="btn btn-outline-danger btn-sm" ><i class="fa fa-trash"></i></button>
                                                 </form>
                                             </td>
                                     </tr>
