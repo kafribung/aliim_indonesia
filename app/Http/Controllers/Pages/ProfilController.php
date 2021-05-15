@@ -8,7 +8,6 @@ use App\Models\Hadist;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rule;
 
 class ProfilController extends Controller
 {
@@ -29,10 +28,9 @@ class ProfilController extends Controller
             'old_password' => ['required', 'string', 'min:8'],
             'new_password' => ['required', 'string', 'min:8'],
         ]);
-        $oldPass = request('old_password');
-        $newPass = auth()->user()->password;
-        
-        if (Hash::check($oldPass, $newPass)) {
+        $oldPass     = request('old_password');
+        $currentPass = auth()->user()->password;
+        if (Hash::check($oldPass, $currentPass)) {
             // Update Img
             if ($img =  $request->file('img')) {
                 // Dont Delete IMG Default
