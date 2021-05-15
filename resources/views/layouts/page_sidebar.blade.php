@@ -32,9 +32,8 @@
 
     <!-- Iklan 1 -->
     <div class="widget hidden-xs m30">
-        <a href="{{ $iklan_1->link }}" target="_blank">
-            <img class="lazy img-responsive widget_img" data-src="{{ url($iklan_1->takeImg) }}"
-                title="{{ $iklan_1->title }}" alt="{{ $iklan_1->title }}" width="200" height="100">
+        <a href="{{ empty($iklan_1->link) ? 'https://api.whatsapp.com/send?phone='.$iklan_1->wa.'&text=Assalamualaikum+kak%2C+produknya+masih+ada+ya%3F' : $iklan_1->link  }}" target="_blank">
+            <img class="lazy img-responsive widget_img" data-src="{{ url($iklan_1->takeImg) }}" title="{{ $iklan_1->title }}" alt="{{ $iklan_1->title }}" alt="{{ $iklan_1->owner }}"  width="200" height="100">
         </a>
     </div>
     <!-- End Iklan 1 -->
@@ -42,9 +41,8 @@
     {{-- Iklan 2--}}
     @foreach ($iklan_2 as $iklan)
     <div class="widget hidden-xs m30">
-        <a href="{{ $iklan->link }}" target="_blank">
-            <img class="lazy img-responsive widget_img" data-src="{{ url($iklan->takeImg) }}"
-                title="{{ $iklan->title }}" alt="{{ $iklan->title }}" width="200" height="100">
+        <a href="{{ empty($iklan->link) ? 'https://api.whatsapp.com/send?phone='.$iklan->wa.'&text=Assalamualaikum+kak%2C+produknya+masih+ada+ya%3F' : $iklan->link }}" target="_blank">
+            <img class="lazy img-responsive widget_img" data-src="{{ url($iklan->takeImg) }}" title="{{ $iklan->title }}" alt="{{ $iklan->title }}"  alt="{{ $iklan->owner }}"   width="200" height="100">
         </a>
     </div>
     @endforeach
