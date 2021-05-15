@@ -18,6 +18,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('hadist', 'HadistController');
     // Tanggapan
     Route::get('response', 'TanggapanController@index');
+    Route::patch('response/{response:id}', 'TanggapanController@update');
     Route::delete('response/{response:id}', 'TanggapanController@destroy');
 });
 // ----------------------------------------------------------USER

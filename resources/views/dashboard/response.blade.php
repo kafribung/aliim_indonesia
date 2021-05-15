@@ -21,7 +21,8 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Deskripsi</th>
-                                        <th>Penulis</th>
+                                        <th>Pemilik</th>
+                                        <th>Email</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -31,10 +32,16 @@
                                     @endphp
                                     @foreach ($responses as $response)
                                     <tr>
-                                        <td>{{$angkaAwal++}}</td>
-                                        <td>{{$response->description}}</td>
-                                        <td>{{$response->user->name}}</td>
+                                        <td>{{ $angkaAwal++ }}</td>
+                                        <td>{!! $response->description !!}</td>
+                                        <td>{{ $response->user->name }}</td>
+                                        <td>{{ $response->user->email }}</td>
                                         <td>
+                                            <form action="/response/{{$response->id}}" method="POST" class="d-inline-flex">
+                                                @csrf
+                                                @method('PATCH')
+                                                <button type="submit" onclick="return confirm('Acc tanggapan dari {{$response->user->name}}?')" class="btn btn-outline-success btn-sm"><i class="fa fa-check"></i> </button>
+                                            </form>
                                             <form action="/response/{{$response->id}}" method="POST" class="d-inline-flex">
                                                 @csrf
                                                 @method('DELETE')

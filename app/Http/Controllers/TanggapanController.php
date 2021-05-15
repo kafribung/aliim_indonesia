@@ -13,6 +13,16 @@ class TanggapanController extends Controller
         return view('dashboard.response', ['responses' => $responses]);
     }
 
+    public function update($id)
+    {
+        $response = Response::findOrFail($id);
+        $data     = '<del>'. $response->description . '</del>';
+        $response->update([
+            'description' => $data
+        ]);
+        return back()->with('msg', 'Data tanggapan '. $response->user->name . ' berhasil direspon');
+    }
+
     public function destroy(Response $response)
     {
         $response->delete();
