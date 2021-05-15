@@ -1,16 +1,13 @@
 @extends('layouts.master')
 @section('title', 'Tanggapan | Aliim Indonesia')
 @section('content')
-
 <!-- Content -->
 <div class="content">
     <!-- Animated -->
     <div class="animated fadeIn">
-
         @if (session('msg'))
         <p class="alert alert-info">{{session('msg')}}</p>
         @endif
-
         <div class="row">
             <div class="col-lg-12">
                 <div class="card-body ">
@@ -41,10 +38,7 @@
                                             <form action="/response/{{$response->id}}" method="POST" class="d-inline-flex">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit"
-                                                    onclick="return confirm('Hapus tanggapan dari {{$response->user->name}}?')"
-                                                    class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i>
-                                                </button>
+                                                <button type="submit" onclick="return confirm('Hapus tanggapan dari {{$response->user->name}}?')" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i> </button>
                                             </form>
                                         </td>
                                     </tr>
@@ -61,5 +55,4 @@
     <!-- .animated -->
 </div>
 <!-- /.content -->
-
 @endsection
