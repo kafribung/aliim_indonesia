@@ -12,6 +12,8 @@
         gtag('js', new Date());
         gtag('config', 'G-D6J2E0GVG7');
     </script> --}}
+    <script src="https://code-eu1.jivosite.com/widget/IP2JmzOnBc" async></script>
+
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar">
