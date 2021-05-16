@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Http\Requests\USerUstadAdminRequest;
+use App\Http\Requests\UserUstadAdminRequest;
 use Illuminate\Support\Facades\{Storage, Hash};
 
 class AdminController extends Controller
@@ -40,7 +40,7 @@ class AdminController extends Controller
     }
 
     // UPDATE
-    public function update(USerUstadAdminRequest $request, User $admin)
+    public function update(UserUstadAdminRequest $request, User $admin)
     {
         $data =$request->validated();
         // Set Img
